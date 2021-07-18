@@ -12,6 +12,7 @@
 
 enum class Mode
 {
-	NONE, ADDREMOVETRACK
+	NONE,/// Nothing happens
+	ADDREMOVETRACK, ///Add or Remove track.
 
 };
