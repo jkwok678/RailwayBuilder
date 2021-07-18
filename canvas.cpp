@@ -2,7 +2,7 @@
 
 Canvas::Canvas()
 {
-	setMinimumSize(1280,800);
+	setMinimumSize(640,480);
 	QPalette pal = palette();
 	// set black background
 	pal.setColor(QPalette::Window, Qt::black);

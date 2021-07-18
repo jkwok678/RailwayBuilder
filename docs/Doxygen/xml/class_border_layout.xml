@@ -1,0 +1,406 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="class_border_layout" kind="class" language="C++" prot="public">
+    <compoundname>BorderLayout</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QLayout</basecompoundref>
+    <innerclass refid="struct_border_layout_1_1_item_wrapper" prot="private">BorderLayout::ItemWrapper</innerclass>
+      <sectiondef kind="public-type">
+      <memberdef kind="enum" id="class_border_layout_1a59e0cbfaa0f96a9a8d251850e24d68e8" prot="public" static="no" strong="no">
+        <type></type>
+        <name>Position</name>
+        <enumvalue id="class_border_layout_1a59e0cbfaa0f96a9a8d251850e24d68e8a7118085eea195de80ceebef3bb23ea3f" prot="public">
+          <name>West</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="class_border_layout_1a59e0cbfaa0f96a9a8d251850e24d68e8a0d06eab166a89afa626fb8816dc9ca4b" prot="public">
+          <name>North</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="class_border_layout_1a59e0cbfaa0f96a9a8d251850e24d68e8ad7f1c590ba51b206ea092e9965c67622" prot="public">
+          <name>South</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="class_border_layout_1a59e0cbfaa0f96a9a8d251850e24d68e8acfe4e1f55bdd4bd4392b9aae33a8e504" prot="public">
+          <name>East</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="class_border_layout_1a59e0cbfaa0f96a9a8d251850e24d68e8a79f61ab35ce399a08a8610374bb6e8eb" prot="public">
+          <name>Center</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Projects/RailwayBuilder/borderlayout.h" line="61" column="1" bodyfile="D:/Projects/RailwayBuilder/borderlayout.h" bodystart="61" bodyend="61"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-type">
+      <memberdef kind="enum" id="class_border_layout_1a1bb0d0a70f8aa79e128ea72ecce380c4" prot="private" static="no" strong="no">
+        <type></type>
+        <name>SizeType</name>
+        <enumvalue id="class_border_layout_1a1bb0d0a70f8aa79e128ea72ecce380c4ab59a396de38e71c289c6865528c013bf" prot="private">
+          <name>MinimumSize</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="class_border_layout_1a1bb0d0a70f8aa79e128ea72ecce380c4a9dbe8857fdd123700783577e0128c615" prot="private">
+          <name>SizeHint</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Projects/RailwayBuilder/borderlayout.h" line="92" column="1" bodyfile="D:/Projects/RailwayBuilder/borderlayout.h" bodystart="92" bodyend="92"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_border_layout_1a16dd1741bf9906f417a581ba884eea76" prot="private" static="no" mutable="no">
+        <type>QList&lt; ItemWrapper * &gt;</type>
+        <definition>QList&lt;ItemWrapper*&gt; BorderLayout::list</definition>
+        <argsstring></argsstring>
+        <name>list</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Projects/RailwayBuilder/borderlayout.h" line="95" column="7" bodyfile="D:/Projects/RailwayBuilder/borderlayout.h" bodystart="95" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_border_layout_1a68e256ce50591e2376fd7b278695a2cf" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BorderLayout::BorderLayout</definition>
+        <argsstring>(QWidget *parent, const QMargins &amp;margins=QMargins(), int spacing=-1)</argsstring>
+        <name>BorderLayout</name>
+        <param>
+          <type>QWidget *</type>
+          <declname>parent</declname>
+        </param>
+        <param>
+          <type>const QMargins &amp;</type>
+          <declname>margins</declname>
+          <defval>QMargins()</defval>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>spacing</declname>
+          <defval>-1</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Projects/RailwayBuilder/borderlayout.h" line="63" column="10" bodyfile="D:/Projects/RailwayBuilder/borderlayout.cpp" bodystart="54" bodyend="59"/>
+      </memberdef>
+      <memberdef kind="function" id="class_border_layout_1a792cfa38e28f6d78510a901e278dd3fc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BorderLayout::BorderLayout</definition>
+        <argsstring>(int spacing=-1)</argsstring>
+        <name>BorderLayout</name>
+        <param>
+          <type>int</type>
+          <declname>spacing</declname>
+          <defval>-1</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Projects/RailwayBuilder/borderlayout.h" line="64" column="1" bodyfile="D:/Projects/RailwayBuilder/borderlayout.cpp" bodystart="61" bodyend="64"/>
+      </memberdef>
+      <memberdef kind="function" id="class_border_layout_1a66bbdae8cd5cbfc7e7be1735aa2b0652" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BorderLayout::~BorderLayout</definition>
+        <argsstring>()</argsstring>
+        <name>~BorderLayout</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Projects/RailwayBuilder/borderlayout.h" line="65" column="1" bodyfile="D:/Projects/RailwayBuilder/borderlayout.cpp" bodystart="67" bodyend="72"/>
+      </memberdef>
+      <memberdef kind="function" id="class_border_layout_1ae4f7827cbbce1717da73357935ea63b6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BorderLayout::addItem</definition>
+        <argsstring>(QLayoutItem *item) override</argsstring>
+        <name>addItem</name>
+        <param>
+          <type>QLayoutItem *</type>
+          <declname>item</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Projects/RailwayBuilder/borderlayout.h" line="67" column="6" bodyfile="D:/Projects/RailwayBuilder/borderlayout.cpp" bodystart="74" bodyend="77"/>
+      </memberdef>
+      <memberdef kind="function" id="class_border_layout_1ab91bbd264a21368e18d332bfa9046d3f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BorderLayout::addWidget</definition>
+        <argsstring>(QWidget *widget, Position position)</argsstring>
+        <name>addWidget</name>
+        <param>
+          <type>QWidget *</type>
+          <declname>widget</declname>
+        </param>
+        <param>
+          <type>Position</type>
+          <declname>position</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Projects/RailwayBuilder/borderlayout.h" line="68" column="6" bodyfile="D:/Projects/RailwayBuilder/borderlayout.cpp" bodystart="79" bodyend="82"/>
+      </memberdef>
+      <memberdef kind="function" id="class_border_layout_1a3fb1f597c46796fdf3c2908d06496b69" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>Qt::Orientations</type>
+        <definition>Qt::Orientations BorderLayout::expandingDirections</definition>
+        <argsstring>() const override</argsstring>
+        <name>expandingDirections</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Projects/RailwayBuilder/borderlayout.h" line="69" column="18" bodyfile="D:/Projects/RailwayBuilder/borderlayout.cpp" bodystart="84" bodyend="87"/>
+      </memberdef>
+      <memberdef kind="function" id="class_border_layout_1acb4118c5253948863bcc66a2cf367274" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool BorderLayout::hasHeightForWidth</definition>
+        <argsstring>() const override</argsstring>
+        <name>hasHeightForWidth</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Projects/RailwayBuilder/borderlayout.h" line="70" column="6" bodyfile="D:/Projects/RailwayBuilder/borderlayout.cpp" bodystart="89" bodyend="92"/>
+      </memberdef>
+      <memberdef kind="function" id="class_border_layout_1a651de1981984f2722632d7c749f57a32" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int BorderLayout::count</definition>
+        <argsstring>() const override</argsstring>
+        <name>count</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Projects/RailwayBuilder/borderlayout.h" line="71" column="5" bodyfile="D:/Projects/RailwayBuilder/borderlayout.cpp" bodystart="94" bodyend="97"/>
+      </memberdef>
+      <memberdef kind="function" id="class_border_layout_1ade0f066e805cfcd3e1b4adfb8996b796" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QLayoutItem *</type>
+        <definition>QLayoutItem * BorderLayout::itemAt</definition>
+        <argsstring>(int index) const override</argsstring>
+        <name>itemAt</name>
+        <param>
+          <type>int</type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Projects/RailwayBuilder/borderlayout.h" line="72" column="13" bodyfile="D:/Projects/RailwayBuilder/borderlayout.cpp" bodystart="99" bodyend="103"/>
+      </memberdef>
+      <memberdef kind="function" id="class_border_layout_1a9afbd8b49ce6044777e52822abc0388a" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QSize</type>
+        <definition>QSize BorderLayout::minimumSize</definition>
+        <argsstring>() const override</argsstring>
+        <name>minimumSize</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Projects/RailwayBuilder/borderlayout.h" line="73" column="7" bodyfile="D:/Projects/RailwayBuilder/borderlayout.cpp" bodystart="105" bodyend="108"/>
+      </memberdef>
+      <memberdef kind="function" id="class_border_layout_1ab625a50851e8cc4aed10b82cedc1f42c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BorderLayout::setGeometry</definition>
+        <argsstring>(const QRect &amp;rect) override</argsstring>
+        <name>setGeometry</name>
+        <param>
+          <type>const QRect &amp;</type>
+          <declname>rect</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Projects/RailwayBuilder/borderlayout.h" line="74" column="6" bodyfile="D:/Projects/RailwayBuilder/borderlayout.cpp" bodystart="110" bodyend="180"/>
+      </memberdef>
+      <memberdef kind="function" id="class_border_layout_1a0c564ebc4b1a11c45f7e9fcc958fa511" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QSize</type>
+        <definition>QSize BorderLayout::sizeHint</definition>
+        <argsstring>() const override</argsstring>
+        <name>sizeHint</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Projects/RailwayBuilder/borderlayout.h" line="75" column="7" bodyfile="D:/Projects/RailwayBuilder/borderlayout.cpp" bodystart="182" bodyend="185"/>
+      </memberdef>
+      <memberdef kind="function" id="class_border_layout_1a224f073342dc2b454e66add0f1cdf462" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>QLayoutItem *</type>
+        <definition>QLayoutItem * BorderLayout::takeAt</definition>
+        <argsstring>(int index) override</argsstring>
+        <name>takeAt</name>
+        <param>
+          <type>int</type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Projects/RailwayBuilder/borderlayout.h" line="76" column="13" bodyfile="D:/Projects/RailwayBuilder/borderlayout.cpp" bodystart="187" bodyend="194"/>
+      </memberdef>
+      <memberdef kind="function" id="class_border_layout_1a3935fd55950b18d465c7612d49c91ad6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BorderLayout::add</definition>
+        <argsstring>(QLayoutItem *item, Position position)</argsstring>
+        <name>add</name>
+        <param>
+          <type>QLayoutItem *</type>
+          <declname>item</declname>
+        </param>
+        <param>
+          <type>Position</type>
+          <declname>position</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Projects/RailwayBuilder/borderlayout.h" line="78" column="6" bodyfile="D:/Projects/RailwayBuilder/borderlayout.cpp" bodystart="196" bodyend="199"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="class_border_layout_1ae798de08cb8cb179334cb5b9f60373fe" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QSize</type>
+        <definition>QSize BorderLayout::calculateSize</definition>
+        <argsstring>(SizeType sizeType) const</argsstring>
+        <name>calculateSize</name>
+        <param>
+          <type>SizeType</type>
+          <declname>sizeType</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Projects/RailwayBuilder/borderlayout.h" line="93" column="7" bodyfile="D:/Projects/RailwayBuilder/borderlayout.cpp" bodystart="201" bodyend="222"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>BorderLayout</label>
+        <link refid="class_border_layout"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QLayout</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>BorderLayout</label>
+        <link refid="class_border_layout"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QLayout</label>
+      </node>
+    </collaborationgraph>
+    <location file="D:/Projects/RailwayBuilder/borderlayout.h" line="58" column="1" bodyfile="D:/Projects/RailwayBuilder/borderlayout.h" bodystart="59" bodyend="96"/>
+    <listofallmembers>
+      <member refid="class_border_layout_1a3935fd55950b18d465c7612d49c91ad6" prot="public" virt="non-virtual"><scope>BorderLayout</scope><name>add</name></member>
+      <member refid="class_border_layout_1ae4f7827cbbce1717da73357935ea63b6" prot="public" virt="non-virtual"><scope>BorderLayout</scope><name>addItem</name></member>
+      <member refid="class_border_layout_1ab91bbd264a21368e18d332bfa9046d3f" prot="public" virt="non-virtual"><scope>BorderLayout</scope><name>addWidget</name></member>
+      <member refid="class_border_layout_1a68e256ce50591e2376fd7b278695a2cf" prot="public" virt="non-virtual"><scope>BorderLayout</scope><name>BorderLayout</name></member>
+      <member refid="class_border_layout_1a792cfa38e28f6d78510a901e278dd3fc" prot="public" virt="non-virtual"><scope>BorderLayout</scope><name>BorderLayout</name></member>
+      <member refid="class_border_layout_1ae798de08cb8cb179334cb5b9f60373fe" prot="private" virt="non-virtual"><scope>BorderLayout</scope><name>calculateSize</name></member>
+      <member refid="class_border_layout_1a59e0cbfaa0f96a9a8d251850e24d68e8a79f61ab35ce399a08a8610374bb6e8eb" prot="public" virt="non-virtual"><scope>BorderLayout</scope><name>Center</name></member>
+      <member refid="class_border_layout_1a651de1981984f2722632d7c749f57a32" prot="public" virt="non-virtual"><scope>BorderLayout</scope><name>count</name></member>
+      <member refid="class_border_layout_1a59e0cbfaa0f96a9a8d251850e24d68e8acfe4e1f55bdd4bd4392b9aae33a8e504" prot="public" virt="non-virtual"><scope>BorderLayout</scope><name>East</name></member>
+      <member refid="class_border_layout_1a3fb1f597c46796fdf3c2908d06496b69" prot="public" virt="non-virtual"><scope>BorderLayout</scope><name>expandingDirections</name></member>
+      <member refid="class_border_layout_1acb4118c5253948863bcc66a2cf367274" prot="public" virt="non-virtual"><scope>BorderLayout</scope><name>hasHeightForWidth</name></member>
+      <member refid="class_border_layout_1ade0f066e805cfcd3e1b4adfb8996b796" prot="public" virt="non-virtual"><scope>BorderLayout</scope><name>itemAt</name></member>
+      <member refid="class_border_layout_1a16dd1741bf9906f417a581ba884eea76" prot="private" virt="non-virtual"><scope>BorderLayout</scope><name>list</name></member>
+      <member refid="class_border_layout_1a1bb0d0a70f8aa79e128ea72ecce380c4ab59a396de38e71c289c6865528c013bf" prot="private" virt="non-virtual"><scope>BorderLayout</scope><name>MinimumSize</name></member>
+      <member refid="class_border_layout_1a9afbd8b49ce6044777e52822abc0388a" prot="public" virt="non-virtual"><scope>BorderLayout</scope><name>minimumSize</name></member>
+      <member refid="class_border_layout_1a59e0cbfaa0f96a9a8d251850e24d68e8a0d06eab166a89afa626fb8816dc9ca4b" prot="public" virt="non-virtual"><scope>BorderLayout</scope><name>North</name></member>
+      <member refid="class_border_layout_1a59e0cbfaa0f96a9a8d251850e24d68e8" prot="public" virt="non-virtual"><scope>BorderLayout</scope><name>Position</name></member>
+      <member refid="class_border_layout_1ab625a50851e8cc4aed10b82cedc1f42c" prot="public" virt="non-virtual"><scope>BorderLayout</scope><name>setGeometry</name></member>
+      <member refid="class_border_layout_1a1bb0d0a70f8aa79e128ea72ecce380c4a9dbe8857fdd123700783577e0128c615" prot="private" virt="non-virtual"><scope>BorderLayout</scope><name>SizeHint</name></member>
+      <member refid="class_border_layout_1a0c564ebc4b1a11c45f7e9fcc958fa511" prot="public" virt="non-virtual"><scope>BorderLayout</scope><name>sizeHint</name></member>
+      <member refid="class_border_layout_1a1bb0d0a70f8aa79e128ea72ecce380c4" prot="private" virt="non-virtual"><scope>BorderLayout</scope><name>SizeType</name></member>
+      <member refid="class_border_layout_1a59e0cbfaa0f96a9a8d251850e24d68e8ad7f1c590ba51b206ea092e9965c67622" prot="public" virt="non-virtual"><scope>BorderLayout</scope><name>South</name></member>
+      <member refid="class_border_layout_1a224f073342dc2b454e66add0f1cdf462" prot="public" virt="non-virtual"><scope>BorderLayout</scope><name>takeAt</name></member>
+      <member refid="class_border_layout_1a59e0cbfaa0f96a9a8d251850e24d68e8a7118085eea195de80ceebef3bb23ea3f" prot="public" virt="non-virtual"><scope>BorderLayout</scope><name>West</name></member>
+      <member refid="class_border_layout_1a66bbdae8cd5cbfc7e7be1735aa2b0652" prot="public" virt="non-virtual"><scope>BorderLayout</scope><name>~BorderLayout</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>
