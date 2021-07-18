@@ -28,15 +28,16 @@ find_package(QT NAMES Qt6 Qt5 COMPONENTS Widgets REQUIRED)
 find_package(Qt${QT_VERSION_MAJOR} COMPONENTS Widgets REQUIRED)
 
 set(PROJECT_SOURCES
-        main.cpp
-        window.cpp
-        window.h
-        borderlayout.cpp
-        borderlayout.h
         mode.h
         elementChosen.h
+        main.cpp
+        borderlayout.cpp
+        borderlayout.h
         canvas.cpp
         canvas.h
+        window.h
+        window.cpp
+
         resources.qrc
 )
 
