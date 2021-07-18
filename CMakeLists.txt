@@ -31,6 +31,8 @@ set(PROJECT_SOURCES
         main.cpp
         window.cpp
         window.h
+        borderlayout.cpp
+        borderlayout.h
         resources.qrc
 )
 
