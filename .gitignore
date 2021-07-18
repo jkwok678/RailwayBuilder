@@ -30,3 +30,12 @@
 *.exe
 *.out
 *.app
+
+#Ignore documentation
+docs/Doxygen/html
+docs/Doxygen/xml
+docs/Sphinx/_build
+docs/Sphinx/_static
+docs/Sphinx/_templates
+docs/Sphinx/api
+docs/Sphinx/_build
