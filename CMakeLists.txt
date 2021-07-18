@@ -33,6 +33,9 @@ set(PROJECT_SOURCES
         window.h
         borderlayout.cpp
         borderlayout.h
+        mode.h
+        elementChosen.h
+
         resources.qrc
 )
 
