@@ -1,0 +1,1088 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="element_chosen_8h" kind="file" language="C++">
+    <compoundname>elementChosen.h</compoundname>
+    <includedby refid="window_8h" local="yes">D:/Projects/RailwayBuilder/window.h</includedby>
+    <invincdepgraph>
+      <node id="2">
+        <label>D:/Projects/RailwayBuilder/window.h</label>
+        <link refid="window_8h_source"/>
+      </node>
+      <node id="1">
+        <label>D:/Projects/RailwayBuilder/elementChosen.h</label>
+        <link refid="element_chosen_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+      <sectiondef kind="enum">
+      <memberdef kind="enum" id="element_chosen_8h_1aaa0b86b6574f738cc2cfb8c1799c239e" prot="public" static="no" strong="yes">
+        <type></type>
+        <name>ElementChosen</name>
+        <enumvalue id="element_chosen_8h_1aaa0b86b6574f738cc2cfb8c1799c239eab50339a10e1de285ac99d4c3990b8693" prot="public">
+          <name>NONE</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="element_chosen_8h_1aaa0b86b6574f738cc2cfb8c1799c239eaed0121574357ebbbda56982b2e134326" prot="public">
+          <name>STRAIGHTH</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="element_chosen_8h_1aaa0b86b6574f738cc2cfb8c1799c239ea70b78d3b4bfe3887b854113e8243841d" prot="public">
+          <name>STRAIGHTV</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="element_chosen_8h_1aaa0b86b6574f738cc2cfb8c1799c239ea990974ab207cdbba84a1c6762bb04029" prot="public">
+          <name>STRAIGHTLEFTUP</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="element_chosen_8h_1aaa0b86b6574f738cc2cfb8c1799c239eaf620eb034024dfd11e19188bf60285a9" prot="public">
+          <name>STRIAGHTRIGHTUP</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="element_chosen_8h_1aaa0b86b6574f738cc2cfb8c1799c239ea9130087b581f4f1f347204e0863b2b4c" prot="public">
+          <name>DIRECTLEFT</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="element_chosen_8h_1aaa0b86b6574f738cc2cfb8c1799c239ea4121e2e40d6eb663417b4c9f7e856e96" prot="public">
+          <name>DIRECTRIGHT</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="element_chosen_8h_1aaa0b86b6574f738cc2cfb8c1799c239ead964b3045053304178e58112dc54b96c" prot="public">
+          <name>DIRECTUP</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="element_chosen_8h_1aaa0b86b6574f738cc2cfb8c1799c239ea2141cb27746c896db890f2c65a060a4e" prot="public">
+          <name>DIRECTDOWN</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="element_chosen_8h_1aaa0b86b6574f738cc2cfb8c1799c239ea0036059db456cbac2b40f760726a9bd3" prot="public">
+          <name>DIRECTRIGHTUP</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="element_chosen_8h_1aaa0b86b6574f738cc2cfb8c1799c239eaa3bf84bd15c3fae53b8e53383f871659" prot="public">
+          <name>DIRECTLEFTUP</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="element_chosen_8h_1aaa0b86b6574f738cc2cfb8c1799c239eaaa8285edcfbf2641ac105ce2fb362a2d" prot="public">
+          <name>DIRECTLEFTDOWN</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="element_chosen_8h_1aaa0b86b6574f738cc2cfb8c1799c239ea17243b6b7d9632706d4f3e4a7181af1d" prot="public">
+          <name>DIRECTRIGHTDOWN</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="element_chosen_8h_1aaa0b86b6574f738cc2cfb8c1799c239ea4143e841f75ce41ad983d5260a83c986" prot="public">
+          <name>TIGHTCURVE1</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="element_chosen_8h_1aaa0b86b6574f738cc2cfb8c1799c239eaa13d37d205434554f7924d453260d6dd" prot="public">
+          <name>TIGHTCURVE2</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="element_chosen_8h_1aaa0b86b6574f738cc2cfb8c1799c239eae5bac00ce0e3a542f8b3359795ce88f2" prot="public">
+          <name>TIGHTCURVE3</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="element_chosen_8h_1aaa0b86b6574f738cc2cfb8c1799c239ea67367bbcf332c99f1ec4b5c0807fc84a" prot="public">
+          <name>TIGHTCURVE4</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="element_chosen_8h_1aaa0b86b6574f738cc2cfb8c1799c239ea17fb7995da55d8229b61fb2ce2fa026e" prot="public">
+          <name>CURVE1</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="element_chosen_8h_1aaa0b86b6574f738cc2cfb8c1799c239ead15e9b5cde4ab600e6792c7f968031a7" prot="public">
+          <name>CURVE2</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="element_chosen_8h_1aaa0b86b6574f738cc2cfb8c1799c239ea638e1a4ff65744c1554362935d9a55bd" prot="public">
+          <name>CURVE3</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="element_chosen_8h_1aaa0b86b6574f738cc2cfb8c1799c239eade418f4754002742ea6b76d34639e6a2" prot="public">
+          <name>CURVE4</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="element_chosen_8h_1aaa0b86b6574f738cc2cfb8c1799c239eae4a9eac031d266674b3fbc7186e514e6" prot="public">
+          <name>CURVE5</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="element_chosen_8h_1aaa0b86b6574f738cc2cfb8c1799c239ead0315c77ec82df70f3deef24143964e1" prot="public">
+          <name>CURVE6</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="element_chosen_8h_1aaa0b86b6574f738cc2cfb8c1799c239eac598d90d2f1976aca3f6325551eded21" prot="public">
+          <name>CURVE7</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="element_chosen_8h_1aaa0b86b6574f738cc2cfb8c1799c239ea07bac1dbbe742b8f27e7c56542e2306b" prot="public">
+          <name>CURVE8</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="element_chosen_8h_1aaa0b86b6574f738cc2cfb8c1799c239ead5e3debfb004048bd6e4a048aead2c5e" prot="public">
+          <name>LINKLEFT</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="element_chosen_8h_1aaa0b86b6574f738cc2cfb8c1799c239eaab25dc1ea007d4016fabfbef9170cfca" prot="public">
+          <name>LINKRIGHT</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="element_chosen_8h_1aaa0b86b6574f738cc2cfb8c1799c239eacc36e6fd2d831692fe6b2cb355c80e4b" prot="public">
+          <name>LINKDOWN</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="element_chosen_8h_1aaa0b86b6574f738cc2cfb8c1799c239ea0ecc351df9a01c64b05f6e43da79aaf7" prot="public">
+          <name>LINKUP</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="element_chosen_8h_1aaa0b86b6574f738cc2cfb8c1799c239ea7eae4537354174785aa4e58ffd291e7e" prot="public">
+          <name>LINKLEFTUP</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="element_chosen_8h_1aaa0b86b6574f738cc2cfb8c1799c239ea8df583f114f46c069ed218ae8dbdc556" prot="public">
+          <name>LINKRIGHTUP</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="element_chosen_8h_1aaa0b86b6574f738cc2cfb8c1799c239ea4e5ee30dada8c692b23ff0dcb5e29547" prot="public">
+          <name>LINKLEFTDOWN</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="element_chosen_8h_1aaa0b86b6574f738cc2cfb8c1799c239ea9f1d24fe1569b8958882ea30cc05c6ff" prot="public">
+          <name>LINKRIGHTDOWN</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="element_chosen_8h_1aaa0b86b6574f738cc2cfb8c1799c239ea59f66788365e2771154879f98c11b8b6" prot="public">
+          <name>EXITLEFT</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="element_chosen_8h_1aaa0b86b6574f738cc2cfb8c1799c239eab2f0b41ded3bfcd296eb7ef013bd5ab7" prot="public">
+          <name>EXITRIGHT</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="element_chosen_8h_1aaa0b86b6574f738cc2cfb8c1799c239ea8470b3f128670677047d82963ec7aeb7" prot="public">
+          <name>EXITDOWN</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="element_chosen_8h_1aaa0b86b6574f738cc2cfb8c1799c239eaec7288bc512937534ae949f29143e065" prot="public">
+          <name>EXITUP</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="element_chosen_8h_1aaa0b86b6574f738cc2cfb8c1799c239eaad7cb87fcc3b6942e1d481bc6345d7e4" prot="public">
+          <name>EXITLEFTUP</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="element_chosen_8h_1aaa0b86b6574f738cc2cfb8c1799c239ea4b48aa8db7946ebe96104ceeb885bde6" prot="public">
+          <name>EXITRIGHTUP</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="element_chosen_8h_1aaa0b86b6574f738cc2cfb8c1799c239ea513d5a836c9db519b946b2cf104fc298" prot="public">
+          <name>EXITLEFTDOWN</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="element_chosen_8h_1aaa0b86b6574f738cc2cfb8c1799c239ea4e7f3cc25195ce7903cd2153370d8bed" prot="public">
+          <name>EXITRIGHTDOWN</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="element_chosen_8h_1aaa0b86b6574f738cc2cfb8c1799c239eaa0c92ab9991de13960e6a34efe5fa22d" prot="public">
+          <name>BUFFERLEFT</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="element_chosen_8h_1aaa0b86b6574f738cc2cfb8c1799c239ea4891b4bfbae113c15328e70ba11d8b42" prot="public">
+          <name>BUFFERRIGHT</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="element_chosen_8h_1aaa0b86b6574f738cc2cfb8c1799c239eae0abb25039a2238f4cebc2d92d108bfd" prot="public">
+          <name>BUFFERDOWN</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="element_chosen_8h_1aaa0b86b6574f738cc2cfb8c1799c239eabf40b9ccc6c62281eac6f6f37d4bc978" prot="public">
+          <name>BUFFERUP</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="element_chosen_8h_1aaa0b86b6574f738cc2cfb8c1799c239eab0c86fa74b633ecc99379457249324dc" prot="public">
+          <name>BUFFERLEFTUP</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="element_chosen_8h_1aaa0b86b6574f738cc2cfb8c1799c239ea6aad76a1f5317ffc91580665a098956a" prot="public">
+          <name>BUFFERRIGHTUP</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="element_chosen_8h_1aaa0b86b6574f738cc2cfb8c1799c239eaf6223e91010436872dd40be20e350864" prot="public">
+          <name>BUFFERLEFTDOWN</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="element_chosen_8h_1aaa0b86b6574f738cc2cfb8c1799c239eabec651bed6cedd4e4497dc4b049694ec" prot="public">
+          <name>BUFFERRIGHTDOWN</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="element_chosen_8h_1aaa0b86b6574f738cc2cfb8c1799c239ea46cb2b7d6e3b5418371f2969aeb4aaa6" prot="public">
+          <name>SIGNALLEFT</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="element_chosen_8h_1aaa0b86b6574f738cc2cfb8c1799c239ea008fc9804a87386816b2037ab891855e" prot="public">
+          <name>SIGNALRIGHT</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="element_chosen_8h_1aaa0b86b6574f738cc2cfb8c1799c239eace39d882836346d58e992a851457f426" prot="public">
+          <name>SIGNALDOWN</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="element_chosen_8h_1aaa0b86b6574f738cc2cfb8c1799c239eaf20a4010f77ef43702ad84ea9c9c86d9" prot="public">
+          <name>SIGNALUP</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="element_chosen_8h_1aaa0b86b6574f738cc2cfb8c1799c239ea66740c3e95951b453b6663b8c2707f50" prot="public">
+          <name>SIGNALLEFTUP</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="element_chosen_8h_1aaa0b86b6574f738cc2cfb8c1799c239eab3185835bd45566a13b395adeafa34c2" prot="public">
+          <name>SIGNALRIGHTUP</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="element_chosen_8h_1aaa0b86b6574f738cc2cfb8c1799c239ea2eff35942238c1dce3f09db8b9be582f" prot="public">
+          <name>SIGNALLEFTDOWN</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="element_chosen_8h_1aaa0b86b6574f738cc2cfb8c1799c239eaca7e4880ab053108132bdc88b23e7c25" prot="public">
+          <name>SIGNALRIGHTDOWN</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="element_chosen_8h_1aaa0b86b6574f738cc2cfb8c1799c239eaea0e9e37a74dffa6de941dcac8265163" prot="public">
+          <name>BRIDGE1</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="element_chosen_8h_1aaa0b86b6574f738cc2cfb8c1799c239eac1f99946759b3b77f47f5e7226f66d90" prot="public">
+          <name>BRIDGE2</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="element_chosen_8h_1aaa0b86b6574f738cc2cfb8c1799c239ea3c9f04805ba850d10294487b1fab6b66" prot="public">
+          <name>UNDERPASS1</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="element_chosen_8h_1aaa0b86b6574f738cc2cfb8c1799c239eaa4465b5dc2dd066c9ae94799b579e45e" prot="public">
+          <name>UNDERPASS2</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="element_chosen_8h_1aaa0b86b6574f738cc2cfb8c1799c239eaaa8ea7df9cc9d83df5616c56fa136fa8" prot="public">
+          <name>SWITCHTIGHT1</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="element_chosen_8h_1aaa0b86b6574f738cc2cfb8c1799c239ea4609b8efd846935d4996b73182d67820" prot="public">
+          <name>SWITCHTIGHT2</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="element_chosen_8h_1aaa0b86b6574f738cc2cfb8c1799c239ea640185735de1fc3776484b34231edb68" prot="public">
+          <name>SWITCHTIGHT3</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="element_chosen_8h_1aaa0b86b6574f738cc2cfb8c1799c239eadaadf148f5683fd4a75ff5ada14e7222" prot="public">
+          <name>SWITCHTIGHT4</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="element_chosen_8h_1aaa0b86b6574f738cc2cfb8c1799c239ea1e54f384e42db8f14ef48a372a91c91d" prot="public">
+          <name>SWITCHTIGHT5</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="element_chosen_8h_1aaa0b86b6574f738cc2cfb8c1799c239ea7c3f387cfd98ab4537e31c0758e27a53" prot="public">
+          <name>SWITCHTIGHT6</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="element_chosen_8h_1aaa0b86b6574f738cc2cfb8c1799c239ea221c97622682bc20a3116b788e576ea1" prot="public">
+          <name>SWITCHTIGHT7</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="element_chosen_8h_1aaa0b86b6574f738cc2cfb8c1799c239ead65b962644ffa69c509ef01fed351d00" prot="public">
+          <name>SWITCHTIGHT8</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="element_chosen_8h_1aaa0b86b6574f738cc2cfb8c1799c239ea1b34bbdc8514bfdcfb77c7a933b14544" prot="public">
+          <name>SWITCHSPLIT1</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="element_chosen_8h_1aaa0b86b6574f738cc2cfb8c1799c239eaa6c7b991e1f3013c1b35eedc959cdd2d" prot="public">
+          <name>SWITCHSPLIT2</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="element_chosen_8h_1aaa0b86b6574f738cc2cfb8c1799c239ea753b6f91f87295d1ebd214c69c98e64b" prot="public">
+          <name>SWITCHSPLIT3</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="element_chosen_8h_1aaa0b86b6574f738cc2cfb8c1799c239ea150c09abb7be3917964d396d84414a17" prot="public">
+          <name>SWITCHSPLIT4</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="element_chosen_8h_1aaa0b86b6574f738cc2cfb8c1799c239ea5a45677f3719258fc99d186c5827aa85" prot="public">
+          <name>SWITCHSPLIT5</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="element_chosen_8h_1aaa0b86b6574f738cc2cfb8c1799c239eaadf8f7855a255af01b5d7a3c234fa907" prot="public">
+          <name>SWITCHSPLIT6</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="element_chosen_8h_1aaa0b86b6574f738cc2cfb8c1799c239ea0f19362db482864e92e67c2094c41f8b" prot="public">
+          <name>SWITCHSPLIT7</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="element_chosen_8h_1aaa0b86b6574f738cc2cfb8c1799c239ea7bb875f39bfd8045890865891def53ba" prot="public">
+          <name>SWITCHSPLIT8</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="element_chosen_8h_1aaa0b86b6574f738cc2cfb8c1799c239ea77aa8350c7b8774b67d6d4f6f0a581bb" prot="public">
+          <name>SWITCH1</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="element_chosen_8h_1aaa0b86b6574f738cc2cfb8c1799c239eaeb59f3479326061a4a4d372f2b0bebc9" prot="public">
+          <name>SWITCH2</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="element_chosen_8h_1aaa0b86b6574f738cc2cfb8c1799c239eae4e2ec31302e3cdeb6078bbc0882ffae" prot="public">
+          <name>SWITCH3</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="element_chosen_8h_1aaa0b86b6574f738cc2cfb8c1799c239eade40cc40c302a120bb2c7e6c1f8dc1bb" prot="public">
+          <name>SWITCH4</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="element_chosen_8h_1aaa0b86b6574f738cc2cfb8c1799c239ea1f8bee7ecdfe20cf988d06f92f525099" prot="public">
+          <name>SWITCH5</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="element_chosen_8h_1aaa0b86b6574f738cc2cfb8c1799c239ea0e30a6a7e7f065f39d778e61d190a0a6" prot="public">
+          <name>SWITCH6</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="element_chosen_8h_1aaa0b86b6574f738cc2cfb8c1799c239ea2aba77cbf1f622d8018e390463d7e049" prot="public">
+          <name>SWITCH7</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="element_chosen_8h_1aaa0b86b6574f738cc2cfb8c1799c239ead19b7450f803347cb2e5a96b67a63c8c" prot="public">
+          <name>SWITCH8</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="element_chosen_8h_1aaa0b86b6574f738cc2cfb8c1799c239ea4b24734ed520323e5c9e109e73114087" prot="public">
+          <name>SWITCH9</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="element_chosen_8h_1aaa0b86b6574f738cc2cfb8c1799c239ea1b0aff5eb6a9c9aedab4e619140fc809" prot="public">
+          <name>SWITCH10</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="element_chosen_8h_1aaa0b86b6574f738cc2cfb8c1799c239ea6a1876c4cc808814cb22dc4d60b908e0" prot="public">
+          <name>SWITCH11</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="element_chosen_8h_1aaa0b86b6574f738cc2cfb8c1799c239eac859ff6860be81860fc6f8bdd72157ae" prot="public">
+          <name>SWITCH12</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="element_chosen_8h_1aaa0b86b6574f738cc2cfb8c1799c239eaa4339858f52cd670fb47273fc7745014" prot="public">
+          <name>SWITCH13</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="element_chosen_8h_1aaa0b86b6574f738cc2cfb8c1799c239eae9dfb774585228ee2eb252d3380718da" prot="public">
+          <name>SWITCH14</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="element_chosen_8h_1aaa0b86b6574f738cc2cfb8c1799c239ea4abec1bf27fcb957bbe04b9e0181941d" prot="public">
+          <name>SWITCH15</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="element_chosen_8h_1aaa0b86b6574f738cc2cfb8c1799c239eabe3615ce7445f42119d03a5879d4b097" prot="public">
+          <name>SWITCH16</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="element_chosen_8h_1aaa0b86b6574f738cc2cfb8c1799c239ea15e5680694932af60ca09cac14152977" prot="public">
+          <name>CROSSOVER1</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="element_chosen_8h_1aaa0b86b6574f738cc2cfb8c1799c239ea8fc0f4f9c45b3ddffeed2f0718721f04" prot="public">
+          <name>CROSSOVER2</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="element_chosen_8h_1aaa0b86b6574f738cc2cfb8c1799c239ea082a85adc650fc5d99fdcf67abced119" prot="public">
+          <name>CROSSOVER3</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="element_chosen_8h_1aaa0b86b6574f738cc2cfb8c1799c239ea542f9d3cbd2e7832ce12c0185adcb5cb" prot="public">
+          <name>CROSSOVER4</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="element_chosen_8h_1aaa0b86b6574f738cc2cfb8c1799c239eaf5a942d014226c2c71d069c43dd1650c" prot="public">
+          <name>CROSSOVER5</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="element_chosen_8h_1aaa0b86b6574f738cc2cfb8c1799c239ea76d0dbe6a8bec95ee042256114089b77" prot="public">
+          <name>CROSSOVER6</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="element_chosen_8h_1aaa0b86b6574f738cc2cfb8c1799c239ea470793893cad335d3a4562785b33d8ca" prot="public">
+          <name>FLYOVER1</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="element_chosen_8h_1aaa0b86b6574f738cc2cfb8c1799c239eaaea8cc3592a8518675bcaa558205c7ad" prot="public">
+          <name>FLYOVER2</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="element_chosen_8h_1aaa0b86b6574f738cc2cfb8c1799c239ea6a269decfa13cbbf659d26fa23750a34" prot="public">
+          <name>FLYOVER3</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="element_chosen_8h_1aaa0b86b6574f738cc2cfb8c1799c239ea2c534f983d07466f19d98b6ef2a57020" prot="public">
+          <name>FLYOVER4</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="element_chosen_8h_1aaa0b86b6574f738cc2cfb8c1799c239eaf84c02816f5e43a983f06b14f44adece" prot="public">
+          <name>FLYOVER5</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="element_chosen_8h_1aaa0b86b6574f738cc2cfb8c1799c239ea172c3b7e036c4a2e595b42882dbd7fbb" prot="public">
+          <name>FLYOVER6</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="element_chosen_8h_1aaa0b86b6574f738cc2cfb8c1799c239ea276469afaf5dc80975003543d208ee70" prot="public">
+          <name>FLYOVER7</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="element_chosen_8h_1aaa0b86b6574f738cc2cfb8c1799c239ea9f9067549030ff1cdbc4e39e6798c05f" prot="public">
+          <name>FLYOVER8</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="element_chosen_8h_1aaa0b86b6574f738cc2cfb8c1799c239ea946f56339cc98acc4a38f1f52188aa29" prot="public">
+          <name>FLYOVER9</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="element_chosen_8h_1aaa0b86b6574f738cc2cfb8c1799c239eab9a1c520f5af7de082e0174604e386a1" prot="public">
+          <name>FLYOVER10</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="element_chosen_8h_1aaa0b86b6574f738cc2cfb8c1799c239ea3ad10c94898fb620108f6ae03f583a2c" prot="public">
+          <name>FLYOVER11</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="element_chosen_8h_1aaa0b86b6574f738cc2cfb8c1799c239eae6686fce7b3befc668f7e69d1568d849" prot="public">
+          <name>FLYOVER12</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="element_chosen_8h_1aaa0b86b6574f738cc2cfb8c1799c239ea67c6f765bf8329a67de5efb4b3858ea9" prot="public">
+          <name>NAMEDLOCATION</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="element_chosen_8h_1aaa0b86b6574f738cc2cfb8c1799c239eaeea36239e5b1a44dbc0b8d728e9faf51" prot="public">
+          <name>CONCOURSE</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="element_chosen_8h_1aaa0b86b6574f738cc2cfb8c1799c239ea988fefc0b3807045f73e58577f547cf1" prot="public">
+          <name>PLATFORMLEFT</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="element_chosen_8h_1aaa0b86b6574f738cc2cfb8c1799c239ea12944fc5b8830895b2e9d14856ab778f" prot="public">
+          <name>PLATFORMRIGHT</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="element_chosen_8h_1aaa0b86b6574f738cc2cfb8c1799c239ea2f73de07f9cd680af233328ef3345860" prot="public">
+          <name>PLATFORMDOWN</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="element_chosen_8h_1aaa0b86b6574f738cc2cfb8c1799c239eac2f827bf560f736241939b532e4c8366" prot="public">
+          <name>PLATFORMUP</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="element_chosen_8h_1aaa0b86b6574f738cc2cfb8c1799c239eac67f16f991309a62747c7e833b89353e" prot="public">
+          <name>PARAPET1</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="element_chosen_8h_1aaa0b86b6574f738cc2cfb8c1799c239eafcfbf634d7b56f4ae44bc875fb87ed70" prot="public">
+          <name>PARAPET2</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="element_chosen_8h_1aaa0b86b6574f738cc2cfb8c1799c239eaf864cd6d9104af98ec518739bc34618f" prot="public">
+          <name>PARAPET3</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="element_chosen_8h_1aaa0b86b6574f738cc2cfb8c1799c239eaea93d668349a1e6dead9b43e0087236e" prot="public">
+          <name>PARAPET4</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="element_chosen_8h_1aaa0b86b6574f738cc2cfb8c1799c239eac2e1c11f105c63ec81ffbc27b3be78cc" prot="public">
+          <name>PARAPET5</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="element_chosen_8h_1aaa0b86b6574f738cc2cfb8c1799c239ead8fe7aeeb263b21f71b1fe636447e309" prot="public">
+          <name>PARAPET6</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="element_chosen_8h_1aaa0b86b6574f738cc2cfb8c1799c239eaa311e9ce97a42888968b72a114347f7b" prot="public">
+          <name>PARAPET7</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="element_chosen_8h_1aaa0b86b6574f738cc2cfb8c1799c239ea6df29a427aa135ad1838dc0ee61ce380" prot="public">
+          <name>PARAPET8</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="element_chosen_8h_1aaa0b86b6574f738cc2cfb8c1799c239eaea05a6884b176a1f464d967f638e21c7" prot="public">
+          <name>PARAPET9</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="element_chosen_8h_1aaa0b86b6574f738cc2cfb8c1799c239ea1a2ea01e1a65338ccadf30c3d3c16202" prot="public">
+          <name>PARAPET10</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="element_chosen_8h_1aaa0b86b6574f738cc2cfb8c1799c239eac0a85171f8f8fba88217aa33e6527bac" prot="public">
+          <name>PARAPET11</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="element_chosen_8h_1aaa0b86b6574f738cc2cfb8c1799c239ead5b9f541c92e25af78ab0b630c9ae0a6" prot="public">
+          <name>PARAPET12</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="element_chosen_8h_1aaa0b86b6574f738cc2cfb8c1799c239ea1f901ad9e35fb44e53dc76dc3f89b73e" prot="public">
+          <name>PARAPET13</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="element_chosen_8h_1aaa0b86b6574f738cc2cfb8c1799c239ea18ef9be88a3bebacaf6feaefc4a645ad" prot="public">
+          <name>PARAPET14</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="element_chosen_8h_1aaa0b86b6574f738cc2cfb8c1799c239ea9062444e799d324ad0486c6bfdef1b06" prot="public">
+          <name>PARAPET15</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="element_chosen_8h_1aaa0b86b6574f738cc2cfb8c1799c239eaead957b4f7d72373906c5b2816380d5c" prot="public">
+          <name>PARAPET16</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="element_chosen_8h_1aaa0b86b6574f738cc2cfb8c1799c239ea81ca219dbb0b6594cda2a41b12a331ea" prot="public">
+          <name>PARAPET17</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="element_chosen_8h_1aaa0b86b6574f738cc2cfb8c1799c239ea1d317ed96f9cabb23794ba06944b5fae" prot="public">
+          <name>PARAPET18</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="element_chosen_8h_1aaa0b86b6574f738cc2cfb8c1799c239eafe9827110bb9cdb27ef8d62b464c3824" prot="public">
+          <name>PARAPET19</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="element_chosen_8h_1aaa0b86b6574f738cc2cfb8c1799c239eac58fdfc61a476a234bbc35fb3cfa4763" prot="public">
+          <name>PARAPET20</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="element_chosen_8h_1aaa0b86b6574f738cc2cfb8c1799c239ea77e5f68c3ee41ca255cc6101c8b1d03b" prot="public">
+          <name>PARAPET21</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="element_chosen_8h_1aaa0b86b6574f738cc2cfb8c1799c239ea096d1c42502c03192d7426e69786f285" prot="public">
+          <name>PARAPET22</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="element_chosen_8h_1aaa0b86b6574f738cc2cfb8c1799c239ea934da56bc73aaee2ccd279821bfc14f9" prot="public">
+          <name>PARAPET23</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="element_chosen_8h_1aaa0b86b6574f738cc2cfb8c1799c239ea490824a08b5730ee232d13d00f4f0c95" prot="public">
+          <name>PARAPET24</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="element_chosen_8h_1aaa0b86b6574f738cc2cfb8c1799c239eaa8cb5184579686f85d448b60415df72e" prot="public">
+          <name>PARAPET25</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="element_chosen_8h_1aaa0b86b6574f738cc2cfb8c1799c239ea0a3cc2739d5690417d981f8dd43e26a8" prot="public">
+          <name>PARAPET26</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="element_chosen_8h_1aaa0b86b6574f738cc2cfb8c1799c239ea5f8d604209c902d91fd05e6df50b5427" prot="public">
+          <name>PARAPET27</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="element_chosen_8h_1aaa0b86b6574f738cc2cfb8c1799c239eae77b7826d7fbceead7ae1aad3ebce12b" prot="public">
+          <name>PARAPET28</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="element_chosen_8h_1aaa0b86b6574f738cc2cfb8c1799c239eae1c467e1591ef4b2ae4798eb532eeb34" prot="public">
+          <name>LEVELCROSSING</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>The ElementChosen enum. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This enum is for the <ref refid="class_window" kindref="compound">Window</ref> class to use mainly. It contains all of the items that can be added to the canvas. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Projects/RailwayBuilder/elementChosen.h" line="12" column="1" bodyfile="D:/Projects/RailwayBuilder/elementChosen.h" bodystart="13" bodyend="31"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>ELEMENTCHOSEN_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>ELEMENTCHOSEN_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">//<sp/>ELEMENTCHOSEN_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="keyword">enum<sp/>class</highlight><highlight class="normal"><sp/>ElementChosen</highlight></codeline>
+<codeline lineno="13"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/>NONE,<sp/>STRAIGHTH,<sp/>STRAIGHTV,<sp/>STRAIGHTLEFTUP,<sp/>STRIAGHTRIGHTUP,<sp/>DIRECTLEFT,<sp/>DIRECTRIGHT,<sp/>DIRECTUP,<sp/>DIRECTDOWN,<sp/>DIRECTRIGHTUP,</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/>DIRECTLEFTUP,<sp/>DIRECTLEFTDOWN,<sp/>DIRECTRIGHTDOWN,<sp/>TIGHTCURVE1,<sp/>TIGHTCURVE2,<sp/>TIGHTCURVE3,<sp/>TIGHTCURVE4,<sp/>CURVE1,<sp/>CURVE2,<sp/>CURVE3,</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/>CURVE4,<sp/>CURVE5,<sp/>CURVE6,<sp/>CURVE7,<sp/>CURVE8,<sp/>LINKLEFT,<sp/>LINKRIGHT,<sp/>LINKDOWN,<sp/>LINKUP,<sp/>LINKLEFTUP,<sp/>LINKRIGHTUP,<sp/>LINKLEFTDOWN,</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/>LINKRIGHTDOWN,<sp/>EXITLEFT,<sp/>EXITRIGHT,<sp/>EXITDOWN,<sp/>EXITUP,<sp/>EXITLEFTUP,<sp/>EXITRIGHTUP,<sp/>EXITLEFTDOWN,<sp/>EXITRIGHTDOWN,<sp/>BUFFERLEFT,<sp/>BUFFERRIGHT,</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/>BUFFERDOWN,<sp/>BUFFERUP,<sp/>BUFFERLEFTUP,<sp/>BUFFERRIGHTUP,<sp/>BUFFERLEFTDOWN,<sp/>BUFFERRIGHTDOWN,<sp/>SIGNALLEFT,<sp/>SIGNALRIGHT,<sp/>SIGNALDOWN,<sp/>SIGNALUP,</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/>SIGNALLEFTUP,<sp/>SIGNALRIGHTUP,<sp/>SIGNALLEFTDOWN,<sp/>SIGNALRIGHTDOWN,<sp/>BRIDGE1,<sp/>BRIDGE2,<sp/>UNDERPASS1,<sp/>UNDERPASS2,<sp/>SWITCHTIGHT1,</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/>SWITCHTIGHT2,<sp/>SWITCHTIGHT3,<sp/>SWITCHTIGHT4,<sp/>SWITCHTIGHT5,<sp/>SWITCHTIGHT6,<sp/>SWITCHTIGHT7,<sp/>SWITCHTIGHT8,<sp/>SWITCHSPLIT1,<sp/>SWITCHSPLIT2,</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/>SWITCHSPLIT3,<sp/>SWITCHSPLIT4,<sp/>SWITCHSPLIT5,<sp/>SWITCHSPLIT6,<sp/>SWITCHSPLIT7,<sp/>SWITCHSPLIT8,<sp/>SWITCH1,<sp/>SWITCH2,<sp/>SWITCH3,<sp/>SWITCH4,<sp/>SWITCH5,</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/>SWITCH6,<sp/>SWITCH7,<sp/>SWITCH8,<sp/>SWITCH9,<sp/>SWITCH10,<sp/>SWITCH11,<sp/>SWITCH12,<sp/>SWITCH13,<sp/>SWITCH14,<sp/>SWITCH15,<sp/>SWITCH16,<sp/>CROSSOVER1,</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/>CROSSOVER2,<sp/>CROSSOVER3,<sp/>CROSSOVER4,<sp/>CROSSOVER5,<sp/>CROSSOVER6,<sp/>FLYOVER1,<sp/>FLYOVER2,<sp/>FLYOVER3,<sp/>FLYOVER4,<sp/>FLYOVER5,<sp/>FLYOVER6,</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/>FLYOVER7,<sp/>FLYOVER8,<sp/>FLYOVER9,<sp/>FLYOVER10,<sp/>FLYOVER11,<sp/>FLYOVER12,<sp/>NAMEDLOCATION,<sp/>CONCOURSE,<sp/>PLATFORMLEFT,<sp/>PLATFORMRIGHT,</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/>PLATFORMDOWN,<sp/>PLATFORMUP,<sp/>PARAPET1,<sp/>PARAPET2,<sp/>PARAPET3,<sp/>PARAPET4,<sp/>PARAPET5,<sp/>PARAPET6,<sp/>PARAPET7,<sp/>PARAPET8,<sp/>PARAPET9,</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/>PARAPET10,<sp/>PARAPET11,<sp/>PARAPET12,<sp/>PARAPET13,<sp/>PARAPET14,<sp/>PARAPET15,<sp/>PARAPET16,<sp/>PARAPET17,<sp/>PARAPET18,<sp/>PARAPET19,<sp/>PARAPET20,</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/>PARAPET21,<sp/>PARAPET22,<sp/>PARAPET23,<sp/>PARAPET24,<sp/>PARAPET25,<sp/>PARAPET26,<sp/>PARAPET27,<sp/>PARAPET28,<sp/>LEVELCROSSING</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//,<sp/>ADDCHANGETEXT,<sp/>MOVETEXT,</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//SETCHANGENAMEDLOCATION,<sp/>CONNECTLINKEDTRACK,<sp/>SETTRACKLENGTHSPEED</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal">};</highlight></codeline>
+    </programlisting>
+    <location file="D:/Projects/RailwayBuilder/elementChosen.h"/>
+  </compounddef>
+</doxygen>

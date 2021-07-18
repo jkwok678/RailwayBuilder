@@ -1,0 +1,67 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="mode_8h" kind="file" language="C++">
+    <compoundname>mode.h</compoundname>
+    <includedby refid="window_8h" local="yes">D:/Projects/RailwayBuilder/window.h</includedby>
+    <invincdepgraph>
+      <node id="1">
+        <label>D:/Projects/RailwayBuilder/mode.h</label>
+        <link refid="mode_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>D:/Projects/RailwayBuilder/window.h</label>
+        <link refid="window_8h_source"/>
+      </node>
+    </invincdepgraph>
+      <sectiondef kind="enum">
+      <memberdef kind="enum" id="mode_8h_1a46c8a310cf4c094f8c80e1cb8dc1f911" prot="public" static="no" strong="yes">
+        <type></type>
+        <name>Mode</name>
+        <enumvalue id="mode_8h_1a46c8a310cf4c094f8c80e1cb8dc1f911ab50339a10e1de285ac99d4c3990b8693" prot="public">
+          <name>NONE</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="mode_8h_1a46c8a310cf4c094f8c80e1cb8dc1f911af036e7bf2f83259c03cc72641b719a2f" prot="public">
+          <name>ADDREMOVETRACK</name>
+          <briefdescription>
+<para>Nothing happens. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>The Mode enum. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This enum is for the <ref refid="class_window" kindref="compound">Window</ref> class to use mainly. It contains all of the modes, that are possible in the program. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Projects/RailwayBuilder/mode.h" line="13" column="1" bodyfile="D:/Projects/RailwayBuilder/mode.h" bodystart="14" bodyend="18"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>MODE_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>MODE_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">//<sp/>MODE_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="keyword">enum<sp/>class</highlight><highlight class="normal"><sp/>Mode</highlight></codeline>
+<codeline lineno="14"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/>NONE,</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/>ADDREMOVETRACK,<sp/></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal">};</highlight></codeline>
+    </programlisting>
+    <location file="D:/Projects/RailwayBuilder/mode.h"/>
+  </compounddef>
+</doxygen>
