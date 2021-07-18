@@ -35,7 +35,8 @@ set(PROJECT_SOURCES
         borderlayout.h
         mode.h
         elementChosen.h
-
+        canvas.cpp
+        canvas.h
         resources.qrc
 )
 
