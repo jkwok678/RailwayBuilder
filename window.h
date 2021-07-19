@@ -19,6 +19,12 @@
 #include "canvas.h"
 #include "mode.h"
 #include "elementChosen.h"
+/**
+ * @brief The Window class for making the entire GUI for the program.
+ *
+ * @author Jonathan Kwok
+ * @version 0.1
+ */
 class Window : public QWidget
 {
 	Q_OBJECT

@@ -35,6 +35,8 @@ set(PROJECT_SOURCES
         borderlayout.h
         element.cpp
         element.h
+        track.cpp
+        track.h
         canvas.cpp
         canvas.h
         window.h
