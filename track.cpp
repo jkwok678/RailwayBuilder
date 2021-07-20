@@ -1,5 +1,9 @@
 #include "track.h"
 
+
+//Track class implementation
+
+
 Track::Track()
 {
 
@@ -35,7 +39,6 @@ void Track::setTrackSecondarySpeed(int speed)
 	trackSecondarySpeed = speed;
 }
 
-
 int Track::getTrackSecondaryLength() const
 {
 	return trackSecondaryLength;
@@ -48,12 +51,14 @@ void Track::setTrackSecondaryLength(int length)
 
 bool Track::getPlatformAny() const
 {
-	return platformAny;
-}
-
-void Track::setPlatformAny(bool platform)
-{
-	platformAny = platform;
+	if (platform1)
+	{
+		return platform1;
+	}
+	else
+	{
+		return platform2;
+	}
 }
 
 bool Track::getPlatform1() const
@@ -81,7 +86,6 @@ bool Track::getLinkAt(int link)
 	return links[link];
 }
 
-
 bool Track::getFound() const
 {
 	return found;
@@ -90,4 +94,82 @@ bool Track::getFound() const
 void Track::setFound(bool newFound)
 {
 	found = newFound;
+}
+
+
+//StraightTrack class implementation
+
+
+StraightTrack::StraightTrack()
+{
+
+}
+
+StraightTrack::~StraightTrack()
+{
+	//Only used for debugging purposes.
+	/*if (elementType==ElementType::STRAIGHTH)
+	{
+		std::cout << "Straight H destroyed \n" << std::flush;;
+	}
+	if (elementType==ElementType::STRAIGHTV)
+	{
+		std::cout << "Straight V destroyed \n" << std::flush;;
+	}
+	*/
+}
+
+StraightTrack::StraightTrack(StraightType newStraightType, int newLocationX, int newLocationY)
+{
+	straightType = newStraightType;
+	locationX = newLocationX;
+	locationY = newLocationY;
+	switch (straightType)
+	{
+		case StraightType::STRAIGHTH:
+		{
+			links[3] = true;
+			links[5] = true;
+			break;
+		}
+		case StraightType::STRAIGHTV:
+		{
+			links[1] = true;
+			links[7] = true;
+			break;
+		}
+		case StraightType::STRAIGHTLEFTUP:
+		{
+			links[0] = true;
+			links[8] = true;
+			break;
+		}
+		case StraightType::STRIAGHTRIGHTUP:
+		{
+			links[2] = true;
+			links[6] = true;
+			break;
+		}
+	}
+
+}
+
+StraightType StraightTrack::getStraightType() const
+{
+	return straightType;
+}
+
+void StraightTrack::setStraightType(const StraightType &newStraightType)
+{
+	straightType = newStraightType;
+}
+
+bool StraightTrack::hasLevelCrossing() const
+{
+	return levelCrossing;
+}
+
+void StraightTrack::addLevelCrossing()
+{
+	levelCrossing = true;
 }

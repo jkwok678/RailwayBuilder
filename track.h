@@ -4,6 +4,26 @@
 #include <iostream>
 #include "element.h"
 
+/**
+ * @brief The StraightType enum
+ *
+ * There are only 4 classes, one for each type of straight track that can appear on screen.
+ */
+enum class StraightType
+{
+	STRAIGHTH, STRAIGHTV, STRAIGHTLEFTUP, STRIAGHTRIGHTUP
+};
+
+/**
+ * @brief This Track class is the base class for many of the different track types.
+ *
+ * Classes like StraightTrack, DirectedTrack etc. will ineherit this class.
+ * It has has a main and secondary speed for tracks that may have more than 2 exit points
+ *
+ *
+ * @author Jonathan Kwok
+ * @version 0.1
+ */
 class Track : public NamedElement
 {
 private:
@@ -16,7 +36,6 @@ protected:
 	int trackSecondaryLength{-1};
 	//For vertical tracks, platform1 is left, platform2 is right
 	//For Horizontal tracks platform1 is up, platform2 is down
-	bool platformAny{ false };
 	bool platform1{ false };
 	bool platform2{ false };
 	bool links [9]{false, false, false, false, false, false, false, false, false};
@@ -74,11 +93,6 @@ public:
 	 */
 	bool getPlatformAny() const;
 	/**
-	 * @brief Sets whether this track has a platform attached to it.
-	 * @param platform Bool with platform or not.
-	 */
-	void setPlatformAny(bool platform);
-	/**
 	 * @brief Checks if the platform is on the left of the track or or above the track if it's sideways.
 	 * @return A bool saying if there is a platform on the left of the track or above the track if it's sideways.
 	 */
@@ -132,5 +146,69 @@ public:
 	 */
 	void setFound(bool newFound);
 };
+
+
+
+/**
+ * @brief The StraightTrack class is for making the 4 different types of Straight tracks.
+ *
+ * Only the main speed and length matter. Secondary speed and length do not matter in this class as there are only 2 ends.
+ * @author Jonathan Kwok
+ * @version 1.0
+ */
+class StraightTrack : public Track
+{
+private:
+	StraightType straightType;
+	bool levelCrossing{ false };
+
+
+protected:
+
+
+
+
+public:
+	/**
+	 * @brief Default constructor for a StraightTrack.
+	 */
+	StraightTrack();
+	~StraightTrack();
+	/**
+	 * @brief Constructor for Straight Track with it's type of straight track and it's coordinates.
+	 *
+	 * This is the one that is most useful, as it initalises with all the useful information.
+	 * @param newStraightType The type of Straight track.
+	 * @param newLocationX X coordinate of the track.
+	 * @param newLocationY Y coordinate of the track.
+	 */
+	StraightTrack(StraightType newStraightType, int newLocationX, int newLocationY);
+	/**
+	 * @brief Gets the Straight track type.
+	 *
+	 * It returns the StraightType enum that reveals which of the 4 Straight tracks types it is.
+	 * @return StraightType enum class of the StraightTrack.
+	 */
+	StraightType getStraightType() const;
+	/**
+	 * @brief Sets the StraightType enum class of the Straight track.
+	 * @param newStraightType The new StraightType.
+	 */
+	void setStraightType(const StraightType &newStraightType);
+	/**
+	 * @brief Checks whether this track has a level crossing.
+	 * @return A bool that states whether the track has a level crossing.
+	 */
+	bool hasLevelCrossing() const;
+	/**
+	 * @brief This method adds a level crosing to the track.
+	 */
+	void addLevelCrossing();
+
+
+
+
+};
+
 
 #endif // TRACK_H
