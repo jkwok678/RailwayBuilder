@@ -8,7 +8,7 @@
  * Currently only sets the minimum size and the background to black.
  *
  * @author Jonathan Kwok
- * @version 0.1
+ * @version 1.0
  */
 class Canvas : public QWidget
 {

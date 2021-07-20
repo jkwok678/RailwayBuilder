@@ -13,7 +13,7 @@
  * This class is the base class for all types of items that the user can place on screen.
  *
  * @author Jonathan Kwok
- * @version 0.1
+ * @version 1.0
  */
 class Element
 {
@@ -64,7 +64,7 @@ public:
  * This class extends the element class and is used for text that is placed on the canvas.
  *
  * @author Jonathan Kwok
- * @version 0.1
+ * @version 1.0
  */
 class Text : public Element
 {
@@ -154,7 +154,7 @@ public:
  * to be linked to it.
  *
  * @author Jonathan Kwok
- * @version 0.1
+ * @version 1.0
  */
 class NamedElement : public Element
 {

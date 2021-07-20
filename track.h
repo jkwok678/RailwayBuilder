@@ -11,7 +11,10 @@
  */
 enum class StraightType
 {
-	STRAIGHTH, STRAIGHTV, STRAIGHTLEFTUP, STRIAGHTRIGHTUP
+	STRAIGHTH, /// Straight horizontal.
+	STRAIGHTV, /// Straight vertical.
+	STRAIGHTLEFTUP, /// Straight bottom right to top left.
+	STRIAGHTRIGHTUP /// Straight bottom left to top right.
 };
 
 /**
@@ -22,7 +25,7 @@ enum class StraightType
  *
  *
  * @author Jonathan Kwok
- * @version 0.1
+ * @version 1.0
  */
 class Track : public NamedElement
 {
@@ -193,6 +196,7 @@ public:
 	/**
 	 * @brief Sets the StraightType enum class of the Straight track.
 	 * @param newStraightType The new StraightType.
+	 * @see StraightType
 	 */
 	void setStraightType(const StraightType &newStraightType);
 	/**

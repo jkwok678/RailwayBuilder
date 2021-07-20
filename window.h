@@ -23,7 +23,7 @@
  * @brief The Window class for making the entire GUI for the program.
  *
  * @author Jonathan Kwok
- * @version 0.1
+ * @version 1.0
  */
 class Window : public QWidget
 {
