@@ -173,3 +173,52 @@ void StraightTrack::addLevelCrossing()
 {
 	levelCrossing = true;
 }
+
+DirectedTrack::DirectedTrack(DirectedType newDirectedType, int newLocationX, int newLocationY)
+{
+	directedType = newDirectedType;
+		locationX = newLocationX;
+		locationY = newLocationY;
+		switch(directedType)
+		{
+			case DirectedType::DIRECTLEFT:
+			case DirectedType::DIRECTRIGHT:
+			{
+				links[3] = true;
+				links[5] = true;
+				break;
+			}
+			case DirectedType::DIRECTUP:
+			case DirectedType::DIRECTDOWN:
+			{
+				links[1] = true;
+				links[7] = true;
+				break;
+			}
+			case DirectedType::DIRECTLEFTUP:
+			case DirectedType::DIRECTRIGHTDOWN:
+			{
+				links[0] = true;
+				links[8] = true;
+				break;
+			}
+			case DirectedType::DIRECTRIGHTUP:
+			case DirectedType::DIRECTLEFTDOWN:
+			{
+				links[2] = true;
+				links[6] = true;
+				break;
+			}
+
+		}
+}
+
+DirectedType DirectedTrack::getDirectType() const
+{
+	return directedType;
+}
+
+void DirectedTrack::setDirectedType(const DirectedType &newDirectedType)
+{
+	directedType = newDirectedType;
+}

@@ -17,6 +17,28 @@ enum class StraightType
 	STRIAGHTRIGHTUP /// Straight bottom left to top right.
 };
 
+
+
+/**
+ * @brief The DirectType enum
+ *
+ * There are 8 different DirectedTypes for the 8 directions of directed track.
+ */
+enum class DirectedType
+{
+	DIRECTLEFT, /// Directed track to the left.
+	DIRECTRIGHT, /// Directed track to the right.
+	DIRECTUP, /// Directed track upwards.
+	DIRECTDOWN, /// Directed track downwards.
+	DIRECTRIGHTUP, /// Directed track to the top right.
+	DIRECTLEFTUP, /// Directed track to the top left.
+	DIRECTLEFTDOWN, /// Directed track to the bottom left.
+	DIRECTRIGHTDOWN /// Directed track to the bottom right.
+};
+
+
+
+
 /**
  * @brief This Track class is the base class for many of the different track types.
  *
@@ -152,6 +174,7 @@ public:
 
 
 
+
 /**
  * @brief The StraightTrack class is for making the 4 different types of Straight tracks.
  *
@@ -165,9 +188,7 @@ private:
 	StraightType straightType;
 	bool levelCrossing{ false };
 
-
 protected:
-
 
 
 
@@ -209,10 +230,44 @@ public:
 	 */
 	void addLevelCrossing();
 
-
-
-
 };
 
 
+/**
+ * @brief The DirectedTrack class is for making the 8 different directed tracks.
+ *
+ * Only the main speed and length matter. Secondary speed and length do not matter in this class as there are only 2 ends.
+ * It inherits from StraightTrack and can have platforms and levelcrossings.
+ * @author Jonathan Kwok
+ * @version 1.0
+ */
+class DirectedTrack : public StraightTrack
+{
+private:
+	DirectedType directedType;
+
+
+
+protected:
+
+
+public:
+	/**
+	 * @brief A constructor for making DirectedTracks with it's direction and location.
+	 * @param newDirectedType The direction that it only allows travel.
+	 * @param newLocationX X coordinate of the track.
+	 * @param newLocationY Y coordinate of the track.
+	 */
+	DirectedTrack(DirectedType newDirectedType, int newLocationX, int newLocationY);
+	/**
+	 * @brief Get the direction that the directed track allows travel.
+	 * @return A DirectedType enum class. It shows direction of travel.
+	 */
+	DirectedType getDirectType() const;
+	/**
+	 * @brief Set the direction of travel allowed.
+	 * @param newDirectedType The new direction of travel allowed.
+	 */
+	void setDirectedType(const DirectedType &newDirectedType);
+};
 #endif // TRACK_H
