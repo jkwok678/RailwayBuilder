@@ -17,8 +17,6 @@
 #include <QSizePolicy>
 #include "borderlayout.h"
 #include "canvas.h"
-#include "mode.h"
-#include "elementChosen.h"
 
 
 /**
