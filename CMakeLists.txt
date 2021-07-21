@@ -29,6 +29,8 @@ find_package(Qt${QT_VERSION_MAJOR} COMPONENTS Widgets REQUIRED)
 
 set(PROJECT_SOURCES
         main.cpp
+        borderlayout.cpp
+        borderlayout.h
         window.cpp
         window.h
 )
