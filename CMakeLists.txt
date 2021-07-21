@@ -33,6 +33,8 @@ set(PROJECT_SOURCES
         borderlayout.h
         canvas.cpp
         canvas.h
+        element.cpp
+        element.h
         window.cpp
         window.h
 )
