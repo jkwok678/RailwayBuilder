@@ -35,6 +35,8 @@ set(PROJECT_SOURCES
         canvas.h
         element.cpp
         element.h
+        track.cpp
+        track.h
         window.cpp
         window.h
 )

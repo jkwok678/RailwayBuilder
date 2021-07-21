@@ -73,6 +73,7 @@ class Window : public QWidget
 	Q_OBJECT
 
 public:
+
 	/**
 	 * @brief A constructor for a Window object that extends the QWidget.
 	 * Create a window object that includes the different parts needed to make the program function like the Canvas and the BorderLayout.
@@ -81,6 +82,7 @@ public:
 	~Window();
 
 private slots:
+
 	/**
 	 * @brief A slot to open the element menu to place elements on screen.
 	 */
@@ -94,6 +96,7 @@ private slots:
 
 
 private:
+
 	/**
 	 * @brief A method to create the menubar that is at the top of the screen.
 	 *
