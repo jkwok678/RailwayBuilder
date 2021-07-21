@@ -44,6 +44,50 @@ enum class DirectedType
 
 
 /**
+ * @brief The CurvedType enum
+ *
+ * 12 Curves in total, four 90 degree turns and eight 135 degree turns.
+ */
+enum class CurvedType
+{
+	TIGHTCURVE1, /// 90 degree turn.
+	TIGHTCURVE2, /// 90 degree turn.
+	TIGHTCURVE3, /// 90 degree turn.
+	TIGHTCURVE4, /// 90 degree turn.
+	CURVE1, /// 135 degree turn.
+	CURVE2, /// 135 degree turn.
+	CURVE3, /// 135 degree turn.
+	CURVE4, /// 135 degree turn.
+	CURVE5, /// 135 degree turn.
+	CURVE6, /// 135 degree turn.
+	CURVE7, /// 135 degree turn.
+	CURVE8  /// 135 degree turn.
+};
+
+
+
+
+/**
+ * @brief The LinkedType enum
+ *
+ * 8 types linked track, for 8 different directions of links.
+ */
+enum class LinkedType
+{
+	LINKLEFT, ///Link is on the left.
+	LINKRIGHT, ///Link is on the right.
+	LINKDOWN, ///Link is downwards
+	LINKUP, ///Link is upwards.
+	LINKLEFTUP, ///Link is top left.
+	LINKRIGHTUP, ///Link is top right.
+	LINKLEFTDOWN, ///Link is bottom left.
+	LINKRIGHTDOWN ///Link is bottom right.
+};
+
+
+
+
+/**
  * @brief The Track class.
  *
  * This class is the foundation for other track types like StraightTrack or CurvedTrack.
@@ -61,11 +105,6 @@ protected:
 	int trackMainLength{ 100 };
 	int trackSecondarySpeed{-1};
 	int trackSecondaryLength{-1};
-	//For vertical tracks, platform1 is left, platform2 is right
-	//For Horizontal tracks platform1 is up, platform2 is down
-	bool platformAny{ false };
-	bool platform1{ false };
-	bool platform2{ false };
 	bool links [9]{false, false, false, false, false, false, false, false, false};
 	bool found;
 
@@ -125,42 +164,6 @@ public:
 	void setTrackSecondaryLength(int length);
 
 	/**
-	 * @brief Gets whether this track has a platform attached to it.
-	 * @return bool that represents whether this track has a platform.
-	 */
-	bool getPlatformAny() const;
-
-	/**
-	 * @brief Sets whether this track has a platform attached to it.
-	 * @param platform Bool with platform or not.
-	 */
-	void setPlatformAny(bool platform);
-
-	/**
-	 * @brief Checks if the platform is on the left of the track or or above the track if it's sideways.
-	 * @return A bool saying if there is a platform on the left of the track or above the track if it's sideways.
-	 */
-	bool getPlatform1() const;
-
-	/**
-	 * @brief Sets whether there is a platform on the left of the track or above the track if it's sideways.
-	 * @param newPlatform If this is true, there is a platform on the left of the track or above the track if it's sideways.
-	 */
-	void setPlatform1(bool newPlatform);
-
-	/**
-	 * @brief Checks if there is a platform on the right of the track or below the track if it's sideways.
-	 * @return A bool saying if there is a platform on the right of the track or or below the track if it's sideways.
-	 */
-	bool getPlatform2() const;
-
-	/**
-	 * @brief Sets whether there is a platform on the right of the track or below the track if it's sideways.
-	 * @param newPlatform If this is true there is a platform on the right of the track or below the track if it's sideways.
-	 */
-	void setPlatform2(bool newPlatform);
-
-	/**
 	 * @brief Gets whether there is a link a location on track.
 	 *
 	 * A track has 8 possible locations to link from.
@@ -211,6 +214,11 @@ class StraightTrack : public Track
 {
 private:
 	StraightType straightType;
+	//For vertical tracks, platform1 is left, platform2 is right
+	//For Horizontal tracks platform1 is up, platform2 is down
+	bool platformAny{ false };
+	bool platform1{ false };
+	bool platform2{ false };
 	bool levelCrossing{ false };
 
 protected:
@@ -218,6 +226,7 @@ protected:
 
 
 public:
+
 	/**
 	 * @brief Default constructor for StraightTrack
 	 */
@@ -243,6 +252,41 @@ public:
 	void setStraightType(const StraightType &newStraightType);
 
 	/**
+	 * @brief Gets whether this track has a platform attached to it.
+	 * @return bool that represents whether this track has a platform.
+	 */
+	bool getPlatformAny() const;
+
+	/**
+	 * @brief Sets whether this track has a platform attached to it.
+	 * @param platform Bool with platform or not.
+	 */
+	void setPlatformAny(bool platform);
+
+	/**
+	 * @brief Checks if the platform is on the left of the track or or above the track if it's sideways.
+	 * @return A bool saying if there is a platform on the left of the track or above the track if it's sideways.
+	 */
+	bool getPlatform1() const;
+
+	/**
+	 * @brief Sets whether there is a platform on the left of the track or above the track if it's sideways.
+	 * @param newPlatform If this is true, there is a platform on the left of the track or above the track if it's sideways.
+	 */
+	void setPlatform1(bool newPlatform);
+
+	/**
+	 * @brief Checks if there is a platform on the right of the track or below the track if it's sideways.
+	 * @return A bool saying if there is a platform on the right of the track or or below the track if it's sideways.
+	 */
+	bool getPlatform2() const;
+
+	/**
+	 * @brief Sets whether there is a platform on the right of the track or below the track if it's sideways.
+	 * @param newPlatform If this is true there is a platform on the right of the track or below the track if it's sideways.
+	 */
+	void setPlatform2(bool newPlatform);
+	/**
 	 * @brief Checks if the track has a level crossing.
 	 * @return A bool saying if it has a level crossing.
 	 */
@@ -254,6 +298,10 @@ public:
 	void addLevelCrossing();
 
 };
+
+
+
+
 /**
  * @brief The DirectedTrack class.
  *
@@ -274,6 +322,7 @@ protected:
 
 
 public:
+
 	/**
 	 * @brief The DirectedTrack constructor that needs its location and it's type of DirectedTrack type.
 	 * @param newDirectedType The DirectedTrack type.
@@ -281,15 +330,137 @@ public:
 	 * @param newLocationY Y coordinate of the track.
 	 */
 	DirectedTrack(DirectedType newDirectedType, int newLocationX, int newLocationY);
+
 	/**
 	 * @brief Get the type of DirectedTrack.
 	 * @return The DirectedType enum class.
 	 */
 	DirectedType getDirectType() const;
+
 	/**
 	 * @brief Set the type of DirectedTrack.
-	 * @param newDirectedType
+	 * @param newDirectedType The new DirectedType enum.
 	 */
 	void setDirectedType(const DirectedType &newDirectedType);
+};
+
+
+
+
+/**
+ * @brief The CurvedTrack class
+ *
+ * This inehrits from the Track class.
+ * It cannot have platforms and level crossings.
+ * Only main speed and length matter as there is only 2 endings.
+ * @version 0.1
+ * @author Jonathan Kwok
+ */
+class CurvedTrack : public Track
+{
+private:
+	CurvedType curvedType;
+
+
+
+protected:
+
+
+public:
+
+	/**
+	 * @brief A CurvedTrack constructor that needs its location and its CurveType.
+	 * @param newCurvedType The CurveType
+	 * @param newLocationX X coordinate of the track.
+	 * @param newLocationY Y corrdinate of the track.
+	 */
+	CurvedTrack(CurvedType newCurvedType, int newLocationX, int newLocationY);
+
+	/**
+	 * @brief Get the type of CurvedTrack.
+	 * @return The CurvedType enum class.
+	 */
+	CurvedType getCurvedType() const;
+
+	/**
+	 * @brief Set the type of CurvedTrack.
+	 * @param newCurvedType The CurvedType enum class.
+	 */
+	void setCurvedType(const CurvedType &newCurvedType);
+};
+
+
+
+
+/**
+ * @brief The LinkedTrack class
+ *
+ * This inehrits from the Track class.
+ * It cannot have platforms and level crossings.
+ * Only main speed and length matter as there is only 2 endings.
+ * @version 0.1
+ * @author Jonathan Kwok
+ */
+class LinkedTrack : public Track
+{
+private:
+	LinkedType linkedType;
+	bool linked;
+	std::shared_ptr<LinkedTrack> otherLinkTrack{nullptr};
+
+
+
+protected:
+
+
+public:
+
+	/**
+	 * @brief Default LinkedTrack constructor
+	 */
+	LinkedTrack();
+
+	/**
+	 * @brief A LinkedTrack constructor that needs its location and its LinkType.
+	 * @param newLinkedType The LinkType.
+	 * @param newLocationX X coordinate of the track.
+	 * @param newLocationY Y coordinate of the track.
+	 */
+	LinkedTrack(LinkedType newLinkedType, int newLocationX, int newLocationY);
+
+	/**
+	 * @brief Get type of LinkedTrack.
+	 * @return The LinkedType enum class.
+	 */
+	LinkedType getLinkedType() const;
+
+	/**
+	 * @brief set the type of LinkeTrack.
+	 * @param newLinkedType The LinkedType enum class.
+	 */
+	void setLinkedType(const LinkedType &newLinkedType);
+
+	/**
+	 * @brief Checks if the track is linked to another linked track.
+	 * @return A bool, true if it is linked and false if its not.
+	 */
+	bool getLinked() const;
+
+	/**
+	 * @brief Set whether the track is linked.
+	 * @param newLinked A bool that says if the track is linked.
+	 */
+	void setLinked(bool newLinked);
+
+	/**
+	 * @brief Get the linked track.
+	 * @return A shared pointer that contains another LinkedTrack.
+	 */
+	std::shared_ptr<LinkedTrack> getOtherLinkTrack();
+	/**
+	 * @brief Set the linked track to another LinkedTrack.
+	 * @param newLinkedTrack A shared pointer that has a LinkedTrack.
+	 */
+	void setOtherLinkTrack(std::shared_ptr<LinkedTrack> &newLinkedTrack);
 };
 #endif // TRACK_H

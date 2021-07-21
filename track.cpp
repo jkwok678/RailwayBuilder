@@ -48,36 +48,6 @@ void Track::setTrackSecondaryLength(int length)
 	trackSecondaryLength = length;
 }
 
-bool Track::getPlatformAny() const
-{
-	return platformAny;
-}
-
-void Track::setPlatformAny(bool platform)
-{
-	platformAny = platform;
-}
-
-bool Track::getPlatform1() const
-{
-	return platform1;
-}
-
-void Track::setPlatform1(bool newPlatform)
-{
-	platform1 = newPlatform;
-}
-
-bool Track::getPlatform2() const
-{
-	return platform2;
-}
-
-void Track::setPlatform2(bool newPlatform)
-{
-	platform2 = newPlatform;
-}
-
 bool Track::getLinkAt(int link)
 {
 	return links[link];
@@ -142,6 +112,36 @@ void StraightTrack::setStraightType(const StraightType &newStraightType)
 	straightType = newStraightType;
 }
 
+bool StraightTrack::getPlatformAny() const
+{
+	return platformAny;
+}
+
+void StraightTrack::setPlatformAny(bool platform)
+{
+	platformAny = platform;
+}
+
+bool StraightTrack::getPlatform1() const
+{
+	return platform1;
+}
+
+void StraightTrack::setPlatform1(bool newPlatform)
+{
+	platform1 = newPlatform;
+}
+
+bool StraightTrack::getPlatform2() const
+{
+	return platform2;
+}
+
+void StraightTrack::setPlatform2(bool newPlatform)
+{
+	platform2 = newPlatform;
+}
+
 bool StraightTrack::hasLevelCrossing() const
 {
 	return levelCrossing;
@@ -204,4 +204,186 @@ DirectedType DirectedTrack::getDirectType() const
 void DirectedTrack::setDirectedType(const DirectedType &newDirectedType)
 {
 	directedType = newDirectedType;
+}
+
+
+//CurvedTrack class implementation.
+
+
+CurvedTrack::CurvedTrack(CurvedType newCurvedType, int newLocationX, int newLocationY)
+{
+	curvedType = newCurvedType;
+	locationX = newLocationX;
+	locationY = newLocationY;
+	switch (curvedType)
+	{
+		case CurvedType::TIGHTCURVE1:
+		{
+			links[5] = true;
+			links[7] = true;
+			break;
+		}
+		case CurvedType::TIGHTCURVE2:
+		{
+			links[3] = true;
+			links[7] = true;
+			break;
+		}
+		case CurvedType::TIGHTCURVE3:
+		{
+			links[1] = true;
+			links[5] = true;
+			break;
+		}
+		case CurvedType::TIGHTCURVE4:
+		{
+			links[1] = true;
+			links[3] = true;
+			break;
+		}
+		case CurvedType::CURVE1:
+		{
+			links[5] = true;
+			links[6] = true;
+			break;
+		}
+		case CurvedType::CURVE2:
+		{
+			links[3] = true;
+			links[8] = true;
+			break;
+		}
+		case CurvedType::CURVE3:
+		{
+			links[0] = true;
+			links[5] = true;
+			break;
+		}
+		case CurvedType::CURVE4:
+		{
+			links[2] = true;
+			links[3] = true;
+			break;
+		}
+		case CurvedType::CURVE5:
+		{
+			links[1] = true;
+			links[8] = true;
+			break;
+		}
+		case CurvedType::CURVE6:
+		{
+			links[1] = true;
+			links[6] = true;
+			break;
+		}
+		case CurvedType::CURVE7:
+		{
+			links[2] = true;
+			links[7] = true;
+			break;
+		}
+		case CurvedType::CURVE8:
+		{
+			links[0] = true;
+			links[7] = true;
+			break;
+		}
+	}
+
+}
+
+CurvedType CurvedTrack::getCurvedType() const
+{
+	return curvedType;
+}
+
+void CurvedTrack::setCurvedType(const CurvedType &newCurvedType)
+{
+	curvedType = newCurvedType;
+}
+
+
+//LinkedTrack class implementation.
+
+
+LinkedTrack::LinkedTrack(LinkedType newLinkedType, int newLocationX, int newLocationY)
+{
+	linkedType = newLinkedType;
+	locationX = newLocationX;
+	locationY = newLocationY;
+	linked = false;
+	switch(linkedType)
+	{
+		case LinkedType::LINKLEFT:
+		{
+			links[5] = true;
+			break;
+		}
+		case LinkedType::LINKRIGHT:
+		{
+			links[3] = true;
+			break;
+		}
+		case LinkedType::LINKUP:
+		{
+			links[7] = true;
+			break;
+		}
+		case LinkedType::LINKDOWN:
+		{
+			links[1] = true;
+			break;
+		}
+		case LinkedType::LINKLEFTUP:
+		{
+			links[8] = true;
+			break;
+		}
+		case LinkedType::LINKRIGHTDOWN:
+		{
+			links[0] = true;
+			break;
+		}
+		case LinkedType::LINKLEFTDOWN:
+		{
+			links[2] = true;
+			break;
+		}
+		case LinkedType::LINKRIGHTUP:
+		{
+			links[6] = true;
+			break;
+		}
+	}
+}
+
+LinkedType LinkedTrack::getLinkedType() const
+{
+	return linkedType;
+}
+
+void LinkedTrack::setLinkedType(const LinkedType &newLinkedType)
+{
+	linkedType = newLinkedType;
+}
+
+bool LinkedTrack::getLinked() const
+{
+	return linked;
+}
+
+void LinkedTrack::setLinked(bool newLinked)
+{
+	linked = newLinked;
+}
+
+std::shared_ptr<LinkedTrack> LinkedTrack::getOtherLinkTrack()
+{
+	return otherLinkTrack;
+}
+
+void LinkedTrack::setOtherLinkTrack(std::shared_ptr<LinkedTrack> &newLinkedTrack)
+{
+	otherLinkTrack = newLinkedTrack;
 }

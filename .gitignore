@@ -33,3 +33,6 @@
 
 # Documentation Directories
 /docs/html
+
+# User CmakeList
+*.txt.user
