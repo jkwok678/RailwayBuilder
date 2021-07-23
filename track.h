@@ -46,7 +46,7 @@ enum class DirectedType
 /**
  * @brief The CurvedType enum
  *
- * 12 Curves in total, four 90 degree turns and eight 135 degree turns.
+ * This is for 12 Curves in total, four 90 degree turns and eight 135 degree turns.
  */
 enum class CurvedType
 {
@@ -70,7 +70,7 @@ enum class CurvedType
 /**
  * @brief The LinkedType enum
  *
- * 8 types linked track, for 8 different directions of links.
+ * This is for 8 types of linked track, for 8 different directions of links.
  */
 enum class LinkedType
 {
@@ -87,6 +87,42 @@ enum class LinkedType
 
 
 
+/**
+ * @brief The ExitType enum
+ *
+ * This is for 8 Exit tracks, for 8 directions of tracks.
+ */
+enum class ExitType
+{
+	EXITLEFT, /// Exit is on the left.
+	EXITRIGHT, /// Exit is on the right.
+	EXITDOWN, /// Exit is at the bottom.
+	EXITUP, /// Exit is at the top.
+	EXITLEFTUP, /// Exit is at the top left.
+	EXITRIGHTUP, /// Exit is at the top right.
+	EXITLEFTDOWN, /// Exit is at the bottom left.
+	EXITRIGHTDOWN /// Exit is at the bottom right.
+};
+
+
+
+
+/**
+ * @brief The BufferType enum
+ *
+ * This is for the 8 different directions of the buffer.
+ */
+enum class BufferType
+{
+	BUFFERLEFT, /// Buffer is on the left.
+	BUFFERRIGHT, /// Buffer is on the right.
+	BUFFERDOWN, /// Buffer is at the bottom.
+	BUFFERUP, /// Buffer is at the top.
+	BUFFERLEFTUP, /// Buffer is at the top left.
+	BUFFERRIGHTUP, /// Buffer is at the top right.
+	BUFFERLEFTDOWN, /// Buffer is at the bottom left.
+	BUFFERRIGHTDOWN /// Buffer is at the bottom right.
+};
 /**
  * @brief The Track class.
  *
@@ -240,14 +276,14 @@ public:
 	StraightTrack(StraightType newStraightType, int newLocationX, int newLocationY);
 
 	/**
-	 * @brief Gets the StraightType enum class.
-	 * @return The new Straight track enum class.
+	 * @brief Gets the StraightType enum.
+	 * @return The new Straight track enum.
 	 */
 	StraightType getStraightType() const;
 
 	/**
 	 * @brief Sets the new Straight track type.
-	 * @param newStraightType The new Straight track enum class.
+	 * @param newStraightType The new Straight track enum.
 	 */
 	void setStraightType(const StraightType &newStraightType);
 
@@ -333,7 +369,7 @@ public:
 
 	/**
 	 * @brief Get the type of DirectedTrack.
-	 * @return The DirectedType enum class.
+	 * @return The DirectedType enum.
 	 */
 	DirectedType getDirectType() const;
 
@@ -378,13 +414,13 @@ public:
 
 	/**
 	 * @brief Get the type of CurvedTrack.
-	 * @return The CurvedType enum class.
+	 * @return The CurvedType enum.
 	 */
 	CurvedType getCurvedType() const;
 
 	/**
 	 * @brief Set the type of CurvedTrack.
-	 * @param newCurvedType The CurvedType enum class.
+	 * @param newCurvedType The CurvedType enum.
 	 */
 	void setCurvedType(const CurvedType &newCurvedType);
 };
@@ -430,13 +466,13 @@ public:
 
 	/**
 	 * @brief Get type of LinkedTrack.
-	 * @return The LinkedType enum class.
+	 * @return The LinkedType enum.
 	 */
 	LinkedType getLinkedType() const;
 
 	/**
 	 * @brief set the type of LinkeTrack.
-	 * @param newLinkedType The LinkedType enum class.
+	 * @param newLinkedType The LinkedType enum.
 	 */
 	void setLinkedType(const LinkedType &newLinkedType);
 
@@ -462,5 +498,88 @@ public:
 	 * @param newLinkedTrack A shared pointer that has a LinkedTrack.
 	 */
 	void setOtherLinkTrack(std::shared_ptr<LinkedTrack> &newLinkedTrack);
+};
+
+
+
+
+/**
+ * @brief The ExitTrack class
+ *
+ * This inehrits from the Track class.
+ * It cannot have platforms and level crossings.
+ * Only main speed and length matter as there is only 2 endings.
+ * @version 0.1
+ * @author Jonathan Kwok
+ */
+class ExitTrack : public Track
+{
+private:
+	ExitType exitType;
+
+
+
+protected:
+
+
+public:
+	/**
+	 * @brief An ExitTrack constructor that needs its location and its ExitType.
+	 * @param newExitType The ExitType.
+	 * @param newLocationX X coordinate of the track.
+	 * @param newLocationY Y coordinate of the track.
+	 */
+	ExitTrack(ExitType newExitType, int newLocationX, int newLocationY);
+	/**
+	 * @brief Get the type of ExitTrack.
+	 * @return The ExitType enum.
+	 */
+	ExitType getExitType() const;
+	/**
+	 * @brief Set the type of ExitTrack.
+	 * @param newExitType The new ExitType enum.
+	 */
+	void setExitType(const ExitType &newExitType);
+};
+
+
+
+
+/**
+ * @brief The BufferTrack class
+ *
+ * This inehrits from the StraightTrack class.
+ * It can have platforms but not level crossings (Theorecically it can hold levelcrossings but it shouldn't ever).
+ * @warning Since it inherits StraightTrack, it can have level crossings, but it should never have it. This should be made impossible by other classes.
+ * Only main speed and length matter as there is only 2 endings.
+ */
+class BufferTrack : public StraightTrack
+{
+private:
+	BufferType bufferType;
+
+
+
+protected:
+
+
+public:
+	/**
+	 * @brief A BufferTrack constructor that needs its location and its BufferType.
+	 * @param newBufferType The BufferType.
+	 * @param newLocationX X coordinate of the track.
+	 * @param newLocationY Y coordinate of the track.
+	 */
+	BufferTrack(BufferType newBufferType, int newLocationX, int newLocationY);
+	/**
+	 * @brief Get the type of BufferTrack.
+	 * @return The BufferType enum.
+	 */
+	BufferType getBufferType() const;
+	/**
+	 * @brief Set the type of BufferTRack.
+	 * @param newBufferType The new BufferType enum.
+	 */
+	void setBufferType(const BufferType &newBufferType);
 };
 #endif // TRACK_H

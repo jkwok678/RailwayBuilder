@@ -387,3 +387,133 @@ void LinkedTrack::setOtherLinkTrack(std::shared_ptr<LinkedTrack> &newLinkedTrack
 {
 	otherLinkTrack = newLinkedTrack;
 }
+
+
+//ExitTrack class implementation.
+
+
+ExitTrack::ExitTrack(ExitType newExitType, int newLocationX, int newLocationY)
+{
+	exitType = newExitType;
+	locationX = newLocationX;
+	locationY = newLocationY;
+	switch (exitType)
+	{
+		case ExitType::EXITLEFT:
+		{
+			links[5] = true;
+			break;
+		}
+		case ExitType::EXITRIGHT:
+		{
+			links[3] = true;
+			break;
+		}
+		case ExitType::EXITUP:
+		{
+			links[7] = true;
+			break;
+		}
+		case ExitType::EXITDOWN:
+		{
+			links[1] = true;
+			break;
+		}
+		case ExitType::EXITLEFTUP:
+		{
+			links[8] = true;
+			break;
+		}
+		case ExitType::EXITRIGHTUP:
+		{
+			links[6] = true;
+			break;
+		}
+		case ExitType::EXITLEFTDOWN:
+		{
+			links[2] = true;
+			break;
+		}
+		case ExitType::EXITRIGHTDOWN:
+		{
+			links[0] = true;
+			break;
+		}
+	}
+
+}
+
+ExitType ExitTrack::getExitType() const
+{
+	return exitType;
+}
+
+void ExitTrack::setExitType(const ExitType &newExitType)
+{
+	exitType = newExitType;
+}
+
+
+//BufferTrack class implementation.
+
+
+BufferTrack::BufferTrack(BufferType newBufferType, int newLocationX, int newLocationY)
+{
+	bufferType = newBufferType;
+	locationX = newLocationX;
+	locationY = newLocationY;
+	switch (bufferType)
+	{
+		case BufferType::BUFFERLEFT:
+		{
+			links[5] = true;
+			break;
+		}
+		case BufferType::BUFFERRIGHT:
+		{
+			links[3] = true;
+			break;
+		}
+		case BufferType::BUFFERUP:
+		{
+			links[7] = true;
+			break;
+		}
+		case BufferType::BUFFERDOWN:
+		{
+			links[1] = true;
+			break;
+		}
+		case BufferType::BUFFERLEFTUP:
+		{
+			links[8] = true;
+			break;
+		}
+		case BufferType::BUFFERRIGHTUP:
+		{
+			links[6] = true;
+			break;
+		}
+		case BufferType::BUFFERLEFTDOWN:
+		{
+			links[2] = true;
+			break;
+		}
+		case BufferType::BUFFERRIGHTDOWN:
+		{
+			links[0] = true;
+			break;
+		}
+	}
+
+}
+
+BufferType BufferTrack::getBufferType() const
+{
+	return bufferType;
+}
+
+void BufferTrack::setBufferType(const BufferType &newBufferType)
+{
+	bufferType = newBufferType;
+}

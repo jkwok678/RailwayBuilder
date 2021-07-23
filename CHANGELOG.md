@@ -5,6 +5,19 @@ All notable changes to this project will be documented in this file.
 ## Start - 22/07/2021
 
 ### Added
+* The ExitTrack class (includes implementaion and documentation)
+* The ExitType enum class (includes implementaion and documentation)
+* The BufferTrack class (includes implementaion and documentation)
+* The BufferType enum class (includes implementaion and documentation)
+
+### Fixed
+* Images now added to the project. Along with the resources.qrc file.
+* Some grammatical errors in the Doxygen comments in the track.h file.
+
+
+## Start - 22/07/2021
+
+### Added
 * The CurvedTrack class (includes implementaion and documentation)
 * The LinkedTrack class (includes implementaion and documentation)
 * The CurvedType enum class (includes implementaion and documentation)
