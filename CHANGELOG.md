@@ -7,6 +7,8 @@ All notable changes to this project will be documented in this file.
 ### Added
 * The SignalTrack class (includes implementaion and documentation)
 * The SignalType enum clas (includes implementaion and documentation)
+* The BridgeUnderpassTrack class (includes implementaion and documentation)
+* The BridgeUnderpassType enum clas (includes implementaion and documentation)
 
 ## Start - 22/07/2021
 

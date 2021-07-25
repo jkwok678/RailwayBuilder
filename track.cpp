@@ -581,3 +581,41 @@ void SignalTrack::setAspect(int newAspect)
 {
 	aspect = newAspect;
 }
+
+
+//BridgeUnderpassTrack class implementation.
+
+
+BridgeUnderpassTrack::BridgeUnderpassTrack(BridgeUnderpassType newBridgeUnderpassType, int newLocationX, int newLocationY)
+{
+	bridgeUnderpassType = newBridgeUnderpassType;
+	locationX = newLocationX;
+	locationY = newLocationY;
+	switch (bridgeUnderpassType)
+	{
+		case BridgeUnderpassType::BRIDGE1:
+		case BridgeUnderpassType::UNDERPASS1:
+		{
+			links[3] = true;
+			links[5] = true;
+			break;
+		}
+		case BridgeUnderpassType::BRIDGE2:
+		case BridgeUnderpassType::UNDERPASS2:
+		{
+			links[1] = true;
+			links[7] = true;
+			break;
+		}
+	}
+}
+
+BridgeUnderpassType BridgeUnderpassTrack::getBridgeUnderpassType() const
+{
+	return bridgeUnderpassType;
+}
+
+void BridgeUnderpassTrack::setBridgeUnderpassType(const BridgeUnderpassType &newBridgeUnderpassType)
+{
+	bridgeUnderpassType = newBridgeUnderpassType;
+}

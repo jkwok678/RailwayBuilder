@@ -148,6 +148,22 @@ enum class SignalType
 
 
 /**
+ * @brief The BridgeUnderpassType enum.
+ *
+ * THis is for the 2 underpasses and 2 bridges.
+ */
+enum class BridgeUnderpassType
+{
+	BRIDGE1, /// Bridge is vertical.
+	BRIDGE2, /// Bridge is horizontal.
+	UNDERPASS1, /// Underpass is vertical.
+	UNDERPASS2 /// Underpass is horizontal.
+};
+
+
+
+
+/**
  * @brief The Track class.
  *
  * This class is the foundation for other track types like StraightTrack or CurvedTrack.
@@ -576,6 +592,8 @@ public:
  * It can have platforms but not level crossings (Theorecically it can hold levelcrossings but it shouldn't ever).
  * @warning Since it inherits StraightTrack, it can have level crossings, but it should never have it. This should be made impossible by other classes.
  * Only main speed and length matter as there is only 2 endings.
+ * @version 0.1
+ * @author Jonathan Kwok
  */
 class BufferTrack : public StraightTrack
 {
@@ -617,6 +635,8 @@ public:
  * It can have platforms but not level crossings (Theorecically it can hold levelcrossings but it shouldn't ever).
  * @warning Since it inherits StraightTrack, it can have level crossings, but it should never have it. This should be made impossible by other classes.
  * Only main speed and length matter as there is only 2 endings.
+ * @version 0.1
+ * @author Jonathan Kwok
  */
 class SignalTrack : public StraightTrack
 {
@@ -632,7 +652,7 @@ protected:
 
 public:
 	/**
-	 * @brief A SignalTrack constructor that needs its location, signalType and its aspect
+	 * @brief A SignalTrack constructor that needs its location, signalType and its aspect.
 	 * @param newSignalType The SignalType.
 	 * @param newAspect The number of signal aspects there are.
 	 * @param newLocationX X coordinate of the track.
@@ -660,4 +680,48 @@ public:
 	 */
 	void setSignalType(const SignalType &newSignalType);
 };
+
+
+
+
+/**
+ * @brief The BridgeUnderpassTrack class
+ *
+ * This inehrits from the StraightTrack class.
+ * It can have platforms but not level crossings (Theorecically it can hold levelcrossings but it shouldn't ever).
+ * @warning Since it inherits StraightTrack, it can have level crossings, but it should never have it. This should be made impossible by other classes.
+ * Only main speed and length matter as there is only 2 endings.
+ * @version 0.1
+ * @author Jonathan Kwok
+ */
+class BridgeUnderpassTrack : public StraightTrack
+{
+private:
+	BridgeUnderpassType bridgeUnderpassType;
+
+
+
+protected:
+
+
+public:
+	/**
+	 * @brief A BridgeUnderpassTrack constructor that needs its location and its bridge or underpass type.
+	 * @param newBridgeUnderpassType The BridgeUnderpassType.
+	 * @param newLocationX X coordinate of the track.
+	 * @param newLocationY Y coordinate of the track.
+	 */
+	BridgeUnderpassTrack(BridgeUnderpassType newBridgeUnderpassType, int newLocationX, int newLocationY);
+	/**
+	 * @brief Get the type of BridgeUnderpassType.
+	 * @return The BridgeUnderpassType enum
+	 */
+	BridgeUnderpassType getBridgeUnderpassType() const;
+	/**
+	 * @brief Set the type of BridgeUnderpassType.
+	 * @param newBridgeUnderpassType The new BridgeUnderpassType enum.
+	 */
+	void setBridgeUnderpassType(const BridgeUnderpassType &newBridgeUnderpassType);
+};
+
 #endif // TRACK_H
