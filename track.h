@@ -44,7 +44,7 @@ enum class DirectedType
 
 
 /**
- * @brief The CurvedType enum
+ * @brief The CurvedType enum.
  *
  * This is for 12 Curves in total, four 90 degree turns and eight 135 degree turns.
  */
@@ -68,7 +68,7 @@ enum class CurvedType
 
 
 /**
- * @brief The LinkedType enum
+ * @brief The LinkedType enum.
  *
  * This is for 8 types of linked track, for 8 different directions of links.
  */
@@ -88,7 +88,7 @@ enum class LinkedType
 
 
 /**
- * @brief The ExitType enum
+ * @brief The ExitType enum.
  *
  * This is for 8 Exit tracks, for 8 directions of tracks.
  */
@@ -108,7 +108,7 @@ enum class ExitType
 
 
 /**
- * @brief The BufferType enum
+ * @brief The BufferType enum.
  *
  * This is for the 8 different directions of the buffer.
  */
@@ -123,6 +123,30 @@ enum class BufferType
 	BUFFERLEFTDOWN, /// Buffer is at the bottom left.
 	BUFFERRIGHTDOWN /// Buffer is at the bottom right.
 };
+
+
+
+
+/**
+ * @brief The SignalType enum.
+ *
+ * This is for the 8 directions of signals.
+ */
+enum class SignalType
+{
+	SIGNALLEFT, /// Signal to the left.
+	SIGNALRIGHT, /// Signal to the right.
+	SIGNALDOWN, /// Signal downwards.
+	SIGNALUP, /// Signal upwards.
+	SIGNALLEFTUP, /// Signal to the top left.
+	SIGNALRIGHTUP, /// Signal to the top right.
+	SIGNALLEFTDOWN, /// Signal to the bottom left.
+	SIGNALRIGHTDOWN /// Signal to the bottom right.
+};
+
+
+
+
 /**
  * @brief The Track class.
  *
@@ -581,5 +605,59 @@ public:
 	 * @param newBufferType The new BufferType enum.
 	 */
 	void setBufferType(const BufferType &newBufferType);
+};
+
+
+
+
+/**
+ * @brief The SignalTrack class
+ *
+ * This inehrits from the StraightTrack class.
+ * It can have platforms but not level crossings (Theorecically it can hold levelcrossings but it shouldn't ever).
+ * @warning Since it inherits StraightTrack, it can have level crossings, but it should never have it. This should be made impossible by other classes.
+ * Only main speed and length matter as there is only 2 endings.
+ */
+class SignalTrack : public StraightTrack
+{
+private:
+	SignalType signalType;
+	int aspect;
+
+
+
+
+protected:
+
+
+public:
+	/**
+	 * @brief A SignalTrack constructor that needs its location, signalType and its aspect
+	 * @param newSignalType The SignalType.
+	 * @param newAspect The number of signal aspects there are.
+	 * @param newLocationX X coordinate of the track.
+	 * @param newLocationY Y coordinate of the track.
+	 */
+	SignalTrack(SignalType newSignalType, int newAspect, int newLocationX, int newLocationY);
+	/**
+	 * @brief Get the number of aspects the signal has.
+	 * @return THe number of aspects on this signal.
+	 */
+	int getAspect() const;
+	/**
+	 * @brief Set the number of aspects the signal has.
+	 * @param newAspect The new number of aspects on the signal
+	 */
+	void setAspect(int newAspect);
+	/**
+	 * @brief Get the type of SignalType
+	 * @return  The SignalType enum
+	 */
+	SignalType getSignalType() const;
+	/**
+	 * @brief Set the type of SignalType
+	 * @param newSignalType The new SignalType enum.
+	 */
+	void setSignalType(const SignalType &newSignalType);
 };
 #endif // TRACK_H

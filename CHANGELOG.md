@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## Start - 25/07/2021
+
+### Added
+* The SignalTrack class (includes implementaion and documentation)
+* The SignalType enum clas (includes implementaion and documentation)
+
 ## Start - 22/07/2021
 
 ### Added

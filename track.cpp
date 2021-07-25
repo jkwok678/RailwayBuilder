@@ -517,3 +517,67 @@ void BufferTrack::setBufferType(const BufferType &newBufferType)
 {
 	bufferType = newBufferType;
 }
+
+
+//SignalTrack class implementation.
+
+
+SignalTrack::SignalTrack(SignalType newSignalType, int newAspect, int newLocationX, int newLocationY)
+{
+	signalType = newSignalType;
+	aspect = newAspect;
+	locationX = newLocationX;
+	locationY = newLocationY;
+	switch (signalType)
+	{
+		case SignalType::SIGNALLEFT:
+		case SignalType::SIGNALRIGHT:
+		{
+			links[3] = true;
+			links[5] = true;
+			break;
+		}
+		case SignalType::SIGNALUP:
+		case SignalType::SIGNALDOWN:
+		{
+			links[1] = true;
+			links[7] = true;
+			break;
+		}
+		case SignalType::SIGNALLEFTUP:
+		case SignalType::SIGNALRIGHTDOWN:
+		{
+			links[0] = true;
+			links[8] = true;
+			break;
+		}
+		case SignalType::SIGNALRIGHTUP:
+		case SignalType::SIGNALLEFTDOWN:
+		{
+			links[2] = true;
+			links[6] = true;
+			break;
+		}
+	}
+
+}
+
+SignalType SignalTrack::getSignalType() const
+{
+	return signalType;
+}
+
+void SignalTrack::setSignalType(const SignalType &newSignalType)
+{
+	signalType = newSignalType;
+}
+
+int SignalTrack::getAspect() const
+{
+	return aspect;
+}
+
+void SignalTrack::setAspect(int newAspect)
+{
+	aspect = newAspect;
+}
