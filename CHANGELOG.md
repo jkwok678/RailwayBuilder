@@ -5,6 +5,15 @@ All notable changes to this project will be documented in this file.
 ## Start - 25/07/2021
 
 ### Added
+* The SwitchTrack class (includes implementaion and documentation)
+* The SwitchType enum clas (includes implementaion and documentation)
+
+### Fixed
+* Some grammar on the documentation in the track.h file.
+
+## Start - 25/07/2021
+
+### Added
 * The SignalTrack class (includes implementaion and documentation)
 * The SignalType enum clas (includes implementaion and documentation)
 * The BridgeUnderpassTrack class (includes implementaion and documentation)
