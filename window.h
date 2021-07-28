@@ -102,6 +102,16 @@ private slots:
 	void convertMilesChainsYardsToMetres();
 
 	/**
+	 * @brief A method to swap the labels so they make better sense when converting speed.
+	 */
+	void swapSpeedLabel();
+
+	/**
+	 * @brief A method to convert Mph to Km/h and vice versa.
+	 */
+	void convertMPHKMH();
+
+	/**
 	 * @brief A slot to select StraightH tracks to place on screen.
 	 */
 	void chooseStraightH();

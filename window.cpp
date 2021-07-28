@@ -112,6 +112,57 @@ void Window::convertMilesChainsYardsToMetres()
 	actualMetres->setText(QString::number(metres));
 }
 
+void Window::swapSpeedLabel()
+{
+	//Swap the 2 texts on the labels
+	//Then reconvert the numbers
+	QString temp = speedLabel1->text();
+	speedLabel1->setText(speedLabel2->text());
+	speedLabel2->setText(temp);
+	if (mphToKmh)
+	{
+		mphToKmh = false;
+	}
+	else
+	{
+		mphToKmh = true;
+	}
+	convertMPHKMH();
+}
+
+void Window::convertMPHKMH()
+{
+	//Convert mph to kmh or vice versa
+	double result;
+	double temp;
+	//If a speed is entered, try convert it to a double.
+	if (!speedEntry1->text().isEmpty())
+	{
+		bool ok = false;
+		double tempD = speedEntry1->text().toDouble(&ok);
+		if (ok)
+		{
+			 temp = tempD;
+		}
+		if (mphToKmh)
+		{
+			result = temp * MPH_TO_KMH;
+		}
+		else
+		{
+			result = temp / MPH_TO_KMH;
+		}
+		//Round up the result and display it.
+		result = std::ceil(result * 100.0) / 100.0;
+		speedResult->setText(QString::number(result));
+	}
+	else
+	{
+		speedResult->setText("");
+	}
+
+}
+
 void Window::chooseStraightH()
 {
 	//If the Mode is AddRemoveTrack and the element is StraightH,
@@ -215,11 +266,12 @@ void Window::createElementBlock1()
 
 void Window::createSetConvertSpeedDistanceMenu()
 {
+	//Overall
 	setConvertSpeedDistanceMenu = new QWidget;
 	setConvertSpeedDistanceHLayout = new QHBoxLayout;
 	setConvertSpeedDistanceMenu->setLayout(setConvertSpeedDistanceHLayout);
 
-
+	//Converting distances menu.
 	keyGraphicImage = new QLabel;
 	keyImage = new QImage(":/icons/icons/keyGraphic.png");
 	keyGraphicImage->setPixmap(QPixmap::fromImage(*keyImage));
@@ -262,6 +314,7 @@ void Window::createSetConvertSpeedDistanceMenu()
 	converterGrid1->addWidget(metresLabel,0,2);
 	converterGrid1->addWidget(actualMetres,1,2);
 
+	//Converting speed menu.
 	converterGrid2 = new QGridLayout;
 	speedLabel1 = new QLabel;
 	speedLabel1->setText(tr("mph"));
@@ -272,13 +325,13 @@ void Window::createSetConvertSpeedDistanceMenu()
 	swapLabelButton->setText(tr("Swap"));
 	swapLabelButton->setMinimumWidth(30);
 	swapLabelButton->setMaximumWidth(75);
-	//connect(swapLabelButton, SIGNAL (released()),this, SLOT (swapSpeedLabel()));
+	connect(swapLabelButton, SIGNAL (released()),this, SLOT (swapSpeedLabel()));
 	speedLabel2 = new QLabel;
 	speedLabel2->setText(tr("km/h"));
 	speedResult = new QLineEdit;
 	speedResult->setMaximumWidth(150);
 	speedResult->setDisabled(true);
-	//connect(speedEntry1, &QLineEdit::textChanged, this, &Window::convertMPHKMH);
+	connect(speedEntry1, &QLineEdit::textChanged, this, &Window::convertMPHKMH);
 
 	converterGrid2->addWidget(speedLabel1,0,0);
 	converterGrid2->addWidget(speedEntry1,1,0);
@@ -288,8 +341,7 @@ void Window::createSetConvertSpeedDistanceMenu()
 	converterGrid2->setVerticalSpacing(1);
 
 
-	//setTrackLengthSpeedLayout1->addLayout(converterGrid);
-	//setTrackLengthSpeedLayout1->setAlignment(converterGrid, Qt::AlignLeft);
+	setConvertSpeedDistanceHLayout->setAlignment(converterGrid2, Qt::AlignLeft);
 
 	setConvertSpeedDistanceHLayout->addLayout(converterGrid1);
 	setConvertSpeedDistanceHLayout->addLayout(converterGrid2);
