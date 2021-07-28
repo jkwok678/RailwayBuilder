@@ -2,14 +2,17 @@
 
 All notable changes to this project will be documented in this file.
 
-## Start - 25/07/2021
+## Start - 28/07/2021
 
 ### Added
 * The SwitchTrack class (includes implementaion and documentation)
 * The SwitchType enum clas (includes implementaion and documentation)
+* New GUI frontend elements to set/convert speeds and distances.
+* New backend signal slots to set/convert speeds and distances.
 
 ### Fixed
 * Some grammar on the documentation in the track.h file.
+* resources.qrc is now in the CMakeList.txt file.
 
 ## Start - 25/07/2021
 
