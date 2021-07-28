@@ -51,64 +51,11 @@ void Window::openSetConvertSpeedDistanceMenu()
 	}
 }
 
-void Window::convertMilesChainsYardsToMetres()
+void Window::updateMilesChainsYardsToMetresGUI()
 {
-	/* If the miles text entry isn't empty, try make it a double.
-	 * Then make it equal to the double that was inputted by the user.
-	 * Otherwise make miles = 0.
-	 */
-	if (!milesEntry->text().isEmpty())
-	{
-		bool ok = false;
-		double tempD = milesEntry->text().toDouble(&ok);
-		if (ok)
-		{
-			 miles = tempD;
-		}
-	}
-	else
-	{
-		miles = 0;
-	}
 
-	/* If the chains text entry isn't empty, try make it a double.
-	 * Then make it equal to the double that was inputted by the user.
-	 * Otherwise make chains = 0.
-	 */
-	if (!chainsEntry->text().isEmpty())
-	{
-		bool ok = false;
-		double tempD = chainsEntry->text().toDouble(&ok);
-		if (ok)
-		{
-			 chains = tempD;
-		}
-	}
-	else
-	{
-		chains = 0;
-	}
-	/* If the yards text entry isn't empty, try make it a double.
-	 * Then make it equal to the double that was inputted by the user.
-	 * Otherwise make yards = 0.
-	 */
-	if (!yardsEntry->text().isEmpty())
-	{
-		bool ok = false;
-		double tempD = yardsEntry->text().toDouble(&ok);
-		if (ok)
-		{
-			 yards = tempD;
-		}
-	}
-	else
-	{
-		yards = 0;
-	}
-	//Calculate miles + chains + yards in metres.
-	int metres = round((miles* MILE_FACTOR) +(chains* CHAIN_FACTOR) + (yards* YARD_FACTOR));
-	metres = std::ceil(metres * 100.0) / 100.0;
 	//Display it to user
+	int metres = convertDistances();
 	actualMetres->setText(QString::number(metres));
 }
 
@@ -127,33 +74,14 @@ void Window::swapSpeedLabel()
 	{
 		mphToKmh = true;
 	}
-	convertMPHKMH();
+	updateMPHKMH();
 }
 
-void Window::convertMPHKMH()
+void Window::updateMPHKMHGUI()
 {
-	//Convert mph to kmh or vice versa
-	double result;
-	double temp;
-	//If a speed is entered, try convert it to a double.
 	if (!speedEntry1->text().isEmpty())
 	{
-		bool ok = false;
-		double tempD = speedEntry1->text().toDouble(&ok);
-		if (ok)
-		{
-			 temp = tempD;
-		}
-		if (mphToKmh)
-		{
-			result = temp * MPH_TO_KMH;
-		}
-		else
-		{
-			result = temp / MPH_TO_KMH;
-		}
-		//Round up the result and display it.
-		result = std::ceil(result * 100.0) / 100.0;
+		int result = convertSpeed();
 		speedResult->setText(QString::number(result));
 	}
 	else
@@ -300,9 +228,9 @@ void Window::createSetConvertSpeedDistanceMenu()
 	actualMetres->setReadOnly(true);
 	actualMetres->setDisabled(true);
 
-	connect(milesEntry, &QLineEdit::textChanged, this, &Window::convertMilesChainsYardsToMetres);
-	connect(chainsEntry, &QLineEdit::textChanged, this, &Window::convertMilesChainsYardsToMetres);
-	connect(yardsEntry, &QLineEdit::textChanged, this, &Window::convertMilesChainsYardsToMetres);
+	connect(milesEntry, &QLineEdit::textChanged, this, &Window::updateMilesChainsYardsToMetresGUI);
+	connect(chainsEntry, &QLineEdit::textChanged, this, &Window::updateMilesChainsYardsToMetresGUI);
+	connect(yardsEntry, &QLineEdit::textChanged, this, &Window::updateMilesChainsYardsToMetresGUI);
 
 	converterGrid1->addWidget(milesLabel,0,1);
 	converterGrid1->addWidget(milesEntry,0,0);
@@ -331,7 +259,7 @@ void Window::createSetConvertSpeedDistanceMenu()
 	speedResult = new QLineEdit;
 	speedResult->setMaximumWidth(150);
 	speedResult->setDisabled(true);
-	connect(speedEntry1, &QLineEdit::textChanged, this, &Window::convertMPHKMH);
+	connect(speedEntry1, &QLineEdit::textChanged, this, &Window::updateMPHKMH);
 
 	converterGrid2->addWidget(speedLabel1,0,0);
 	converterGrid2->addWidget(speedEntry1,1,0);
@@ -345,4 +273,90 @@ void Window::createSetConvertSpeedDistanceMenu()
 
 	setConvertSpeedDistanceHLayout->addLayout(converterGrid1);
 	setConvertSpeedDistanceHLayout->addLayout(converterGrid2);
+}
+
+int Window::convertDistances()
+{
+	/* If the miles text entry isn't empty, try make it a double.
+	 * Then make it equal to the double that was inputted by the user.
+	 * Otherwise make miles = 0.
+	 */
+	if (!milesEntry->text().isEmpty())
+	{
+		bool ok = false;
+		double tempD = milesEntry->text().toDouble(&ok);
+		if (ok)
+		{
+			 miles = tempD;
+		}
+	}
+	else
+	{
+		miles = 0;
+	}
+
+	/* If the chains text entry isn't empty, try make it a double.
+	 * Then make it equal to the double that was inputted by the user.
+	 * Otherwise make chains = 0.
+	 */
+	if (!chainsEntry->text().isEmpty())
+	{
+		bool ok = false;
+		double tempD = chainsEntry->text().toDouble(&ok);
+		if (ok)
+		{
+			 chains = tempD;
+		}
+	}
+	else
+	{
+		chains = 0;
+	}
+	/* If the yards text entry isn't empty, try make it a double.
+	 * Then make it equal to the double that was inputted by the user.
+	 * Otherwise make yards = 0.
+	 */
+	if (!yardsEntry->text().isEmpty())
+	{
+		bool ok = false;
+		double tempD = yardsEntry->text().toDouble(&ok);
+		if (ok)
+		{
+			 yards = tempD;
+		}
+	}
+	else
+	{
+		yards = 0;
+	}
+	//Calculate miles + chains + yards in metres.
+	int metres = round((miles* MILE_FACTOR) +(chains* CHAIN_FACTOR) + (yards* YARD_FACTOR));
+	metres = std::ceil(metres * 100.0) / 100.0;
+	return metres;
+}
+
+int Window::convertSpeed()
+{
+	//Convert mph to kmh or vice versa
+	double result;
+	double temp;
+	//If a speed is entered, try convert it to a double.
+	bool ok = false;
+	double tempD = speedEntry1->text().toDouble(&ok);
+	if (ok)
+	{
+		temp = tempD;
+	}
+	if (mphToKmh)
+	{
+		result = temp * MPH_TO_KMH;
+	}
+	else
+	{
+		result = temp / MPH_TO_KMH;
+	}
+	//Round up the result and display it.
+	result = std::ceil(result * 100.0) / 100.0;
+	return result;
+
 }

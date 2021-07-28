@@ -97,9 +97,9 @@ private slots:
 	void openSetConvertSpeedDistanceMenu();
 
 	/**
-	 * @brief A method to convert miles, chains and yards to metres.
+	 * @brief A method to update the GUI for converting miles, chains and yards to metres.
 	 */
-	void convertMilesChainsYardsToMetres();
+	void updateMilesChainsYardsToMetresGUI();
 
 	/**
 	 * @brief A method to swap the labels so they make better sense when converting speed.
@@ -109,7 +109,7 @@ private slots:
 	/**
 	 * @brief A method to convert Mph to Km/h and vice versa.
 	 */
-	void convertMPHKMH();
+	void updateMPHKMHGUI();
 
 	/**
 	 * @brief A slot to select StraightH tracks to place on screen.
@@ -227,6 +227,17 @@ private:
 	 * @brief A method to create the menu to set and convert speed and distances.
 	 */
 	void createSetConvertSpeedDistanceMenu();
+
+	/**
+	 * @brief A method to convert distances.
+	 *
+	 * This method will convert miles, chains and yards to metres first, then add them up.
+	 * So if 2 other units of measurements are 0, it just converts the 1 unit of measurement that isn't 0.
+	 * @return
+	 */
+	int convertDistances();
+
+	int convertSpeed();
 
 };
 #endif // WINDOW_H
