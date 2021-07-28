@@ -167,4 +167,68 @@ void Window::createSetConvertSpeedDistanceMenu()
 	keyGraphicImage->setMaximumWidth(500);
 	setConvertSpeedDistanceHLayout->addWidget(keyGraphicImage);
 
+	converterGrid1 = new QGridLayout;
+	milesLabel = new QLabel;
+	milesLabel->setText(tr("Miles"));
+	milesEntry = new QLineEdit;
+	milesEntry->setMaximumWidth(100);
+	chainsLabel = new QLabel;
+	chainsLabel->setText(tr("chains"));
+	chainsEntry = new QLineEdit;
+	chainsEntry->setMaximumWidth(100);
+	yardsLabel = new QLabel;
+	yardsLabel->setText(tr("Yards"));
+	yardsEntry = new QLineEdit;
+	yardsEntry->setMaximumWidth(100);
+	metresLabel = new QLabel;
+	metresLabel->setText(tr("Metres"));
+	actualMetres = new QLineEdit;
+	actualMetres->setMaximumWidth(100);
+	actualMetres->setReadOnly(true);
+	actualMetres->setDisabled(true);
+
+	//connect(milesEntry, &QLineEdit::textChanged, this, &Window::convertMilesYardMetres);
+	//connect(yardsEntry, &QLineEdit::textChanged, this, &Window::convertMilesYardMetres);
+
+	converterGrid1->addWidget(milesLabel,0,1);
+	converterGrid1->addWidget(milesEntry,0,0);
+	converterGrid1->addWidget(chainsLabel,1,1);
+	converterGrid1->addWidget(chainsEntry,1,0);
+	converterGrid1->addWidget(yardsLabel,2,1);
+	converterGrid1->addWidget(yardsEntry,2,0);
+
+	converterGrid1->addWidget(metresLabel,0,2);
+	converterGrid1->addWidget(actualMetres,1,2);
+
+	converterGrid2 = new QGridLayout;
+	speedLabel1 = new QLabel;
+	speedLabel1->setText(tr("mph"));
+	speedEntry1 = new QLineEdit;
+
+	speedEntry1->setMaximumWidth(150);
+	swapLabelButton = new QPushButton;
+	swapLabelButton->setText(tr("Swap"));
+	swapLabelButton->setMinimumWidth(30);
+	swapLabelButton->setMaximumWidth(75);
+	connect(swapLabelButton, SIGNAL (released()),this, SLOT (swapSpeedLabel()));
+	speedLabel2 = new QLabel;
+	speedLabel2->setText(tr("km/h"));
+	speedResult = new QLineEdit;
+	speedResult->setMaximumWidth(150);
+	speedResult->setDisabled(true);
+	//connect(speedEntry1, &QLineEdit::textChanged, this, &Window::convertMPHKMH);
+
+	converterGrid2->addWidget(speedLabel1,0,0);
+	converterGrid2->addWidget(speedEntry1,1,0);
+	converterGrid2->addWidget(speedLabel2,2,0);
+	converterGrid2->addWidget(swapLabelButton,2,1);
+	converterGrid2->addWidget(speedResult,3,0);
+	converterGrid2->setVerticalSpacing(1);
+
+
+	//setTrackLengthSpeedLayout1->addLayout(converterGrid);
+	//setTrackLengthSpeedLayout1->setAlignment(converterGrid, Qt::AlignLeft);
+
+	setConvertSpeedDistanceHLayout->addLayout(converterGrid1);
+	setConvertSpeedDistanceHLayout->addLayout(converterGrid2);
 }

@@ -2,12 +2,12 @@
 #define WINDOW_H
 
 #include <QWidget>
-#include <QWidget>
 #include <QPushButton>
 #include <QtCore>
 #include <QVBoxLayout>
 #include <QStackedWidget>
 #include <QMenuBar>
+#include <QLineEdit>
 #include <QToolButton>
 #include <QStatusBar>
 #include <QLabel>
@@ -17,6 +17,7 @@
 #include <QSizePolicy>
 #include "borderlayout.h"
 #include "canvas.h"
+#include "element.h"
 
 
 /**
@@ -148,6 +149,30 @@ private:
 
 	QLabel* keyGraphicImage;
 	QImage* keyImage;
+
+	QGridLayout* converterGrid1;
+	QLabel* milesLabel;
+	QLineEdit* milesEntry;
+	QLabel* chainsLabel;
+	QLineEdit* chainsEntry;
+	QLabel* yardsLabel;
+	QLineEdit* yardsEntry;
+	QLabel* metresLabel;
+	QLineEdit* actualMetres;
+	double miles;
+	const double MILE_FACTOR{1609.34};
+	double yards;
+	const double YARD_FACTOR{0.9144};
+
+
+	QGridLayout* converterGrid2;
+	QLabel* speedLabel1;
+	QLineEdit* speedEntry1;
+	QPushButton* swapLabelButton;
+	QLabel* speedLabel2;
+	QLineEdit* speedResult;
+	bool mphToKmh{true};
+	const double MPH_TO_KMH{1.60934};
 
 
 
