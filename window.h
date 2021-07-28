@@ -56,7 +56,9 @@ enum class ElementChosen
 
 enum class Mode
 {
-	NONE, ADDREMOVETRACK
+	NONE,
+	ADDREMOVETRACK,
+	SETCONVERTSPEEDDISTANCE
 
 };
 
@@ -89,6 +91,11 @@ private slots:
 	void openElementMenu();
 
 	/**
+	 * @brief A slot to open the SetSpeedDistance menu to set Track speed and length and to convert different types of measurements.
+	 */
+	void openSetConvertSpeedDistanceMenu();
+
+	/**
 	 * @brief A slot to select StraightH tracks to place on screen.
 	 */
 	void chooseStraightH();
@@ -96,6 +103,55 @@ private slots:
 
 
 private:
+
+
+	//Menubar
+
+
+	QMenuBar *menuBar;
+	QMenu *fileMenu;
+	QMenu *modeMenu;
+
+
+	Mode mode;
+	ElementChosen elementChosenToPlace;
+	QWidget *top1Menu;
+
+	QHBoxLayout *buildModifyMenu1;
+
+	QToolButton *elementMenuButton;
+	QIcon   *elementMenuIcon;
+	QAction *openElementMenuAct;
+
+	QToolButton *setConvertSpeedDistanceMenuButton;
+	QIcon   *setConvertSpeedDistanceMenuIcon;
+	QAction *openSetConvertSpeedDistanceMenuAct;
+
+	QStackedWidget *allMenus;
+
+
+	//Element menu
+
+
+	QWidget *elementMenu;
+	QGridLayout* elementMenuLayout;
+
+	QToolButton *straightHButton;
+	QIcon *straightHIcon;
+	QAction *chooseStraightHAct;
+
+	//SetConvertSpeedDistance menu
+
+
+	QWidget *setConvertSpeedDistanceMenu;
+	QHBoxLayout *setConvertSpeedDistanceHLayout;
+
+	QLabel* keyGraphicImage;
+	QImage* keyImage;
+
+
+
+
 
 	/**
 	 * @brief A method to create the menubar that is at the top of the screen.
@@ -125,28 +181,10 @@ private:
 	 */
 	void createElementBlock1();
 
-	QMenuBar *menuBar;
-	QMenu *fileMenu;
-	QMenu *modeMenu;
-
-
-	Mode mode;
-	ElementChosen elementChosenToPlace;
-	QWidget *top1Menu;
-
-	QHBoxLayout *buildModifyMenu1;
-	QToolButton *elementMenuButton;
-	QIcon   *elementMenuIcon;
-	QAction *openElementMenuAct;
-
-	QStackedWidget *allMenus;
-
-	QWidget *elementMenu;
-	QGridLayout* elementMenuLayout;
-
-	QToolButton *straightHButton;
-	QIcon *straightHIcon;
-	QAction *chooseStraightHAct;
+	/**
+	 * @brief A method to create the menu to set and convert speed and distances.
+	 */
+	void createSetConvertSpeedDistanceMenu();
 
 };
 #endif // WINDOW_H

@@ -33,6 +33,20 @@ void Window::openElementMenu()
 
 }
 
+void Window::openSetConvertSpeedDistanceMenu()
+{
+	if (allMenus->currentIndex() != 2)
+	{
+		allMenus->setCurrentIndex(2);
+		mode = Mode::SETCONVERTSPEEDDISTANCE;
+	}
+	else
+	{
+		allMenus->setCurrentIndex(0);
+		mode = Mode::NONE;
+	}
+}
+
 void Window::chooseStraightH()
 {
 	if (mode==Mode::ADDREMOVETRACK && elementChosenToPlace != ElementChosen::STRAIGHTH)
@@ -68,12 +82,13 @@ void Window::createOverallMenu()
 
 
 	allMenus = new QStackedWidget;
-	createElementMenu();
 	allMenus->addWidget(new QWidget());
 	allMenus->addWidget(elementMenu);
+	allMenus->addWidget(setConvertSpeedDistanceMenu);
 	allMenus->setCurrentIndex(0);
 
 }
+
 void Window::createBuildModifyMenu()
 {
 	elementMenuButton = new QToolButton();
@@ -85,6 +100,17 @@ void Window::createBuildModifyMenu()
 	elementMenuButton->setIcon(*elementMenuIcon);
 	buildModifyMenu1->addWidget(elementMenuButton);
 
+	setConvertSpeedDistanceMenuButton = new QToolButton();
+	setConvertSpeedDistanceMenuButton->setMaximumSize(QSize(32,32));
+	openSetConvertSpeedDistanceMenuAct = new QAction;
+	setConvertSpeedDistanceMenuButton->setDefaultAction(openSetConvertSpeedDistanceMenuAct);
+	connect(openSetConvertSpeedDistanceMenuAct,&QAction::triggered,this,&Window::openSetConvertSpeedDistanceMenu);
+	setConvertSpeedDistanceMenuIcon = new QIcon(":/icons/icons/setDistanceSpeed.png");
+	setConvertSpeedDistanceMenuButton->setIcon(*setConvertSpeedDistanceMenuIcon);
+	buildModifyMenu1->addWidget(setConvertSpeedDistanceMenuButton);
+
+	createElementMenu();
+	createSetConvertSpeedDistanceMenu();
 }
 
 void Window::createElementMenu()
@@ -109,4 +135,21 @@ void Window::createElementBlock1()
 	straightHIcon = new QIcon(":/graphics/graphics/straightH.png");
 	straightHButton->setIcon(*straightHIcon);
 	elementMenuLayout->addWidget(straightHButton, 0, 0);
+}
+
+void Window::createSetConvertSpeedDistanceMenu()
+{
+	setConvertSpeedDistanceMenu = new QWidget;
+	setConvertSpeedDistanceHLayout = new QHBoxLayout;
+	setConvertSpeedDistanceMenu->setLayout(setConvertSpeedDistanceHLayout);
+
+
+	keyGraphicImage = new QLabel;
+	keyImage = new QImage(":/icons/icons/keyGraphic.png");
+	keyGraphicImage->setPixmap(QPixmap::fromImage(*keyImage));
+	keyGraphicImage->setScaledContents(true);
+	keyGraphicImage->setMaximumHeight(120);
+	keyGraphicImage->setMaximumWidth(500);
+	setConvertSpeedDistanceHLayout->addWidget(keyGraphicImage);
+
 }
