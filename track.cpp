@@ -67,6 +67,11 @@ void Track::setFound(bool newFound)
 //StraightTrack class implementation.
 
 
+StraightTrack::StraightTrack()
+{
+
+};
+
 StraightTrack::StraightTrack(StraightType newStraightType, int newLocationX, int newLocationY)
 {
 	straightType = newStraightType;
@@ -618,4 +623,238 @@ BridgeUnderpassType BridgeUnderpassTrack::getBridgeUnderpassType() const
 void BridgeUnderpassTrack::setBridgeUnderpassType(const BridgeUnderpassType &newBridgeUnderpassType)
 {
 	bridgeUnderpassType = newBridgeUnderpassType;
+}
+
+
+//SwitchTrack class implementation.
+
+
+SwitchTrack::SwitchTrack(SwitchType newSwitchType, int newLocationX, int newLocationY)
+{
+	switchType = newSwitchType;
+	locationX = newLocationX;
+	locationY = newLocationY;
+	trackSecondaryLength = 100;
+	trackSecondarySpeed = 200;
+	switch (switchType)
+	{
+		case SwitchType::SWITCHTIGHT1:
+		case SwitchType::SWITCHTIGHT2:
+		{
+			links[1] = true;
+			links[3] = true;
+			links[5] = true;
+			break;
+		}
+		case SwitchType::SWITCHTIGHT3:
+		case SwitchType::SWITCHTIGHT4:
+		{
+			links[3] = true;
+			links[5] = true;
+			links[7] = true;
+			break;
+		}
+		case SwitchType::SWITCHTIGHT5:
+		case SwitchType::SWITCHTIGHT7:
+		{
+			links[1] = true;
+			links[3] = true;
+			links[7] = true;
+			break;
+		}
+		case SwitchType::SWITCHTIGHT6:
+		case SwitchType::SWITCHTIGHT8:
+		{
+			links[1] = true;
+			links[5] = true;
+			links[7] = true;
+			break;
+		}
+		case SwitchType::SWITCHSPLIT1:
+		{
+			//Left diverging is main, right diverging is secondary.
+			links[2] = true;
+			links[3] = true;
+			links[8] = true;
+			break;
+		}
+		case SwitchType::SWITCHSPLIT2:
+		{
+			//Left diverging is main, Right diverging is secondary.
+			links[0] = true;
+			links[5] = true;
+			links[6] = true;
+			break;
+		}
+		case SwitchType::SWITCHSPLIT3:
+		{
+			//Left diverging is main, right diverging is secondary.
+			links[2] = true;
+			links[3] = true;
+			links[7] = true;
+			break;
+		}
+		case SwitchType::SWITCHSPLIT4:
+		{
+			//Left diverging is main, right diverging is secondary.
+			links[1] = true;
+			links[5] = true;
+			links[6] = true;
+			break;
+		}
+		case SwitchType::SWITCHSPLIT5:
+		{
+			//Left diverging is main, right diverging is secondary.
+			links[1] = true;
+			links[3] = true;
+			links[8] = true;
+			break;
+		}
+		case SwitchType::SWITCHSPLIT6:
+		{
+			//Left diverging is main, right diverging is secondary.
+			links[0] = true;
+			links[5] = true;
+			links[7] = true;
+			break;
+		}
+		case SwitchType::SWITCHSPLIT7:
+		{
+			//Left diverging is main, right diverging is secondary.
+			links[0] = true;
+			links[2] = true;
+			links[7] = true;
+			break;
+		}
+		case SwitchType::SWITCHSPLIT8:
+		{
+			//Left diverging is main, right diverging is secondary.
+			links[1] = true;
+			links[6] = true;
+			links[8] = true;
+			break;
+		}
+		case SwitchType::SWITCH1:
+		{
+			links[2] = true;
+			links[3] = true;
+			links[5] = true;
+			break;
+		}
+		case SwitchType::SWITCH2:
+		{
+			links[0] = true;
+			links[3] = true;
+			links[5] = true;
+			break;
+		}
+		case SwitchType::SWITCH3:
+		{
+			links[3] = true;
+			links[5] = true;
+			links[8] = true;
+			break;
+		}
+		case SwitchType::SWITCH4:
+		{
+			links[3] = true;
+			links[5] = true;
+			links[6] = true;
+			break;
+		}
+		case SwitchType::SWITCH5:
+		{
+			links[0] = true;
+			links[1] = true;
+			links[7] = true;
+			break;
+		}
+		case SwitchType::SWITCH6:
+		{
+			links[1] = true;
+			links[2] = true;
+			links[7] = true;
+			break;
+		}
+		case SwitchType::SWITCH7:
+		{
+			links[1] = true;
+			links[6] = true;
+			links[7] = true;
+			break;
+		}
+		case SwitchType::SWITCH8:
+		{
+			links[1] = true;
+			links[7] = true;
+			links[8] = true;
+			break;
+		}
+		case SwitchType::SWITCH9:
+		{
+			links[0] = true;
+			links[1] = true;
+			links[8] = true;
+			break;
+		}
+		case SwitchType::SWITCH10:
+		{
+			links[1] = true;
+			links[2] = true;
+			links[6] = true;
+			break;
+		}
+		case SwitchType::SWITCH11:
+		{
+			links[2] = true;
+			links[6] = true;
+			links[7] = true;
+			break;
+		}
+		case SwitchType::SWITCH12:
+		{
+			links[0] = true;
+			links[7] = true;
+			links[8] = true;
+			break;
+		}
+		case SwitchType::SWITCH13:
+		{
+			links[0] = true;
+			links[3] = true;
+			links[8] = true;
+			break;
+		}
+		case SwitchType::SWITCH14:
+		{
+			links[2] = true;
+			links[5] = true;
+			links[6] = true;
+			break;
+		}
+		case SwitchType::SWITCH15:
+		{
+			links[2] = true;
+			links[3] = true;
+			links[6] = true;
+			break;
+		}
+		case SwitchType::SWITCH16:
+		{
+			links[0] = true;
+			links[5] = true;
+			links[8] = true;
+			break;
+		}
+	}
+}
+
+SwitchType SwitchTrack::getSwitchType() const
+{
+	return switchType;
+}
+
+void SwitchTrack::setSwitchType(const SwitchType &newSwitchType)
+{
+	switchType = newSwitchType;
 }

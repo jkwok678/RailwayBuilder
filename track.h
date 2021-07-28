@@ -150,7 +150,7 @@ enum class SignalType
 /**
  * @brief The BridgeUnderpassType enum.
  *
- * THis is for the 2 underpasses and 2 bridges.
+ * This is for the 2 underpasses and 2 bridges.
  */
 enum class BridgeUnderpassType
 {
@@ -164,9 +164,56 @@ enum class BridgeUnderpassType
 
 
 /**
+ * @brief The SwitchType enum.
+ *
+ * There are 8 tight 90 degree switches.
+ * There are also 8 switches that split off from the middle.
+ * There are 16 normal 135 degree switches.
+ */
+enum class SwitchType
+{
+	SWITCHTIGHT1, /// 90 degree switch, from the left to the right and top.
+	SWITCHTIGHT2, /// 90 degree switch, from the right to the left and top.
+	SWITCHTIGHT3, /// 90 degree switch, from the left to the the right and bottom.
+	SWITCHTIGHT4, /// 90 degree switch, from the right to the left and bottom.
+	SWITCHTIGHT5, /// 90 degree switch, from the bottom to the left and top.
+	SWITCHTIGHT6, /// 90 degree switch, from the bottom to the right and top.
+	SWITCHTIGHT7, /// 90 degree switch, from the top to the left and bottom.
+	SWITCHTIGHT8, /// 90 degree switch, from the top to the right and bottom.
+	SWITCHSPLIT1, /// Split switch, from the left to the top right and bottom left.
+	SWITCHSPLIT2, /// Split switch, from the right to the top left and bottom right.
+	SWITCHSPLIT3, /// Split switch, from the top right to the bottom and the left.
+	SWITCHSPLIT4, /// Split switch, from the bottom left to the top and right.
+	SWITCHSPLIT5, /// Split switch, from the bottom right to the top and left.
+	SWITCHSPLIT6, /// Split switch, from the top left to the bottom and right.
+	SWITCHSPLIT7, /// Split switch, from the bottom to the top left and top right.
+	SWITCHSPLIT8, /// Split switch, from the left to the top right and bottom left.
+	SWITCH1, /// 135 degree switch, from the left to the right and top right.
+	SWITCH2, /// 135 degree switch, from the right to the left and top left.
+	SWITCH3, /// 135 degree switch, from the left to the right and bottom right.
+	SWITCH4, /// 135 degree switch, from the right to the left and bottom left.
+	SWITCH5, /// 135 degree switch, from the bottom to the top and top left.
+	SWITCH6, /// 135 degree switch, from the bottom to the top and top right.
+	SWITCH7, /// 135 degree switch, from the top to the bottom and bottom left.
+	SWITCH8, /// 135 degree switch, from the top to the bottom and bottom right.
+	SWITCH9, /// 135 degree switch, from the bottom right to the top left and top.
+	SWITCH10, /// 135 degree switch, from the bottom left to the top right and top.
+	SWITCH11, /// 135 degree switch, from the top right to the bottom left and bottom.
+	SWITCH12, /// 135 degree switch, from the top left to the bottom right and bottom.
+	SWITCH13, /// 135 degree switch, from the bottom right to the top left and left.
+	SWITCH14, /// 135 degree switch, from the bottom left to the top right and right.
+	SWITCH15, /// 135 degree switch, from the top right to the bottom left and left.
+	SWITCH16 /// 135 degree switch, from the top left to the bottom right and right.
+};
+
+
+
+
+/**
  * @brief The Track class.
  *
  * This class is the foundation for other track types like StraightTrack or CurvedTrack.
+ *
  * @version 0.1
  * @author Jonathan Kwok
  */
@@ -278,11 +325,12 @@ public:
 
 
 /**
- * @brief The StraightTrack class
+ * @brief The StraightTrack class.
  *
  * This inehrits from the track class.
  * It can contain platforms or level crossings.
- * Only main speed and length matter as there is only 2 endings.
+ * Only main speed and length matter as there are only 2 endings.
+ *
  * @version 0.1
  * @author Jonathan Kwok
  */
@@ -304,7 +352,7 @@ protected:
 public:
 
 	/**
-	 * @brief Default constructor for StraightTrack
+	 * @brief Default constructor for StraightTrack.
 	 */
 	StraightTrack();
 	/**
@@ -383,7 +431,8 @@ public:
  *
  * This inehrits from the Straight Track class.
  * It can contain platforms or level crossings.
- * Only main speed and length matter as there is only 2 endings.
+ * Only main speed and length matter as there are only 2 endings.
+ *
  * @version 0.1
  * @author Jonathan Kwok
  */
@@ -424,11 +473,12 @@ public:
 
 
 /**
- * @brief The CurvedTrack class
+ * @brief The CurvedTrack class.
  *
  * This inehrits from the Track class.
  * It cannot have platforms and level crossings.
- * Only main speed and length matter as there is only 2 endings.
+ * Only main speed and length matter as there are only 2 endings.
+ *
  * @version 0.1
  * @author Jonathan Kwok
  */
@@ -446,7 +496,7 @@ public:
 
 	/**
 	 * @brief A CurvedTrack constructor that needs its location and its CurveType.
-	 * @param newCurvedType The CurveType
+	 * @param newCurvedType The CurveType.
 	 * @param newLocationX X coordinate of the track.
 	 * @param newLocationY Y corrdinate of the track.
 	 */
@@ -469,11 +519,12 @@ public:
 
 
 /**
- * @brief The LinkedTrack class
+ * @brief The LinkedTrack class.
  *
  * This inehrits from the Track class.
  * It cannot have platforms and level crossings.
- * Only main speed and length matter as there is only 2 endings.
+ * Only main speed and length matter as there are only 2 endings.
+ *
  * @version 0.1
  * @author Jonathan Kwok
  */
@@ -492,7 +543,7 @@ protected:
 public:
 
 	/**
-	 * @brief Default LinkedTrack constructor
+	 * @brief Default LinkedTrack constructor.
 	 */
 	LinkedTrack();
 
@@ -544,11 +595,12 @@ public:
 
 
 /**
- * @brief The ExitTrack class
+ * @brief The ExitTrack class.
  *
  * This inehrits from the Track class.
  * It cannot have platforms and level crossings.
- * Only main speed and length matter as there is only 2 endings.
+ * Only main speed and length matter as there are only 2 endings.
+ *
  * @version 0.1
  * @author Jonathan Kwok
  */
@@ -586,12 +638,13 @@ public:
 
 
 /**
- * @brief The BufferTrack class
+ * @brief The BufferTrack class.
  *
  * This inehrits from the StraightTrack class.
  * It can have platforms but not level crossings (Theorecically it can hold levelcrossings but it shouldn't ever).
+ * Only main speed and length matter as there are only 2 endings.
+ *
  * @warning Since it inherits StraightTrack, it can have level crossings, but it should never have it. This should be made impossible by other classes.
- * Only main speed and length matter as there is only 2 endings.
  * @version 0.1
  * @author Jonathan Kwok
  */
@@ -629,12 +682,13 @@ public:
 
 
 /**
- * @brief The SignalTrack class
+ * @brief The SignalTrack class.
  *
  * This inehrits from the StraightTrack class.
  * It can have platforms but not level crossings (Theorecically it can hold levelcrossings but it shouldn't ever).
+ * Only main speed and length matter as there are only 2 endings.
+ *
  * @warning Since it inherits StraightTrack, it can have level crossings, but it should never have it. This should be made impossible by other classes.
- * Only main speed and length matter as there is only 2 endings.
  * @version 0.1
  * @author Jonathan Kwok
  */
@@ -666,16 +720,16 @@ public:
 	int getAspect() const;
 	/**
 	 * @brief Set the number of aspects the signal has.
-	 * @param newAspect The new number of aspects on the signal
+	 * @param newAspect The new number of aspects on the signal.
 	 */
 	void setAspect(int newAspect);
 	/**
-	 * @brief Get the type of SignalType
-	 * @return  The SignalType enum
+	 * @brief Get the type of SignalType.
+	 * @return  The SignalType enum.
 	 */
 	SignalType getSignalType() const;
 	/**
-	 * @brief Set the type of SignalType
+	 * @brief Set the type of SignalType.
 	 * @param newSignalType The new SignalType enum.
 	 */
 	void setSignalType(const SignalType &newSignalType);
@@ -685,12 +739,13 @@ public:
 
 
 /**
- * @brief The BridgeUnderpassTrack class
+ * @brief The BridgeUnderpassTrack class.
  *
  * This inehrits from the StraightTrack class.
  * It can have platforms but not level crossings (Theorecically it can hold levelcrossings but it shouldn't ever).
+ * Only main speed and length matter as there are only 2 endings.
+ *
  * @warning Since it inherits StraightTrack, it can have level crossings, but it should never have it. This should be made impossible by other classes.
- * Only main speed and length matter as there is only 2 endings.
  * @version 0.1
  * @author Jonathan Kwok
  */
@@ -714,7 +769,7 @@ public:
 	BridgeUnderpassTrack(BridgeUnderpassType newBridgeUnderpassType, int newLocationX, int newLocationY);
 	/**
 	 * @brief Get the type of BridgeUnderpassType.
-	 * @return The BridgeUnderpassType enum
+	 * @return The BridgeUnderpassType enum.
 	 */
 	BridgeUnderpassType getBridgeUnderpassType() const;
 	/**
@@ -724,4 +779,50 @@ public:
 	void setBridgeUnderpassType(const BridgeUnderpassType &newBridgeUnderpassType);
 };
 
+
+
+
+/**
+ * @brief The SwitchTrack class.
+ *
+ * This inehrits from the StraightTrack class.
+ * It can have platforms but not level crossings (Theorecically it can hold levelcrossings but it shouldn't ever).
+ * Both main and secondary speed and length matter as there are 3 endings.
+ * Secondary speeds and length are for the diverging track if there is one.
+ * Otherwise main speeds and lengths are the left track and the right track is the secondary.
+ *
+ * @warning Since it inherits StraightTrack, it can have level crossings, but it should never have it. This should be made impossible by other classes.
+ * @warning It can only have a platform on the straight track of the switch.
+ * @version 0.1
+ * @author Jonathan Kwok
+ */
+class SwitchTrack : public StraightTrack
+{
+private:
+	SwitchType switchType;
+
+
+
+protected:
+
+
+public:
+	/**
+	 * @brief A SwitchTrack constructor that needs its location and switch type.
+	 * @param newSwitchType The Switchtype.
+	 * @param newLocationX X coordinate of the track.
+	 * @param newLocationY Y coordinate of the track.
+	 */
+	SwitchTrack(SwitchType newSwitchType, int newLocationX, int newLocationY);
+	/**
+	 * @brief Get the type of SwitchType.
+	 * @return The SwitchType enum.
+	 */
+	SwitchType getSwitchType() const;
+	/**
+	 * @brief Set the type of SwitchType.
+	 * @param newSwitchType The new SwitchType enum.
+	 */
+	void setSwitchType(const SwitchType &newSwitchType);
+};
 #endif // TRACK_H
