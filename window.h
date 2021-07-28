@@ -97,6 +97,11 @@ private slots:
 	void openSetConvertSpeedDistanceMenu();
 
 	/**
+	 * @brief A method to convert miles, chains and yards to metres.
+	 */
+	void convertMilesChainsYardsToMetres();
+
+	/**
 	 * @brief A slot to select StraightH tracks to place on screen.
 	 */
 	void chooseStraightH();
@@ -161,6 +166,8 @@ private:
 	QLineEdit* actualMetres;
 	double miles;
 	const double MILE_FACTOR{1609.34};
+	double chains;
+	const double CHAIN_FACTOR{20.1168};
 	double yards;
 	const double YARD_FACTOR{0.9144};
 

@@ -51,6 +51,67 @@ void Window::openSetConvertSpeedDistanceMenu()
 	}
 }
 
+void Window::convertMilesChainsYardsToMetres()
+{
+	/* If the miles text entry isn't empty, try make it a double.
+	 * Then make it equal to the double that was inputted by the user.
+	 * Otherwise make miles = 0.
+	 */
+	if (!milesEntry->text().isEmpty())
+	{
+		bool ok = false;
+		double tempD = milesEntry->text().toDouble(&ok);
+		if (ok)
+		{
+			 miles = tempD;
+		}
+	}
+	else
+	{
+		miles = 0;
+	}
+
+	/* If the chains text entry isn't empty, try make it a double.
+	 * Then make it equal to the double that was inputted by the user.
+	 * Otherwise make chains = 0.
+	 */
+	if (!chainsEntry->text().isEmpty())
+	{
+		bool ok = false;
+		double tempD = chainsEntry->text().toDouble(&ok);
+		if (ok)
+		{
+			 chains = tempD;
+		}
+	}
+	else
+	{
+		chains = 0;
+	}
+	/* If the yards text entry isn't empty, try make it a double.
+	 * Then make it equal to the double that was inputted by the user.
+	 * Otherwise make yards = 0.
+	 */
+	if (!yardsEntry->text().isEmpty())
+	{
+		bool ok = false;
+		double tempD = yardsEntry->text().toDouble(&ok);
+		if (ok)
+		{
+			 yards = tempD;
+		}
+	}
+	else
+	{
+		yards = 0;
+	}
+	//Calculate miles + chains + yards in metres.
+	int metres = round((miles* MILE_FACTOR) +(chains* CHAIN_FACTOR) + (yards* YARD_FACTOR));
+	metres = std::ceil(metres * 100.0) / 100.0;
+	//Display it to user
+	actualMetres->setText(QString::number(metres));
+}
+
 void Window::chooseStraightH()
 {
 	//If the Mode is AddRemoveTrack and the element is StraightH,
@@ -187,8 +248,9 @@ void Window::createSetConvertSpeedDistanceMenu()
 	actualMetres->setReadOnly(true);
 	actualMetres->setDisabled(true);
 
-	//connect(milesEntry, &QLineEdit::textChanged, this, &Window::convertMilesYardMetres);
-	//connect(yardsEntry, &QLineEdit::textChanged, this, &Window::convertMilesYardMetres);
+	connect(milesEntry, &QLineEdit::textChanged, this, &Window::convertMilesChainsYardsToMetres);
+	connect(chainsEntry, &QLineEdit::textChanged, this, &Window::convertMilesChainsYardsToMetres);
+	connect(yardsEntry, &QLineEdit::textChanged, this, &Window::convertMilesChainsYardsToMetres);
 
 	converterGrid1->addWidget(milesLabel,0,1);
 	converterGrid1->addWidget(milesEntry,0,0);
@@ -210,7 +272,7 @@ void Window::createSetConvertSpeedDistanceMenu()
 	swapLabelButton->setText(tr("Swap"));
 	swapLabelButton->setMinimumWidth(30);
 	swapLabelButton->setMaximumWidth(75);
-	connect(swapLabelButton, SIGNAL (released()),this, SLOT (swapSpeedLabel()));
+	//connect(swapLabelButton, SIGNAL (released()),this, SLOT (swapSpeedLabel()));
 	speedLabel2 = new QLabel;
 	speedLabel2->setText(tr("km/h"));
 	speedResult = new QLineEdit;
