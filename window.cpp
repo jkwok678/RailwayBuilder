@@ -74,7 +74,7 @@ void Window::swapSpeedLabel()
 	{
 		mphToKmh = true;
 	}
-	updateMPHKMH();
+	updateMPHKMHGUI();
 }
 
 void Window::updateMPHKMHGUI()
@@ -259,7 +259,7 @@ void Window::createSetConvertSpeedDistanceMenu()
 	speedResult = new QLineEdit;
 	speedResult->setMaximumWidth(150);
 	speedResult->setDisabled(true);
-	connect(speedEntry1, &QLineEdit::textChanged, this, &Window::updateMPHKMH);
+	connect(speedEntry1, &QLineEdit::textChanged, this, &Window::updateMPHKMHGUI);
 
 	converterGrid2->addWidget(speedLabel1,0,0);
 	converterGrid2->addWidget(speedEntry1,1,0);
