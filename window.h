@@ -82,7 +82,20 @@ public:
 	 * Create a window object that includes the different parts needed to make the program function like the Canvas and the BorderLayout.
 	 */
 	Window();
+
 	~Window();
+
+
+	/**
+	 * @brief A method to convert distances.
+	 *
+	 * This method will convert miles, chains and yards to metres first, then add them up.
+	 * So if 2 other units of measurements are 0, it just converts the 1 unit of measurement that isn't 0.
+	 * @return
+	 */
+	int convertDistances();
+
+	int convertSpeed();
 
 private slots:
 
@@ -191,10 +204,6 @@ private:
 	bool mphToKmh{true};
 	const double MPH_TO_KMH{1.60934};
 
-
-
-
-
 	/**
 	 * @brief A method to create the menubar that is at the top of the screen.
 	 *
@@ -227,17 +236,6 @@ private:
 	 * @brief A method to create the menu to set and convert speed and distances.
 	 */
 	void createSetConvertSpeedDistanceMenu();
-
-	/**
-	 * @brief A method to convert distances.
-	 *
-	 * This method will convert miles, chains and yards to metres first, then add them up.
-	 * So if 2 other units of measurements are 0, it just converts the 1 unit of measurement that isn't 0.
-	 * @return
-	 */
-	int convertDistances();
-
-	int convertSpeed();
 
 };
 #endif // WINDOW_H
