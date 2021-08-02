@@ -1,6 +1,15 @@
 # Changelog
     
 All notable changes to this project will be documented in this file.
+
+## Start - 03/08/2021
+
+### Added
+* The CrossoverTrack class (includes implementaion and documentation)
+* The CrossoverType enum clas (includes implementaion and documentation)
+* The FlyoverTrack class (includes implementaion and documentation)
+* The FlyoverType enum clas (includes implementaion and documentation)
+
 ## Start - 02/08/2021
 
 ### Added

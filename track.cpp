@@ -858,3 +858,178 @@ void SwitchTrack::setSwitchType(const SwitchType &newSwitchType)
 {
 	switchType = newSwitchType;
 }
+
+
+//CrossoverTrack class implementation.
+
+
+CrossoverTrack::CrossoverTrack(CrossoverType newCrossoverType, int newLocationX, int newLocationY)
+{
+	crossoverType = newCrossoverType;
+	locationX = newLocationX;
+	locationY = newLocationY;
+	trackSecondaryLength = 100;
+	trackSecondaryLength = 200;
+	switch (crossoverType)
+	{
+		case CrossoverType::CROSSOVER1:
+		{
+			//Horizontal is main, vertical is secondary
+			links[1] = true;
+			links[3] = true;
+			links[5] = true;
+			links[7] = true;
+			break;
+		}
+		case CrossoverType::CROSSOVER2:
+		{
+			//Top left to Bottom right is main, other is secondary
+			links[0] = true;
+			links[2] = true;
+			links[6] = true;
+			links[8] = true;
+			break;
+		}
+		case CrossoverType::CROSSOVER3:
+		{
+			//Vertical is main, other is secondary
+			links[0] = true;
+			links[1] = true;
+			links[7] = true;
+			links[8] = true;
+			break;
+		}
+		case CrossoverType::CROSSOVER4:
+		{
+			//Vertical is main, other is secondary
+			links[1] = true;
+			links[2] = true;
+			links[6] = true;
+			links[7] = true;
+			break;
+		}
+		case CrossoverType::CROSSOVER5:
+		{
+			//Horizontal is main, other is secondary
+			links[0] = true;
+			links[3] = true;
+			links[5] = true;
+			links[8] = true;
+			break;
+		}
+		case CrossoverType::CROSSOVER6:
+		{
+			//Horizontal is main, other is secondary
+			links[2] = true;
+			links[3] = true;
+			links[5] = true;
+			links[6] = true;
+			break;
+		}
+	}
+
+}
+
+CrossoverType CrossoverTrack::getCrossoverType() const
+{
+	return crossoverType;
+}
+
+void CrossoverTrack::setCrossoverType(const CrossoverType &newCrossoverType)
+{
+	crossoverType = newCrossoverType;
+}
+
+
+//FlyoverTrack class implementation.
+
+
+FlyoverTrack::FlyoverTrack(FlyoverType newFlyoverType, int newLocationX, int newLocationY)
+{
+	flyoverType = newFlyoverType;
+	locationX = newLocationX;
+	locationY = newLocationY;
+	trackSecondaryLength = 100;
+	trackSecondaryLength = 200;
+	//Bottom track is secondary
+	switch (flyoverType)
+	{
+		case FlyoverType::FLYOVER1:
+		case FlyoverType::FLYOVER2:
+		{
+			//For Flyover 1, vertical is the Top Track and the main track.
+			//For Flyover 2, horizontal is the Top Track and the main track.
+			links[1] = true;
+			links[3] = true;
+			links[5] = true;
+			links[7] = true;
+			break;
+		}
+		case FlyoverType::FLYOVER3:
+		case FlyoverType::FLYOVER4:
+		{
+			//For Flyover 3, top left to bottom right is the Top Track and the main track.
+			//For Flyover 4, top right to bottom left is the Top Track and the main track.
+			links[0] = true;
+			links[2] = true;
+			links[6] = true;
+			links[8] = true;
+			break;
+		}
+		case FlyoverType::FLYOVER5:
+		case FlyoverType::FLYOVER7:
+		{
+			//For Flyover 5, Vertical is the Top Track and the main track.
+			//For Flyover 7, top left to bottom right is the Top Track and the main track.
+			links[0] = true;
+			links[1] = true;
+			links[7] = true;
+			links[8] = true;
+			break;
+		}
+		case FlyoverType::FLYOVER6:
+		case FlyoverType::FLYOVER8:
+		{
+			//For Flyover 6, Vertical is the Top Track and the main track.
+			//For Flyover 8, top right to bottom left is the Top Track and the main track.
+			links[1] = true;
+			links[2] = true;
+			links[6] = true;
+			links[7] = true;
+			break;
+		}
+		case FlyoverType::FLYOVER9:
+		case FlyoverType::FLYOVER11:
+		{
+			//For Flyover 9, Horizontal is the Top Track and the main track.
+			//For Flyover 11, top left to bottom right is the Top Track and the main track.
+			links[0] = true;
+			links[3] = true;
+			links[5] = true;
+			links[8] = true;
+			break;
+		}
+		case FlyoverType::FLYOVER10:
+		case FlyoverType::FLYOVER12:
+		{
+			//For Flyover 10, Horizontal is the Top Track and the main track.
+			//For Flyover 12, top right to bottom left Top Track and the main track.
+			links[2] = true;
+			links[3] = true;
+			links[5] = true;
+			links[6] = true;
+			break;
+		}
+	}
+
+}
+
+FlyoverType FlyoverTrack::getFlyoverType() const
+{
+	return flyoverType;
+}
+
+void FlyoverTrack::setFlyoverType(const FlyoverType &newFlyoverType)
+{
+	flyoverType = newFlyoverType;
+}

@@ -208,6 +208,47 @@ enum class SwitchType
 
 
 
+/**
+ * @brief The CrossoverType enum
+ *
+ * There are 6 crossover tracks, where only 1 train is allowed at a time.
+ */
+enum class CrossoverType
+{
+	CROSSOVER1, /// Horizontal is main, vertical is secondary.
+	CROSSOVER2, /// Top left to bottom right is main, bottom left to top right is secondary.
+	CROSSOVER3, /// Vertical is main, other is secondary.
+	CROSSOVER4, /// Vertical is main, other is secondary.
+	CROSSOVER5, /// Horizontal is main, other is secondary.
+	CROSSOVER6 /// Horizontal is main, other is secondary.
+};
+
+
+
+
+/**
+ * @brief The FlyoverType enum
+ *
+ * There are 12 flyover tracks with 6 main ones. The other six are the same apart from having the other track on top instead.
+ */
+enum class FlyoverType
+{
+	FLYOVER1, /// The vertical track is the top track and the main track.
+	FLYOVER2, /// The horizontal track is the top track and the main track.
+	FLYOVER3, /// The top left to bottom right track is the top track and the main track.
+	FLYOVER4, /// The top right to bottom left track is the top track and the main track.
+	FLYOVER5, /// The vertical track is the top track and the main track.
+	FLYOVER6, /// The vertical track is the top track and the main track.
+	FLYOVER7, /// The top left to bottom right track is the top track and the main track.
+	FLYOVER8, /// The top right to bottom left track is the top track and the main track.
+	FLYOVER9, /// The horizontal track is the top track and the main track.
+	FLYOVER10, /// The horizontal track is the top track and the main track.
+	FLYOVER11, /// The top left to bottom right track is the top track and the main track.
+	FLYOVER12 /// The top right to bottom left track is the top track and the main track.
+};
+
+
+
 
 /**
  * @brief The Track class.
@@ -584,6 +625,7 @@ public:
 	 * @return A shared pointer that contains another LinkedTrack.
 	 */
 	std::shared_ptr<LinkedTrack> getOtherLinkTrack();
+
 	/**
 	 * @brief Set the linked track to another LinkedTrack.
 	 * @param newLinkedTrack A shared pointer that has a LinkedTrack.
@@ -615,6 +657,7 @@ protected:
 
 
 public:
+
 	/**
 	 * @brief An ExitTrack constructor that needs its location and its ExitType.
 	 * @param newExitType The ExitType.
@@ -622,11 +665,13 @@ public:
 	 * @param newLocationY Y coordinate of the track.
 	 */
 	ExitTrack(ExitType newExitType, int newLocationX, int newLocationY);
+
 	/**
 	 * @brief Get the type of ExitTrack.
 	 * @return The ExitType enum.
 	 */
 	ExitType getExitType() const;
+
 	/**
 	 * @brief Set the type of ExitTrack.
 	 * @param newExitType The new ExitType enum.
@@ -659,6 +704,7 @@ protected:
 
 
 public:
+
 	/**
 	 * @brief A BufferTrack constructor that needs its location and its BufferType.
 	 * @param newBufferType The BufferType.
@@ -666,11 +712,13 @@ public:
 	 * @param newLocationY Y coordinate of the track.
 	 */
 	BufferTrack(BufferType newBufferType, int newLocationX, int newLocationY);
+
 	/**
 	 * @brief Get the type of BufferTrack.
 	 * @return The BufferType enum.
 	 */
 	BufferType getBufferType() const;
+
 	/**
 	 * @brief Set the type of BufferTRack.
 	 * @param newBufferType The new BufferType enum.
@@ -705,6 +753,7 @@ protected:
 
 
 public:
+
 	/**
 	 * @brief A SignalTrack constructor that needs its location, signalType and its aspect.
 	 * @param newSignalType The SignalType.
@@ -713,21 +762,25 @@ public:
 	 * @param newLocationY Y coordinate of the track.
 	 */
 	SignalTrack(SignalType newSignalType, int newAspect, int newLocationX, int newLocationY);
+
 	/**
 	 * @brief Get the number of aspects the signal has.
 	 * @return THe number of aspects on this signal.
 	 */
 	int getAspect() const;
+
 	/**
 	 * @brief Set the number of aspects the signal has.
 	 * @param newAspect The new number of aspects on the signal.
 	 */
 	void setAspect(int newAspect);
+
 	/**
 	 * @brief Get the type of SignalType.
 	 * @return  The SignalType enum.
 	 */
 	SignalType getSignalType() const;
+
 	/**
 	 * @brief Set the type of SignalType.
 	 * @param newSignalType The new SignalType enum.
@@ -760,6 +813,7 @@ protected:
 
 
 public:
+
 	/**
 	 * @brief A BridgeUnderpassTrack constructor that needs its location and its bridge or underpass type.
 	 * @param newBridgeUnderpassType The BridgeUnderpassType.
@@ -767,11 +821,13 @@ public:
 	 * @param newLocationY Y coordinate of the track.
 	 */
 	BridgeUnderpassTrack(BridgeUnderpassType newBridgeUnderpassType, int newLocationX, int newLocationY);
+
 	/**
 	 * @brief Get the type of BridgeUnderpassType.
 	 * @return The BridgeUnderpassType enum.
 	 */
 	BridgeUnderpassType getBridgeUnderpassType() const;
+
 	/**
 	 * @brief Set the type of BridgeUnderpassType.
 	 * @param newBridgeUnderpassType The new BridgeUnderpassType enum.
@@ -807,6 +863,7 @@ protected:
 
 
 public:
+
 	/**
 	 * @brief A SwitchTrack constructor that needs its location and switch type.
 	 * @param newSwitchType The Switchtype.
@@ -814,15 +871,111 @@ public:
 	 * @param newLocationY Y coordinate of the track.
 	 */
 	SwitchTrack(SwitchType newSwitchType, int newLocationX, int newLocationY);
+
 	/**
 	 * @brief Get the type of SwitchType.
 	 * @return The SwitchType enum.
 	 */
 	SwitchType getSwitchType() const;
+
 	/**
 	 * @brief Set the type of SwitchType.
 	 * @param newSwitchType The new SwitchType enum.
 	 */
 	void setSwitchType(const SwitchType &newSwitchType);
+};
+
+
+
+
+/**
+ * @brief The CrossoverTrack class
+ *
+ * This inehrits from the Track class.
+ * It cannot have platforms and level crossings.
+ * Both main and secondary speed and length matter as there are 4 endings.
+ *
+ * Main speed and lengths are for horizontal and vertical tracks, when there is a diagonal.
+ * When it's just horizontal and vertical, horizontal is main and secondary is vertical.
+ * For an X shaped track, top left to bottom right is the main and the other is secondary.
+ * @version 0.1
+ * @author Jonathan Kwok
+ */
+class CrossoverTrack : public Track
+{
+private:
+	CrossoverType crossoverType;
+
+
+
+protected:
+
+
+public:
+
+	/**
+	 * @brief A CrossoverTrack constructor that needs its location and crossover type.
+	 * @param newCrossoverType The CrossoverType.
+	 * @param newLocationX X coordinate of the track.
+	 * @param newLocationY Y coordinate of the track.
+	 */
+	CrossoverTrack(CrossoverType newCrossoverType, int newLocationX, int newLocationY);
+
+	/**
+	 * @brief Get the type of CrossoverType.
+	 * @return The CrossoverType enum.
+	 */
+	CrossoverType getCrossoverType() const;
+
+	/**
+	 * @brief Set the type of CroosoverType.
+	 * @param newCrossoverType The new CrossoverType enum.
+	 */
+	void setCrossoverType(const CrossoverType &newCrossoverType);
+};
+
+
+
+
+/**
+ * @brief The FlyoverTrack class
+ *
+ * This inehrits from the Track class.
+ * It cannot have platforms and level crossings.
+ * Both main and secondary speed and length matter as there are 4 endings.
+ * @version 0.1
+ * @author Jonathan Kwok
+ */
+class FlyoverTrack : public Track
+{
+private:
+	FlyoverType flyoverType;
+
+
+
+protected:
+
+
+public:
+
+	/**
+	 * @brief A FlyoverTrack constructor that needs its location and flyover type.
+	 * @param newFlyoverType The FlyoverType.
+	 * @param newLocationX X coordinate of the track.
+	 * @param newLocationY Y coordinate of the track.
+	 */
+	FlyoverTrack(FlyoverType newFlyoverType, int newLocationX, int newLocationY);
+
+	/**
+	 * @brief Get the type of FlyoverTrack.
+	 * @return The FlyoverType enum.
+	 */
+	FlyoverType getFlyoverType() const;
+
+	/**
+	 * @brief Set the type of FlyoverType.
+	 * @param newFlyoverType The new FLyoverType enum
+	 */
+	void setFlyoverType(const FlyoverType &newFlyoverType);
 };
 #endif // TRACK_H
