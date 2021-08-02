@@ -87,7 +87,7 @@ public:
 
 
 	/**
-	 * @brief A method to convert distances.
+	 * @brief The old method to convert distances. (Not used right now)
 	 *
 	 * This method will convert miles, chains and yards to metres first, then add them up.
 	 * So if 2 other units of measurements are 0, it just converts the 1 unit of measurement that isn't 0.
@@ -95,7 +95,29 @@ public:
 	 */
 	int convertDistances();
 
+	/**
+	 * @brief The new method to convert distances.
+	 * @param miles The miles to convert as a double.
+	 * @param chains The chains to convert as a double.
+	 * @param yards The yards to convert as a double.
+	 * @return The metres as a double.
+	 */
+	double convertDistances(double miles, double chains, double yards);
+
+	/**
+	 * @brief A method to convert speeds. (Not used right now)
+	 *
+	 * This method will convert Mph to Km/h and vice versa.
+	 * @return
+	 */
 	int convertSpeed();
+
+	/**
+	 * @brief The new method to convert speed.
+	 * @param speed The speed to convert as a double.
+	 * @return The new speed after conversion as a double.
+	 */
+	double convertSpeed(double speed);
 
 private slots:
 
@@ -187,11 +209,8 @@ private:
 	QLineEdit* yardsEntry;
 	QLabel* metresLabel;
 	QLineEdit* actualMetres;
-	double miles;
 	const double MILE_FACTOR{1609.34};
-	double chains;
-	const double CHAIN_FACTOR{20.1168};
-	double yards;
+	const double CHAIN_FACTOR{20.117};
 	const double YARD_FACTOR{0.9144};
 
 
@@ -202,7 +221,7 @@ private:
 	QLabel* speedLabel2;
 	QLineEdit* speedResult;
 	bool mphToKmh{true};
-	const double MPH_TO_KMH{1.60934};
+	const double MPH_TO_KMPH{1.60934};
 
 	/**
 	 * @brief A method to create the menubar that is at the top of the screen.
@@ -236,6 +255,50 @@ private:
 	 * @brief A method to create the menu to set and convert speed and distances.
 	 */
 	void createSetConvertSpeedDistanceMenu();
+
+	double getMilesFromGUIToConvert();
+
+	double getChainsFromGUIToConvert();
+
+	double getYardsFromGUIToConvert();
+
+	double getSpeedFromGUIToConvert();
+
+	/**
+	 * @brief A method to convert convert miles to metres.
+	 * @param miles The number of miles as a double.
+	 * @return A double that is the number of metres.
+	 */
+	double convertMilesToMetres(double miles);
+
+	/**
+	 * @brief A method to convert convert chains to metres.
+	 * @param chains The number of chains as a double.
+	 * @return A double that is the number of metres.
+	 */
+	double convertChainsToMetres(double chains);
+
+	/**
+	 * @brief A method to convert convert yards to metres.
+	 * @param yards The number of yards as a double.
+	 * @return A double that is the number of metres.
+	 */
+	double convertYardsToMetres(double yards);
+
+	/**
+	 * @brief A method to convert MPH to KMPH.
+	 * @param mph The mph as a double.
+	 * @return A double that is the kmph.
+	 */
+	double convertMPHToKMPH(double mph);
+
+	/**
+	 * @brief A method to convert KMPH to MPH.
+	 * @param kmph The kmph as a double.
+	 * @return A double that is the mph.
+	 */
+	double convertKMPHToMPH(double kmph);
+
 
 };
 #endif // WINDOW_H

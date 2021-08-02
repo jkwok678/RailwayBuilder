@@ -1,6 +1,26 @@
 # Changelog
     
 All notable changes to this project will be documented in this file.
+## Start - 02/08/2021
+
+### Added
+* New methods to convert the distances and speed.
+
+### Changed
+* The methods that update the GUI to use the new methods.
+
+## Start - 01/08/2021
+
+### Changed
+* The methods access modifiers from private to public for methods to convert distances and speed.
+
+
+## Start - 29/07/2021
+
+### Added
+* Initial GUI to set and convert speeds and distances.
+* Initial methods to update the GUI for converting speeds and distances based on user inputs.
+
 
 ## Start - 28/07/2021
 
@@ -26,6 +46,7 @@ All notable changes to this project will be documented in this file.
 * The SignalType enum clas (includes implementaion and documentation)
 * The BridgeUnderpassTrack class (includes implementaion and documentation)
 * The BridgeUnderpassType enum clas (includes implementaion and documentation)
+
 
 ## Start - 22/07/2021
 
@@ -54,6 +75,8 @@ All notable changes to this project will be documented in this file.
 * Location of paltform1 variable, and methods that use it from the Track class to the StraightTrack class.
 * Location of platform2 variable, and methods that use it from the Track class to the StraightTrack class.
 * Spacing of code to make it less cluttered.
+
+
 ## Start - 21/07/2021
 
 ### Added
@@ -76,4 +99,3 @@ All notable changes to this project will be documented in this file.
 * Initial GUI (One button)
 
 ## Changed
-
