@@ -18,6 +18,7 @@ Window::Window()
 
 Window::~Window()
 {
+
 }
 
 int Window::convertDistances()

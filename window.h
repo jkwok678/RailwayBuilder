@@ -256,12 +256,28 @@ private:
 	 */
 	void createSetConvertSpeedDistanceMenu();
 
+	/**
+	 * @brief A method to retrieve the user's miles input.
+	 * @return The user's miles input.
+	 */
 	double getMilesFromGUIToConvert();
 
+	/**
+	 * @brief A method to retrieve the user's chains input.
+	 * @return The user's chains input.
+	 */
 	double getChainsFromGUIToConvert();
 
+	/**
+	 * @brief A method to retrieve the user's yards input.
+	 * @return The user's yards input.
+	 */
 	double getYardsFromGUIToConvert();
 
+	/**
+	 * @brief A method to retrieve the user's speed input.
+	 * @return The user's speed input.
+	 */
 	double getSpeedFromGUIToConvert();
 
 	/**
