@@ -406,7 +406,7 @@ public:
 
 	/**
 	 * @brief Gets the StraightType enum.
-	 * @return The new Straight track enum.
+	 * @return The StraightType enum.
 	 */
 	StraightType getStraightType() const;
 

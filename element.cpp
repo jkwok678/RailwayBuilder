@@ -154,3 +154,20 @@ Concourse::Concourse(int newLocationX, int newLocationY)
 	text = nullptr;
 
 }
+
+Parapet::Parapet(ParapetType newParapetType, int newLocationX, int newLocationY)
+{
+	parapetType = newParapetType;
+	locationX = newLocationX;
+	locationY = newLocationY;
+}
+
+ParapetType Parapet::getParapetType() const
+{
+	return parapetType;
+}
+
+void Parapet::setParapetType(const ParapetType &newParapetType)
+{
+	parapetType = newParapetType;
+}
