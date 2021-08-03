@@ -7,8 +7,11 @@
 #include <string>
 #include <iostream>
 
+
+
+
 /**
- * @brief The Element class
+ * @brief The Element class.
  *
  * This class is the base class for all types of items that the user can place on screen.
  *
@@ -18,6 +21,8 @@
 class Element
 {
 private:
+
+
 
 protected:
 	int locationX;
@@ -58,8 +63,9 @@ public:
 
 
 
+
 /**
- * @brief The Text class
+ * @brief The Text class.
  *
  * This class extends the element class and is used for text that is placed on the canvas.
  *
@@ -75,10 +81,8 @@ private:
 	QString readableText;
 	QFont font;
 
-
-
-
 protected:
+
 
 
 public:
@@ -147,8 +151,9 @@ public:
 
 
 
+
 /**
- * @brief The NamedElement class
+ * @brief The NamedElement class.
  *
  * This class extends the element class and will be used by other classes that require a text object
  * to be linked to it.
@@ -161,10 +166,10 @@ class NamedElement : public Element
 private:
 
 
+
 protected:
 	bool named { false };
 	std::shared_ptr<Text> text {nullptr};
-
 
 public:
 	/**
@@ -193,4 +198,68 @@ public:
 	void setText(std::shared_ptr<Text> &newText);
 };
 
+
+
+
+/**
+ * @brief The NamedLocation class.
+ *
+ * This class extends the NamedElement class and acts like a concourse and needs to be named
+ * with text. Text can be added using the methods declared in NamedElement. This block should be
+ * blue.
+ *
+ * @author Jonathan Kwok
+ * @version 0.1
+ */
+class NamedLocation : public NamedElement
+{
+private:
+
+
+
+protected:
+
+
+
+public:
+	/**
+	 * @brief A constructor for the NamedLocation class.
+	 * @param newLocationX X coordinate of the NamedLocation.
+	 * @param newLocationY Y coordinate of the NamedLocation.
+	 */
+	NamedLocation(int newLocationX, int newLocationY);
+};
+
+
+
+
+/**
+ * @brief The Concourse class.
+ *
+ * This class extends the NamedElement class and acts like a NamedLocation and needs to be named
+ * with text. Text can be added using the methods declared in NamedElement. This block should be
+ * red like the platforms.
+ *
+ * @author Jonathan Kwok
+ * @version 0.1
+ */
+class Concourse : public NamedElement
+{
+private:
+
+
+
+protected:
+
+
+
+public:
+	/**
+	 * @brief A constructor for the Concourse class.
+	 * @param newLocationX X coordinate of the Concourse.
+	 * @param newLocationY Y coordinate of the Concourse.
+	 */
+	Concourse(int newLocationX, int newLocationY);
+
+};
 #endif // ELEMENT_H

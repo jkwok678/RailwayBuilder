@@ -2,13 +2,22 @@
     
 All notable changes to this project will be documented in this file.
 
+## Start - 04/08/2021
+
+### Added
+* The NamedLocation class (includes implementaion and documentation)
+* The Concourse class (includes implementaion and documentation)
+
+### Changed
+* The layout of the element.h and element.cpp files to be clearer.
+
 ## Start - 03/08/2021
 
 ### Added
 * The CrossoverTrack class (includes implementaion and documentation)
-* The CrossoverType enum clas (includes implementaion and documentation)
+* The CrossoverType enum class (includes implementaion and documentation)
 * The FlyoverTrack class (includes implementaion and documentation)
-* The FlyoverType enum clas (includes implementaion and documentation)
+* The FlyoverType enum class (includes implementaion and documentation)
 
 ## Start - 02/08/2021
 
@@ -35,7 +44,7 @@ All notable changes to this project will be documented in this file.
 
 ### Added
 * The SwitchTrack class (includes implementaion and documentation)
-* The SwitchType enum clas (includes implementaion and documentation)
+* The SwitchType enum class (includes implementaion and documentation)
 * New GUI frontend elements to set/convert speeds and distances.
 * New backend signal slots to set/convert speeds and distances.
 * New methods to convert distances and speeds
@@ -52,9 +61,9 @@ All notable changes to this project will be documented in this file.
 
 ### Added
 * The SignalTrack class (includes implementaion and documentation)
-* The SignalType enum clas (includes implementaion and documentation)
+* The SignalType enum class (includes implementaion and documentation)
 * The BridgeUnderpassTrack class (includes implementaion and documentation)
-* The BridgeUnderpassType enum clas (includes implementaion and documentation)
+* The BridgeUnderpassType enum class (includes implementaion and documentation)
 
 
 ## Start - 22/07/2021

@@ -1,5 +1,9 @@
 #include "element.h"
 
+
+//Element class implementation.
+
+
 Element::Element()
 {
 
@@ -31,6 +35,8 @@ void Element::setLocationY(int newLocationY)
 	locationY = newLocationY;
 }
 
+
+//Text class implementation.
 
 
 Text::Text(int newLocationX, int newLocationY, QString newReadableText, QFont newFont)
@@ -94,6 +100,8 @@ void Text::setFont(const QFont newFont)
 }
 
 
+//NamedElement class implementation.
+
 
 NamedElement::NamedElement()
 {
@@ -118,4 +126,31 @@ std::shared_ptr<Text> NamedElement::getText()
 void NamedElement::setText(std::shared_ptr<Text> &newText)
 {
 	text = newText;
+}
+
+
+//NamedLocation class implementation.
+
+
+NamedLocation::NamedLocation(int newLocationX, int newLocationY)
+{
+	locationX = newLocationX;
+	locationY = newLocationY;
+	named = false;
+	text = nullptr;
+
+
+}
+
+
+//Concourse class implementation.
+
+
+Concourse::Concourse(int newLocationX, int newLocationY)
+{
+	locationX = newLocationX;
+	locationY = newLocationY;
+	named = false;
+	text = nullptr;
+
 }
