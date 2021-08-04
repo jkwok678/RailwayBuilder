@@ -7,6 +7,11 @@ All notable changes to this project will be documented in this file.
 ### Added
 * The NamedLocation class (includes implementaion and documentation)
 * The Concourse class (includes implementaion and documentation)
+* The Parapet class (includes implementaion and documentation)
+* The ParapetType enum class (includes implementaion and documentation)
+* Added the map class 
+* Methods to check number of tracks and to check if an element exists at a coordiante.
+* Methods to work with StraightTracks in the map class E.g. getStraightTrackAt() and addStraightTrack().
 
 ### Changed
 * The layout of the element.h and element.cpp files to be clearer.

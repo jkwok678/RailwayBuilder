@@ -37,8 +37,11 @@ set(PROJECT_SOURCES
         element.h
         track.cpp
         track.h
+        map.cpp
+        map.h
         window.cpp
         window.h
+
 
         resources.qrc
 )
