@@ -2,6 +2,28 @@
 #define CANVAS_H
 
 #include <QWidget>
+#include <QPainter>
+#include <QMouseEvent>
+#include <QInputDialog>
+#include <QTimer>
+#include <QColor>
+#include <memory>
+#include <string>
+#include <iostream>
+#include <QWidget>
+#include "window.h"
+#include "map.h"
+#include "mode.h"
+#include "elementChosen.h"
+/**
+ * @brief The Colour enum for the canvas background colours.
+ */
+enum class Colour{
+	WHITE,
+	BLACK,
+	DARKBLUE
+};
+
 /**
  * @brief The Canvas class
  *
@@ -13,6 +35,9 @@
 class Canvas : public QWidget
 {
 	Q_OBJECT
+
+
+
 public:
 	/**
 	 * @brief Canvas constructor.
@@ -59,8 +84,31 @@ public:
 
 signals:
 
+public slots:
+
+protected:
+	void mousePressEvent(QMouseEvent* event) override;
+	void paintEvent(QPaintEvent* event) override;
 
 private:
+
+	QPalette pal;
+	Colour canvasColour{Colour::WHITE};
+	ElementChosen chosenToAdd{ElementChosen::NONE};
+	Map* drawnLayout;
+	int imageSize;
+	bool modified{false};
+	int offsetX;
+	int offsetY;
+	int canvasSizeX;
+	int canvasSizeY;
+	int canvasAspect;
+	bool canvasShowTrackID;
+	bool canvasShowMoreTrackInfo;
+	QFont currentFont;
+	std::shared_ptr<Text> moveText;
+	bool grid{false};
+
 	//ElementBlock1 images
 	QImage* straightHImage;
 	QImage* straightVImage;

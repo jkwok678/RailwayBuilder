@@ -646,3 +646,13 @@ void Canvas::loadAllBlueTrackImages()
 	flyover11BlueImage = new QImage(":/graphicsBlue/graphicsBlue/flyover11Blue.png");
 	flyover12BlueImage = new QImage(":/graphicsBlue/graphicsBlue/flyover12Blue.png");
 }
+
+void Canvas::mousePressEvent(QMouseEvent *event)
+{
+
+}
+
+void Canvas::paintEvent(QPaintEvent *event)
+{
+
+}

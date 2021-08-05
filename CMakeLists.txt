@@ -31,6 +31,8 @@ set(PROJECT_SOURCES
         main.cpp
         borderlayout.cpp
         borderlayout.h
+        mode.h
+        elementChosen.h
         canvas.cpp
         canvas.h
         element.cpp
