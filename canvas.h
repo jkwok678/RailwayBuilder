@@ -15,14 +15,8 @@
 #include "map.h"
 #include "mode.h"
 #include "elementChosen.h"
-/**
- * @brief The Colour enum for the canvas background colours.
- */
-enum class Colour{
-	WHITE,
-	BLACK,
-	DARKBLUE
-};
+#include "colour.h"
+
 
 /**
  * @brief The Canvas class
