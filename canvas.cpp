@@ -647,6 +647,48 @@ void Canvas::loadAllBlueTrackImages()
 	flyover12BlueImage = new QImage(":/graphicsBlue/graphicsBlue/flyover12Blue.png");
 }
 
+
+int Canvas::getOffsetX() const
+{
+	return offsetX;
+}
+
+void Canvas::setOffsetX(int newOffsetX)
+{
+	offsetX = newOffsetX;
+}
+
+int Canvas::getOffsetY() const
+{
+	return offsetY;
+}
+
+void Canvas::setOffsetY(int newOffsetY)
+{
+	offsetY = newOffsetY;
+}
+
+void Canvas::offsetMoveLeft()
+{
+	offsetX--;
+}
+
+void Canvas::offsetMoveRight()
+{
+	offsetX++;
+}
+
+void Canvas::offsetMoveUp()
+{
+	offsetY++;
+}
+
+void Canvas::offsetMoveDown()
+{
+	offsetY--;
+}
+
+
 void Canvas::mousePressEvent(QMouseEvent *event)
 {
 
@@ -656,3 +698,4 @@ void Canvas::paintEvent(QPaintEvent *event)
 {
 
 }
+

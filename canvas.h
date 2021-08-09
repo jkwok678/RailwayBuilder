@@ -11,7 +11,6 @@
 #include <string>
 #include <iostream>
 #include <QWidget>
-#include "window.h"
 #include "map.h"
 #include "mode.h"
 #include "elementChosen.h"
@@ -47,6 +46,7 @@ public:
 	 * It then stores them all in the named pointer variables
 	 */
 	void loadAllTrackImages();
+
 	/**
 	 * @brief A method to load all red track images from storage.
 	 *
@@ -54,6 +54,7 @@ public:
 	 * It then stores them all in the named pointer variables
 	 */
 	void loadAllRedTrackImages();
+
 	/**
 	 * @brief A method to load all green track images from storage.
 	 *
@@ -61,6 +62,7 @@ public:
 	 * It then stores them all in the named pointer variables
 	 */
 	void loadAllGreenTrackImages();
+
 	/**
 	 * @brief A method to load all blue track images from storage.
 	 *
@@ -68,6 +70,7 @@ public:
 	 * It then stores them all in the named pointer variables
 	 */
 	void loadAllBlueTrackImages();
+
 	/**
 	 * @brief A method to load all track images with multiple colours from storage.
 	 *
@@ -75,6 +78,58 @@ public:
 	 * It then stores them all in the named pointer variables
 	 */
 	void loadMixColourTrackImages();
+
+	/**
+	 * @brief Get the offset of the canvas in the X direction.
+	 * @return The offset along the X Axis.
+	 */
+	int getOffsetX() const;
+
+	/**
+	 * @brief Set the offset of the canvas in the X direction.
+	 * @param newOffsetX The new offset along the X axis.
+	 */
+	void setOffsetX(int newOffsetX);
+
+	/**
+	 * @brief Get the offset of the canvas in the Y direction.
+	 * @return The offset along the Y Axis.
+	 */
+	int getOffsetY() const;
+
+	/**
+	 * @brief Set the offset of the canvas in the Y direction.
+	 * @param newOffsetY The new offset along the Y axis.
+	 */
+	void setOffsetY(int newOffsetY);
+
+	/**
+	 * @brief move the OffsetX to the left.
+	 *
+	 * offsetX -1.
+	 */
+	void offsetMoveLeft();
+
+	/**
+	 * @brief move the OffsetX to the right.
+	 *
+	 * offsetX +1.
+	 */
+	void offsetMoveRight();
+
+	/**
+	 * @brief move OffsetY upwards.
+	 *
+	 * offsetY +1.
+	 */
+	void offsetMoveUp();
+
+	/**
+	 * @brief move OffsetY downwards.
+	 *
+	 * offsetY -1.
+	 */
+	void offsetMoveDown();
 
 signals:
 
@@ -92,8 +147,8 @@ private:
 	Map* drawnLayout;
 	int imageSize;
 	bool modified{false};
-	int offsetX;
-	int offsetY;
+	int offsetX{0};
+	int offsetY{0};
 	int canvasSizeX;
 	int canvasSizeY;
 	int canvasAspect;

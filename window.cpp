@@ -4,15 +4,17 @@
 
 Window::Window()
 {
-	Canvas *centralWidget = new Canvas;
+	drawingArea = new Canvas;
 	createMenuBar();
 	createOverallMenu();
+	createRightDirectionalMenu();
 	mode = Mode::NONE;
 	BorderLayout *layout = new BorderLayout;
 	layout->addWidget(menuBar,BorderLayout::North);
 	layout->addWidget(top1Menu,BorderLayout::North);
 	layout->addWidget(allMenus,BorderLayout::North);
-	layout->addWidget(centralWidget, BorderLayout::Center);
+	layout->addWidget(drawingArea, BorderLayout::Center);
+	layout->addWidget(rightDirectionalMenu, BorderLayout::East);
 	setLayout(layout);
 }
 
@@ -215,6 +217,8 @@ void Window::updateMPHKMHGUI()
 
 }
 
+//Element menu to choose element
+
 void Window::chooseStraightH()
 {
 	//If the Mode is AddRemoveTrack and the element is StraightH,
@@ -228,6 +232,32 @@ void Window::chooseStraightH()
 	{
 		elementChosenToPlace = ElementChosen::NONE;
 	}
+}
+
+//Right hand side menu.
+
+void Window::moveRightOnCanvas()
+{
+	drawingArea->offsetMoveRight();
+	std::cout << drawingArea->getOffsetX() << std::flush;
+}
+
+void Window::moveLeftOnCanvas()
+{
+	drawingArea->offsetMoveLeft();
+	std::cout << drawingArea->getOffsetX() << std::flush;
+}
+
+void Window::moveUpOnCanvas()
+{
+	drawingArea->offsetMoveUp();
+	std::cout << drawingArea->getOffsetY() << std::flush;
+}
+
+void Window::moveDownOnCanvas()
+{
+	drawingArea->offsetMoveDown();
+	std::cout << drawingArea->getOffsetY() << std::flush;
 }
 
 //Private
@@ -294,6 +324,8 @@ void Window::createBuildModifyMenu()
 	createSetConvertSpeedDistanceMenu();
 }
 
+	//Element Menu
+
 void Window::createElementMenu()
 {
 	elementMenu = new QWidget;
@@ -317,6 +349,8 @@ void Window::createElementBlock1()
 	straightHButton->setIcon(*straightHIcon);
 	elementMenuLayout->addWidget(straightHButton, 0, 0);
 }
+
+	//SetConvertSpeedDistanceMenu
 
 void Window::createSetConvertSpeedDistanceMenu()
 {
@@ -499,4 +533,50 @@ double Window::convertMPHToKMPH(double mph)
 double Window::convertKMPHToMPH(double kmph)
 {
 	return kmph / MPH_TO_KMPH;
+}
+
+	//Right side directional menu.
+
+void Window::createRightDirectionalMenu()
+{
+	rightDirectionalMenu = new QWidget;
+
+	rightDirectionalMenuLayout = new QVBoxLayout;
+	rightDirectionalMenu->setLayout(rightDirectionalMenuLayout);
+
+	canvasMoveRightButton = new QToolButton();
+	canvasMoveRightButton->setMaximumSize(QSize(32, 32));
+	canvasMoveRightAct = new QAction();
+	canvasMoveRightButton->setDefaultAction(canvasMoveRightAct);
+	connect(canvasMoveRightAct, &QAction::triggered, this, &Window::moveRightOnCanvas);
+	canvasMoveRightIcon = new QIcon(":/icons/icons/right.png");
+	canvasMoveRightButton->setIcon(*canvasMoveRightIcon);
+	rightDirectionalMenuLayout->addWidget(canvasMoveRightButton);
+
+	canvasMoveLeftButton = new QToolButton();
+	canvasMoveLeftButton->setMaximumSize(QSize(32, 32));
+	canvasMoveLeftAct = new QAction();
+	canvasMoveLeftButton->setDefaultAction(canvasMoveLeftAct);
+	connect(canvasMoveLeftAct, &QAction::triggered, this, &Window::moveLeftOnCanvas);
+	canvasMoveLeftIcon = new QIcon(":/icons/icons/left.png");
+	canvasMoveLeftButton->setIcon(*canvasMoveLeftIcon);
+	rightDirectionalMenuLayout->addWidget(canvasMoveLeftButton);
+
+	canvasMoveUpButton = new QToolButton();
+	canvasMoveUpButton->setMaximumSize(QSize(32, 32));
+	canvasMoveUpAct = new QAction();
+	canvasMoveUpButton->setDefaultAction(canvasMoveUpAct);
+	connect(canvasMoveUpAct, &QAction::triggered, this, &Window::moveUpOnCanvas);
+	canvasMoveUpIcon = new QIcon(":/icons/icons/up.png");
+	canvasMoveUpButton->setIcon(*canvasMoveUpIcon);
+	rightDirectionalMenuLayout->addWidget(canvasMoveUpButton);
+
+	canvasMoveDownButton = new QToolButton();
+	canvasMoveDownButton->setMaximumSize(QSize(32, 32));
+	canvasMoveDownAct = new QAction();
+	canvasMoveDownButton->setDefaultAction(canvasMoveDownAct);
+	connect(canvasMoveDownAct, &QAction::triggered, this, &Window::moveDownOnCanvas);
+	canvasMoveDownIcon = new QIcon(":/icons/icons/down.png");
+	canvasMoveDownButton->setIcon(*canvasMoveDownIcon);
+	rightDirectionalMenuLayout->addWidget(canvasMoveDownButton);
 }

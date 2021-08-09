@@ -105,16 +105,38 @@ private slots:
 	 */
 	void updateMPHKMHGUI();
 
+	//Element Menu choose Elements.
+
 	/**
 	 * @brief A slot to select StraightH tracks to place on screen.
 	 */
 	void chooseStraightH();
 
+	//Right hand side menu.
 
+	/**
+	 * @brief A slot to move the canvas to the right.
+	 */
+	void moveRightOnCanvas();
+
+	/**
+	 * @brief A slot to move the canvas to the left.
+	 */
+	void moveLeftOnCanvas();
+
+	/**
+	 * @brief A slot to move the canvas upwards.
+	 */
+	void moveUpOnCanvas();
+
+	/**
+	 * @brief A slot to move the canvas downwards.
+	 */
+	void moveDownOnCanvas();
 
 private:
 
-
+	Canvas *drawingArea;
 	//Menubar
 
 
@@ -188,6 +210,23 @@ private:
 
 	QWidget* rightDirectionalMenu;
 	QVBoxLayout* rightDirectionalMenuLayout;
+
+	QToolButton *canvasMoveRightButton;
+	QIcon   *canvasMoveRightIcon;
+	QAction *canvasMoveRightAct;
+
+	QToolButton *canvasMoveLeftButton;
+	QIcon   *canvasMoveLeftIcon;
+	QAction *canvasMoveLeftAct;
+
+	QToolButton *canvasMoveUpButton;
+	QIcon   *canvasMoveUpIcon;
+	QAction *canvasMoveUpAct;
+
+	QToolButton *canvasMoveDownButton;
+	QIcon   *canvasMoveDownIcon;
+	QAction *canvasMoveDownAct;
+
 	/**
 	 * @brief A method to create the menubar that is at the top of the screen.
 	 *
@@ -206,6 +245,10 @@ private:
 	 */
 	void createBuildModifyMenu();
 
+
+	//Element menu
+
+
 	/**
 	 * @brief A method to create the menu where the user can choose track type.
 	 */
@@ -215,6 +258,10 @@ private:
 	 * @brief A method to create the part 1 of the element buttons where the user can choose track type.
 	 */
 	void createElementBlock1();
+
+
+	//SetConvertSpeedDistance menu
+
 
 	/**
 	 * @brief A method to create the menu to set and convert speed and distances.
@@ -281,5 +328,12 @@ private:
 	double convertKMPHToMPH(double kmph);
 
 
+	//Right side directional Menu
+
+
+	/**
+	 * @brief A method to make the right hand side menu.
+	 */
+	void createRightDirectionalMenu();
 };
 #endif // WINDOW_H
