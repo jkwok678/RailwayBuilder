@@ -2,6 +2,26 @@
     
 All notable changes to this project will be documented in this file.
 
+## Core features - 10/08/2021
+
+### Added
+* 4 buttons in the right hand side menu.
+* The buttons can change the offset X and Y in the canvas class.
+* Methods to help change offsets.
+
+### Changed
+* The offsets X and Y now default at 0
+
+## Core features - 06/08/2021
+
+### Added
+* The colour enum class.
+* MousePressEvent and paintEvent methods to canvas class. (No implementation and documentation)
+
+### Changed
+* The elementChosen enum class is in elementChosen.h now.
+* The mode enum class is in mode.h now.
+
 ## Start - 04/08/2021
 
 ### Added
