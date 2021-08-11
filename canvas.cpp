@@ -724,6 +724,67 @@ void Canvas::createAddElement(ElementChosen elementToAdd, int overallX, int over
 			addedTrack = true;
 			break;
 		}
+		case ElementChosen::DIRECTEDLEFT:
+		{
+			map->createAddDirectedTrack(DirectedType::DIRECTEDLEFT, overallX, overallY);
+			addedTrack = true;
+			break;
+		}
+		case ElementChosen::DIRECTEDRIGHT:
+		{
+			map->createAddDirectedTrack(DirectedType::DIRECTEDRIGHT, overallX, overallY);
+			addedTrack = true;
+			break;
+		}
+		case ElementChosen::DIRECTEDUP:
+		{
+			map->createAddDirectedTrack(DirectedType::DIRECTEDUP, overallX, overallY);
+			addedTrack = true;
+			break;
+		}
+		case ElementChosen::DIRECTEDDOWN:
+		{
+			map->createAddDirectedTrack(DirectedType::DIRECTEDDOWN, overallX, overallY);
+			addedTrack = true;
+			break;
+		}
+		case ElementChosen::STRAIGHTRIGHTUP:
+		{
+			map->createAddStraightTrack(StraightType::STRAIGHTRIGHTUP, overallX, overallY);
+			addedTrack = true;
+			break;
+		}
+		case ElementChosen::STRAIGHTLEFTUP:
+		{
+			map->createAddStraightTrack(StraightType::STRAIGHTLEFTUP, overallX, overallY);
+			addedTrack = true;
+			break;
+		}
+		case ElementChosen::DIRECTEDRIGHTUP:
+		{
+			map->createAddDirectedTrack(DirectedType::DIRECTEDRIGHTUP, overallX, overallY);
+			addedTrack = true;
+			break;
+		}
+		case ElementChosen::DIRECTEDLEFTUP:
+		{
+			map->createAddDirectedTrack(DirectedType::DIRECTEDLEFTUP, overallX, overallY);
+			addedTrack = true;
+			break;
+		}
+		case ElementChosen::DIRECTEDLEFTDOWN:
+		{
+			map->createAddDirectedTrack(DirectedType::DIRECTEDLEFTDOWN, overallX, overallY);
+			addedTrack = true;
+			break;
+		}
+		case ElementChosen::DIRECTEDRIGHTDOWN:
+		{
+			map->createAddDirectedTrack(DirectedType::DIRECTEDRIGHTDOWN, overallX, overallY);
+			addedTrack = true;
+			break;
+		}
+
 	}
 }
 
@@ -887,7 +948,7 @@ void Canvas::drawStraightTrack(QPainter &painter)
 						}
 						break;
 					}
-					case StraightType::STRIAGHTRIGHTUP:
+					case StraightType::STRAIGHTRIGHTUP:
 					{
 						painter.drawImage(displayX, displayY, *straightRightUpImage);
 						break;
@@ -895,6 +956,242 @@ void Canvas::drawStraightTrack(QPainter &painter)
 					case StraightType::STRAIGHTLEFTUP:
 					{
 						painter.drawImage(displayX, displayY, *straightLeftUpImage);
+						break;
+					}
+				}
+			}
+		}
+	}
+}
+
+void Canvas::drawDirectedTrack(QPainter &painter)
+{
+	for (std::shared_ptr<DirectedTrack> currentElement : map->getDirectedTrackList())
+	{
+		int currentX = currentElement->getLocationX();
+		int currentY = currentElement->getLocationY();
+		int minCoordinateX = (offsetX * canvasSizeX);
+		int maxCoordinateX = ((offsetX+1) * canvasSizeX);
+		int minCoordinateY = ((offsetY-1) * canvasSizeY);
+		int maxCoordinateY = (offsetY*canvasSizeY);;
+		int minDisplayX = (offsetX * canvasSizeX);
+		int maxDisplayY = (offsetY*canvasSizeY);
+		if (currentX >= minCoordinateX && currentX <= maxCoordinateX)
+		{
+			if (currentY >= minCoordinateY && currentY <= maxCoordinateY)
+			{
+				int displayX = currentX- minDisplayX;
+				int displayY = 0-(currentY - maxDisplayY);
+				switch (currentElement->getDirectType())
+				{
+					case DirectedType::DIRECTEDLEFT:
+					{
+						painter.drawImage(displayX, displayY, *directLeftImage);
+						if (currentElement->getPlatform1())
+						{
+							if (currentElement->getNamed())
+							{
+								painter.drawImage(displayX, displayY, *platformUpSetImage);
+							}
+							else
+							{
+								painter.drawImage(displayX, displayY, *platformUpUnsetImage);
+							}
+						}
+						if (currentElement->getPlatform2()) {
+							if (currentElement->getNamed())
+							{
+								painter.drawImage(displayX, displayY, *platformDownSetImage);
+							}
+							else
+							{
+								painter.drawImage(displayX, displayY, *platformDownUnsetImage);
+							}
+						}
+						break;
+					}
+					case DirectedType::DIRECTEDRIGHT:
+					{
+						painter.drawImage(displayX, displayY, *directRightImage);
+						if (currentElement->getPlatform1())
+						{
+							if (currentElement->getNamed())
+							{
+								painter.drawImage(displayX, displayY, *platformUpSetImage);
+							}
+							else
+							{
+								painter.drawImage(displayX, displayY, *platformUpUnsetImage);
+							}
+						}
+						if (currentElement->getPlatform2())
+						{
+							if (currentElement->getNamed())
+							{
+								painter.drawImage(displayX, displayY, *platformDownSetImage);
+							}
+							else
+							{
+								painter.drawImage(displayX, displayY, *platformDownUnsetImage);
+							}
+						}
+						break;
+					}
+					case DirectedType::DIRECTEDUP:
+					{
+						painter.drawImage(displayX, displayY, *directUpImage);
+						if (currentElement->getPlatform1())
+						{
+							if (currentElement->getNamed())
+							{
+								painter.drawImage(displayX, displayY, *platformLeftSetImage);
+							}
+							else
+							{
+								painter.drawImage(displayX, displayY, *platformLeftUnsetImage);
+							}
+						}
+						if (currentElement->getPlatform2()) {
+							if (currentElement->getNamed())
+							{
+								painter.drawImage(displayX, displayY, *platformRightSetImage);
+							}
+							else
+							{
+								painter.drawImage(displayX, displayY, *platformRightUnsetImage);
+							}
+						}
+						break;
+					}
+					case DirectedType::DIRECTEDDOWN:
+					{
+						painter.drawImage(displayX, displayY, *directDownImage);
+						if (currentElement->getPlatform1())
+						{
+							if (currentElement->getNamed())
+							{
+								painter.drawImage(displayX, displayY, *platformLeftSetImage);
+							}
+							else
+							{
+								painter.drawImage(displayX, displayY, *platformLeftUnsetImage);
+							}
+						}
+						if (currentElement->getPlatform2())
+						{
+							if (currentElement->getNamed())
+							{
+								painter.drawImage(displayX, displayY, *platformRightSetImage);
+							}
+							else
+							{
+								painter.drawImage(displayX, displayY, *platformRightUnsetImage);
+							}
+						}
+						break;
+					}
+					case DirectedType::DIRECTEDRIGHTUP:
+					{
+						painter.drawImage(displayX, displayY, *directRightUpImage);
+						break;
+					}
+					case DirectedType::DIRECTEDLEFTUP:
+					{
+						painter.drawImage(displayX, displayY, *directLeftUpImage);
+						break;
+					}
+					case DirectedType::DIRECTEDLEFTDOWN:
+					{
+						painter.drawImage(displayX, displayY, *directLeftDownImage);
+						break;
+					}
+					case DirectedType::DIRECTEDRIGHTDOWN:
+					{
+						painter.drawImage(displayX, displayY, *directRightDownImage);
+						break;
+					}
+				}
+			}
+		}
+	}
+}
+
+void Canvas::drawCurvedTrack(QPainter &painter)
+{
+	for (std::shared_ptr<CurvedTrack> currentElement : map->getCurvedTrackList())
+	{
+		int currentX = currentElement->getLocationX();
+		int currentY = currentElement->getLocationY();
+		int minCoordinateX = (offsetX * canvasSizeX);
+		int maxCoordinateX = ((offsetX+1) * canvasSizeX);
+		int minCoordinateY = ((offsetY-1) * canvasSizeY);
+		int maxCoordinateY = (offsetY*canvasSizeY);;
+		int minDisplayX = (offsetX * canvasSizeX);
+		int maxDisplayY = (offsetY*canvasSizeY);
+		if (currentX >= minCoordinateX && currentX <= maxCoordinateX)
+		{
+			if (currentY >= minCoordinateY && currentY <= maxCoordinateY)
+			{
+				int displayX = currentX- minDisplayX;
+				int displayY = 0-(currentY - maxDisplayY);
+				switch (currentElement->getCurvedType())
+				{
+					case CurvedType::TIGHTCURVE1:
+					{
+						painter.drawImage(displayX, displayY, *tightCurve1Image);
+						break;
+					}
+					case CurvedType::TIGHTCURVE2:
+					{
+						painter.drawImage(displayX, displayY, *tightCurve2Image);
+						break;
+					}
+					case CurvedType::TIGHTCURVE3:
+					{
+						painter.drawImage(displayX, displayY, *tightCurve3Image);
+						break;
+					}
+					case CurvedType::TIGHTCURVE4:
+						painter.drawImage(displayX, displayY, *tightCurve4Image);
+						break;
+					case CurvedType::CURVE1:
+					{
+						painter.drawImage(displayX, displayY, *curve1Image);
+						break;
+					}
+					case CurvedType::CURVE2:
+					{
+						painter.drawImage(displayX, displayY, *curve2Image);
+						break;
+					}
+					case CurvedType::CURVE3:
+					{
+						painter.drawImage(displayX, displayY, *curve3Image);
+						break;
+					}
+					case CurvedType::CURVE4:
+					{
+						painter.drawImage(displayX, displayY, *curve4Image);
+						break;
+					}
+					case CurvedType::CURVE5:
+					{
+						painter.drawImage(displayX, displayY, *curve5Image);
+						break;
+					}
+					case CurvedType::CURVE6:
+					{
+						painter.drawImage(displayX, displayY, *curve6Image);
+						break;
+					}
+					case CurvedType::CURVE7:
+					{
+						painter.drawImage(displayX, displayY, *curve7Image);
+						break;
+					}
+					case CurvedType::CURVE8:
+					{
+						painter.drawImage(displayX, displayY, *curve8Image);
 						break;
 					}
 				}

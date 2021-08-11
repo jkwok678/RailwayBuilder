@@ -31,9 +31,9 @@ bool Map::checkElementExists(int locationX, int locationY)
 		}
 	}
 
-	if (!directTrackList.empty() && found == false)
+	if (!directedTrackList.empty() && found == false)
 	{
-		for (std::shared_ptr<DirectedTrack>& currentElement : directTrackList)
+		for (std::shared_ptr<DirectedTrack>& currentElement : directedTrackList)
 		{
 			int currentX = currentElement->getLocationX();
 			int currentY = currentElement->getLocationY();
@@ -223,9 +223,17 @@ bool Map::checkTextExists(int locationX, int locationY)
 	return found;
 }
 
-//StraightTrack related methods
 
 //private
+
+void Map::showElementAlreadyThereError()
+{
+	//Show error if an element already exists there.
+	QMessageBox elementExistsAlreadyAlert;
+	elementExistsAlreadyAlert.setIcon(QMessageBox::Critical);
+	elementExistsAlreadyAlert.setText("An element already exists here.");
+	elementExistsAlreadyAlert.exec();
+}
 
 void Map::addStraightTrack(std::shared_ptr<StraightTrack> newStraightTrack)
 {
@@ -238,15 +246,28 @@ void Map::addStraightTrack(std::shared_ptr<StraightTrack> newStraightTrack)
 	}
 	else
 	{
-		//Show error if an element already exists there.
-		QMessageBox elementExistsAlreadyAlert;
-		elementExistsAlreadyAlert.setIcon(QMessageBox::Critical);
-		elementExistsAlreadyAlert.setText("An element already exists here.");
-		elementExistsAlreadyAlert.exec();
+		showElementAlreadyThereError();
 	}
 }
 
+void Map::addDirectedTrack(std::shared_ptr<DirectedTrack> newDirectedTrack)
+{
+	int tempLocationX = newDirectedTrack->getLocationX();
+		int templocationY = newDirectedTrack->getLocationY();
+		if (!checkElementExists(tempLocationX, templocationY))
+		{
+			directedTrackList.push_back(newDirectedTrack);
+			++totalTrack;
+		}
+		else
+		{
+			showElementAlreadyThereError();
+		}
+}
+
 //public
+
+//StraightTrack related methods
 
 std::vector<std::shared_ptr<StraightTrack> > Map::getStraightTrackList() const
 {
@@ -260,8 +281,8 @@ void Map::setStraightTrackList(const std::vector<std::shared_ptr<StraightTrack> 
 
 void Map::createAddStraightTrack(StraightType straightType, int overallX, int overallY)
 {
-	std::shared_ptr<StraightTrack> straightH(new StraightTrack(straightType, overallX, overallY));
-	addStraightTrack(straightH);
+	std::shared_ptr<StraightTrack> straightTrack(new StraightTrack(straightType, overallX, overallY));
+	addStraightTrack(straightTrack);
 }
 
 std::shared_ptr<StraightTrack> Map::getStraightTrackAt(int locationX, int locationY)
@@ -282,4 +303,41 @@ std::shared_ptr<StraightTrack> Map::getStraightTrackAt(int locationX, int locati
 		}
 	}
 	return straightTrack;
+}
+
+//DirectedTRack related methods
+
+std::vector<std::shared_ptr<DirectedTrack> > Map::getDirectedTrackList() const
+{
+	return directedTrackList;
+}
+
+void Map::setDirectedTrackList(const std::vector<std::shared_ptr<DirectedTrack> >& newDirectedTrackList)
+{
+	directedTrackList = newDirectedTrackList;
+}
+
+void Map::createAddDirectedTrack(DirectedType directedType, int overallX, int overallY)
+{
+	std::shared_ptr<DirectedTrack> directedTrack(new DirectedTrack(directedType, overallX, overallY));
+	addDirectedTrack(directedTrack);
+}
+
+std::shared_ptr<DirectedTrack> Map::getDirectedTrackAt(int locationX, int locationY)
+{
+	std::shared_ptr<DirectedTrack> directedTrack = nullptr;
+	if (!directedTrackList.empty())
+	{
+		for (std::shared_ptr<DirectedTrack>& currentElement : directedTrackList)
+		{
+			int currentX = currentElement->getLocationX();
+			int currentY = currentElement->getLocationY();
+			if (currentX == locationX && currentY == locationY)
+			{
+				directedTrack = currentElement;
+				break;
+			}
+		}
+	}
+	return directedTrack;
 }

@@ -785,6 +785,18 @@ private:
 	 */
 	void drawStraightTrack(QPainter &painter);
 
+	/**
+	 * @brief Draw DirectedTracks onto the canvas.
+	 * @param painter
+	 */
+	void drawDirectedTrack(QPainter &painter);
+
+	/**
+	 * @brief Draw CurvedTracks onto the canvas.
+	 * @param painter
+	 */
+	void drawCurvedTrack(QPainter &painter);
+
 };
 
 #endif // CANVAS_H

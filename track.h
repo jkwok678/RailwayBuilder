@@ -17,7 +17,7 @@ enum class StraightType
 	STRAIGHTH, /// Straight horizontal.
 	STRAIGHTV, /// Straight vertical.
 	STRAIGHTLEFTUP, /// Bottom right to top left straight.
-	STRIAGHTRIGHTUP /// Bottom left to top right straight.
+	STRAIGHTRIGHTUP /// Bottom left to top right straight.
 };
 
 
@@ -30,14 +30,14 @@ enum class StraightType
  */
 enum class DirectedType
 {
-	DIRECTLEFT, /// Directed Track towards the left.
-	DIRECTRIGHT, /// Directed Track towards the right.
-	DIRECTUP, /// Directed Track upwards.
-	DIRECTDOWN, /// Directed Track downwards.
-	DIRECTRIGHTUP, /// Directed Track from the bottom left to the top right.
-	DIRECTLEFTUP, /// Directed Track from the bottom right to the top left.
-	DIRECTLEFTDOWN, /// Directed Track from the top right to the bottom left.
-	DIRECTRIGHTDOWN /// Directed Track from the top left to the bottom right.
+	DIRECTEDLEFT, /// Directed Track towards the left.
+	DIRECTEDRIGHT, /// Directed Track towards the right.
+	DIRECTEDUP, /// Directed Track upwards.
+	DIRECTEDDOWN, /// Directed Track downwards.
+	DIRECTEDRIGHTUP, /// Directed Track from the bottom left to the top right.
+	DIRECTEDLEFTUP, /// Directed Track from the bottom right to the top left.
+	DIRECTEDLEFTDOWN, /// Directed Track from the top right to the bottom left.
+	DIRECTEDRIGHTDOWN /// Directed Track from the top left to the bottom right.
 };
 
 
