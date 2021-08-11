@@ -225,16 +225,7 @@ bool Map::checkTextExists(int locationX, int locationY)
 
 //StraightTrack related methods
 
-
-std::vector<std::shared_ptr<StraightTrack> > Map::getStraightTrackList() const
-{
-	return straightTrackList;
-}
-
-void Map::setStraightTrackList(const std::vector<std::shared_ptr<StraightTrack> >& newSignalTrackList)
-{
-	straightTrackList = newSignalTrackList;
-}
+//private
 
 void Map::addStraightTrack(std::shared_ptr<StraightTrack> newStraightTrack)
 {
@@ -253,6 +244,24 @@ void Map::addStraightTrack(std::shared_ptr<StraightTrack> newStraightTrack)
 		elementExistsAlreadyAlert.setText("An element already exists here.");
 		elementExistsAlreadyAlert.exec();
 	}
+}
+
+//public
+
+std::vector<std::shared_ptr<StraightTrack> > Map::getStraightTrackList() const
+{
+	return straightTrackList;
+}
+
+void Map::setStraightTrackList(const std::vector<std::shared_ptr<StraightTrack> >& newSignalTrackList)
+{
+	straightTrackList = newSignalTrackList;
+}
+
+void Map::createAddStraightTrack(StraightType straightType, int overallX, int overallY)
+{
+	std::shared_ptr<StraightTrack> straightH(new StraightTrack(straightType, overallX, overallY));
+	addStraightTrack(straightH);
 }
 
 std::shared_ptr<StraightTrack> Map::getStraightTrackAt(int locationX, int locationY)

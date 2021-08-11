@@ -111,25 +111,45 @@ public:
 	void offsetMoveLeft();
 
 	/**
-	 * @brief move the OffsetX to the right.
+	 * @brief Move the OffsetX to the right.
 	 *
 	 * offsetX +1.
 	 */
 	void offsetMoveRight();
 
 	/**
-	 * @brief move OffsetY upwards.
+	 * @brief Move OffsetY upwards.
 	 *
 	 * offsetY +1.
 	 */
 	void offsetMoveUp();
 
 	/**
-	 * @brief move OffsetY downwards.
+	 * @brief Move OffsetY downwards.
 	 *
 	 * offsetY -1.
 	 */
 	void offsetMoveDown();
+
+	/**
+	 * @brief Get the Element that the user has chosen.
+	 * @return the chosen ElementChosen enum.
+	 */
+	ElementChosen getElementChosen() const;
+
+	/**
+	 * @brief Set the elementChosen by the user.
+	 * @param newElementChosen the new elementChosen by the user.
+	 */
+	void setElementChosen(ElementChosen newElementChosen);
+
+	/**
+	 * @brief Create and add the element to the coordinates.
+	 * @param elementToAdd The element to add.
+	 * @param overallX X coordinate relative to the entire map.
+	 * @param overallY Y coordinate relative to the entire map.
+	 */
+	void createAddElement(ElementChosen elementToAdd, int overallX, int overallY);
 
 signals:
 
@@ -143,9 +163,10 @@ private:
 
 	QPalette pal;
 	Colour canvasColour{Colour::WHITE};
-	ElementChosen chosenToAdd{ElementChosen::NONE};
-	Map* drawnLayout;
-	int imageSize;
+	Mode mode{Mode::NONE};
+	ElementChosen elementChosen{ElementChosen::NONE};
+	Map* map;
+	int imageSize{16};
 	bool modified{false};
 	int offsetX{0};
 	int offsetY{0};
@@ -743,6 +764,26 @@ private:
 	QImage* flyover10BlueImage;
 	QImage* flyover11BlueImage;
 	QImage* flyover12BlueImage;
+
+	/**
+	 * @brief Calculate the X coordinate relative to the entire map.
+	 * @param roundedX The X coordinate of the track image on the canvas.
+	 * @return the X coordinate relative to the entire map.
+	 */
+	int calculateOverallXCoordinate(int roundedX);
+
+	/**
+	 * @brief Calculate the Y coordinate relative to the entire map.
+	 * @param roundedY The Y coordinate of the track image on the canvas.
+	 * @return the Y coordinate relative to the entire map.
+	 */
+	int calculateOverallYCoordinate(int roundedY);
+
+	/**
+	 * @brief Draw StraightTracks onto the canvas.
+	 * @param painter
+	 */
+	void drawStraightTrack(QPainter &painter);
 
 };
 

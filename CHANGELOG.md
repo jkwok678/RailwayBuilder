@@ -2,6 +2,17 @@
     
 All notable changes to this project will be documented in this file.
 
+## Core features - 11/08/2021
+
+### Added
+* Methods to calculate coordinates realtive to the map in the canvas class. (Includes implementaion and documentation)
+* Implementation to the mousePressEvent and paintEvent overiding methods.
+* Methods to allow straightH tracks to be added to screen.
+* New method in map class to create and add straightTrack to storage.
+### Changed
+* The offsets X and Y now default at 0
+* Changing offsets and clicking on canvas now updates the canvas.
+
 ## Core features - 10/08/2021
 
 ### Added

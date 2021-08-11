@@ -38,6 +38,12 @@ private:
 
 	std::vector<std::shared_ptr<Track>> trackList;
 
+	/**
+	 * @brief Adds a new StraightTrack to the vector.
+	 * @param newStraightTrack The new StraightTrack to addd.
+	 */
+	void addStraightTrack(std::shared_ptr<StraightTrack> newStraightTrack);
+
 
 public:
 
@@ -90,10 +96,12 @@ public:
 	void setStraightTrackList(const std::vector<std::shared_ptr<StraightTrack> >& newStraightTrackList);
 
 	/**
-	 * @brief Adds a new StraightTrack to the vector.
-	 * @param newStraightTrack The new StraightTrack to addd.
+	 * @brief Creates the Straight track and adds it to the map if possible.
+	 * @param straightType The straightType of the track.
+	 * @param overallX X coordinate of the track.
+	 * @param overallY Y coordinate of the track.
 	 */
-	void addStraightTrack(std::shared_ptr<StraightTrack> newStraightTrack);
+	void createAddStraightTrack(StraightType straightType, int overallX, int overallY);
 
 	/**
 	 * @brief Gets the Straight Track at given coordinates if one exists there.

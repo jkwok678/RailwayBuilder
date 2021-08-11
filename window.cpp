@@ -224,13 +224,13 @@ void Window::chooseStraightH()
 	//If the Mode is AddRemoveTrack and the element is StraightH,
 	// the element to add will be a Straight horizontal.
 	//Otherwise set to nothing.
-	if (mode==Mode::ADDREMOVETRACK && elementChosenToPlace != ElementChosen::STRAIGHTH)
+	if (mode==Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::STRAIGHTH)
 	{
-		elementChosenToPlace = ElementChosen::STRAIGHTH;
+		drawingArea->setElementChosen(ElementChosen::STRAIGHTH);
 	}
 	else
 	{
-		elementChosenToPlace = ElementChosen::NONE;
+		drawingArea->setElementChosen(ElementChosen::NONE);
 	}
 }
 
@@ -239,25 +239,25 @@ void Window::chooseStraightH()
 void Window::moveRightOnCanvas()
 {
 	drawingArea->offsetMoveRight();
-	std::cout << drawingArea->getOffsetX() << std::flush;
+	drawingArea->update();
 }
 
 void Window::moveLeftOnCanvas()
 {
 	drawingArea->offsetMoveLeft();
-	std::cout << drawingArea->getOffsetX() << std::flush;
+	drawingArea->update();
 }
 
 void Window::moveUpOnCanvas()
 {
 	drawingArea->offsetMoveUp();
-	std::cout << drawingArea->getOffsetY() << std::flush;
+	drawingArea->update();
 }
 
 void Window::moveDownOnCanvas()
 {
 	drawingArea->offsetMoveDown();
-	std::cout << drawingArea->getOffsetY() << std::flush;
+	drawingArea->update();
 }
 
 //Private

@@ -4,15 +4,16 @@ Canvas::Canvas()
 {
 	setMinimumSize(640,480);
 	QPalette pal = palette();
-	// set black background
-	pal.setColor(QPalette::Window, Qt::black);
-
+	// set white background
+	pal.setColor(QPalette::Window, Qt::white);
+	map = new Map();
 
 	//Hints
 	selectRed = new QImage(":/graphics/graphics/select1.png");
 	selectGreen = new QImage(":/graphics/graphics/select2.png");
 	selectBlue = new QImage(":/graphics/graphics/select3.png");
 	setAutoFillBackground(true);
+	loadAllTrackImages();
 	setPalette(pal);
 }
 
@@ -688,14 +689,216 @@ void Canvas::offsetMoveDown()
 	offsetY--;
 }
 
+ElementChosen Canvas::getElementChosen() const
+{
+	return elementChosen;
+}
+
+void Canvas::setElementChosen(ElementChosen newElementChosen)
+{
+	elementChosen = newElementChosen;
+}
+
+void Canvas::createAddElement(ElementChosen elementToAdd, int overallX, int overallY)
+{
+	bool addedTrack = false;
+	switch (elementToAdd)
+	{
+		case ElementChosen::NONE:
+		{
+			QMessageBox noELementSelected;
+			noELementSelected.setIcon(QMessageBox::Critical);
+			noELementSelected.setText("No element has been selected.");
+			noELementSelected.exec();
+			break;
+		}
+		case ElementChosen::STRAIGHTH:
+		{
+			map->createAddStraightTrack(StraightType::STRAIGHTH, overallX, overallY);
+			addedTrack = true;
+			break;
+		}
+		case ElementChosen::STRAIGHTV:
+		{
+			map->createAddStraightTrack(StraightType::STRAIGHTV, overallX, overallY);
+			addedTrack = true;
+			break;
+		}
+	}
+}
+
 
 void Canvas::mousePressEvent(QMouseEvent *event)
 {
+	//Get size of the current Canvas Widget.
+	canvasSizeX = width();
+	canvasSizeY = height();
+	//Getlocation of click.
+	int exactX = event->pos().x();
+	int exactY = event->pos().y();
+	//Find out how close it is to the nearest image size. E.g. split the canvas into a grid with each square being imageSize big
+	int extraX = exactX % imageSize;
+	int extraY = exactY % imageSize;
+	//Find the closest box to snap to.
+	int roundedX = exactX - extraX;
+	int roundedY = exactY - extraY;
+	//Calculate overall coordinate
+	int overallX = calculateOverallXCoordinate(roundedX);
+	int overallY = calculateOverallYCoordinate(roundedY);
 
+	bool addedTrack = false;
+	if (event->button() == Qt::LeftButton)
+	{
+		createAddElement(elementChosen, overallX, overallY);
+	}
+	update();
 }
 
 void Canvas::paintEvent(QPaintEvent *event)
 {
+	canvasSizeX = width();
+	canvasSizeY = height();
+
+	if (mode == Mode::SETCONVERTSPEEDDISTANCE)
+	{
+
+	}
+	else
+	{
+		//map->resetSetTrackSpeedLengthMechanics();
+		QPainter painter(this);
+		drawStraightTrack(painter);
+	}
 
 }
 
+
+
+
+
+int Canvas::calculateOverallXCoordinate(int roundedX)
+{
+	return roundedX + (offsetX*canvasSizeX);
+}
+
+int Canvas::calculateOverallYCoordinate(int roundedY)
+{
+	int finalY = 0;
+	if (offsetY==0)
+	{
+		finalY = 0 - (roundedY+ (offsetY*canvasSizeY));
+	}
+	else
+	{
+		finalY = 0 - (roundedY- (offsetY*canvasSizeY));
+	}
+	return finalY;
+}
+
+
+void Canvas::drawStraightTrack(QPainter &painter)
+{
+	for (std::shared_ptr<StraightTrack> currentElement : map->getStraightTrackList())
+	{
+		//Get the stored location of track relative to the canvas widget.
+		int currentX = currentElement->getLocationX();
+		int currentY = currentElement->getLocationY();
+
+		//Find the area you want to output, by using the offset and the size of the canvas widget.
+		int minCoordinateX = (offsetX * canvasSizeX);
+		int maxCoordinateX = ((offsetX+1) * canvasSizeX);
+		int minCoordinateY = ((offsetY-1) * canvasSizeY);
+		int maxCoordinateY = (offsetY*canvasSizeY);;
+
+		int minDisplayX = (offsetX * canvasSizeX);
+		int maxDisplayX = ((offsetX+1) * canvasSizeX);
+		int minDisplayY = ((offsetY-1) * canvasSizeY);
+		int maxDisplayY = (offsetY*canvasSizeY);
+
+		//Find the location on the canvas where you will draw
+		if (currentX >= minCoordinateX && currentX <= maxCoordinateX)
+		{
+			if (currentY >= minCoordinateY && currentY <= maxCoordinateY)
+			{
+				int displayX = currentX- minDisplayX;
+				int displayY = 0-(currentY - maxDisplayY);
+				switch (currentElement->getStraightType())
+				{
+					case StraightType::STRAIGHTH:
+					{
+						//std::cout<< currentElement->getNamed() << std::flush;
+						painter.drawImage(displayX, displayY, *straightHImage);
+						if (currentElement->getPlatform1())
+						{
+							if (currentElement->getNamed())
+							{
+								painter.drawImage(displayX, displayY, *platformUpSetImage);
+							}
+							else
+							{
+								painter.drawImage(displayX, displayY, *platformUpUnsetImage);
+							}
+						}
+						if (currentElement->getPlatform2())
+						{
+							if (currentElement->getNamed())
+							{
+								painter.drawImage(displayX, displayY, *platformDownSetImage);
+							}
+							else
+							{
+								painter.drawImage(displayX, displayY, *platformDownUnsetImage);
+							}
+						}
+						if (currentElement->hasLevelCrossing())
+						{
+							painter.drawImage(displayX, displayY, *levelCrossingHImage);
+						}
+						break;
+					}
+					case StraightType::STRAIGHTV:
+					{
+						painter.drawImage(displayX, displayY, *straightVImage);
+						if (currentElement->getPlatform1())
+						{
+							if (currentElement->getNamed())
+							{
+								painter.drawImage(displayX, displayY, *platformLeftSetImage);
+							}
+							else
+							{
+								painter.drawImage(displayX, displayY, *platformLeftUnsetImage);
+							}
+						}
+						if (currentElement->getPlatform2())
+						{
+							if (currentElement->getNamed())
+							{
+								painter.drawImage(displayX, displayY, *platformRightSetImage);
+							}
+							else
+							{
+								painter.drawImage(displayX, displayY, *platformRightUnsetImage);
+							}
+						}
+						if (currentElement->hasLevelCrossing())
+						{
+							painter.drawImage(displayX, displayY, *levelCrossingVImage);
+						}
+						break;
+					}
+					case StraightType::STRIAGHTRIGHTUP:
+					{
+						painter.drawImage(displayX, displayY, *straightRightUpImage);
+						break;
+					}
+					case StraightType::STRAIGHTLEFTUP:
+					{
+						painter.drawImage(displayX, displayY, *straightLeftUpImage);
+						break;
+					}
+				}
+			}
+		}
+	}
+}
