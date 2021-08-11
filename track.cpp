@@ -97,7 +97,7 @@ StraightTrack::StraightTrack(StraightType newStraightType, int newLocationX, int
 			links[8] = true;
 			break;
 		}
-		case StraightType::STRIAGHTRIGHTUP:
+		case StraightType::STRAIGHTRIGHTUP:
 		{
 			links[2] = true;
 			links[6] = true;
@@ -168,29 +168,29 @@ DirectedTrack::DirectedTrack(DirectedType newDirectType, int newLocationX, int n
 	locationY = newLocationY;
 	switch(directedType)
 	{
-		case DirectedType::DIRECTLEFT:
-		case DirectedType::DIRECTRIGHT:
+		case DirectedType::DIRECTEDLEFT:
+		case DirectedType::DIRECTEDRIGHT:
 		{
 			links[3] = true;
 			links[5] = true;
 			break;
 		}
-		case DirectedType::DIRECTUP:
-		case DirectedType::DIRECTDOWN:
+		case DirectedType::DIRECTEDUP:
+		case DirectedType::DIRECTEDDOWN:
 		{
 			links[1] = true;
 			links[7] = true;
 			break;
 		}
-		case DirectedType::DIRECTLEFTUP:
-		case DirectedType::DIRECTRIGHTDOWN:
+		case DirectedType::DIRECTEDLEFTUP:
+		case DirectedType::DIRECTEDRIGHTDOWN:
 		{
 			links[0] = true;
 			links[8] = true;
 			break;
 		}
-		case DirectedType::DIRECTRIGHTUP:
-		case DirectedType::DIRECTLEFTDOWN:
+		case DirectedType::DIRECTEDRIGHTUP:
+		case DirectedType::DIRECTEDLEFTDOWN:
 		{
 			links[2] = true;
 			links[6] = true;

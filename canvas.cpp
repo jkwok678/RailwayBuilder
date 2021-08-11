@@ -829,6 +829,8 @@ void Canvas::paintEvent(QPaintEvent *event)
 		//map->resetSetTrackSpeedLengthMechanics();
 		QPainter painter(this);
 		drawStraightTrack(painter);
+		drawDirectedTrack(painter);
+		drawCurvedTrack(painter);
 	}
 
 }

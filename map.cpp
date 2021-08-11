@@ -265,6 +265,21 @@ void Map::addDirectedTrack(std::shared_ptr<DirectedTrack> newDirectedTrack)
 		}
 }
 
+void Map::addCurvedTrack(std::shared_ptr<CurvedTrack> newCurvedTrack)
+{
+	int tempLocationX = newCurvedTrack->getLocationX();
+	int templocationY = newCurvedTrack->getLocationY();
+	if (!checkElementExists(tempLocationX, templocationY))
+	{
+		curvedTrackList.push_back(newCurvedTrack);
+		++totalTrack;
+	}
+	else
+	{
+		showElementAlreadyThereError();
+	}
+}
+
 //public
 
 //StraightTrack related methods
@@ -305,7 +320,7 @@ std::shared_ptr<StraightTrack> Map::getStraightTrackAt(int locationX, int locati
 	return straightTrack;
 }
 
-//DirectedTRack related methods
+//DirectedTrack related methods
 
 std::vector<std::shared_ptr<DirectedTrack> > Map::getDirectedTrackList() const
 {
@@ -340,4 +355,42 @@ std::shared_ptr<DirectedTrack> Map::getDirectedTrackAt(int locationX, int locati
 		}
 	}
 	return directedTrack;
+}
+
+//CurvedTrack related methods
+
+std::vector<std::shared_ptr<CurvedTrack> > Map::getCurvedTrackList() const
+{
+	return curvedTrackList;
+}
+
+void Map::setCurvedTrackList(const std::vector<std::shared_ptr<CurvedTrack> >& newCurvedTrackList)
+{
+	curvedTrackList = newCurvedTrackList;
+}
+
+void Map::createAddCurvedTrack(CurvedType curvedType, int overallX, int overallY)
+{
+	std::shared_ptr<CurvedTrack> curvedTrack(new CurvedTrack(curvedType, overallX, overallY));
+	addCurvedTrack(curvedTrack);
+}
+
+std::shared_ptr<CurvedTrack> Map::getCurvedTrackAt(int locationX, int locationY)
+{
+	std::shared_ptr<CurvedTrack> curvedTrack = nullptr;
+	if (!curvedTrackList.empty())
+	{
+		for (std::shared_ptr<CurvedTrack>& currentElement : curvedTrackList)
+		{
+
+			int currentX = currentElement->getLocationX();
+			int currentY = currentElement->getLocationY();
+			if (currentX == locationX && currentY == locationY)
+			{
+				curvedTrack = currentElement;
+				break;
+			}
+		}
+	}
+	return curvedTrack;
 }

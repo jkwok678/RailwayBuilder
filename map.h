@@ -165,10 +165,35 @@ public:
 
 	//CurvedTrack related methods
 
+	/**
+	 * @brief Gets the list of CurvedTrack pieces.
+	 * @return A vector of shared pointers that point to StraightTracks.
+	 */
 	std::vector<std::shared_ptr<CurvedTrack> > getCurvedTrackList() const;
+
+	/**
+	 * @brief Sets the list of CurvedTrack pieces.
+	 * @param newCurvedTrackList A new vector of shared pointers that point to CurvedTracks.
+	 */
 	void setCurvedTrackList(const std::vector<std::shared_ptr<CurvedTrack> >& newCurvedTrackList);
 
+	/**
+	 * @brief Creates the CurvedTrack and adds it to the map if possible.
+	 * @param curvedType The CurvedType of the track.
+	 * @param overallX X coordinate of the track.
+	 * @param overallY Y coordinate of the track.
+	 */
+	void createAddCurvedTrack(CurvedType curvedType, int overallX, int overallY);
+
+	/**
+	 * @brief Gets the CurvedTrack at given coordinates if one exists there.
+	 * @param locationX X coordinate to look at.
+	 * @param locationY Y coordinate to look at.
+	 * @return CurvedTrack at (X,Y) if there is one, otherwise return a nullptr.
+	 */
 	std::shared_ptr<CurvedTrack> getCurvedTrackAt(int locationX,int locationY);
+
+	//LinkedTrack related methods
 
 	std::vector<std::shared_ptr<LinkedTrack> > getLinkedTrackList() const;
 	void setLinkedTrackList(const std::vector<std::shared_ptr<LinkedTrack> >& newLinkedTrackList);
