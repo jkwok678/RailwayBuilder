@@ -784,6 +784,305 @@ void Canvas::createAddElement(ElementChosen elementToAdd, int overallX, int over
 			addedTrack = true;
 			break;
 		}
+		case ElementChosen::TIGHTCURVE1:
+		{
+			map->createAddCurvedTrack(CurvedType::TIGHTCURVE1, overallX, overallY);
+			addedTrack = true;
+			break;
+		}
+		case ElementChosen::TIGHTCURVE2:
+		{
+			map->createAddCurvedTrack(CurvedType::TIGHTCURVE2, overallX, overallY);
+			addedTrack = true;
+			break;
+		}
+		case ElementChosen::TIGHTCURVE3:
+		{
+			map->createAddCurvedTrack(CurvedType::TIGHTCURVE3, overallX, overallY);
+			addedTrack = true;
+			break;
+		}
+		case ElementChosen::TIGHTCURVE4:
+		{
+			map->createAddCurvedTrack(CurvedType::TIGHTCURVE4, overallX, overallY);
+			addedTrack = true;
+			break;
+		}
+		case ElementChosen::CURVE1:
+		{
+			map->createAddCurvedTrack(CurvedType::CURVE1, overallX, overallY);
+			addedTrack = true;
+			break;
+		}
+		case ElementChosen::CURVE2:
+		{
+			map->createAddCurvedTrack(CurvedType::CURVE2, overallX, overallY);
+			addedTrack = true;
+			break;
+		}
+		case ElementChosen::CURVE3:
+		{
+			map->createAddCurvedTrack(CurvedType::CURVE3, overallX, overallY);
+			addedTrack = true;
+			break;
+		}
+		case ElementChosen::CURVE4:
+		{
+			map->createAddCurvedTrack(CurvedType::CURVE4, overallX, overallY);
+			addedTrack = true;
+			break;
+		}
+		case ElementChosen::LINKLEFT:
+		{
+			map->createAddLinkedTrack(LinkedType::LINKLEFT, overallX, overallY);
+			addedTrack = true;
+			break;
+		}
+		case ElementChosen::LINKRIGHT:
+		{
+			map->createAddLinkedTrack(LinkedType::LINKRIGHT, overallX, overallY);
+			addedTrack = true;
+			break;
+		}
+		case ElementChosen::LINKDOWN:
+		{
+			map->createAddLinkedTrack(LinkedType::LINKDOWN, overallX, overallY);
+			addedTrack = true;
+			break;
+		}
+		case ElementChosen::LINKUP:
+		{
+			map->createAddLinkedTrack(LinkedType::LINKUP, overallX, overallY);
+			addedTrack = true;
+			break;
+		}
+		case ElementChosen::LINKLEFTUP:
+		{
+			map->createAddLinkedTrack(LinkedType::LINKLEFTUP, overallX, overallY);
+			addedTrack = true;
+			break;
+		}
+		case ElementChosen::LINKRIGHTUP:
+		{
+			map->createAddLinkedTrack(LinkedType::LINKRIGHTUP, overallX, overallY);
+			addedTrack = true;
+			break;
+		}
+		case ElementChosen::LINKRIGHTDOWN:
+		{
+			map->createAddLinkedTrack(LinkedType::LINKRIGHTDOWN, overallX, overallY);
+			addedTrack = true;
+			break;
+		}
+		case ElementChosen::LINKLEFTDOWN:
+		{
+			map->createAddLinkedTrack(LinkedType::LINKLEFTDOWN, overallX, overallY);
+			addedTrack = true;
+			break;
+		}
+		case ElementChosen::EXITLEFT:
+		{
+			map->createAddExitTrack(ExitType::EXITLEFT, overallX, overallY);
+			addedTrack = true;
+			break;
+		}
+		case ElementChosen::EXITRIGHT:
+		{
+			map->createAddExitTrack(ExitType::EXITRIGHT, overallX, overallY);
+			addedTrack = true;
+			break;
+		}
+		case ElementChosen::EXITDOWN:
+		{
+			map->createAddExitTrack(ExitType::EXITDOWN, overallX, overallY);
+			addedTrack = true;
+			break;
+		}
+		case ElementChosen::EXITUP:
+		{
+			map->createAddExitTrack(ExitType::EXITUP, overallX, overallY);
+			addedTrack = true;
+			break;
+		}
+		case ElementChosen::EXITLEFTUP:
+		{
+			map->createAddExitTrack(ExitType::EXITLEFTUP, overallX, overallY);
+			addedTrack = true;
+			break;
+		}
+		case ElementChosen::EXITRIGHTUP:
+		{
+			map->createAddExitTrack(ExitType::EXITRIGHTUP, overallX, overallY);
+			addedTrack = true;
+			break;
+		}
+		case ElementChosen::EXITLEFTDOWN:
+		{
+			map->createAddExitTrack(ExitType::EXITLEFTDOWN, overallX, overallY);
+			addedTrack = true;
+			break;
+		}
+		case ElementChosen::EXITRIGHTDOWN:
+		{
+			map->createAddExitTrack(ExitType::EXITRIGHTDOWN, overallX, overallY);
+			addedTrack = true;
+			break;
+		}
+		case ElementChosen::CURVE5:
+		{
+			map->createAddCurvedTrack(CurvedType::CURVE5, overallX, overallY);
+			addedTrack = true;
+			break;
+		}
+		case ElementChosen::CURVE6:
+		{
+			map->createAddCurvedTrack(CurvedType::CURVE6, overallX, overallY);
+			addedTrack = true;
+			break;
+		}
+		case ElementChosen::CURVE7:
+		{
+			map->createAddCurvedTrack(CurvedType::CURVE7, overallX, overallY);
+			addedTrack = true;
+			break;
+		}
+		case ElementChosen::CURVE8:
+		{
+			map->createAddCurvedTrack(CurvedType::CURVE8, overallX, overallY);
+			addedTrack = true;
+			break;
+		}
+		case ElementChosen::BUFFERLEFT:
+		{
+			map->createAddBufferTrack(BufferType::BUFFERLEFT, overallX, overallY);
+			addedTrack = true;
+			break;
+		}
+		case ElementChosen::BUFFERRIGHT:
+		{
+			map->createAddBufferTrack(BufferType::BUFFERRIGHT, overallX, overallY);
+			addedTrack = true;
+			break;
+		}
+		case ElementChosen::BUFFERDOWN:
+		{
+			map->createAddBufferTrack(BufferType::BUFFERDOWN, overallX, overallY);
+			addedTrack = true;
+			break;
+		}
+		case ElementChosen::BUFFERUP:
+		{
+			map->createAddBufferTrack(BufferType::BUFFERUP, overallX, overallY);
+			addedTrack = true;
+			break;
+		}
+
+		case ElementChosen::BUFFERLEFTUP:
+		{
+			map->createAddBufferTrack(BufferType::BUFFERLEFTUP, overallX, overallY);
+			addedTrack = true;
+			break;
+		}
+		case ElementChosen::BUFFERRIGHTUP:
+		{
+			map->createAddBufferTrack(BufferType::BUFFERRIGHTUP, overallX, overallY);
+			addedTrack = true;
+			break;
+		}
+		case ElementChosen::BUFFERLEFTDOWN:
+		{
+			map->createAddBufferTrack(BufferType::BUFFERLEFTDOWN, overallX, overallY);
+			addedTrack = true;
+			break;
+		}
+		case ElementChosen::BUFFERRIGHTDOWN:
+		{
+			map->createAddBufferTrack(BufferType::BUFFERRIGHTDOWN, overallX, overallY);
+			addedTrack = true;
+			break;
+		}
+		/*
+		case ElementChosen::SIGNALLEFT:
+		{
+			std::shared_ptr<SignalTrack> signalLeft(new SignalTrack(SignalType::SIGNALLEFT, canvasAspect, finalX, finalY));
+			drawnLayout->addSignalTrack(signalLeft);
+			addedTrack = true;
+			break;
+		}
+		case ElementChosen::SIGNALRIGHT:
+		{
+			std::shared_ptr<SignalTrack> signalRight(new SignalTrack(SignalType::SIGNALRIGHT, canvasAspect, finalX, finalY));
+			drawnLayout->addSignalTrack(signalRight);
+			addedTrack = true;
+			break;
+		}
+		case ElementChosen::SIGNALDOWN:
+		{
+			std::shared_ptr<SignalTrack> signalDown(new SignalTrack(SignalType::SIGNALDOWN, canvasAspect, finalX, finalY));
+			drawnLayout->addSignalTrack(signalDown);
+			addedTrack = true;
+			break;
+		}
+		case ElementChosen::SIGNALUP:
+		{
+			std::shared_ptr<SignalTrack> signalUp(new SignalTrack(SignalType::SIGNALUP, canvasAspect, finalX, finalY));
+			drawnLayout->addSignalTrack(signalUp);
+			addedTrack = true;
+			break;
+		}
+		case ElementChosen::SIGNALLEFTUP:
+		{
+			std::shared_ptr<SignalTrack> signalLeftUp(new SignalTrack(SignalType::SIGNALLEFTUP, canvasAspect, finalX, finalY));
+			drawnLayout->addSignalTrack(signalLeftUp);
+			addedTrack = true;
+			break;
+		}
+		case ElementChosen::SIGNALRIGHTUP:
+		{
+			std::shared_ptr<SignalTrack> signalRightUp(new SignalTrack(SignalType::SIGNALRIGHTUP, canvasAspect, finalX, finalY));
+			drawnLayout->addSignalTrack(signalRightUp);
+			addedTrack = true;
+			break;
+		}
+		case ElementChosen::SIGNALLEFTDOWN:
+		{
+			std::shared_ptr<SignalTrack> signalLeftDown(new SignalTrack(SignalType::SIGNALLEFTDOWN, canvasAspect, finalX, finalY));
+			drawnLayout->addSignalTrack(signalLeftDown);
+			addedTrack = true;
+			break;
+		}
+		case ElementChosen::SIGNALRIGHTDOWN:
+		{
+			std::shared_ptr<SignalTrack> signalRightDown(new SignalTrack(SignalType::SIGNALRIGHTDOWN, canvasAspect, finalX, finalY));
+			drawnLayout->addSignalTrack(signalRightDown);
+			addedTrack = true;
+			break;
+		}
+		*/
+		case ElementChosen::BRIDGE1:
+		{
+			map->createAddBridgeUnderpassTrack(BridgeUnderpassType::BRIDGE1, overallX, overallY);
+			addedTrack = true;
+			break;
+		}
+		case ElementChosen::BRIDGE2:
+		{
+			map->createAddBridgeUnderpassTrack(BridgeUnderpassType::BRIDGE2, overallX, overallY);
+			addedTrack = true;
+			break;
+		}
+		case ElementChosen::UNDERPASS1:
+		{
+			map->createAddBridgeUnderpassTrack(BridgeUnderpassType::UNDERPASS1, overallX, overallY);
+			addedTrack = true;
+			break;
+		}
+		case ElementChosen::UNDERPASS2:
+		{
+			map->createAddBridgeUnderpassTrack(BridgeUnderpassType::UNDERPASS2, overallX, overallY);
+			addedTrack = true;
+			break;
+		}
 
 	}
 }
@@ -831,6 +1130,11 @@ void Canvas::paintEvent(QPaintEvent *event)
 		drawStraightTrack(painter);
 		drawDirectedTrack(painter);
 		drawCurvedTrack(painter);
+		drawLinkedTrack(painter);
+		drawExitTrack(painter);
+		drawBufferTrack(painter);
+		drawSignalTrack(painter);
+		drawBridgeUnderpassTrack(painter);
 	}
 
 }
@@ -1194,6 +1498,723 @@ void Canvas::drawCurvedTrack(QPainter &painter)
 					case CurvedType::CURVE8:
 					{
 						painter.drawImage(displayX, displayY, *curve8Image);
+						break;
+					}
+				}
+			}
+		}
+	}
+}
+
+void Canvas::drawLinkedTrack(QPainter &painter)
+{
+	for (std::shared_ptr<LinkedTrack> currentElement : map->getLinkedTrackList())
+	{
+		int currentX = currentElement->getLocationX();
+		int currentY = currentElement->getLocationY();
+		int minCoordinateX = (offsetX * canvasSizeX);
+		int maxCoordinateX = ((offsetX+1) * canvasSizeX);
+		int minCoordinateY = ((offsetY-1) * canvasSizeY);
+		int maxCoordinateY = (offsetY*canvasSizeY);;
+		int minDisplayX = (offsetX * canvasSizeX);
+		int maxDisplayY = (offsetY*canvasSizeY);
+		if (currentX >= minCoordinateX && currentX <= maxCoordinateX)
+		{
+			if (currentY >= minCoordinateY && currentY <= maxCoordinateY)
+			{
+				int displayX = currentX- minDisplayX;
+				int displayY = 0-(currentY - maxDisplayY);
+				switch (currentElement->getLinkedType())
+				{
+					case LinkedType::LINKLEFT:
+					{
+						if (!currentElement->getLinked())
+						{
+							painter.drawImage(displayX, displayY, *linkLeftUnsetImage);
+						}
+						else
+						{
+							painter.drawImage(displayX, displayY, *linkLeftSetImage);
+						}
+						break;
+					}
+					case LinkedType::LINKRIGHT:
+					{
+						if (!currentElement->getLinked())
+						{
+							painter.drawImage(displayX, displayY, *linkRightUnsetImage);
+						}
+						else
+						{
+							painter.drawImage(displayX, displayY, *linkRightSetImage);
+						}
+						break;
+					}
+					case LinkedType::LINKDOWN:
+					{
+						if (!currentElement->getLinked())
+						{
+							painter.drawImage(displayX, displayY, *linkDownUnsetImage);
+						}
+						else
+						{
+							painter.drawImage(displayX, displayY, *linkDownSetImage);
+						}
+						break;
+					}
+					case LinkedType::LINKUP:
+					{
+						if (!currentElement->getLinked())
+						{
+							painter.drawImage(displayX, displayY, *linkUpUnsetImage);
+						}
+						else
+						{
+							painter.drawImage(displayX, displayY, *linkUpSetImage);
+						}
+						break;
+					}
+					case LinkedType::LINKLEFTUP:
+					{
+						if (!currentElement->getLinked())
+						{
+							painter.drawImage(displayX, displayY, *linkLeftUpUnsetImage);
+						}
+						else
+						{
+							painter.drawImage(displayX, displayY, *linkLeftUpSetImage);
+						}
+						break;
+					}
+					case LinkedType::LINKRIGHTUP:
+					{
+						if (!currentElement->getLinked())
+						{
+							painter.drawImage(displayX, displayY, *linkRightUpUnsetImage);
+						}
+						else
+						{
+							painter.drawImage(displayX, displayY, *linkRightUpSetImage);
+						}
+						break;
+					}
+					case LinkedType::LINKRIGHTDOWN:
+					{
+						if (!currentElement->getLinked())
+						{
+							painter.drawImage(displayX, displayY, *linkRightDownUnsetImage);
+						}
+						else
+						{
+							painter.drawImage(displayX, displayY, *linkRightDownSetImage);
+						}
+						break;
+					}
+					case LinkedType::LINKLEFTDOWN:
+					{
+						if (!currentElement->getLinked())
+						{
+							painter.drawImage(displayX, displayY, *linkLeftDownUnsetImage);
+						}
+						else
+						{
+							painter.drawImage(displayX, displayY, *linkLeftDownSetImage);
+						}
+						break;
+					}
+				}
+			}
+		}
+	}
+
+}
+
+void Canvas::drawExitTrack(QPainter &painter)
+{
+	for (std::shared_ptr<ExitTrack> currentElement : map->getExitTrackList())
+	{
+		int currentX = currentElement->getLocationX();
+		int currentY = currentElement->getLocationY();
+		int minCoordinateX = (offsetX * canvasSizeX);
+		int maxCoordinateX = ((offsetX+1) * canvasSizeX);
+		int minCoordinateY = ((offsetY-1) * canvasSizeY);
+		int maxCoordinateY = (offsetY*canvasSizeY);;
+		int minDisplayX = (offsetX * canvasSizeX);
+		int maxDisplayY = (offsetY*canvasSizeY);
+		if (currentX >= minCoordinateX && currentX <= maxCoordinateX)
+		{
+			if (currentY >= minCoordinateY && currentY <= maxCoordinateY)
+			{
+				int displayX = currentX- minDisplayX;
+				int displayY = 0-(currentY - maxDisplayY);
+				switch (currentElement->getExitType())
+				{
+					case ExitType::EXITLEFT:
+					{
+						painter.drawImage(displayX, displayY, *exitLeftImage);
+						break;
+					}
+					case ExitType::EXITRIGHT:
+					{
+						painter.drawImage(displayX, displayY, *exitRightImage);
+						break;
+					}
+					case ExitType::EXITDOWN:
+					{
+						painter.drawImage(displayX, displayY, *exitDownImage);
+						break;
+					}
+					case ExitType::EXITUP:
+					{
+						painter.drawImage(displayX, displayY, *exitUpImage);
+						break;
+					}
+					case ExitType::EXITLEFTUP:
+					{
+						painter.drawImage(displayX, displayY, *exitLeftUpImage);
+						break;
+					}
+					case ExitType::EXITRIGHTUP:
+					{
+						painter.drawImage(displayX, displayY, *exitRightUpImage);
+						break;
+					}
+					case ExitType::EXITLEFTDOWN:
+					{
+						painter.drawImage(displayX, displayY, *exitLeftDownImage);
+						break;
+					}
+					case ExitType::EXITRIGHTDOWN:
+					{
+						painter.drawImage(displayX, displayY, *exitRightDownImage);
+						break;
+					}
+				}
+			}
+		}
+	}
+}
+
+void Canvas::drawBufferTrack(QPainter &painter)
+{
+	for (std::shared_ptr<BufferTrack> currentElement : map->getBufferTrackList())
+	{
+		int currentX = currentElement->getLocationX();
+		int currentY = currentElement->getLocationY();
+		int minCoordinateX = (offsetX * canvasSizeX);
+		int maxCoordinateX = ((offsetX+1) * canvasSizeX);
+		int minCoordinateY = ((offsetY-1) * canvasSizeY);
+		int maxCoordinateY = (offsetY*canvasSizeY);;
+		int minDisplayX = (offsetX * canvasSizeX);
+		int maxDisplayY = (offsetY*canvasSizeY);
+		if (currentX >= minCoordinateX && currentX <= maxCoordinateX)
+		{
+			if (currentY >= minCoordinateY && currentY <= maxCoordinateY)
+			{
+				int displayX = currentX- minDisplayX;
+				int displayY = 0-(currentY - maxDisplayY);
+				switch (currentElement->getBufferType())
+				{
+					case BufferType::BUFFERLEFT:
+					{
+						painter.drawImage(displayX, displayY, *bufferLeftImage);
+						if (currentElement->getPlatform1())
+						{
+							if (currentElement->getNamed())
+							{
+								painter.drawImage(displayX, displayY, *platformUpSetImage);
+							}
+							else
+							{
+								painter.drawImage(displayX, displayY, *platformUpUnsetImage);
+							}
+						}
+						if (currentElement->getPlatform2())
+						{
+							if (currentElement->getNamed())
+							{
+								painter.drawImage(displayX, displayY, *platformDownSetImage);
+							}
+							else
+							{
+								painter.drawImage(displayX, displayY, *platformDownUnsetImage);
+							}
+						}
+						break;
+					}
+					case BufferType::BUFFERRIGHT:
+					{
+						painter.drawImage(displayX, displayY, *bufferRightImage);
+						if (currentElement->getPlatform1())
+						{
+							if (currentElement->getNamed())
+							{
+								painter.drawImage(displayX, displayY, *platformUpSetImage);
+							}
+							else
+							{
+								painter.drawImage(displayX, displayY, *platformUpUnsetImage);
+							}
+						}
+						if (currentElement->getPlatform2())
+						{
+							if (currentElement->getNamed())
+							{
+								painter.drawImage(displayX, displayY, *platformDownSetImage);
+							}
+							else
+							{
+								painter.drawImage(displayX, displayY, *platformDownUnsetImage);
+							}
+						}
+						break;
+					}
+					case BufferType::BUFFERDOWN:
+					{
+						painter.drawImage(displayX, displayY, *bufferDownImage);
+						if (currentElement->getPlatform1())
+						{
+							if (currentElement->getNamed())
+							{
+								painter.drawImage(displayX, displayY, *platformLeftSetImage);
+							}
+							else
+							{
+								painter.drawImage(displayX, displayY, *platformLeftUnsetImage);
+							}
+						}
+						if (currentElement->getPlatform2())
+						{
+							if (currentElement->getNamed())
+							{
+								painter.drawImage(displayX, displayY, *platformRightSetImage);
+							}
+							else
+							{
+								painter.drawImage(displayX, displayY, *platformRightUnsetImage);
+							}
+						}
+						break;
+					}
+					case BufferType::BUFFERUP:
+					{
+						painter.drawImage(displayX, displayY, *bufferUpImage);
+						if (currentElement->getPlatform1())
+						{
+							if (currentElement->getNamed())
+							{
+								painter.drawImage(displayX, displayY, *platformLeftSetImage);
+							}
+							else
+							{
+								painter.drawImage(displayX, displayY, *platformLeftUnsetImage);
+							}
+						}
+						if (currentElement->getPlatform2())
+						{
+							if (currentElement->getNamed())
+							{
+								painter.drawImage(displayX, displayY, *platformRightSetImage);
+							}
+							else
+							{
+								painter.drawImage(displayX, displayY, *platformRightUnsetImage);
+							}
+						}
+						break;
+					}
+					case BufferType::BUFFERLEFTUP:
+					{
+						painter.drawImage(displayX, displayY, *bufferLeftUpImage);
+						break;
+					}
+					case BufferType::BUFFERRIGHTUP:
+					{
+						painter.drawImage(displayX, displayY, *bufferRightUpImage);
+						break;
+					}
+					case BufferType::BUFFERLEFTDOWN:
+					{
+						painter.drawImage(displayX, displayY, *bufferLeftDownImage);
+						break;
+					}
+					case BufferType::BUFFERRIGHTDOWN:
+					{
+						painter.drawImage(displayX, displayY, *bufferRightDownImage);
+						break;
+					}
+				}
+			}
+		}
+	}
+}
+
+void Canvas::drawSignalTrack(QPainter &painter)
+{
+	/*
+	for (std::shared_ptr<SignalTrack> currentElement : map->getSignalTrackList())
+	{
+		int currentX = currentElement->getLocationX();
+		int currentY = currentElement->getLocationY();
+		int minCoordinateX = (offsetX * canvasSizeX);
+		int maxCoordinateX = ((offsetX+1) * canvasSizeX);
+		int minCoordinateY = ((offsetY-1) * canvasSizeY);
+		int maxCoordinateY = (offsetY*canvasSizeY);;
+		int minDisplayX = (offsetX * canvasSizeX);
+		int maxDisplayY = (offsetY*canvasSizeY);
+		if (currentX >= minCoordinateX && currentX <= maxCoordinateX)
+		{
+			if (currentY >= minCoordinateY && currentY <= maxCoordinateY)
+			{
+				int displayX = currentX- minDisplayX;
+				int displayY = 0-(currentY - maxDisplayY);
+				switch (currentElement->getSignalType())
+				{
+					case SignalType::SIGNALLEFT:
+					{
+						if (currentElement->getAspect() == 1)
+						{
+							painter.drawImage(displayX, displayY, *shuntLeftImage);
+						}
+						else
+						{
+							painter.drawImage(displayX, displayY, *signalLeftImage);
+						}
+						if (currentElement->getPlatform1())
+						{
+							if (currentElement->getNamed())
+							{
+								painter.drawImage(displayX, displayY, *platformUpSetImage);
+							}
+							else
+							{
+								painter.drawImage(displayX, displayY, *platformUpUnsetImage);
+							}
+						}
+						if (currentElement->getPlatform2())
+						{
+							if (currentElement->getNamed())
+							{
+								painter.drawImage(displayX, displayY, *platformDownSetImage);
+							}
+							else
+							{
+								painter.drawImage(displayX, displayY, *platformDownUnsetImage);
+							}
+						}
+						break;
+					}
+					case SignalType::SIGNALRIGHT:
+					{
+						if (currentElement->getAspect() == 1)
+						{
+							painter.drawImage(displayX, displayY, *shuntRightImage);
+						}
+						else
+						{
+							painter.drawImage(displayX, displayY, *signalRightImage);
+						}
+						if (currentElement->getPlatform1())
+						{
+							if (currentElement->getNamed())
+							{
+								painter.drawImage(displayX, displayY, *platformUpSetImage);
+							}
+							else
+							{
+								painter.drawImage(displayX, displayY, *platformUpUnsetImage);
+							}
+						}
+						if (currentElement->getPlatform2())
+						{
+							if (currentElement->getNamed())
+							{
+								painter.drawImage(displayX, displayY, *platformDownSetImage);
+							}
+							else
+							{
+								painter.drawImage(displayX, displayY, *platformDownUnsetImage);
+							}
+						}
+						break;
+					}
+					case SignalType::SIGNALDOWN:
+					{
+						if (currentElement->getAspect() == 1)
+						{
+							painter.drawImage(displayX, displayY, *shuntDownImage);
+						}
+						else
+						{
+							painter.drawImage(displayX, displayY, *signalDownImage);
+						}
+						if (currentElement->getPlatform1())
+						{
+							if (currentElement->getNamed())
+							{
+								painter.drawImage(displayX, displayY, *platformLeftSetImage);
+							}
+							else
+							{
+								painter.drawImage(displayX, displayY, *platformLeftUnsetImage);
+							}
+						}
+						if (currentElement->getPlatform2())
+						{
+							if (currentElement->getNamed())
+							{
+								painter.drawImage(displayX, displayY, *platformRightSetImage);
+							}
+							else
+							{
+								painter.drawImage(displayX, displayY, *platformRightUnsetImage);
+							}
+						}
+						break;
+					}
+					case SignalType::SIGNALUP:
+					{
+						if (currentElement->getAspect() == 1)
+						{
+							painter.drawImage(displayX, displayY, *shuntUpImage);
+						}
+						else
+						{
+							painter.drawImage(displayX, displayY, *signalUpImage);
+						}
+						if (currentElement->getPlatform1())
+						{
+							if (currentElement->getNamed())
+							{
+								painter.drawImage(displayX, displayY, *platformLeftSetImage);
+							}
+							else
+							{
+								painter.drawImage(displayX, displayY, *platformLeftUnsetImage);
+							}
+						}
+						if (currentElement->getPlatform2())
+						{
+							if (currentElement->getNamed())
+							{
+								painter.drawImage(displayX, displayY, *platformRightSetImage);
+							}
+							else
+							{
+								painter.drawImage(displayX, displayY, *platformRightUnsetImage);
+							}
+						}
+						break;
+					}
+					case SignalType::SIGNALLEFTUP:
+					{
+						if (currentElement->getAspect() == 1)
+						{
+							painter.drawImage(displayX, displayY, *shuntLeftUpImage);
+						}
+						else
+						{
+							painter.drawImage(displayX, displayY, *signalLeftUpImage);
+						}
+						break;
+					}
+					case SignalType::SIGNALRIGHTUP:
+					{
+						if (currentElement->getAspect() == 1)
+						{
+							painter.drawImage(displayX, displayY, *shuntRightUpImage);
+						}
+						else
+						{
+							painter.drawImage(displayX, displayY, *signalRightUpImage);
+						}
+						break;
+					}
+					case SignalType::SIGNALLEFTDOWN:
+					{
+						if (currentElement->getAspect() == 1)
+						{
+							painter.drawImage(displayX, displayY, *shuntLeftDownImage);
+						}
+						else
+						{
+							painter.drawImage(displayX, displayY, *signalLeftDownImage);
+						}
+						break;
+					}
+					case SignalType::SIGNALRIGHTDOWN:
+					{
+						if (currentElement->getAspect() == 1)
+						{
+							painter.drawImage(displayX, displayY, *shuntRightDownImage);
+						}
+						else
+						{
+							painter.drawImage(displayX, displayY, *signalRightDownImage);
+						}
+						break;
+					}
+				}
+			}
+		}
+	}
+	*/
+}
+
+void Canvas::drawBridgeUnderpassTrack(QPainter &painter)
+{
+	for (std::shared_ptr<BridgeUnderpassTrack> currentElement : map->getBridgeUnderpassTrackList())
+	{
+		int currentX = currentElement->getLocationX();
+		int currentY = currentElement->getLocationY();
+		int minCoordinateX = (offsetX * canvasSizeX);
+		int maxCoordinateX = ((offsetX+1) * canvasSizeX);
+		int minCoordinateY = ((offsetY-1) * canvasSizeY);
+		int maxCoordinateY = (offsetY*canvasSizeY);;
+		int minDisplayX = (offsetX * canvasSizeX);
+		int maxDisplayY = (offsetY*canvasSizeY);
+		if (currentX >= minCoordinateX && currentX <= maxCoordinateX)
+		{
+			if (currentY >= minCoordinateY && currentY <= maxCoordinateY)
+			{
+				int displayX = currentX- minDisplayX;
+				int displayY = 0-(currentY - maxDisplayY);
+				switch (currentElement->getBridgeUnderpassType())
+				{
+					case BridgeUnderpassType::BRIDGE1:
+					{
+						if (currentElement->getNamed())
+						{
+							painter.drawImage(displayX, displayY, *bridgeSet1Image);
+						}
+						else
+						{
+							painter.drawImage(displayX, displayY, *bridgeUnset1Image);
+						}
+						if (currentElement->getPlatform1())
+						{
+							if (currentElement->getNamed())
+							{
+								painter.drawImage(displayX, displayY, *platformUpSetImage);
+							}
+							else
+							{
+								painter.drawImage(displayX, displayY, *platformUpUnsetImage);
+							}
+						}
+						if (currentElement->getPlatform2())
+						{
+							if (currentElement->getNamed())
+							{
+								painter.drawImage(displayX, displayY, *platformDownSetImage);
+							}
+							else
+							{
+								painter.drawImage(displayX, displayY, *platformDownUnsetImage);
+							}
+						}
+						break;
+					}
+					case BridgeUnderpassType::BRIDGE2:
+					{
+						if (currentElement->getNamed())
+						{
+							painter.drawImage(displayX, displayY, *bridgeSet2Image);
+						}
+						else
+						{
+							painter.drawImage(displayX, displayY, *bridgeUnset2Image);
+						}
+						if (currentElement->getPlatform1())
+						{
+							if (currentElement->getNamed())
+							{
+								painter.drawImage(displayX, displayY, *platformLeftSetImage);
+							}
+							else
+							{
+								painter.drawImage(displayX, displayY, *platformLeftUnsetImage);
+							}
+						}
+						if (currentElement->getPlatform2())
+						{
+							if (currentElement->getNamed())
+							{
+								painter.drawImage(displayX, displayY, *platformRightSetImage);
+							}
+							else
+							{
+								painter.drawImage(displayX, displayY, *platformRightUnsetImage);
+							}
+						}
+						break;
+					}
+					case BridgeUnderpassType::UNDERPASS1:
+					{
+						if (currentElement->getNamed())
+						{
+							painter.drawImage(displayX, displayY, *underpassSet1Image);
+						}
+						else
+						{
+							painter.drawImage(displayX, displayY, *underpassUnset1Image);
+						}
+						if (currentElement->getPlatform1())
+						{
+							if (currentElement->getNamed())
+							{
+								painter.drawImage(displayX, displayY, *platformUpSetImage);
+							}
+							else
+							{
+								painter.drawImage(displayX, displayY, *platformUpUnsetImage);
+							}
+						}
+						if (currentElement->getPlatform2())
+						{
+							if (currentElement->getNamed())
+							{
+								painter.drawImage(displayX, displayY, *platformDownSetImage);
+							}
+							else
+							{
+								painter.drawImage(displayX, displayY, *platformDownUnsetImage);
+							}
+						}
+						break;
+					}
+					case BridgeUnderpassType::UNDERPASS2:
+					{
+						if (currentElement->getNamed())
+						{
+							painter.drawImage(displayX, displayY, *underpassSet2Image);
+						}
+						else
+						{
+							painter.drawImage(displayX, displayY, *underpassUnset2Image);
+						}
+						if (currentElement->getPlatform1())
+						{
+							if (currentElement->getNamed())
+							{
+								painter.drawImage(displayX, displayY, *platformLeftSetImage);
+							}
+							else
+							{
+								painter.drawImage(displayX, displayY, *platformLeftUnsetImage);
+							}
+						}
+						if (currentElement->getPlatform2())
+						{
+							if (currentElement->getNamed())
+							{
+								painter.drawImage(displayX, displayY, *platformRightSetImage);
+							}
+							else
+							{
+								painter.drawImage(displayX, displayY, *platformRightUnsetImage);
+							}
+						}
 						break;
 					}
 				}

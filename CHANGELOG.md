@@ -1,6 +1,14 @@
 # Changelog
     
 All notable changes to this project will be documented in this file.
+## Core features - 11/08/2021
+
+### Added
+* Methods to draw Element Block 1 tracks (StraightTrack, DirectedTrack, CurvedTrack, LinkedTrack,
+ExitTrack, BufferTrack, BridgeUnderpassTrack) SignalTrack has not been implemented yet. Waiting for another feature's completion.
+* Methods to store Element block 1 tracks
+
+
 
 ## Core features - 11/08/2021
 

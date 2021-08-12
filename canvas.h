@@ -797,6 +797,36 @@ private:
 	 */
 	void drawCurvedTrack(QPainter &painter);
 
+	/**
+	 * @brief Draw LinkedTracks onto the canvas.
+	 * @param painter
+	 */
+	void drawLinkedTrack(QPainter &painter);
+
+	/**
+	 * @brief Draw ExitTracks onto the canvas.
+	 * @param painter
+	 */
+	void drawExitTrack(QPainter &painter);
+
+	/**
+	 * @brief Draw BufferTracks onto the canvas.
+	 * @param painter
+	 */
+	void drawBufferTrack(QPainter &painter);
+
+	/**
+	 * @brief Draw ExitTracks onto the canvas.
+	 * @param painter
+	 */
+	void drawSignalTrack(QPainter &painter);
+
+	/**
+	 * @brief Draw BridgeUnderpassTracks onto the canvas.
+	 * @param painter
+	 */
+	void drawBridgeUnderpassTrack(QPainter &painter);
+
 };
 
 #endif // CANVAS_H
