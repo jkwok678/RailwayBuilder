@@ -51,20 +51,44 @@ private:
 
 	/**
 	 * @brief Adds a new DirectedTrack to the vector.
-	 * @param newStraightTrack The new StraightTrack to addd.
+	 * @param newDirectedTrack The new DirectedTrack to addd.
 	 */
 	void addDirectedTrack(std::shared_ptr<DirectedTrack> newDirectedTrack);
 
+	/**
+	 * @brief Adds a new CurvedTrack to the vector.
+	 * @param newCurvedTrack The new CurvedTrack to addd.
+	 */
 	void addCurvedTrack(std::shared_ptr<CurvedTrack> newCurvedTrack);
 
+	/**
+	 * @brief Adds a new LinkedTrack to the vector.
+	 * @param newLinkedTrack The new LinkedTrack to addd.
+	 */
 	void addLinkedTrack(std::shared_ptr<LinkedTrack> newLinkedTrack);
 
+	/**
+	 * @brief Adds a new ExitTrack to the vector.
+	 * @param newExitTrack The new ExitTrack to addd.
+	 */
 	void addExitTrack(std::shared_ptr<ExitTrack> newExitTrack);
 
+	/**
+	 * @brief Adds a new BufferTrack to the vector.
+	 * @param newBufferTrack The new BufferTrack to addd.
+	 */
 	void addBufferTrack(std::shared_ptr<BufferTrack> newBufferTrack);
 
+	/**
+	 * @brief Adds a new SignalTrack to the vector.
+	 * @param newSignalTrack The new SignalTrack to addd.
+	 */
 	void addSignalTrack(std::shared_ptr<SignalTrack> newSignalTrack);
 
+	/**
+	 * @brief Adds a new BridgeUnderpassTrack to the vector.
+	 * @param newBridgeUnderpassTrack The new BridgeUnderpassTrack to addd.
+	 */
 	void addBridgeUnderpassTrack(std::shared_ptr<BridgeUnderpassTrack> newBridgeUnderpassTrack);
 
 public:
@@ -137,7 +161,7 @@ public:
 
 	/**
 	 * @brief Gets the list of DirectedTrack pieces.
-	 * @return A vector of shared pointers that point to StraightTracks.
+	 * @return A vector of shared pointers that point to DirectedTracks.
 	 */
 	std::vector<std::shared_ptr<DirectedTrack> > getDirectedTrackList() const;
 
@@ -167,7 +191,7 @@ public:
 
 	/**
 	 * @brief Gets the list of CurvedTrack pieces.
-	 * @return A vector of shared pointers that point to StraightTracks.
+	 * @return A vector of shared pointers that point to CurvedTracks.
 	 */
 	std::vector<std::shared_ptr<CurvedTrack> > getCurvedTrackList() const;
 
@@ -195,30 +219,154 @@ public:
 
 	//LinkedTrack related methods
 
+	/**
+	 * @brief Gets the list of LinkedTrack pieces.
+	 * @return A vector of shared pointers that point to LinkedTracks.
+	 */
 	std::vector<std::shared_ptr<LinkedTrack> > getLinkedTrackList() const;
+
+	/**
+	 * @brief Sets the list of LinkedTrack pieces.
+	 * @param newLinkedTrackList A new vector of shared pointers that point to LinkedTracks.
+	 */
 	void setLinkedTrackList(const std::vector<std::shared_ptr<LinkedTrack> >& newLinkedTrackList);
 
-	std::shared_ptr<LinkedTrack> getLinkedTrackAt(int locationX,int locationY);
-	bool haslinkTrackAt(int locationX, int locationY);
+	/**
+	 * @brief Creates the LinkedTrack and adds it to the map if possible.
+	 * @param linkedType The LinkedType of the track.
+	 * @param overallX X coordinate of the track.
+	 * @param overallY Y coordinate of the track.
+	 */
+	void createAddLinkedTrack(LinkedType linkedType, int overallX, int overallY);
 
+	/**
+	 * @brief Gets the LinkedTrack at given coordinates if one exists there.
+	 * @param locationX X coordinate to look at.
+	 * @param locationY Y coordinate to look at.
+	 * @return LinkedTrack at (X,Y) if there is one, otherwise return a nullptr.
+	 */
+	std::shared_ptr<LinkedTrack> getLinkedTrackAt(int locationX,int locationY);
+
+	//bool haslinkTrackAt(int locationX, int locationY);
+
+	//ExitTrack related methods
+
+	/**
+	 * @brief Gets the list of ExitTrack pieces.
+	 * @return A vector of shared pointers that point to ExitTracks.
+	 */
 	std::vector<std::shared_ptr<ExitTrack> > getExitTrackList() const;
+
+	/**
+	 * @brief Sets the list of ExitTrack pieces.
+	 * @param newExitTrackList A new vector of shared pointers that point to ExitTracks.
+	 */
 	void setExitTrackList(const std::vector<std::shared_ptr<ExitTrack> >& newExitTrackList);
 
+	/**
+	 * @brief Creates the ExitTrack and adds it to the map if possible.
+	 * @param exitType The ExitType of the track.
+	 * @param overallX X coordinate of the track.
+	 * @param overallY Y coordinate of the track.
+	 */
+	void createAddExitTrack(ExitType exitType, int overallX, int overallY);
+
+	/**
+	 * @brief Gets the ExitTrack at given coordinates if one exists there.
+	 * @param locationX X coordinate to look at.
+	 * @param locationY Y coordinate to look at.
+	 * @return ExitTrack at (X,Y) if there is one, otherwise return a nullptr.
+	 */
 	std::shared_ptr<ExitTrack> getExitTrackAt(int locationX,int locationY);
 
+	//BufferTrack related methods
+
+	/**
+	 * @brief Gets the list of BufferTrack pieces.
+	 * @return A vector of shared pointers that point to BufferTracks.
+	 */
 	std::vector<std::shared_ptr<BufferTrack> > getBufferTrackList() const;
+
+	/**
+	 * @brief Sets the list of BufferTrack pieces.
+	 * @param newBufferTrackList A new vector of shared pointers that point to BufferTracks.
+	 */
 	void setBufferTrackList(const std::vector<std::shared_ptr<BufferTrack> >& newBufferTrackList);
 
+	/**
+	 * @brief Creates the BufferTrack and adds it to the map if possible.
+	 * @param bufferType The BufferType of the track.
+	 * @param overallX X coordinate of the track.
+	 * @param overallY Y coordinate of the track.
+	 */
+	void createAddBufferTrack(BufferType bufferType, int overallX, int overallY);
+
+	/**
+	 * @brief Gets the BufferTrack at given coordinates if one exists there.
+	 * @param locationX X coordinate to look at.
+	 * @param locationY Y coordinate to look at.
+	 * @return BufferTrack at (X,Y) if there is one, otherwise return a nullptr.
+	 */
 	std::shared_ptr<BufferTrack> getBufferTrackAt(int locationX,int locationY);
 
+	//SignalTrack related methods
+
+	/**
+	 * @brief Gets the list of SignalTrack pieces.
+	 * @return A vector of shared pointers that point to SignalTracks.
+	 */
 	std::vector<std::shared_ptr<SignalTrack> > getSignalTrackList() const;
+
+	/**
+	 * @brief Sets the list of SignalTrack pieces.
+	 * @param newSignalTrackList A new vector of shared pointers that point to SignalTracks.
+	 */
 	void setSignalTrackList(const std::vector<std::shared_ptr<SignalTrack> >& newSignalTrackList);
 
+	/**
+	 * @brief Creates the SignalTrack and adds it to the map if possible.
+	 * @param signalType The SignalType of the track.
+	 * @param overallX X coordinate of the track.
+	 * @param overallY Y coordinate of the track.
+	 */
+	void createAddSignalTrack(SignalType signalType,int aspect, int overallX, int overallY);
+
+	/**
+	 * @brief Gets the SignalTrack at given coordinates if one exists there.
+	 * @param locationX X coordinate to look at.
+	 * @param locationY Y coordinate to look at.
+	 * @return SignalTrack at (X,Y) if there is one, otherwise return a nullptr.
+	 */
 	std::shared_ptr<SignalTrack> getSignalTrackAt(int locationX,int locationY);
 
+	//BridgeUnderpassTrackList
+
+	/**
+	 * @brief Gets the list of BridgeUnderpassTrack pieces.
+	 * @return A vector of shared pointers that point to BridgeUnderpassTracks.
+	 */
 	std::vector<std::shared_ptr<BridgeUnderpassTrack>> getBridgeUnderpassTrackList() const;
+
+	/**
+	 * @brief Sets the list of BridgeUnderpassTrack pieces.
+	 * @param newBridgeUnderpassTrackList A new vector of shared pointers that point to BridgeUnderpassTracks.
+	 */
 	void setBridgeUnderpassTrackList(const std::vector<std::shared_ptr<BridgeUnderpassTrack> >& newBridgeUnderpassTrackList);
 
+	/**
+	 * @brief Creates the BridgeUnderpassTrack and adds it to the map if possible.
+	 * @param bridgeUnderpassTrack The BridgeUnderpassType of the track.
+	 * @param overallX X coordinate of the track.
+	 * @param overallY Y coordinate of the track.
+	 */
+	void createAddBridgeUnderpassTrack(BridgeUnderpassType bridgeUnderpassTrack, int overallX, int overallY);
+
+	/**
+	 * @brief Gets the BridgeUnderpassTrack at given coordinates if one exists there.
+	 * @param locationX X coordinate to look at.
+	 * @param locationY Y coordinate to look at.
+	 * @return BridgeUnderpassTrack at (X,Y) if there is one, otherwise return a nullptr.
+	 */
 	std::shared_ptr<BridgeUnderpassTrack> getBridgeUnderpassTrack(int locationX,int locationY);
 };
 

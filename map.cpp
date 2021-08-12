@@ -280,6 +280,80 @@ void Map::addCurvedTrack(std::shared_ptr<CurvedTrack> newCurvedTrack)
 	}
 }
 
+void Map::addLinkedTrack(std::shared_ptr<LinkedTrack> newLinkedTrack)
+{
+	int tempLocationX = newLinkedTrack->getLocationX();
+	int templocationY = newLinkedTrack->getLocationY();
+	if (!checkElementExists(tempLocationX, templocationY))
+	{
+		linkedTrackList.push_back(newLinkedTrack);
+		++totalTrack;
+	}
+	else
+	{
+		showElementAlreadyThereError();
+	}
+}
+
+void Map::addExitTrack(std::shared_ptr<ExitTrack> newExitTrack)
+{
+	int tempLocationX = newExitTrack->getLocationX();
+	int templocationY = newExitTrack->getLocationY();
+	if (!checkElementExists(tempLocationX, templocationY))
+	{
+		exitTrackList.push_back(newExitTrack);
+	}
+	else
+	{
+		showElementAlreadyThereError();
+	}
+}
+
+void Map::addBufferTrack(std::shared_ptr<BufferTrack> newBufferTrack)
+{
+	int tempLocationX = newBufferTrack->getLocationX();
+	int templocationY = newBufferTrack->getLocationY();
+	if (!checkElementExists(tempLocationX, templocationY))
+	{
+		bufferTrackList.push_back(newBufferTrack);
+		++totalTrack;
+	}
+	else
+	{
+		showElementAlreadyThereError();
+	}
+}
+
+void Map::addSignalTrack(std::shared_ptr<SignalTrack> newSignalTrack)
+{
+	int tempLocationX = newSignalTrack->getLocationX();
+	int templocationY = newSignalTrack->getLocationY();
+	if (!checkElementExists(tempLocationX, templocationY))
+	{
+		signalTrackList.push_back(newSignalTrack);
+		++totalTrack;
+	}
+	else
+	{
+		showElementAlreadyThereError();
+	}
+}
+
+void Map::addBridgeUnderpassTrack(std::shared_ptr<BridgeUnderpassTrack> newBridgeUnderpassTrack)
+{
+	int tempLocationX = newBridgeUnderpassTrack->getLocationX();
+	int templocationY = newBridgeUnderpassTrack->getLocationY();
+	if (!checkElementExists(tempLocationX, templocationY))
+	{
+		bridgeUnderpassTrackList.push_back(newBridgeUnderpassTrack);
+		++totalTrack;
+	}
+	else
+	{
+		showElementAlreadyThereError();
+	}
+}
+
 //public
 
 //StraightTrack related methods
@@ -393,4 +467,190 @@ std::shared_ptr<CurvedTrack> Map::getCurvedTrackAt(int locationX, int locationY)
 		}
 	}
 	return curvedTrack;
+}
+
+//LinkedTrack related methods
+
+std::vector<std::shared_ptr<LinkedTrack> > Map::getLinkedTrackList() const
+{
+	return linkedTrackList;
+}
+
+void Map::setLinkedTrackList(const std::vector<std::shared_ptr<LinkedTrack> >& newLinkedTrackList)
+{
+	linkedTrackList = newLinkedTrackList;
+}
+
+void Map::createAddLinkedTrack(LinkedType linkedType, int overallX, int overallY)
+{
+	std::shared_ptr<LinkedTrack> linkedTrack(new LinkedTrack(linkedType, overallX, overallY));
+	addLinkedTrack(linkedTrack);
+}
+
+std::shared_ptr<LinkedTrack> Map::getLinkedTrackAt(int locationX, int locationY)
+{
+	std::shared_ptr<LinkedTrack> linkedTrack = nullptr;
+	if (!linkedTrackList.empty())
+	{
+		for (std::shared_ptr<LinkedTrack>& currentElement : linkedTrackList)
+		{
+			int currentX = currentElement->getLocationX();
+			int currentY = currentElement->getLocationY();
+			if (currentX == locationX && currentY == locationY)
+			{
+				linkedTrack = currentElement;
+				break;
+			}
+		}
+	}
+	return linkedTrack;
+}
+
+//ExitTrack related methods
+
+std::vector<std::shared_ptr<ExitTrack> > Map::getExitTrackList() const
+{
+	return exitTrackList;
+}
+
+void Map::setExitTrackList(const std::vector<std::shared_ptr<ExitTrack> >& newExitTrackList)
+{
+	exitTrackList = newExitTrackList;
+}
+
+void Map::createAddExitTrack(ExitType exitType, int overallX, int overallY)
+{
+	std::shared_ptr<ExitTrack> exitTrack(new ExitTrack(exitType, overallX, overallY));
+	addExitTrack(exitTrack);
+}
+
+std::shared_ptr<ExitTrack> Map::getExitTrackAt(int locationX, int locationY)
+{
+	std::shared_ptr<ExitTrack> exitTrack = nullptr;
+	if (!exitTrackList.empty())
+	{
+		for (std::shared_ptr<ExitTrack>& currentElement : exitTrackList)
+		{
+
+			int currentX = currentElement->getLocationX();
+			int currentY = currentElement->getLocationY();
+			if (currentX == locationX && currentY == locationY)
+			{
+				exitTrack = currentElement;
+				break;
+			}
+		}
+	}
+	return exitTrack;
+}
+
+//BufferTrack related methods
+
+std::vector<std::shared_ptr<BufferTrack> > Map::getBufferTrackList() const
+{
+	return bufferTrackList;
+}
+
+void Map::setBufferTrackList(const std::vector<std::shared_ptr<BufferTrack> >& newBufferTrackList)
+{
+	bufferTrackList = newBufferTrackList;
+}
+
+void Map::createAddBufferTrack(BufferType bufferType, int overallX, int overallY)
+{
+	std::shared_ptr<BufferTrack> bufferTrack(new BufferTrack(bufferType, overallX, overallY));
+	addBufferTrack(bufferTrack);
+}
+
+std::shared_ptr<BufferTrack> Map::getBufferTrackAt(int locationX, int locationY)
+{
+	std::shared_ptr<BufferTrack> bufferTrack = nullptr;
+	if (!bufferTrackList.empty())
+	{
+		for (std::shared_ptr<BufferTrack>& currentElement : bufferTrackList)
+		{
+			int currentX = currentElement->getLocationX();
+			int currentY = currentElement->getLocationY();
+			if (currentX == locationX && currentY == locationY)
+			{
+				bufferTrack = currentElement;
+				break;
+			}
+		}
+	}
+	return bufferTrack;
+}
+
+//SignalTrack related methods
+
+std::vector<std::shared_ptr<SignalTrack> > Map::getSignalTrackList() const
+{
+	return signalTrackList;
+}
+
+void Map::setSignalTrackList(const std::vector<std::shared_ptr<SignalTrack> >& newSignalTrackList)
+{
+	signalTrackList = newSignalTrackList;
+}
+
+void Map::createAddSignalTrack(SignalType signalType, int aspect, int overallX, int overallY)
+{
+	std::shared_ptr<SignalTrack> signalTrack(new SignalTrack(signalType, aspect, overallX, overallY));
+	addSignalTrack(signalTrack);
+}
+
+std::shared_ptr<SignalTrack> Map::getSignalTrackAt(int locationX, int locationY)
+{
+	std::shared_ptr<SignalTrack> signalTrack = nullptr;
+	if (!signalTrackList.empty())
+	{
+		for (std::shared_ptr<SignalTrack>& currentElement : signalTrackList)
+		{
+			int currentX = currentElement->getLocationX();
+			int currentY = currentElement->getLocationY();
+			if (currentX == locationX && currentY == locationY)
+			{
+				signalTrack = currentElement;
+				break;
+			}
+		}
+	}
+	return signalTrack;
+}
+
+//BridgeUnderpassTrack related methods
+
+std::vector<std::shared_ptr<BridgeUnderpassTrack> > Map::getBridgeUnderpassTrackList() const
+{
+	return bridgeUnderpassTrackList;
+}
+
+void Map::setBridgeUnderpassTrackList(const std::vector<std::shared_ptr<BridgeUnderpassTrack> >& newBridgeUnderpassTrackList)
+{
+	bridgeUnderpassTrackList = newBridgeUnderpassTrackList;
+}
+
+void Map::createAddBridgeUnderpassTrack(BridgeUnderpassType bridgeUnderpassType, int overallX, int overallY)
+{
+	std::shared_ptr<BridgeUnderpassTrack> bridgeUnderpassTrack(new BridgeUnderpassTrack(bridgeUnderpassType, overallX, overallY));
+	addBridgeUnderpassTrack(bridgeUnderpassTrack);
+}
+
+std::shared_ptr<BridgeUnderpassTrack> Map::getBridgeUnderpassTrack(int locationX, int locationY)
+{
+	std::shared_ptr<BridgeUnderpassTrack> bridgeUnderpassTrack = nullptr;
+	if (!bridgeUnderpassTrackList.empty())
+	{
+		for (std::shared_ptr<BridgeUnderpassTrack>& currentElement : bridgeUnderpassTrackList)
+		{
+			int currentX = currentElement->getLocationX();
+			int currentY = currentElement->getLocationY();
+			if (currentX == locationX && currentY == locationY)
+			{
+				bridgeUnderpassTrack = currentElement;
+				break;
+			}
+		}
+	}
+	return bridgeUnderpassTrack;
 }
