@@ -8,7 +8,6 @@ Window::Window()
 	createMenuBar();
 	createOverallMenu();
 	createRightDirectionalMenu();
-	mode = Mode::NONE;
 	BorderLayout *layout = new BorderLayout;
 	layout->addWidget(menuBar,BorderLayout::North);
 	layout->addWidget(top1Menu,BorderLayout::North);
@@ -144,15 +143,15 @@ void Window::openElementMenu()
 {
 	//Set the QStackWidget to the AddMoveTrack menu if it isn't on there yet.
 	//If it is, then go back to the start.
-	if (allMenus->currentIndex() != 1)
+	if (allMenus->currentIndex() != 1 && drawingArea->getMode() != Mode::ADDREMOVETRACK)
 	{
 		allMenus->setCurrentIndex(1);
-		mode = Mode::ADDREMOVETRACK;
+		drawingArea->setMode(Mode::ADDREMOVETRACK);
 	}
 	else
 	{
 		allMenus->setCurrentIndex(0);
-		mode = Mode::NONE;
+		drawingArea->setMode(Mode::NONE);
 	}
 
 }
@@ -161,15 +160,15 @@ void Window::openSetConvertSpeedDistanceMenu()
 {
 	//Set the QStackWidget to the setConvertSpeedDistance menu if it isn't on there yet.
 	//If it is, then go back to the start.
-	if (allMenus->currentIndex() != 2)
+	if (allMenus->currentIndex() != 2 && drawingArea->getMode() != Mode::SETCONVERTSPEEDDISTANCE)
 	{
 		allMenus->setCurrentIndex(2);
-		mode = Mode::SETCONVERTSPEEDDISTANCE;
+		drawingArea->setMode(Mode::SETCONVERTSPEEDDISTANCE);
 	}
 	else
 	{
 		allMenus->setCurrentIndex(0);
-		mode = Mode::NONE;
+		drawingArea->setMode(Mode::NONE);
 	}
 }
 
@@ -217,6 +216,48 @@ void Window::updateMPHKMHGUI()
 
 }
 
+void Window::changeAspect()
+{
+	//Change aspect from 4 -> 3 -> 2 -> 1 then back to 4.
+	//Also change button icons along the way.
+	if (drawingArea->getSignalAspectToAdd() == 4)
+	{
+		drawingArea->setSignalAspectToAdd(3);
+
+		setAspectButton->setIcon(*aspect3Icon);
+	}
+	else if (drawingArea->getSignalAspectToAdd() == 3)
+	{
+		drawingArea->setSignalAspectToAdd(2);
+		setAspectButton->setIcon(*aspect2Icon);
+	}
+	else if (drawingArea->getSignalAspectToAdd() == 2)
+	{
+		drawingArea->setSignalAspectToAdd(1);
+		setAspectButton->setIcon(*aspectShuntIcon);
+		signalLeftButton->setIcon(*shuntLeftIcon);
+		signalRightButton->setIcon(*shuntRightIcon);
+		signalDownButton->setIcon(*shuntDownIcon);
+		signalUpButton->setIcon(*shuntUpIcon);
+		signalLeftUpButton->setIcon(*shuntLeftUpIcon);
+		signalRightUpButton->setIcon(*shuntRightUpIcon);
+		signalLeftDownButton->setIcon(*shuntLeftDownIcon);
+		signalRightDownButton->setIcon(*shuntRightDownIcon);
+	}
+	else if (drawingArea->getSignalAspectToAdd() ==1)
+	{
+		drawingArea->setSignalAspectToAdd(4);
+		setAspectButton->setIcon(*aspect4Icon);
+		signalLeftButton->setIcon(*signalLeftIcon);
+		signalRightButton->setIcon(*signalRightIcon);
+		signalDownButton->setIcon(*signalDownIcon);
+		signalUpButton->setIcon(*signalUpIcon);
+		signalLeftUpButton->setIcon(*signalLeftUpIcon);
+		signalRightUpButton->setIcon(*signalRightUpIcon);
+		signalLeftDownButton->setIcon(*signalLeftDownIcon);
+		signalRightDownButton->setIcon(*signalRightDownIcon);
+	}
+}
 //Element menu to choose element
 
 void Window::chooseStraightH()
@@ -224,7 +265,7 @@ void Window::chooseStraightH()
 	//If the Mode is AddRemoveTrack and the element is StraightH,
 	// the element to add will be a Straight horizontal.
 	//Otherwise set to nothing.
-	if (mode==Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::STRAIGHTH)
+	if (drawingArea->getMode() == Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::STRAIGHTH)
 	{
 		drawingArea->setElementChosen(ElementChosen::STRAIGHTH);
 	}
@@ -239,7 +280,7 @@ void Window::chooseStraightV()
 	//If the Mode is AddRemoveTrack and the element is StraightV,
 	// the element to add will be a Straight vertical.
 	//Otherwise set to nothing.
-	if (mode==Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::STRAIGHTV)
+	if (drawingArea->getMode() == Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::STRAIGHTV)
 	{
 		drawingArea->setElementChosen(ElementChosen::STRAIGHTV);
 	}
@@ -251,7 +292,7 @@ void Window::chooseStraightV()
 
 void Window::chooseDirectedLeft()
 {
-	if (mode==Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::DIRECTEDLEFT)
+	if (drawingArea->getMode() == Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::DIRECTEDLEFT)
 	{
 		drawingArea->setElementChosen(ElementChosen::DIRECTEDLEFT);
 	}
@@ -263,7 +304,7 @@ void Window::chooseDirectedLeft()
 
 void Window::chooseDirectedRight()
 {
-	if (mode==Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::DIRECTEDRIGHT)
+	if (drawingArea->getMode() == Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::DIRECTEDRIGHT)
 	{
 		drawingArea->setElementChosen(ElementChosen::DIRECTEDRIGHT);
 	}
@@ -275,7 +316,7 @@ void Window::chooseDirectedRight()
 
 void Window::chooseDirectedUp()
 {
-	if (mode==Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::DIRECTEDUP)
+	if (drawingArea->getMode() == Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::DIRECTEDUP)
 	{
 		drawingArea->setElementChosen(ElementChosen::DIRECTEDUP);
 	}
@@ -287,7 +328,7 @@ void Window::chooseDirectedUp()
 
 void Window::chooseDirectedDown()
 {
-	if (mode==Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::DIRECTEDDOWN)
+	if (drawingArea->getMode() == Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::DIRECTEDDOWN)
 	{
 		drawingArea->setElementChosen(ElementChosen::DIRECTEDDOWN);
 	}
@@ -299,7 +340,7 @@ void Window::chooseDirectedDown()
 
 void Window::chooseStraightLeftUp()
 {
-	if (mode==Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::STRAIGHTLEFTUP)
+	if (drawingArea->getMode() == Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::STRAIGHTLEFTUP)
 	{
 		drawingArea->setElementChosen(ElementChosen::STRAIGHTLEFTUP);
 	}
@@ -311,7 +352,7 @@ void Window::chooseStraightLeftUp()
 
 void Window::chooseStraightRightUp()
 {
-	if (mode==Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::STRAIGHTRIGHTUP)
+	if (drawingArea->getMode() == Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::STRAIGHTRIGHTUP)
 	{
 		drawingArea->setElementChosen(ElementChosen::STRAIGHTRIGHTUP);
 	}
@@ -323,7 +364,7 @@ void Window::chooseStraightRightUp()
 
 void Window::chooseDirectedLeftUp()
 {
-	if (mode==Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::DIRECTEDLEFTUP)
+	if (drawingArea->getMode() == Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::DIRECTEDLEFTUP)
 	{
 		drawingArea->setElementChosen(ElementChosen::DIRECTEDLEFTUP);
 	}
@@ -335,7 +376,7 @@ void Window::chooseDirectedLeftUp()
 
 void Window::chooseDirectedRightUp()
 {
-	if (mode==Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::DIRECTEDRIGHTUP)
+	if (drawingArea->getMode() == Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::DIRECTEDRIGHTUP)
 	{
 		drawingArea->setElementChosen(ElementChosen::DIRECTEDRIGHTUP);
 	}
@@ -347,7 +388,7 @@ void Window::chooseDirectedRightUp()
 
 void Window::chooseDirectedLeftDown()
 {
-	if (mode==Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::DIRECTEDLEFTDOWN)
+	if (drawingArea->getMode() == Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::DIRECTEDLEFTDOWN)
 	{
 		drawingArea->setElementChosen(ElementChosen::DIRECTEDLEFTDOWN);
 	}
@@ -359,7 +400,7 @@ void Window::chooseDirectedLeftDown()
 
 void Window::chooseDirectedRightDown()
 {
-	if (mode==Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::DIRECTEDRIGHTDOWN)
+	if (drawingArea->getMode() == Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::DIRECTEDRIGHTDOWN)
 	{
 		drawingArea->setElementChosen(ElementChosen::DIRECTEDRIGHTDOWN);
 	}
@@ -371,7 +412,7 @@ void Window::chooseDirectedRightDown()
 
 void Window::chooseTightCurve1()
 {
-	if (mode==Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::TIGHTCURVE1)
+	if (drawingArea->getMode() == Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::TIGHTCURVE1)
 	{
 		drawingArea->setElementChosen(ElementChosen::TIGHTCURVE1);
 	}
@@ -383,7 +424,7 @@ void Window::chooseTightCurve1()
 
 void Window::chooseTightCurve2()
 {
-	if (mode==Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::TIGHTCURVE2)
+	if (drawingArea->getMode() == Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::TIGHTCURVE2)
 	{
 		drawingArea->setElementChosen(ElementChosen::TIGHTCURVE2);
 	}
@@ -395,7 +436,7 @@ void Window::chooseTightCurve2()
 
 void Window::chooseTightCurve3()
 {
-	if (mode==Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::TIGHTCURVE3)
+	if (drawingArea->getMode() == Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::TIGHTCURVE3)
 	{
 		drawingArea->setElementChosen(ElementChosen::TIGHTCURVE3);
 	}
@@ -407,7 +448,7 @@ void Window::chooseTightCurve3()
 
 void Window::chooseTightCurve4()
 {
-	if (mode==Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::TIGHTCURVE4)
+	if (drawingArea->getMode() == Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::TIGHTCURVE4)
 	{
 		drawingArea->setElementChosen(ElementChosen::TIGHTCURVE4);
 	}
@@ -419,7 +460,7 @@ void Window::chooseTightCurve4()
 
 void Window::chooseCurve1()
 {
-	if (mode==Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::CURVE1)
+	if (drawingArea->getMode() == Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::CURVE1)
 	{
 		drawingArea->setElementChosen(ElementChosen::CURVE1);
 	}
@@ -431,7 +472,7 @@ void Window::chooseCurve1()
 
 void Window::chooseCurve2()
 {
-	if (mode==Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::CURVE2)
+	if (drawingArea->getMode() == Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::CURVE2)
 	{
 		drawingArea->setElementChosen(ElementChosen::CURVE2);
 	}
@@ -443,7 +484,7 @@ void Window::chooseCurve2()
 
 void Window::chooseCurve3()
 {
-	if (mode==Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::CURVE3)
+	if (drawingArea->getMode() == Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::CURVE3)
 	{
 		drawingArea->setElementChosen(ElementChosen::CURVE3);
 	}
@@ -455,7 +496,7 @@ void Window::chooseCurve3()
 
 void Window::chooseCurve4()
 {
-	if (mode==Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::CURVE4)
+	if (drawingArea->getMode() == Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::CURVE4)
 	{
 		drawingArea->setElementChosen(ElementChosen::CURVE4);
 	}
@@ -467,7 +508,7 @@ void Window::chooseCurve4()
 
 void Window::chooseLinkLeft()
 {
-	if (mode==Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::LINKLEFT)
+	if (drawingArea->getMode() == Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::LINKLEFT)
 	{
 		drawingArea->setElementChosen(ElementChosen::LINKLEFT);
 	}
@@ -479,7 +520,7 @@ void Window::chooseLinkLeft()
 
 void Window::chooseLinkRight()
 {
-	if (mode==Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::LINKRIGHT)
+	if (drawingArea->getMode() == Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::LINKRIGHT)
 	{
 		drawingArea->setElementChosen(ElementChosen::LINKRIGHT);
 	}
@@ -491,7 +532,7 @@ void Window::chooseLinkRight()
 
 void Window::chooseLinkDown()
 {
-	if (mode==Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::LINKDOWN)
+	if (drawingArea->getMode() == Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::LINKDOWN)
 	{
 		drawingArea->setElementChosen(ElementChosen::LINKDOWN);
 	}
@@ -503,7 +544,7 @@ void Window::chooseLinkDown()
 
 void Window::chooseLinkUp()
 {
-	if (mode==Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::LINKUP)
+	if (drawingArea->getMode() == Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::LINKUP)
 	{
 		drawingArea->setElementChosen(ElementChosen::LINKUP);
 	}
@@ -515,7 +556,7 @@ void Window::chooseLinkUp()
 
 void Window::chooseLinkLeftUp()
 {
-	if (mode==Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::LINKLEFTUP)
+	if (drawingArea->getMode() == Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::LINKLEFTUP)
 	{
 		drawingArea->setElementChosen(ElementChosen::LINKLEFTUP);
 	}
@@ -527,7 +568,7 @@ void Window::chooseLinkLeftUp()
 
 void Window::chooseLinkRightUp()
 {
-	if (mode==Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::LINKRIGHTUP)
+	if (drawingArea->getMode() == Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::LINKRIGHTUP)
 	{
 		drawingArea->setElementChosen(ElementChosen::LINKRIGHTUP);
 	}
@@ -539,7 +580,7 @@ void Window::chooseLinkRightUp()
 
 void Window::chooseLinkLeftDown()
 {
-	if (mode==Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::LINKLEFTDOWN)
+	if (drawingArea->getMode() == Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::LINKLEFTDOWN)
 	{
 		drawingArea->setElementChosen(ElementChosen::LINKLEFTDOWN);
 	}
@@ -551,7 +592,7 @@ void Window::chooseLinkLeftDown()
 
 void Window::chooseLinkRightDown()
 {
-	if (mode==Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::LINKRIGHTDOWN)
+	if (drawingArea->getMode() == Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::LINKRIGHTDOWN)
 	{
 		drawingArea->setElementChosen(ElementChosen::LINKRIGHTDOWN);
 	}
@@ -563,7 +604,7 @@ void Window::chooseLinkRightDown()
 
 void Window::chooseExitLeft()
 {
-	if (mode==Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::EXITLEFT)
+	if (drawingArea->getMode() == Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::EXITLEFT)
 	{
 		drawingArea->setElementChosen(ElementChosen::EXITLEFT);
 	}
@@ -575,7 +616,7 @@ void Window::chooseExitLeft()
 
 void Window::chooseExitRight()
 {
-	if (mode==Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::EXITRIGHT)
+	if (drawingArea->getMode() == Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::EXITRIGHT)
 	{
 		drawingArea->setElementChosen(ElementChosen::EXITRIGHT);
 	}
@@ -587,7 +628,7 @@ void Window::chooseExitRight()
 
 void Window::chooseExitDown()
 {
-	if (mode==Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::EXITDOWN)
+	if (drawingArea->getMode() == Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::EXITDOWN)
 	{
 		drawingArea->setElementChosen(ElementChosen::EXITDOWN);
 	}
@@ -599,7 +640,7 @@ void Window::chooseExitDown()
 
 void Window::chooseExitUp()
 {
-	if (mode==Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::EXITUP)
+	if (drawingArea->getMode() == Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::EXITUP)
 	{
 		drawingArea->setElementChosen(ElementChosen::EXITUP);
 	}
@@ -611,7 +652,7 @@ void Window::chooseExitUp()
 
 void Window::chooseExitLeftUp()
 {
-	if (mode==Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::EXITLEFTUP)
+	if (drawingArea->getMode() == Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::EXITLEFTUP)
 	{
 		drawingArea->setElementChosen(ElementChosen::EXITLEFTUP);
 	}
@@ -623,7 +664,7 @@ void Window::chooseExitLeftUp()
 
 void Window::chooseExitRightUp()
 {
-	if (mode==Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::EXITRIGHT)
+	if (drawingArea->getMode() == Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::EXITRIGHT)
 	{
 		drawingArea->setElementChosen(ElementChosen::EXITRIGHT);
 	}
@@ -635,7 +676,7 @@ void Window::chooseExitRightUp()
 
 void Window::chooseExitLeftDown()
 {
-	if (mode==Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::EXITLEFTDOWN)
+	if (drawingArea->getMode() == Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::EXITLEFTDOWN)
 	{
 		drawingArea->setElementChosen(ElementChosen::EXITLEFTDOWN);
 	}
@@ -647,7 +688,7 @@ void Window::chooseExitLeftDown()
 
 void Window::chooseExitRightDown()
 {
-	if (mode==Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::EXITRIGHTDOWN)
+	if (drawingArea->getMode() == Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::EXITRIGHTDOWN)
 	{
 		drawingArea->setElementChosen(ElementChosen::EXITRIGHTDOWN);
 	}
@@ -659,7 +700,7 @@ void Window::chooseExitRightDown()
 
 void Window::chooseCurve5()
 {
-	if (mode==Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::CURVE5)
+	if (drawingArea->getMode() == Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::CURVE5)
 	{
 		drawingArea->setElementChosen(ElementChosen::CURVE5);
 	}
@@ -671,7 +712,7 @@ void Window::chooseCurve5()
 
 void Window::chooseCurve6()
 {
-	if (mode==Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::CURVE6)
+	if (drawingArea->getMode() == Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::CURVE6)
 	{
 		drawingArea->setElementChosen(ElementChosen::CURVE6);
 	}
@@ -683,7 +724,7 @@ void Window::chooseCurve6()
 
 void Window::chooseCurve7()
 {
-	if (mode==Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::CURVE7)
+	if (drawingArea->getMode() == Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::CURVE7)
 	{
 		drawingArea->setElementChosen(ElementChosen::CURVE7);
 	}
@@ -695,7 +736,7 @@ void Window::chooseCurve7()
 
 void Window::chooseCurve8()
 {
-	if (mode==Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::CURVE8)
+	if (drawingArea->getMode() == Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::CURVE8)
 	{
 		drawingArea->setElementChosen(ElementChosen::CURVE8);
 	}
@@ -707,7 +748,7 @@ void Window::chooseCurve8()
 
 void Window::chooseBufferLeft()
 {
-	if (mode==Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::BUFFERLEFT)
+	if (drawingArea->getMode() == Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::BUFFERLEFT)
 	{
 		drawingArea->setElementChosen(ElementChosen::BUFFERLEFT);
 	}
@@ -719,7 +760,7 @@ void Window::chooseBufferLeft()
 
 void Window::chooseBufferRight()
 {
-	if (mode==Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::BUFFERRIGHT)
+	if (drawingArea->getMode() == Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::BUFFERRIGHT)
 	{
 		drawingArea->setElementChosen(ElementChosen::BUFFERRIGHT);
 	}
@@ -731,7 +772,7 @@ void Window::chooseBufferRight()
 
 void Window::chooseBufferDown()
 {
-	if (mode==Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::BUFFERDOWN)
+	if (drawingArea->getMode() == Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::BUFFERDOWN)
 	{
 		drawingArea->setElementChosen(ElementChosen::BUFFERDOWN);
 	}
@@ -743,7 +784,7 @@ void Window::chooseBufferDown()
 
 void Window::chooseBufferUp()
 {
-	if (mode==Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::BUFFERUP)
+	if (drawingArea->getMode() == Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::BUFFERUP)
 	{
 		drawingArea->setElementChosen(ElementChosen::BUFFERUP);
 	}
@@ -755,7 +796,7 @@ void Window::chooseBufferUp()
 
 void Window::chooseBufferLeftUp()
 {
-	if (mode==Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::BUFFERLEFTUP)
+	if (drawingArea->getMode() == Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::BUFFERLEFTUP)
 	{
 		drawingArea->setElementChosen(ElementChosen::BUFFERLEFTUP);
 	}
@@ -767,7 +808,7 @@ void Window::chooseBufferLeftUp()
 
 void Window::chooseBufferRightUp()
 {
-	if (mode==Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::BUFFERRIGHTUP)
+	if (drawingArea->getMode() == Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::BUFFERRIGHTUP)
 	{
 		drawingArea->setElementChosen(ElementChosen::BUFFERRIGHTUP);
 	}
@@ -779,7 +820,7 @@ void Window::chooseBufferRightUp()
 
 void Window::chooseBufferLeftDown()
 {
-	if (mode==Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::BUFFERLEFTDOWN)
+	if (drawingArea->getMode() == Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::BUFFERLEFTDOWN)
 	{
 		drawingArea->setElementChosen(ElementChosen::BUFFERLEFTDOWN);
 	}
@@ -791,7 +832,7 @@ void Window::chooseBufferLeftDown()
 
 void Window::chooseBufferRightDown()
 {
-	if (mode==Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::BUFFERRIGHTDOWN)
+	if (drawingArea->getMode() == Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::BUFFERRIGHTDOWN)
 	{
 		drawingArea->setElementChosen(ElementChosen::BUFFERRIGHTDOWN);
 	}
@@ -803,7 +844,7 @@ void Window::chooseBufferRightDown()
 
 void Window::chooseSignalLeft()
 {
-	if (mode==Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::SIGNALLEFT)
+	if (drawingArea->getMode() == Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::SIGNALLEFT)
 	{
 		drawingArea->setElementChosen(ElementChosen::SIGNALLEFT);
 	}
@@ -815,7 +856,7 @@ void Window::chooseSignalLeft()
 
 void Window::chooseSignalRight()
 {
-	if (mode==Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::SIGNALRIGHT)
+	if (drawingArea->getMode() == Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::SIGNALRIGHT)
 	{
 		drawingArea->setElementChosen(ElementChosen::SIGNALRIGHT);
 	}
@@ -827,7 +868,7 @@ void Window::chooseSignalRight()
 
 void Window::chooseSignalDown()
 {
-	if (mode==Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::SIGNALDOWN)
+	if (drawingArea->getMode() == Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::SIGNALDOWN)
 	{
 		drawingArea->setElementChosen(ElementChosen::SIGNALDOWN);
 	}
@@ -839,7 +880,7 @@ void Window::chooseSignalDown()
 
 void Window::chooseSignalUp()
 {
-	if (mode==Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::SIGNALUP)
+	if (drawingArea->getMode() == Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::SIGNALUP)
 	{
 		drawingArea->setElementChosen(ElementChosen::SIGNALUP);
 	}
@@ -851,7 +892,7 @@ void Window::chooseSignalUp()
 
 void Window::chooseSignalLeftUp()
 {
-	if (mode==Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::SIGNALLEFTUP)
+	if (drawingArea->getMode() == Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::SIGNALLEFTUP)
 	{
 		drawingArea->setElementChosen(ElementChosen::SIGNALLEFTUP);
 	}
@@ -863,7 +904,7 @@ void Window::chooseSignalLeftUp()
 
 void Window::chooseSignalRightUp()
 {
-	if (mode==Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::SIGNALRIGHTUP)
+	if (drawingArea->getMode() == Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::SIGNALRIGHTUP)
 	{
 		drawingArea->setElementChosen(ElementChosen::SIGNALRIGHTUP);
 	}
@@ -875,7 +916,7 @@ void Window::chooseSignalRightUp()
 
 void Window::chooseSignalLeftDown()
 {
-	if (mode==Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::SIGNALLEFTDOWN)
+	if (drawingArea->getMode() == Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::SIGNALLEFTDOWN)
 	{
 		drawingArea->setElementChosen(ElementChosen::SIGNALLEFTDOWN);
 	}
@@ -887,7 +928,7 @@ void Window::chooseSignalLeftDown()
 
 void Window::chooseSignalRightDown()
 {
-	if (mode==Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::SIGNALRIGHTDOWN)
+	if (drawingArea->getMode() == Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::SIGNALRIGHTDOWN)
 	{
 		drawingArea->setElementChosen(ElementChosen::SIGNALRIGHTDOWN);
 	}
@@ -899,7 +940,7 @@ void Window::chooseSignalRightDown()
 
 void Window::chooseBridge1()
 {
-	if (mode==Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::BRIDGE1)
+	if (drawingArea->getMode() == Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::BRIDGE1)
 	{
 		drawingArea->setElementChosen(ElementChosen::BRIDGE1);
 	}
@@ -911,7 +952,7 @@ void Window::chooseBridge1()
 
 void Window::chooseBridge2()
 {
-	if (mode==Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::BRIDGE2)
+	if (drawingArea->getMode() == Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::BRIDGE2)
 	{
 		drawingArea->setElementChosen(ElementChosen::BRIDGE2);
 	}
@@ -923,7 +964,7 @@ void Window::chooseBridge2()
 
 void Window::chooseUnderpass1()
 {
-	if (mode==Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::UNDERPASS1)
+	if (drawingArea->getMode() == Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::UNDERPASS1)
 	{
 		drawingArea->setElementChosen(ElementChosen::UNDERPASS1);
 	}
@@ -935,7 +976,7 @@ void Window::chooseUnderpass1()
 
 void Window::chooseUnderpass2()
 {
-	if (mode==Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::UNDERPASS2)
+	if (drawingArea->getMode() == Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::UNDERPASS2)
 	{
 		drawingArea->setElementChosen(ElementChosen::UNDERPASS2);
 	}
@@ -1029,6 +1070,19 @@ void Window::createBuildModifyMenu()
 	buildModifyMenu1->addWidget(setConvertSpeedDistanceMenuButton);
 
 	//Make part 2 of the menus.
+
+	//Add the button that allows the user to change their signal aspect to add.
+	setAspectButton = new QToolButton();
+	setAspectButton->setMaximumSize(QSize(32,32));
+	changeAspectAct = new QAction;
+	setAspectButton->setDefaultAction(changeAspectAct);
+	connect(changeAspectAct,&QAction::triggered,this,&Window::changeAspect);
+	aspect4Icon = new QIcon(":/icons/icons/aspect4.png");
+	aspect3Icon = new QIcon(":/icons/icons/aspect3.png");
+	aspect2Icon = new QIcon(":/icons/icons/aspect2.png");
+	aspectShuntIcon = new QIcon(":/icons/icons/aspectShunt.png");
+	setAspectButton->setIcon(*aspect4Icon);
+	buildModifyMenu1->addWidget(setAspectButton);
 	//These menus will be on the QStackedWidget.
 	//The user will be able to choose which one comes up.
 	createElementMenu();

@@ -132,6 +132,18 @@ public:
 	void offsetMoveDown();
 
 	/**
+	 * @brief Get the mode the that the canvas is on.
+	 * @return the mode in canvas.
+	 */
+	Mode getMode() const;
+
+	/**
+	 * @brief Set the mode that the canvas is on.
+	 * @param newMode the new mode in canvas.
+	 */
+	void setMode(Mode newMode);
+
+	/**
 	 * @brief Get the Element that the user has chosen.
 	 * @return the chosen ElementChosen enum.
 	 */
@@ -144,12 +156,31 @@ public:
 	void setElementChosen(ElementChosen newElementChosen);
 
 	/**
+	 * @brief Get the signal aspect of the next signal track to add.
+	 *
+	 * 1 = shunt aspect, 2  = 2 aspects, 3 = 3 aspects, 4 = 4 aspects
+	 * @return an int that is the signal aspect
+	 */
+	int getSignalAspectToAdd() const;
+
+	/**
+	 * @brief Set the signal aspect of the nexr signal track to add.
+	 *
+	 * 1 = shunt aspect, 2  = 2 aspects, 3 = 3 aspects, 4 = 4 aspects
+	 * @param newSignalAspectToAdd the new int signal aspect.
+	 */
+	void setSignalAspectToAdd(int newSignalAspectToAdd);
+	/**
 	 * @brief Create and add the element to the coordinates.
 	 * @param elementToAdd The element to add.
 	 * @param overallX X coordinate relative to the entire map.
 	 * @param overallY Y coordinate relative to the entire map.
 	 */
 	void createAddElement(ElementChosen elementToAdd, int overallX, int overallY);
+
+
+
+
 
 signals:
 
@@ -165,6 +196,7 @@ private:
 	Colour canvasColour{Colour::WHITE};
 	Mode mode{Mode::NONE};
 	ElementChosen elementChosen{ElementChosen::NONE};
+	int signalAspectToAdd{4};
 	Map* map;
 	int imageSize{16};
 	bool modified{false};

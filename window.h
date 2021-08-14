@@ -106,6 +106,11 @@ private slots:
 	 */
 	void updateMPHKMHGUI();
 
+	/**
+	 * @brief A method to change the aspects of signal tracks added to screen.
+	 */
+	void changeAspect();
+
 	//Element Menu choose Elements.
 
 	//ElementBlock1 slots
@@ -443,7 +448,7 @@ private:
 	QMenu *modeMenu;
 
 
-	Mode mode;
+
 	ElementChosen elementChosenToPlace;
 	QWidget *top1Menu;
 
@@ -456,6 +461,13 @@ private:
 	QToolButton *setConvertSpeedDistanceMenuButton;
 	QIcon   *setConvertSpeedDistanceMenuIcon;
 	QAction *openSetConvertSpeedDistanceMenuAct;
+
+	QToolButton *setAspectButton;
+	QIcon* aspect4Icon;
+	QIcon* aspect3Icon;
+	QIcon* aspect2Icon;
+	QIcon* aspectShuntIcon;
+	QAction *changeAspectAct;
 
 	QStackedWidget *allMenus;
 

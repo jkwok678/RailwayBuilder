@@ -689,6 +689,16 @@ void Canvas::offsetMoveDown()
 	offsetY--;
 }
 
+Mode Canvas::getMode() const
+{
+	return mode;
+}
+
+void Canvas::setMode(Mode newMode)
+{
+	mode = newMode;
+}
+
 ElementChosen Canvas::getElementChosen() const
 {
 	return elementChosen;
@@ -697,6 +707,16 @@ ElementChosen Canvas::getElementChosen() const
 void Canvas::setElementChosen(ElementChosen newElementChosen)
 {
 	elementChosen = newElementChosen;
+}
+
+int Canvas::getSignalAspectToAdd() const
+{
+	return signalAspectToAdd;
+}
+
+void Canvas::setSignalAspectToAdd(int newSignalAspectToAdd)
+{
+	signalAspectToAdd = newSignalAspectToAdd;
 }
 
 void Canvas::createAddElement(ElementChosen elementToAdd, int overallX, int overallY)
@@ -1001,64 +1021,54 @@ void Canvas::createAddElement(ElementChosen elementToAdd, int overallX, int over
 			addedTrack = true;
 			break;
 		}
-		/*
 		case ElementChosen::SIGNALLEFT:
 		{
-			std::shared_ptr<SignalTrack> signalLeft(new SignalTrack(SignalType::SIGNALLEFT, canvasAspect, finalX, finalY));
-			drawnLayout->addSignalTrack(signalLeft);
+			map->createAddSignalTrack(SignalType::SIGNALLEFT,signalAspectToAdd, overallX, overallY);
 			addedTrack = true;
 			break;
 		}
 		case ElementChosen::SIGNALRIGHT:
 		{
-			std::shared_ptr<SignalTrack> signalRight(new SignalTrack(SignalType::SIGNALRIGHT, canvasAspect, finalX, finalY));
-			drawnLayout->addSignalTrack(signalRight);
+			map->createAddSignalTrack(SignalType::SIGNALRIGHT,signalAspectToAdd, overallX, overallY);
 			addedTrack = true;
 			break;
 		}
 		case ElementChosen::SIGNALDOWN:
 		{
-			std::shared_ptr<SignalTrack> signalDown(new SignalTrack(SignalType::SIGNALDOWN, canvasAspect, finalX, finalY));
-			drawnLayout->addSignalTrack(signalDown);
+			map->createAddSignalTrack(SignalType::SIGNALDOWN,signalAspectToAdd, overallX, overallY);
 			addedTrack = true;
 			break;
 		}
 		case ElementChosen::SIGNALUP:
 		{
-			std::shared_ptr<SignalTrack> signalUp(new SignalTrack(SignalType::SIGNALUP, canvasAspect, finalX, finalY));
-			drawnLayout->addSignalTrack(signalUp);
+			map->createAddSignalTrack(SignalType::SIGNALUP,signalAspectToAdd, overallX, overallY);
 			addedTrack = true;
 			break;
 		}
 		case ElementChosen::SIGNALLEFTUP:
 		{
-			std::shared_ptr<SignalTrack> signalLeftUp(new SignalTrack(SignalType::SIGNALLEFTUP, canvasAspect, finalX, finalY));
-			drawnLayout->addSignalTrack(signalLeftUp);
+			map->createAddSignalTrack(SignalType::SIGNALLEFTUP,signalAspectToAdd, overallX, overallY);
 			addedTrack = true;
 			break;
 		}
 		case ElementChosen::SIGNALRIGHTUP:
 		{
-			std::shared_ptr<SignalTrack> signalRightUp(new SignalTrack(SignalType::SIGNALRIGHTUP, canvasAspect, finalX, finalY));
-			drawnLayout->addSignalTrack(signalRightUp);
+			map->createAddSignalTrack(SignalType::SIGNALRIGHTUP,signalAspectToAdd, overallX, overallY);
 			addedTrack = true;
 			break;
 		}
 		case ElementChosen::SIGNALLEFTDOWN:
 		{
-			std::shared_ptr<SignalTrack> signalLeftDown(new SignalTrack(SignalType::SIGNALLEFTDOWN, canvasAspect, finalX, finalY));
-			drawnLayout->addSignalTrack(signalLeftDown);
+			map->createAddSignalTrack(SignalType::SIGNALLEFTDOWN,signalAspectToAdd, overallX, overallY);
 			addedTrack = true;
 			break;
 		}
 		case ElementChosen::SIGNALRIGHTDOWN:
 		{
-			std::shared_ptr<SignalTrack> signalRightDown(new SignalTrack(SignalType::SIGNALRIGHTDOWN, canvasAspect, finalX, finalY));
-			drawnLayout->addSignalTrack(signalRightDown);
+			map->createAddSignalTrack(SignalType::SIGNALRIGHTDOWN,signalAspectToAdd, overallX, overallY);
 			addedTrack = true;
 			break;
 		}
-		*/
 		case ElementChosen::BRIDGE1:
 		{
 			map->createAddBridgeUnderpassTrack(BridgeUnderpassType::BRIDGE1, overallX, overallY);
@@ -1138,6 +1148,10 @@ void Canvas::paintEvent(QPaintEvent *event)
 	}
 
 }
+
+
+
+
 
 
 
@@ -1851,7 +1865,6 @@ void Canvas::drawBufferTrack(QPainter &painter)
 
 void Canvas::drawSignalTrack(QPainter &painter)
 {
-	/*
 	for (std::shared_ptr<SignalTrack> currentElement : map->getSignalTrackList())
 	{
 		int currentX = currentElement->getLocationX();
@@ -2058,7 +2071,6 @@ void Canvas::drawSignalTrack(QPainter &painter)
 			}
 		}
 	}
-	*/
 }
 
 void Canvas::drawBridgeUnderpassTrack(QPainter &painter)

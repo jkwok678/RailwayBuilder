@@ -1,5 +1,137 @@
 #include "map.h"
 
+//private
+
+void Map::showElementAlreadyThereError()
+{
+	//Show error if an element already exists there.
+	QMessageBox elementExistsAlreadyAlert;
+	elementExistsAlreadyAlert.setIcon(QMessageBox::Critical);
+	elementExistsAlreadyAlert.setText("An element already exists here.");
+	elementExistsAlreadyAlert.exec();
+}
+
+void Map::addStraightTrack(std::shared_ptr<StraightTrack> newStraightTrack)
+{
+	int tempLocationX = newStraightTrack->getLocationX();
+	int templocationY = newStraightTrack->getLocationY();
+	if (!checkElementExists(tempLocationX, templocationY))
+	{
+		straightTrackList.push_back(newStraightTrack);
+		++totalTrack;
+	}
+	else
+	{
+		showElementAlreadyThereError();
+	}
+}
+
+void Map::addDirectedTrack(std::shared_ptr<DirectedTrack> newDirectedTrack)
+{
+	int tempLocationX = newDirectedTrack->getLocationX();
+		int templocationY = newDirectedTrack->getLocationY();
+		if (!checkElementExists(tempLocationX, templocationY))
+		{
+			directedTrackList.push_back(newDirectedTrack);
+			++totalTrack;
+		}
+		else
+		{
+			showElementAlreadyThereError();
+		}
+}
+
+void Map::addCurvedTrack(std::shared_ptr<CurvedTrack> newCurvedTrack)
+{
+	int tempLocationX = newCurvedTrack->getLocationX();
+	int templocationY = newCurvedTrack->getLocationY();
+	if (!checkElementExists(tempLocationX, templocationY))
+	{
+		curvedTrackList.push_back(newCurvedTrack);
+		++totalTrack;
+	}
+	else
+	{
+		showElementAlreadyThereError();
+	}
+}
+
+void Map::addLinkedTrack(std::shared_ptr<LinkedTrack> newLinkedTrack)
+{
+	int tempLocationX = newLinkedTrack->getLocationX();
+	int templocationY = newLinkedTrack->getLocationY();
+	if (!checkElementExists(tempLocationX, templocationY))
+	{
+		linkedTrackList.push_back(newLinkedTrack);
+		++totalTrack;
+	}
+	else
+	{
+		showElementAlreadyThereError();
+	}
+}
+
+void Map::addExitTrack(std::shared_ptr<ExitTrack> newExitTrack)
+{
+	int tempLocationX = newExitTrack->getLocationX();
+	int templocationY = newExitTrack->getLocationY();
+	if (!checkElementExists(tempLocationX, templocationY))
+	{
+		exitTrackList.push_back(newExitTrack);
+	}
+	else
+	{
+		showElementAlreadyThereError();
+	}
+}
+
+void Map::addBufferTrack(std::shared_ptr<BufferTrack> newBufferTrack)
+{
+	int tempLocationX = newBufferTrack->getLocationX();
+	int templocationY = newBufferTrack->getLocationY();
+	if (!checkElementExists(tempLocationX, templocationY))
+	{
+		bufferTrackList.push_back(newBufferTrack);
+		++totalTrack;
+	}
+	else
+	{
+		showElementAlreadyThereError();
+	}
+}
+
+void Map::addSignalTrack(std::shared_ptr<SignalTrack> newSignalTrack)
+{
+	int tempLocationX = newSignalTrack->getLocationX();
+	int templocationY = newSignalTrack->getLocationY();
+	if (!checkElementExists(tempLocationX, templocationY))
+	{
+		signalTrackList.push_back(newSignalTrack);
+		++totalTrack;
+	}
+	else
+	{
+		showElementAlreadyThereError();
+	}
+}
+
+void Map::addBridgeUnderpassTrack(std::shared_ptr<BridgeUnderpassTrack> newBridgeUnderpassTrack)
+{
+	int tempLocationX = newBridgeUnderpassTrack->getLocationX();
+	int templocationY = newBridgeUnderpassTrack->getLocationY();
+	if (!checkElementExists(tempLocationX, templocationY))
+	{
+		bridgeUnderpassTrackList.push_back(newBridgeUnderpassTrack);
+		++totalTrack;
+	}
+	else
+	{
+		showElementAlreadyThereError();
+	}
+}
+
+//public
+
 Map::Map()
 {
 
@@ -224,137 +356,6 @@ bool Map::checkTextExists(int locationX, int locationY)
 }
 
 
-//private
-
-void Map::showElementAlreadyThereError()
-{
-	//Show error if an element already exists there.
-	QMessageBox elementExistsAlreadyAlert;
-	elementExistsAlreadyAlert.setIcon(QMessageBox::Critical);
-	elementExistsAlreadyAlert.setText("An element already exists here.");
-	elementExistsAlreadyAlert.exec();
-}
-
-void Map::addStraightTrack(std::shared_ptr<StraightTrack> newStraightTrack)
-{
-	int tempLocationX = newStraightTrack->getLocationX();
-	int templocationY = newStraightTrack->getLocationY();
-	if (!checkElementExists(tempLocationX, templocationY))
-	{
-		straightTrackList.push_back(newStraightTrack);
-		++totalTrack;
-	}
-	else
-	{
-		showElementAlreadyThereError();
-	}
-}
-
-void Map::addDirectedTrack(std::shared_ptr<DirectedTrack> newDirectedTrack)
-{
-	int tempLocationX = newDirectedTrack->getLocationX();
-		int templocationY = newDirectedTrack->getLocationY();
-		if (!checkElementExists(tempLocationX, templocationY))
-		{
-			directedTrackList.push_back(newDirectedTrack);
-			++totalTrack;
-		}
-		else
-		{
-			showElementAlreadyThereError();
-		}
-}
-
-void Map::addCurvedTrack(std::shared_ptr<CurvedTrack> newCurvedTrack)
-{
-	int tempLocationX = newCurvedTrack->getLocationX();
-	int templocationY = newCurvedTrack->getLocationY();
-	if (!checkElementExists(tempLocationX, templocationY))
-	{
-		curvedTrackList.push_back(newCurvedTrack);
-		++totalTrack;
-	}
-	else
-	{
-		showElementAlreadyThereError();
-	}
-}
-
-void Map::addLinkedTrack(std::shared_ptr<LinkedTrack> newLinkedTrack)
-{
-	int tempLocationX = newLinkedTrack->getLocationX();
-	int templocationY = newLinkedTrack->getLocationY();
-	if (!checkElementExists(tempLocationX, templocationY))
-	{
-		linkedTrackList.push_back(newLinkedTrack);
-		++totalTrack;
-	}
-	else
-	{
-		showElementAlreadyThereError();
-	}
-}
-
-void Map::addExitTrack(std::shared_ptr<ExitTrack> newExitTrack)
-{
-	int tempLocationX = newExitTrack->getLocationX();
-	int templocationY = newExitTrack->getLocationY();
-	if (!checkElementExists(tempLocationX, templocationY))
-	{
-		exitTrackList.push_back(newExitTrack);
-	}
-	else
-	{
-		showElementAlreadyThereError();
-	}
-}
-
-void Map::addBufferTrack(std::shared_ptr<BufferTrack> newBufferTrack)
-{
-	int tempLocationX = newBufferTrack->getLocationX();
-	int templocationY = newBufferTrack->getLocationY();
-	if (!checkElementExists(tempLocationX, templocationY))
-	{
-		bufferTrackList.push_back(newBufferTrack);
-		++totalTrack;
-	}
-	else
-	{
-		showElementAlreadyThereError();
-	}
-}
-
-void Map::addSignalTrack(std::shared_ptr<SignalTrack> newSignalTrack)
-{
-	int tempLocationX = newSignalTrack->getLocationX();
-	int templocationY = newSignalTrack->getLocationY();
-	if (!checkElementExists(tempLocationX, templocationY))
-	{
-		signalTrackList.push_back(newSignalTrack);
-		++totalTrack;
-	}
-	else
-	{
-		showElementAlreadyThereError();
-	}
-}
-
-void Map::addBridgeUnderpassTrack(std::shared_ptr<BridgeUnderpassTrack> newBridgeUnderpassTrack)
-{
-	int tempLocationX = newBridgeUnderpassTrack->getLocationX();
-	int templocationY = newBridgeUnderpassTrack->getLocationY();
-	if (!checkElementExists(tempLocationX, templocationY))
-	{
-		bridgeUnderpassTrackList.push_back(newBridgeUnderpassTrack);
-		++totalTrack;
-	}
-	else
-	{
-		showElementAlreadyThereError();
-	}
-}
-
-//public
 
 //StraightTrack related methods
 

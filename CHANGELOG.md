@@ -1,6 +1,13 @@
 # Changelog
-    
+
 All notable changes to this project will be documented in this file.
+
+## Core features - 14/08/2021
+
+### Added
+* New button to change signal apsect in the program.
+* Ability to add the signal track onto the screen.
+
 ## Core features - 11/08/2021
 
 ### Added
@@ -48,7 +55,7 @@ ExitTrack, BufferTrack, BridgeUnderpassTrack) SignalTrack has not been implement
 * The Concourse class (includes implementaion and documentation)
 * The Parapet class (includes implementaion and documentation)
 * The ParapetType enum class (includes implementaion and documentation)
-* Added the map class 
+* Added the map class
 * Methods to check number of tracks and to check if an element exists at a coordiante.
 * Methods to work with StraightTracks in the map class E.g. getStraightTrackAt() and addStraightTrack().
 
@@ -146,8 +153,8 @@ ExitTrack, BufferTrack, BridgeUnderpassTrack) SignalTrack has not been implement
 * Image files loading
 * Cmake
 * The boardlayout class (includes implementaion)
-* The ElementChosen enum class 
-* The Mode enum class 
+* The ElementChosen enum class
+* The Mode enum class
 * The Canvas class (includes implementaion and documentation)
 * The Window class (includes implementaion and documentation)
 * The Element class (includes implementaion and documentation)
