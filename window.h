@@ -415,6 +415,168 @@ private slots:
 	 */
 	void chooseUnderpass2();
 
+	//ElementBlock2 slots
+
+	/**
+	 * @brief A slot to select SwitchTight1 tracks to place on screen.
+	 */
+	void chooseSwitchTight1();
+
+	/**
+	 * @brief A slot to select SwitchTight2 tracks to place on screen.
+	 */
+	void chooseSwitchTight2();
+
+	/**
+	 * @brief A slot to select SwitchTight3 tracks to place on screen.
+	 */
+	void chooseSwitchTight3();
+
+	/**
+	 * @brief A slot to select SwitchTight4 tracks to place on screen.
+	 */
+	void chooseSwitchTight4();
+
+	/**
+	 * @brief A slot to select SwitchTight5 tracks to place on screen.
+	 */
+	void chooseSwitchTight5();
+
+	/**
+	 * @brief A slot to select SwitchTight6 tracks to place on screen.
+	 */
+	void chooseSwitchTight6();
+
+	/**
+	 * @brief A slot to select SwitchTight7 tracks to place on screen.
+	 */
+	void chooseSwitchTight7();
+
+	/**
+	 * @brief A slot to select SwitchTight8 tracks to place on screen.
+	 */
+	void chooseSwitchTight8();
+
+	/**
+	 * @brief A slot to select SwitchSplit1 tracks to place on screen.
+	 */
+	void chooseSwitchSplit1();
+
+	/**
+	 * @brief A slot to select SwitchSplit2 tracks to place on screen.
+	 */
+	void chooseSwitchSplit2();
+
+	/**
+	 * @brief A slot to select SwitchSplit3 tracks to place on screen.
+	 */
+	void chooseSwitchSplit3();
+
+	/**
+	 * @brief A slot to select Switch1 tracks to place on screen.
+	 */
+	void chooseSwitch1();
+
+	/**
+	 * @brief A slot to select Switch2 tracks to place on screen.
+	 */
+	void chooseSwitch2();
+
+	/**
+	 * @brief A slot to select Switch3 tracks to place on screen.
+	 */
+	void chooseSwitch3();
+
+	/**
+	 * @brief A slot to select Switch4 tracks to place on screen.
+	 */
+	void chooseSwitch4();
+
+	/**
+	 * @brief A slot to select Switch5 tracks to place on screen.
+	 */
+	void chooseSwitch5();
+
+	/**
+	 * @brief A slot to select Switch6 tracks to place on screen.
+	 */
+	void chooseSwitch6();
+
+	/**
+	 * @brief A slot to select Switch7 tracks to place on screen.
+	 */
+	void chooseSwitch7();
+
+	/**
+	 * @brief A slot to select Switch8 tracks to place on screen.
+	 */
+	void chooseSwitch8();
+
+	/**
+	 * @brief A slot to select SwitchSplit4 tracks to place on screen.
+	 */
+	void chooseSwitchSplit4();
+
+	/**
+	 * @brief A slot to select SwitchSplit5 tracks to place on screen.
+	 */
+	void chooseSwitchSplit5();
+
+	/**
+	 * @brief A slot to select SwitchSplit6 tracks to place on screen.
+	 */
+	void chooseSwitchSplit6();
+
+	/**
+	 * @brief A slot to select Switch9 tracks to place on screen.
+	 */
+	void chooseSwitch9();
+
+	/**
+	 * @brief A slot to select Switch10 tracks to place on screen.
+	 */
+	void chooseSwitch10();
+
+	/**
+	 * @brief A slot to select Switch11 tracks to place on screen.
+	 */
+	void chooseSwitch11();
+
+	/**
+	 * @brief A slot to select Switch12 tracks to place on screen.
+	 */
+	void chooseSwitch12();
+
+	/**
+	 * @brief A slot to select Switch13 tracks to place on screen.
+	 */
+	void chooseSwitch13();
+
+	/**
+	 * @brief A slot to select Switch14 tracks to place on screen.
+	 */
+	void chooseSwitch14();
+
+	/**
+	 * @brief A slot to select Switch15 tracks to place on screen.
+	 */
+	void chooseSwitch15();
+
+	/**
+	 * @brief A slot to select Switch16 tracks to place on screen.
+	 */
+	void chooseSwitch16();
+
+	/**
+	 * @brief A slot to select SwitchSplit7 tracks to place on screen.
+	 */
+	void chooseSwitchSplit7();
+
+	/**
+	 * @brief A slot to select SwitchSplit8 tracks to place on screen.
+	 */
+	void chooseSwitchSplit8();
+
 	//Right hand side menu.
 
 	/**
@@ -482,7 +644,10 @@ private:
 	QIcon *straightHIcon;
 	QAction *chooseStraightHAct;
 
-	//ElementBlock1 buttons
+	/*
+	 * ElementBlock1 buttons
+	 * START HERE
+	 */
 
 	//StraightVButton
 	QToolButton* straightVButton;
@@ -786,6 +951,172 @@ private:
 	QToolButton* underpass2Button;
 	QAction* chooseUnderpass2Act;
 	QIcon* underpass2Icon;
+
+	/*
+	 * ElementBlock2 buttons
+	 * START HERE
+	 */
+
+	//SwitchTight1Button
+	QToolButton* switchTight1Button;
+	QAction* chooseSwitchTight1Act;
+	QIcon* switchTight1Icon;
+
+	//SwitchTight2Button
+	QToolButton* switchTight2Button;
+	QAction* chooseSwitchTight2Act;
+	QIcon* switchTight2Icon;
+
+	//SwitchTight3Button
+	QToolButton* switchTight3Button;
+	QAction* chooseSwitchTight3Act;
+	QIcon* switchTight3Icon;
+
+	//SwitchTight4Button
+	QToolButton* switchTight4Button;
+	QAction* chooseSwitchTight4Act;
+	QIcon* switchTight4Icon;
+
+	//SwitchTight5Button
+	QToolButton* switchTight5Button;
+	QAction* chooseSwitchTight5Act;
+	QIcon* switchTight5Icon;
+
+	//SwitchTight6Button
+	QToolButton* switchTight6Button;
+	QAction* chooseSwitchTight6Act;
+	QIcon* switchTight6Icon;
+
+	//SwitchTight7Button
+	QToolButton* switchTight7Button;
+	QAction* chooseSwitchTight7Act;
+	QIcon* switchTight7Icon;
+
+	//SwitchTight8Button
+	QToolButton* switchTight8Button;
+	QAction* chooseSwitchTight8Act;
+	QIcon* switchTight8Icon;
+
+	//SwitchSplit1Button
+	QToolButton* switchSplit1Button;
+	QAction* chooseSwitchSplit1Act;
+	QIcon* switchSplit1Icon;
+
+	//SwitchSplit2Button
+	QToolButton* switchSplit2Button;
+	QAction* chooseSwitchSplit2Act;
+	QIcon* switchSplit2Icon;
+
+	//SwitchSplit3Button
+	QToolButton* switchSplit3Button;
+	QAction* chooseSwitchSplit3Act;
+	QIcon* switchSplit3Icon;
+
+	//Switch1Button
+	QToolButton* switch1Button;
+	QAction* chooseSwitch1Act;
+	QIcon* switch1Icon;
+
+	//Switch2Button
+	QToolButton* switch2Button;
+	QAction* chooseSwitch2Act;
+	QIcon* switch2Icon;
+
+	//Switch3Button
+	QToolButton* switch3Button;
+	QAction* chooseSwitch3Act;
+	QIcon* switch3Icon;
+
+	//Switch4Button
+	QToolButton* switch4Button;
+	QAction* chooseSwitch4Act;
+	QIcon* switch4Icon;
+
+	//Switch5Button
+	QToolButton* switch5Button;
+	QAction* chooseSwitch5Act;
+	QIcon* switch5Icon;
+
+	//Switch6Button
+	QToolButton* switch6Button;
+	QAction* chooseSwitch6Act;
+	QIcon* switch6Icon;
+
+	//Switch7Button
+	QToolButton* switch7Button;
+	QAction* chooseSwitch7Act;
+	QIcon* switch7Icon;
+
+	//Switch8Button
+	QToolButton* switch8Button;
+	QAction* chooseSwitch8Act;
+	QIcon* switch8Icon;
+
+	//SwitchSplit4Button
+	QToolButton* switchSplit4Button;
+	QAction* chooseSwitchSplit4Act;
+	QIcon* switchSplit4Icon;
+
+	//SwitchSplit5Button
+	QToolButton* switchSplit5Button;
+	QAction* chooseSwitchSplit5Act;
+	QIcon* switchSplit5Icon;
+
+	//SwitchSplit6Button
+	QToolButton* switchSplit6Button;
+	QAction* chooseSwitchSplit6Act;
+	QIcon* switchSplit6Icon;
+
+	//Switch9Button
+	QToolButton* switch9Button;
+	QAction* chooseSwitch9Act;
+	QIcon* switch9Icon;
+
+	//Switch10Button
+	QToolButton* switch10Button;
+	QAction* chooseSwitch10Act;
+	QIcon* switch10Icon;
+
+	//Switch11Button
+	QToolButton* switch11Button;
+	QAction* chooseSwitch11Act;
+	QIcon* switch11Icon;
+
+	//Switch12Button
+	QToolButton* switch12Button;
+	QAction* chooseSwitch12Act;
+	QIcon* switch12Icon;
+
+	//Switch13Button
+	QToolButton* switch13Button;
+	QAction* chooseSwitch13Act;
+	QIcon* switch13Icon;
+
+	//Switch14Button
+	QToolButton* switch14Button;
+	QAction* chooseSwitch14Act;
+	QIcon* switch14Icon;
+
+	//Switch15Button
+	QToolButton* switch15Button;
+	QAction* chooseSwitch15Act;
+	QIcon* switch15Icon;
+
+	//Switch16Button
+	QToolButton* switch16Button;
+	QAction* chooseSwitch16Act;
+	QIcon* switch16Icon;
+
+	//SwitchSplit7Button
+	QToolButton* switchSplit7Button;
+	QAction* chooseSwitchSplit7Act;
+	QIcon* switchSplit7Icon;
+
+	//SwitchSplit8Button
+	QToolButton* switchSplit8Button;
+	QAction* chooseSwitchSplit8Act;
+	QIcon* switchSplit8Icon;
+
 
 
 	//SetConvertSpeedDistance menu
