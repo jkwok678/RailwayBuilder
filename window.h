@@ -1205,6 +1205,11 @@ private:
 	 */
 	void createElementBlock1();
 
+	/**
+	 * @brief A method to create the part 1 of the element buttons where the user can choose track type.
+	 */
+	void createElementBlock2();
+
 
 	//SetConvertSpeedDistance menu
 
