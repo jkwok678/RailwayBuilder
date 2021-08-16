@@ -1492,6 +1492,7 @@ void Window::createElementMenu()
 	elementMenuLayout = new QGridLayout;
 	elementMenu->setLayout(elementMenuLayout);
 	createElementBlock1();
+	createElementBlock2();
 }
 
 void Window::createElementBlock1()

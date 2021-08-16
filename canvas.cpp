@@ -1093,7 +1093,198 @@ void Canvas::createAddElement(ElementChosen elementToAdd, int overallX, int over
 			addedTrack = true;
 			break;
 		}
-
+		case ElementChosen::SWITCHTIGHT1:
+		{
+			map->createAddSwitchTrack(SwitchType::SWITCHTIGHT1, overallX, overallY);
+			addedTrack = true;
+			break;
+		}
+		case ElementChosen::SWITCHTIGHT2:
+		{
+			map->createAddSwitchTrack(SwitchType::SWITCHTIGHT2, overallX, overallY);
+			addedTrack = true;
+			break;
+		}
+		case ElementChosen::SWITCHTIGHT3:
+		{
+			map->createAddSwitchTrack(SwitchType::SWITCHTIGHT3, overallX, overallY);
+			addedTrack = true;
+			break;
+		}
+		case ElementChosen::SWITCHTIGHT4:
+		{
+			map->createAddSwitchTrack(SwitchType::SWITCHTIGHT4, overallX, overallY);
+			addedTrack = true;
+			break;
+		}
+		case ElementChosen::SWITCHTIGHT5:
+		{
+			map->createAddSwitchTrack(SwitchType::SWITCHTIGHT5, overallX, overallY);
+			addedTrack = true;
+			break;
+		}
+		case ElementChosen::SWITCHTIGHT6:
+		{
+			map->createAddSwitchTrack(SwitchType::SWITCHTIGHT6, overallX, overallY);
+			addedTrack = true;
+			break;
+		}
+		case ElementChosen::SWITCHTIGHT7:
+		{
+			map->createAddSwitchTrack(SwitchType::SWITCHTIGHT7, overallX, overallY);
+			addedTrack = true;
+			break;
+		}
+		case ElementChosen::SWITCHTIGHT8:
+		{
+			map->createAddSwitchTrack(SwitchType::SWITCHTIGHT8, overallX, overallY);
+			addedTrack = true;
+			break;
+		}
+		case ElementChosen::SWITCHSPLIT1:
+		{
+			map->createAddSwitchTrack(SwitchType::SWITCHSPLIT1, overallX, overallY);
+			addedTrack = true;
+			break;
+		}
+		case ElementChosen::SWITCHSPLIT2:
+		{
+			map->createAddSwitchTrack(SwitchType::SWITCHSPLIT2, overallX, overallY);
+			addedTrack = true;
+			break;
+		}
+		case ElementChosen::SWITCHSPLIT3:
+		{
+			map->createAddSwitchTrack(SwitchType::SWITCHSPLIT3, overallX, overallY);
+			addedTrack = true;
+			break;
+		}
+		case ElementChosen::SWITCH1:
+		{
+			map->createAddSwitchTrack(SwitchType::SWITCH1, overallX, overallY);
+			addedTrack = true;
+			break;
+		}
+		case ElementChosen::SWITCH2:
+		{
+			map->createAddSwitchTrack(SwitchType::SWITCH2, overallX, overallY);
+			addedTrack = true;
+			break;
+		}
+		case ElementChosen::SWITCH3:
+		{
+			map->createAddSwitchTrack(SwitchType::SWITCH3, overallX, overallY);
+			addedTrack = true;
+			break;
+		}
+		case ElementChosen::SWITCH4:
+		{
+			map->createAddSwitchTrack(SwitchType::SWITCH4, overallX, overallY);
+			addedTrack = true;
+			break;
+		}
+		case ElementChosen::SWITCH5:
+		{
+			map->createAddSwitchTrack(SwitchType::SWITCH5, overallX, overallY);
+			addedTrack = true;
+			break;
+		}
+		case ElementChosen::SWITCH6:
+		{
+			map->createAddSwitchTrack(SwitchType::SWITCH6, overallX, overallY);
+			addedTrack = true;
+			break;
+		}
+		case ElementChosen::SWITCH7:
+		{
+			map->createAddSwitchTrack(SwitchType::SWITCH7, overallX, overallY);
+			addedTrack = true;
+			break;
+		}
+		case ElementChosen::SWITCH8:
+		{
+			map->createAddSwitchTrack(SwitchType::SWITCH8, overallX, overallY);
+			addedTrack = true;
+			break;
+		}
+		case ElementChosen::SWITCHSPLIT4:
+		{
+			map->createAddSwitchTrack(SwitchType::SWITCHSPLIT4, overallX, overallY);
+			addedTrack = true;
+			break;
+		}
+		case ElementChosen::SWITCHSPLIT5:
+		{
+			map->createAddSwitchTrack(SwitchType::SWITCHSPLIT5, overallX, overallY);
+			addedTrack = true;
+			break;
+		}
+		case ElementChosen::SWITCHSPLIT6:
+		{
+			map->createAddSwitchTrack(SwitchType::SWITCHSPLIT6, overallX, overallY);
+			addedTrack = true;
+			break;
+		}
+		case ElementChosen::SWITCH9:
+		{
+			map->createAddSwitchTrack(SwitchType::SWITCH9, overallX, overallY);
+			addedTrack = true;
+			break;
+		}
+		case ElementChosen::SWITCH10:
+		{
+			map->createAddSwitchTrack(SwitchType::SWITCH10, overallX, overallY);
+			addedTrack = true;
+			break;
+		}
+		case ElementChosen::SWITCH11:
+		{
+			map->createAddSwitchTrack(SwitchType::SWITCH11, overallX, overallY);
+			addedTrack = true;
+			break;
+		}
+		case ElementChosen::SWITCH12:
+		{
+			map->createAddSwitchTrack(SwitchType::SWITCH12, overallX, overallY);
+			addedTrack = true;
+			break;
+		}
+		case ElementChosen::SWITCH13:
+		{
+			map->createAddSwitchTrack(SwitchType::SWITCH13, overallX, overallY);
+			addedTrack = true;
+			break;
+		}
+		case ElementChosen::SWITCH14:
+		{
+			map->createAddSwitchTrack(SwitchType::SWITCH14, overallX, overallY);
+			addedTrack = true;
+			break;
+		}
+		case ElementChosen::SWITCH15:
+		{
+			map->createAddSwitchTrack(SwitchType::SWITCH15, overallX, overallY);
+			addedTrack = true;
+			break;
+		}
+		case ElementChosen::SWITCH16:
+		{
+			map->createAddSwitchTrack(SwitchType::SWITCH16, overallX, overallY);
+			addedTrack = true;
+			break;
+		}
+		case ElementChosen::SWITCHSPLIT7:
+		{
+			map->createAddSwitchTrack(SwitchType::SWITCHSPLIT7, overallX, overallY);
+			addedTrack = true;
+			break;
+		}
+		case ElementChosen::SWITCHSPLIT8:
+		{
+			map->createAddSwitchTrack(SwitchType::SWITCHSPLIT8, overallX, overallY);
+			addedTrack = true;
+			break;
+		}
 	}
 }
 
@@ -1145,6 +1336,7 @@ void Canvas::paintEvent(QPaintEvent *event)
 		drawBufferTrack(painter);
 		drawSignalTrack(painter);
 		drawBridgeUnderpassTrack(painter);
+		drawSwitchTrack(painter);
 	}
 
 }
@@ -2227,6 +2419,368 @@ void Canvas::drawBridgeUnderpassTrack(QPainter &painter)
 								painter.drawImage(displayX, displayY, *platformRightUnsetImage);
 							}
 						}
+						break;
+					}
+				}
+			}
+		}
+	}
+}
+
+void Canvas::drawSwitchTrack(QPainter &painter)
+{
+	for (std::shared_ptr<SwitchTrack> currentElement : map->getSwitchTrackList())
+	{
+		int currentX = currentElement->getLocationX();
+		int currentY = currentElement->getLocationY();
+		int minCoordinateX = (offsetX * canvasSizeX);
+		int maxCoordinateX = ((offsetX+1) * canvasSizeX);
+		int minCoordinateY = ((offsetY-1) * canvasSizeY);
+		int maxCoordinateY = (offsetY*canvasSizeY);;
+		int minDisplayX = (offsetX * canvasSizeX);
+		int maxDisplayY = (offsetY*canvasSizeY);
+		if (currentX >= minCoordinateX && currentX <= maxCoordinateX)
+		{
+			if (currentY >= minCoordinateY && currentY <= maxCoordinateY)
+			{
+				int displayX = currentX- minDisplayX;
+				int displayY = 0-(currentY - maxDisplayY);
+				switch (currentElement->getSwitchType())
+				{
+					case SwitchType::SWITCHTIGHT1:
+					{
+						painter.drawImage(displayX, displayY, *switchTight1Image);
+						if (currentElement->getPlatform2())
+						{
+							if (currentElement->getNamed())
+							{
+								painter.drawImage(displayX, displayY, *platformDownSetImage);
+							}
+							else
+							{
+								painter.drawImage(displayX, displayY, *platformDownUnsetImage);
+							}
+						}
+						break;
+					}
+					case SwitchType::SWITCHTIGHT2:
+					{
+						painter.drawImage(displayX, displayY, *switchTight2Image);
+						if (currentElement->getPlatform2())
+						{
+							if (currentElement->getNamed())
+							{
+								painter.drawImage(displayX, displayY, *platformDownSetImage);
+							}
+							else
+							{
+								painter.drawImage(displayX, displayY, *platformDownUnsetImage);
+							}
+						}
+						break;
+					}
+					case SwitchType::SWITCHTIGHT3:
+					{
+						painter.drawImage(displayX, displayY, *switchTight3Image);
+						if (currentElement->getPlatform1())
+						{
+							if (currentElement->getNamed())
+							{
+								painter.drawImage(displayX, displayY, *platformUpSetImage);
+							}
+							else
+							{
+								painter.drawImage(displayX, displayY, *platformUpUnsetImage);
+							}
+						}
+						break;
+					}
+					case SwitchType::SWITCHTIGHT4:
+					{
+						painter.drawImage(displayX, displayY, *switchTight4Image);
+						if (currentElement->getPlatform1())
+						{
+							if (currentElement->getNamed())
+							{
+								painter.drawImage(displayX, displayY, *platformUpSetImage);
+							}
+							else
+							{
+								painter.drawImage(displayX, displayY, *platformUpUnsetImage);
+							}
+						}
+						break;
+					}
+					case SwitchType::SWITCHTIGHT5:
+					{
+						painter.drawImage(displayX, displayY, *switchTight5Image);
+						if (currentElement->getPlatform2())
+						{
+							if (currentElement->getNamed())
+							{
+								painter.drawImage(displayX, displayY, *platformRightSetImage);
+							}
+							else
+							{
+								painter.drawImage(displayX, displayY, *platformRightUnsetImage);
+							}
+						}
+						break;
+					}
+					case SwitchType::SWITCHTIGHT6:
+					{
+						painter.drawImage(displayX, displayY, *switchTight6Image);
+						if (currentElement->getPlatform1())
+						{
+							if (currentElement->getNamed())
+							{
+								painter.drawImage(displayX, displayY, *platformLeftSetImage);
+							}
+							else
+							{
+								painter.drawImage(displayX, displayY, *platformLeftUnsetImage);
+							}
+						}
+						break;
+					}
+					case SwitchType::SWITCHTIGHT7:
+					{
+						painter.drawImage(displayX, displayY, *switchTight7Image);
+						if (currentElement->getPlatform2())
+						{
+							if (currentElement->getNamed())
+							{
+								painter.drawImage(displayX, displayY, *platformRightSetImage);
+							}
+							else
+							{
+								painter.drawImage(displayX, displayY, *platformRightUnsetImage);
+							}
+						}
+					break;
+					}
+					case SwitchType::SWITCHTIGHT8:
+					{
+						painter.drawImage(displayX, displayY, *switchTight8Image);
+						if (currentElement->getPlatform1())
+						{
+							if (currentElement->getNamed())
+							{
+								painter.drawImage(displayX, displayY, *platformLeftSetImage);
+							}
+							else
+							{
+								painter.drawImage(displayX, displayY, *platformLeftUnsetImage);
+							}
+						}
+						break;
+					}
+					case SwitchType::SWITCHSPLIT1:
+					{
+						painter.drawImage(displayX, displayY, *switchSplit1Image);
+						break;
+					}
+					case SwitchType::SWITCHSPLIT2:
+					{
+						painter.drawImage(displayX, displayY, *switchSplit2Image);
+						break;
+					}
+					case SwitchType::SWITCHSPLIT3:
+					{
+						painter.drawImage(displayX, displayY, *switchSplit3Image);
+						break;
+					}
+					case SwitchType::SWITCH1:
+					{
+						painter.drawImage(displayX, displayY, *switch1Image);
+						if (currentElement->getPlatform2())
+						{
+							if (currentElement->getNamed())
+							{
+								painter.drawImage(displayX, displayY, *platformDownSetImage);
+							}
+							else
+							{
+								painter.drawImage(displayX, displayY, *platformDownUnsetImage);
+							}
+						}
+						break;
+					}
+					case SwitchType::SWITCH2:
+					{
+						painter.drawImage(displayX, displayY, *switch2Image);
+						if (currentElement->getPlatform2())
+						{
+							if (currentElement->getNamed())
+							{
+								painter.drawImage(displayX, displayY, *platformDownSetImage);
+							}
+							else
+							{
+								painter.drawImage(displayX, displayY, *platformDownUnsetImage);
+							}
+						}
+						break;
+					}
+					case SwitchType::SWITCH3:
+					{
+						painter.drawImage(displayX, displayY, *switch3Image);
+						if (currentElement->getPlatform1())
+						{
+							if (currentElement->getNamed())
+							{
+								painter.drawImage(displayX, displayY, *platformUpSetImage);
+							}
+							else
+							{
+								painter.drawImage(displayX, displayY, *platformUpUnsetImage);
+							}
+						}
+						break;
+					}
+					case SwitchType::SWITCH4:
+					{
+						painter.drawImage(displayX, displayY, *switch4Image);
+						if (currentElement->getPlatform1())
+						{
+							if (currentElement->getNamed())
+							{
+								painter.drawImage(displayX, displayY, *platformUpSetImage);
+							}
+							else
+							{
+								painter.drawImage(displayX, displayY, *platformUpUnsetImage);
+							}
+						}
+						break;
+					}
+					case SwitchType::SWITCH5:
+					{
+						painter.drawImage(displayX, displayY, *switch5Image);
+						if (currentElement->getPlatform2())
+						{
+							if (currentElement->getNamed())
+							{
+								painter.drawImage(displayX, displayY, *platformRightSetImage);
+							}
+							else
+							{
+								painter.drawImage(displayX, displayY, *platformRightUnsetImage);
+							}
+						}
+						break;
+					}
+					case SwitchType::SWITCH6:
+					{
+						painter.drawImage(displayX, displayY, *switch6Image);
+						if (currentElement->getPlatform1())
+						{
+							if (currentElement->getNamed())
+							{
+								painter.drawImage(displayX, displayY, *platformLeftSetImage);
+							}
+							else
+							{
+								painter.drawImage(displayX, displayY, *platformLeftUnsetImage);
+							}
+						}
+						break;
+					}
+					case SwitchType::SWITCH7:
+					{
+						painter.drawImage(displayX, displayY, *switch7Image);
+						if (currentElement->getPlatform2())
+						{
+							if (currentElement->getNamed())
+							{
+								painter.drawImage(displayX, displayY, *platformRightSetImage);
+							}
+							else
+							{
+								painter.drawImage(displayX, displayY, *platformRightUnsetImage);
+							}
+						}
+						break;
+					}
+					case SwitchType::SWITCH8:
+					{
+						painter.drawImage(displayX, displayY, *switch8Image);
+						if (currentElement->getPlatform1())
+						{
+							if (currentElement->getNamed())
+							{
+								painter.drawImage(displayX, displayY, *platformLeftSetImage);
+							}
+							else
+							{
+								painter.drawImage(displayX, displayY, *platformLeftUnsetImage);
+							}
+						}
+						break;
+					}
+					case SwitchType::SWITCHSPLIT4:
+					{
+						painter.drawImage(displayX, displayY, *switchSplit4Image);
+						break;
+					}
+					case SwitchType::SWITCHSPLIT5:
+					{
+						painter.drawImage(displayX, displayY, *switchSplit5Image);
+						break;
+					}
+					case SwitchType::SWITCHSPLIT6:
+					{
+						painter.drawImage(displayX, displayY, *switchSplit6Image);
+						break;
+					}
+					case SwitchType::SWITCH9:
+					{
+						painter.drawImage(displayX, displayY, *switch9Image);
+						break;
+					}
+					case SwitchType::SWITCH10:
+					{
+						painter.drawImage(displayX, displayY, *switch10Image);
+						break;
+					}
+					case SwitchType::SWITCH11:
+					{
+						painter.drawImage(displayX, displayY, *switch11Image);
+						break;
+					}
+					case SwitchType::SWITCH12:
+					{
+						painter.drawImage(displayX, displayY, *switch12Image);
+						break;
+					}
+					case SwitchType::SWITCH13:
+					{
+						painter.drawImage(displayX, displayY, *switch13Image);
+						break;
+					}
+					case SwitchType::SWITCH14:
+					{
+						painter.drawImage(displayX, displayY, *switch14Image);
+						break;
+					}
+					case SwitchType::SWITCH15:
+					{
+						painter.drawImage(displayX, displayY, *switch15Image);
+						break;
+					}
+					case SwitchType::SWITCH16:
+					{
+						painter.drawImage(displayX, displayY, *switch16Image);
+						break;
+					}
+					case SwitchType::SWITCHSPLIT7:
+					{
+						painter.drawImage(displayX, displayY, *switchSplit7Image);
+						break;
+					}
+					case SwitchType::SWITCHSPLIT8:
+					{
+						painter.drawImage(displayX, displayY, *switchSplit8Image);
 						break;
 					}
 				}

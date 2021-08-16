@@ -859,6 +859,11 @@ private:
 	 */
 	void drawBridgeUnderpassTrack(QPainter &painter);
 
+	/**
+	 * @brief Draw SwitchTracks onto the canvas.
+	 * @param painter
+	 */
+	void drawSwitchTrack(QPainter &painter);
 };
 
 #endif // CANVAS_H
