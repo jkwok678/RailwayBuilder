@@ -130,6 +130,51 @@ void Map::addBridgeUnderpassTrack(std::shared_ptr<BridgeUnderpassTrack> newBridg
 	}
 }
 
+void Map::addSwitchTrack(std::shared_ptr<SwitchTrack> newSwitchTrack)
+{
+	int tempLocationX = newSwitchTrack->getLocationX();
+	int templocationY = newSwitchTrack->getLocationY();
+	if (!checkElementExists(tempLocationX, templocationY))
+	{
+		switchTrackList.push_back(newSwitchTrack);
+		++totalTrack;
+	}
+	else
+	{
+		showElementAlreadyThereError();
+	}
+}
+
+void Map::addCrossoverTrack(std::shared_ptr<CrossoverTrack> newCrossoverTrack)
+{
+	int tempLocationX = newCrossoverTrack->getLocationX();
+	int templocationY = newCrossoverTrack->getLocationY();
+	if (!checkElementExists(tempLocationX, templocationY))
+	{
+		crossoverTrackList.push_back(newCrossoverTrack);
+		++totalTrack;
+	}
+	else
+	{
+		showElementAlreadyThereError();
+	}
+}
+
+void Map::addFlyoverTrack(std::shared_ptr<FlyoverTrack> newFlyoverTrack)
+{
+	int tempLocationX = newFlyoverTrack->getLocationX();
+	int templocationY = newFlyoverTrack->getLocationY();
+	if (!checkElementExists(tempLocationX, templocationY))
+	{
+		flyoverTrackList.push_back(newFlyoverTrack);
+		++totalTrack;
+	}
+	else
+	{
+		showElementAlreadyThereError();
+	}
+}
+
 //public
 
 Map::Map()
@@ -654,4 +699,120 @@ std::shared_ptr<BridgeUnderpassTrack> Map::getBridgeUnderpassTrack(int locationX
 		}
 	}
 	return bridgeUnderpassTrack;
+}
+
+//SwitchTrack related methods
+
+std::vector<std::shared_ptr<SwitchTrack> > Map::getSwitchTrackList() const
+{
+	return switchTrackList;
+}
+
+void Map::setSwitchTrackList(const std::vector<std::shared_ptr<SwitchTrack> >& newSwitchTrackList)
+{
+	switchTrackList = newSwitchTrackList;
+}
+
+void Map::createAddSwitchTrack(SwitchType switchType, int overallX, int overallY)
+{
+	std::shared_ptr<SwitchTrack> switchTrack(new SwitchTrack(switchType, overallX, overallY));
+	addSwitchTrack(switchTrack);
+}
+
+std::shared_ptr<SwitchTrack> Map::getSwitchTrackAt(int locationX, int locationY)
+{
+	std::shared_ptr<SwitchTrack> switchTrack = nullptr;
+	if (!switchTrackList.empty())
+	{
+		for (std::shared_ptr<SwitchTrack>& currentElement : switchTrackList)
+		{
+			int currentX = currentElement->getLocationX();
+			int currentY = currentElement->getLocationY();
+			if (currentX == locationX && currentY == locationY)
+			{
+				switchTrack = currentElement;
+				break;
+			}
+		}
+	}
+	return switchTrack;
+}
+
+//CrossoverTrack related methods
+
+std::vector<std::shared_ptr<CrossoverTrack> > Map::getCrossoverTrackList() const
+{
+	return crossoverTrackList;
+}
+
+void Map::setCrossoverTrackList(const std::vector<std::shared_ptr<CrossoverTrack> >& newCrossoverTrackList)
+{
+	crossoverTrackList = newCrossoverTrackList;
+}
+
+void Map::createAddCrossoverTrack(CrossoverType crossoverType, int overallX, int overallY)
+{
+	std::shared_ptr<CrossoverTrack> crossoverTrack(new CrossoverTrack(crossoverType, overallX, overallY));
+	addCrossoverTrack(crossoverTrack);
+}
+
+std::shared_ptr<CrossoverTrack> Map::getCrossoverTrackAt(int locationX, int locationY)
+{
+	bool found = false;
+	std::shared_ptr<CrossoverTrack> crossoverTrack = nullptr;
+	if (!crossoverTrackList.empty())
+	{
+		for (std::shared_ptr<CrossoverTrack>& currentElement : crossoverTrackList)
+		{
+
+			int currentX = currentElement->getLocationX();
+			int currentY = currentElement->getLocationY();
+			if (currentX == locationX && currentY == locationY)
+			{
+				crossoverTrack = currentElement;
+				found = true;
+				break;
+			}
+		}
+	}
+	return crossoverTrack;
+}
+
+//FlyoverTrack related methods
+
+std::vector<std::shared_ptr<FlyoverTrack> > Map::getFlyoverTrackList() const
+{
+	return flyoverTrackList;
+}
+
+void Map::setFlyoverTrackList(const std::vector<std::shared_ptr<FlyoverTrack> >& newFlyoverTrackList)
+{
+	flyoverTrackList = newFlyoverTrackList;
+}
+
+void Map::createAddFlyoverTrack(FlyoverType flyoverType, int overallX, int overallY)
+{
+	std::shared_ptr<FlyoverTrack> flyoverTrack(new FlyoverTrack(flyoverType, overallX, overallY));
+	addFlyoverTrack(flyoverTrack);
+}
+
+std::shared_ptr<FlyoverTrack> Map::getFlyoverTrackAt(int locationX, int locationY)
+{
+	bool found = false;
+	std::shared_ptr<FlyoverTrack> flyoverTrack = nullptr;
+	if (!flyoverTrackList.empty())
+	{
+		for (std::shared_ptr<FlyoverTrack>& currentElement : flyoverTrackList)
+		{
+			int currentX = currentElement->getLocationX();
+			int currentY = currentElement->getLocationY();
+			if (currentX == locationX && currentY == locationY)
+			{
+				flyoverTrack = currentElement;
+				found = true;
+				break;
+			}
+		}
+	}
+	return flyoverTrack;
 }

@@ -5,6 +5,12 @@ All notable changes to this project will be documented in this file.
 ## Core features - 14/08/2021
 
 ### Added
+* The GUI for adding Element Block 2 (Includes implementation and documentation)
+* Map class methods to store the Element Block 2 and 3 elements.
+
+## Core features - 14/08/2021
+
+### Added
 * New button to change signal apsect in the program.
 * Ability to add the signal track onto the screen.
 

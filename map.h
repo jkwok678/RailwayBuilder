@@ -45,51 +45,69 @@ private:
 
 	/**
 	 * @brief Adds a new StraightTrack to the vector.
-	 * @param newStraightTrack The new StraightTrack to addd.
+	 * @param newStraightTrack The new StraightTrack to add.
 	 */
 	void addStraightTrack(std::shared_ptr<StraightTrack> newStraightTrack);
 
 	/**
 	 * @brief Adds a new DirectedTrack to the vector.
-	 * @param newDirectedTrack The new DirectedTrack to addd.
+	 * @param newDirectedTrack The new DirectedTrack to add.
 	 */
 	void addDirectedTrack(std::shared_ptr<DirectedTrack> newDirectedTrack);
 
 	/**
 	 * @brief Adds a new CurvedTrack to the vector.
-	 * @param newCurvedTrack The new CurvedTrack to addd.
+	 * @param newCurvedTrack The new CurvedTrack to add.
 	 */
 	void addCurvedTrack(std::shared_ptr<CurvedTrack> newCurvedTrack);
 
 	/**
 	 * @brief Adds a new LinkedTrack to the vector.
-	 * @param newLinkedTrack The new LinkedTrack to addd.
+	 * @param newLinkedTrack The new LinkedTrack to add.
 	 */
 	void addLinkedTrack(std::shared_ptr<LinkedTrack> newLinkedTrack);
 
 	/**
 	 * @brief Adds a new ExitTrack to the vector.
-	 * @param newExitTrack The new ExitTrack to addd.
+	 * @param newExitTrack The new ExitTrack to add.
 	 */
 	void addExitTrack(std::shared_ptr<ExitTrack> newExitTrack);
 
 	/**
 	 * @brief Adds a new BufferTrack to the vector.
-	 * @param newBufferTrack The new BufferTrack to addd.
+	 * @param newBufferTrack The new BufferTrack to add.
 	 */
 	void addBufferTrack(std::shared_ptr<BufferTrack> newBufferTrack);
 
 	/**
 	 * @brief Adds a new SignalTrack to the vector.
-	 * @param newSignalTrack The new SignalTrack to addd.
+	 * @param newSignalTrack The new SignalTrack to add.
 	 */
 	void addSignalTrack(std::shared_ptr<SignalTrack> newSignalTrack);
 
 	/**
 	 * @brief Adds a new BridgeUnderpassTrack to the vector.
-	 * @param newBridgeUnderpassTrack The new BridgeUnderpassTrack to addd.
+	 * @param newBridgeUnderpassTrack The new BridgeUnderpassTrack to add.
 	 */
 	void addBridgeUnderpassTrack(std::shared_ptr<BridgeUnderpassTrack> newBridgeUnderpassTrack);
+
+	/**
+	 * @brief Adds a new SwitchTrack to the vector.
+	 * @param newSwitchTrack The new SwitchTrack to add.
+	 */
+	void addSwitchTrack(std::shared_ptr<SwitchTrack> newSwitchTrack);
+
+	/**
+	 * @brief Adds a new CrossoverTrack to the vector.
+	 * @param newCrossoverTrack The new CrossoverTrack to add.
+	 */
+	void addCrossoverTrack(std::shared_ptr<CrossoverTrack> newCrossoverTrack);
+
+	/**
+	 * @brief Adds a new FlyoverTrack to the vector.
+	 * @param newFlyoverTrack The new FlyoverTrack to add.
+	 */
+	void addFlyoverTrack(std::shared_ptr<FlyoverTrack> newFlyoverTrack);
 
 public:
 
@@ -339,7 +357,7 @@ public:
 	 */
 	std::shared_ptr<SignalTrack> getSignalTrackAt(int locationX,int locationY);
 
-	//BridgeUnderpassTrackList
+	//BridgeUnderpassTrack related methods
 
 	/**
 	 * @brief Gets the list of BridgeUnderpassTrack pieces.
@@ -355,11 +373,11 @@ public:
 
 	/**
 	 * @brief Creates the BridgeUnderpassTrack and adds it to the map if possible.
-	 * @param bridgeUnderpassTrack The BridgeUnderpassType of the track.
+	 * @param bridgeUnderpassType The BridgeUnderpassType of the track.
 	 * @param overallX X coordinate of the track.
 	 * @param overallY Y coordinate of the track.
 	 */
-	void createAddBridgeUnderpassTrack(BridgeUnderpassType bridgeUnderpassTrack, int overallX, int overallY);
+	void createAddBridgeUnderpassTrack(BridgeUnderpassType bridgeUnderpassType, int overallX, int overallY);
 
 	/**
 	 * @brief Gets the BridgeUnderpassTrack at given coordinates if one exists there.
@@ -368,6 +386,96 @@ public:
 	 * @return BridgeUnderpassTrack at (X,Y) if there is one, otherwise return a nullptr.
 	 */
 	std::shared_ptr<BridgeUnderpassTrack> getBridgeUnderpassTrack(int locationX,int locationY);
+
+	//SwitchTrack related methods
+
+	/**
+	 * @brief Gets the list of SwitchTrack pieces.
+	 * @return A vector of shared pointers that point to SwitchTracks.
+	 */
+	std::vector<std::shared_ptr<SwitchTrack> > getSwitchTrackList() const;
+
+	/**
+	 * @brief Sets the list of SwitchTrack pieces.
+	 * @param newSwitchTrackList A new vector of shared pointers that point to SwitchTracks.
+	 */
+	void setSwitchTrackList(const std::vector<std::shared_ptr<SwitchTrack> >& newSwitchTrackList);
+
+	/**
+	 * @brief Creates the SwitchTrack and adds it to the map if possible.
+	 * @param switchType The SwitchType of the track.
+	 * @param overallX X coordinate of the track.
+	 * @param overallY Y coordinate of the track.
+	 */
+	void createAddSwitchTrack(SwitchType switchType, int overallX, int overallY);
+
+	/**
+	 * @brief Gets the SwitchTrack at given coordinates if one exists there.
+	 * @param locationX X coordinate to look at.
+	 * @param locationY Y coordinate to look at.
+	 * @return SwitchTrack at (X,Y) if there is one, otherwise return a nullptr.
+	 */
+	std::shared_ptr<SwitchTrack> getSwitchTrackAt(int locationX,int locationY);
+
+	//CrossoverTrack related methods
+
+	/**
+	 * @brief Gets the list of CrossoverTrack pieces.
+	 * @return A vector of shared pointers that point to CrossoverTracks.
+	 */
+	std::vector<std::shared_ptr<CrossoverTrack> > getCrossoverTrackList() const;
+
+	/**
+	 * @brief Sets the list of CrossoverTrack pieces.
+	 * @param newCrossoverTrackList A new vector of shared pointers that point to CrossoverTracks.
+	 */
+	void setCrossoverTrackList(const std::vector<std::shared_ptr<CrossoverTrack> >& newCrossoverTrackList);
+
+	/**
+	 * @brief Creates the CrossoverTrack and adds it to the map if possible.
+	 * @param crossoverType The CrossoverType of the track.
+	 * @param overallX X coordinate to look at.
+	 * @param overallY Y coordinate to look at.
+	 */
+	void createAddCrossoverTrack(CrossoverType crossoverType, int overallX, int overallY);
+
+	/**
+	 * @brief Gets the CrossoverTrack at given coordinates if one exists there.
+	 * @param locationX X coordinate to look at.
+	 * @param locationY Y coordinate to look at.
+	 * @return CrossoverTrack at (X,Y) if there is one, otherwise return a nullptr.
+	 */
+	std::shared_ptr<CrossoverTrack> getCrossoverTrackAt(int locationX,int locationY);
+
+	//FlyoverTrack related methods
+
+	/**
+	 * @brief Gets the list of FlyoverTrack pieces.
+	 * @return A vector of shared pointers that point to FlyoverTracks.
+	 */
+	std::vector<std::shared_ptr<FlyoverTrack> > getFlyoverTrackList() const;
+
+	/**
+	 * @brief Sets the list of FlyoverTrack pieces.
+	 * @param newFlyoverTrackList A new vector of shared pointers that point to FlyoverTracks.
+	 */
+	void setFlyoverTrackList(const std::vector<std::shared_ptr<FlyoverTrack> >& newFlyoverTrackList);
+
+	/**
+	 * @brief Creates the FlyoverTrack and adds it to the map if possible.
+	 * @param flyoverType The FlyoverType of the track.
+	 * @param overallX X coordinate to look at.
+	 * @param overallY Y coordinate to look at.
+	 */
+	void createAddFlyoverTrack(FlyoverType flyoverType, int overallX, int overallY);
+
+	/**
+	 * @brief Gets the FlyoverTrack at given coordinates if one exists there.
+	 * @param locationX X coordinate to look at.
+	 * @param locationY Y coordinate to look at.
+	 * @return FlyoverTrack at (X,Y) if there is one, otherwise return a nullptr.
+	 */
+	std::shared_ptr<FlyoverTrack> getFlyoverTrackAt(int locationX,int locationY);
 };
 
 #endif // MAP_H
