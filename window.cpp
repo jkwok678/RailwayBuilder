@@ -258,7 +258,10 @@ void Window::changeAspect()
 		signalRightDownButton->setIcon(*signalRightDownIcon);
 	}
 }
+
 //Element menu to choose element
+
+//Element block 1.
 
 void Window::chooseStraightH()
 {
@@ -985,6 +988,394 @@ void Window::chooseUnderpass2()
 		drawingArea->setElementChosen(ElementChosen::NONE);
 	}
 }
+
+//Element block 2
+
+void Window::chooseSwitchTight1()
+{
+	if (drawingArea->getMode() == Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::SWITCHTIGHT1)
+	{
+		drawingArea->setElementChosen(ElementChosen::SWITCHTIGHT1);
+	}
+	else
+	{
+		drawingArea->setElementChosen(ElementChosen::NONE);
+	}
+}
+
+void Window::chooseSwitchTight2()
+{
+	if (drawingArea->getMode() == Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::SWITCHTIGHT2)
+	{
+		drawingArea->setElementChosen(ElementChosen::SWITCHTIGHT2);
+	}
+	else
+	{
+		drawingArea->setElementChosen(ElementChosen::NONE);
+	}
+}
+
+void Window::chooseSwitchTight3()
+{
+	if (drawingArea->getMode() == Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::SWITCHTIGHT3)
+	{
+		drawingArea->setElementChosen(ElementChosen::SWITCHTIGHT3);
+	}
+	else
+	{
+		drawingArea->setElementChosen(ElementChosen::NONE);
+	}
+}
+
+void Window::chooseSwitchTight4()
+{
+	if (drawingArea->getMode() == Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::SWITCHTIGHT4)
+	{
+		drawingArea->setElementChosen(ElementChosen::SWITCHTIGHT4);
+	}
+	else
+	{
+		drawingArea->setElementChosen(ElementChosen::NONE);
+	}
+}
+
+void Window::chooseSwitchTight5()
+{
+	if (drawingArea->getMode() == Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::SWITCHTIGHT5)
+	{
+		drawingArea->setElementChosen(ElementChosen::SWITCHTIGHT5);
+	}
+	else
+	{
+		drawingArea->setElementChosen(ElementChosen::NONE);
+	}
+
+}
+
+void Window::chooseSwitchTight6()
+{
+	if (drawingArea->getMode() == Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::SWITCHTIGHT6)
+	{
+		drawingArea->setElementChosen(ElementChosen::SWITCHTIGHT6);
+	}
+	else
+	{
+		drawingArea->setElementChosen(ElementChosen::NONE);
+	}
+}
+
+void Window::chooseSwitchTight7()
+{
+	if (drawingArea->getMode() == Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::SWITCHTIGHT7)
+	{
+		drawingArea->setElementChosen(ElementChosen::SWITCHTIGHT7);
+	}
+	else
+	{
+		drawingArea->setElementChosen(ElementChosen::NONE);
+	}
+}
+
+void Window::chooseSwitchTight8()
+{
+	if (drawingArea->getMode() == Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::SWITCHTIGHT8)
+	{
+		drawingArea->setElementChosen(ElementChosen::SWITCHTIGHT8);
+	}
+	else
+	{
+		drawingArea->setElementChosen(ElementChosen::NONE);
+	}
+}
+
+void Window::chooseSwitchSplit1()
+{
+	if (drawingArea->getMode() == Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::SWITCHSPLIT1)
+	{
+		drawingArea->setElementChosen(ElementChosen::SWITCHSPLIT1);
+	}
+	else
+	{
+		drawingArea->setElementChosen(ElementChosen::NONE);
+	}
+}
+
+void Window::chooseSwitchSplit2()
+{
+	if (drawingArea->getMode() == Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::SWITCHSPLIT2)
+	{
+		drawingArea->setElementChosen(ElementChosen::SWITCHSPLIT2);
+	}
+	else
+	{
+		drawingArea->setElementChosen(ElementChosen::NONE);
+	}
+}
+
+void Window::chooseSwitchSplit3()
+{
+	if (drawingArea->getMode() == Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::SWITCHSPLIT3)
+	{
+		drawingArea->setElementChosen(ElementChosen::SWITCHSPLIT3);
+	}
+	else
+	{
+		drawingArea->setElementChosen(ElementChosen::NONE);
+	}
+}
+
+void Window::chooseSwitch1()
+{
+	if (drawingArea->getMode() == Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::SWITCH1)
+	{
+		drawingArea->setElementChosen(ElementChosen::SWITCH1);
+	}
+	else
+	{
+		drawingArea->setElementChosen(ElementChosen::NONE);
+	}
+}
+
+void Window::chooseSwitch2()
+{
+	if (drawingArea->getMode() == Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::SWITCH2)
+	{
+		drawingArea->setElementChosen(ElementChosen::SWITCH2);
+	}
+	else
+	{
+		drawingArea->setElementChosen(ElementChosen::NONE);
+	}
+}
+
+void Window::chooseSwitch3()
+{
+	if (drawingArea->getMode() == Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::SWITCH3)
+	{
+		drawingArea->setElementChosen(ElementChosen::SWITCH3);
+	}
+	else
+	{
+		drawingArea->setElementChosen(ElementChosen::NONE);
+	}
+}
+
+void Window::chooseSwitch4()
+{
+	if (drawingArea->getMode() == Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::SWITCH4)
+	{
+		drawingArea->setElementChosen(ElementChosen::SWITCH4);
+	}
+	else
+	{
+		drawingArea->setElementChosen(ElementChosen::NONE);
+	}
+}
+
+void Window::chooseSwitch5()
+{
+	if (drawingArea->getMode() == Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::SWITCH5)
+	{
+		drawingArea->setElementChosen(ElementChosen::SWITCH5);
+	}
+	else
+	{
+		drawingArea->setElementChosen(ElementChosen::NONE);
+	}
+}
+
+void Window::chooseSwitch6()
+{
+	if (drawingArea->getMode() == Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::SWITCH6)
+	{
+		drawingArea->setElementChosen(ElementChosen::SWITCH6);
+	}
+	else
+	{
+		drawingArea->setElementChosen(ElementChosen::NONE);
+	}
+}
+
+void Window::chooseSwitch7()
+{
+	if (drawingArea->getMode() == Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::SWITCH7)
+	{
+		drawingArea->setElementChosen(ElementChosen::SWITCH7);
+	}
+	else
+	{
+		drawingArea->setElementChosen(ElementChosen::NONE);
+	}
+}
+
+void Window::chooseSwitch8()
+{
+	if (drawingArea->getMode() == Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::SWITCH8)
+	{
+		drawingArea->setElementChosen(ElementChosen::SWITCH8);
+	}
+	else
+	{
+		drawingArea->setElementChosen(ElementChosen::NONE);
+	}
+}
+
+void Window::chooseSwitchSplit4()
+{
+	if (drawingArea->getMode() == Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::SWITCHSPLIT4)
+	{
+		drawingArea->setElementChosen(ElementChosen::SWITCHSPLIT4);
+	}
+	else
+	{
+		drawingArea->setElementChosen(ElementChosen::NONE);
+	}
+}
+
+void Window::chooseSwitchSplit5()
+{
+	if (drawingArea->getMode() == Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::SWITCHSPLIT5)
+	{
+		drawingArea->setElementChosen(ElementChosen::SWITCHSPLIT5);
+	}
+	else
+	{
+		drawingArea->setElementChosen(ElementChosen::NONE);
+	}
+}
+
+void Window::chooseSwitchSplit6()
+{
+	if (drawingArea->getMode() == Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::SWITCHSPLIT6)
+	{
+		drawingArea->setElementChosen(ElementChosen::SWITCHSPLIT6);
+	}
+	else
+	{
+		drawingArea->setElementChosen(ElementChosen::NONE);
+	}
+}
+
+void Window::chooseSwitch9()
+{
+	if (drawingArea->getMode() == Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::SWITCH9)
+	{
+		drawingArea->setElementChosen(ElementChosen::SWITCH9);
+	}
+	else
+	{
+		drawingArea->setElementChosen(ElementChosen::NONE);
+	}
+}
+
+void Window::chooseSwitch10()
+{
+	if (drawingArea->getMode() == Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::SWITCH10)
+	{
+		drawingArea->setElementChosen(ElementChosen::SWITCH10);
+	}
+	else
+	{
+		drawingArea->setElementChosen(ElementChosen::NONE);
+	}
+}
+
+void Window::chooseSwitch11()
+{
+	if (drawingArea->getMode() == Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::SWITCH11)
+	{
+		drawingArea->setElementChosen(ElementChosen::SWITCH11);
+	}
+	else
+	{
+		drawingArea->setElementChosen(ElementChosen::NONE);
+	}
+}
+
+void Window::chooseSwitch12()
+{
+	if (drawingArea->getMode() == Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::SWITCH12)
+	{
+		drawingArea->setElementChosen(ElementChosen::SWITCH12);
+	}
+	else
+	{
+		drawingArea->setElementChosen(ElementChosen::NONE);
+	}
+}
+
+void Window::chooseSwitch13()
+{
+	if (drawingArea->getMode() == Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::SWITCH13)
+	{
+		drawingArea->setElementChosen(ElementChosen::SWITCH13);
+	}
+	else
+	{
+		drawingArea->setElementChosen(ElementChosen::NONE);
+	}
+}
+
+void Window::chooseSwitch14()
+{
+	if (drawingArea->getMode() == Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::SWITCH14)
+	{
+		drawingArea->setElementChosen(ElementChosen::SWITCH14);
+	}
+	else
+	{
+		drawingArea->setElementChosen(ElementChosen::NONE);
+	}
+}
+
+void Window::chooseSwitch15()
+{
+	if (drawingArea->getMode() == Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::SWITCH15)
+	{
+		drawingArea->setElementChosen(ElementChosen::SWITCH15);
+	}
+	else
+	{
+		drawingArea->setElementChosen(ElementChosen::NONE);
+	}
+}
+
+void Window::chooseSwitch16()
+{
+	if (drawingArea->getMode() == Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::SWITCH16)
+	{
+		drawingArea->setElementChosen(ElementChosen::SWITCH16);
+	}
+	else
+	{
+		drawingArea->setElementChosen(ElementChosen::NONE);
+	}
+}
+
+void Window::chooseSwitchSplit7()
+{
+	if (drawingArea->getMode() == Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::SWITCHSPLIT7)
+	{
+		drawingArea->setElementChosen(ElementChosen::SWITCHSPLIT7);
+	}
+	else
+	{
+		drawingArea->setElementChosen(ElementChosen::NONE);
+	}
+}
+
+void Window::chooseSwitchSplit8()
+{
+	if (drawingArea->getMode() == Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::SWITCHSPLIT8)
+	{
+		drawingArea->setElementChosen(ElementChosen::SWITCHSPLIT8);
+	}
+	else
+	{
+		drawingArea->setElementChosen(ElementChosen::NONE);
+	}
+}
+
 
 //Right hand side menu.
 
