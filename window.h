@@ -113,7 +113,13 @@ private slots:
 
 	//Element Menu choose Elements.
 
-	//ElementBlock1 slots
+
+	/*
+	 *ElementBlock1 slots
+	 *STARTS HERE
+	 */
+
+	//Row 1
 
 	/**
 	 * @brief A slot to select StraightH tracks to place on screen.
@@ -215,6 +221,8 @@ private slots:
 	 */
 	void chooseCurve4();
 
+	//Row 2
+
 	/**
 	 * @brief A slot to select LinkLeft tracks to place on screen.
 	 */
@@ -314,6 +322,8 @@ private slots:
 	 * @brief A slot to select Curve8 tracks to place on screen.
 	 */
 	void chooseCurve8();
+
+	//Row 3
 
 	/**
 	 * @brief A slot to select BufferLeft tracks to place on screen.
@@ -415,7 +425,12 @@ private slots:
 	 */
 	void chooseUnderpass2();
 
-	//ElementBlock2 slots
+	/*
+	 *ElementBlock2 slots
+	 *STARTS HERE
+	 */
+
+	//Row 1
 
 	/**
 	 * @brief A slot to select SwitchTight1 tracks to place on screen.
@@ -472,6 +487,8 @@ private slots:
 	 */
 	void chooseSwitchSplit3();
 
+	//Row 2
+
 	/**
 	 * @brief A slot to select Switch1 tracks to place on screen.
 	 */
@@ -527,6 +544,8 @@ private slots:
 	 */
 	void chooseSwitchSplit6();
 
+	//Row 3
+
 	/**
 	 * @brief A slot to select Switch9 tracks to place on screen.
 	 */
@@ -576,6 +595,108 @@ private slots:
 	 * @brief A slot to select SwitchSplit8 tracks to place on screen.
 	 */
 	void chooseSwitchSplit8();
+
+	/*
+	 *ElementBlock3 slots
+	 *STARTS HERE
+	 */
+
+	//Row 1
+
+	/**
+	 * @brief A slot to select Crossover1 tracks to place on screen.
+	 */
+	void chooseCrossover1();
+
+	/**
+	 * @brief A slot to select Crossover2 tracks to place on screen.
+	 */
+	void chooseCrossover2();
+
+	/**
+	 * @brief A slot to select Flyover1 tracks to place on screen.
+	 */
+	void chooseFlyover1();
+
+	/**
+	 * @brief A slot to select Flyover2 tracks to place on screen.
+	 */
+	void chooseFlyover2();
+
+	/**
+	 * @brief A slot to select Flyover3 tracks to place on screen.
+	 */
+	void chooseFlyover3();
+
+	/**
+	 * @brief A slot to select Flyover4 tracks to place on screen.
+	 */
+	void chooseFlyover4();
+
+	//Row 2
+
+	/**
+	 * @brief  A slot to select Crossover3 tracks to place on screen.
+	 */
+	void chooseCrossover3();
+
+	/**
+	 * @brief  A slot to select Crossover4 tracks to place on screen.
+	 */
+	void chooseCrossover4();
+
+	/**
+	 * @brief A slot to select Flyover5 tracks to place on screen.
+	 */
+	void chooseFlyover5();
+
+	/**
+	 * @brief A slot to select Flyover6 tracks to place on screen.
+	 */
+	void chooseFlyover6();
+
+	/**
+	 * @brief A slot to select Flyover7 tracks to place on screen.
+	 */
+	void chooseFlyover7();
+
+	/**
+	 * @brief A slot to select Flyover8 tracks to place on screen.
+	 */
+	void chooseFlyover8();
+
+	//Row 3
+
+	/**
+	 * @brief  A slot to select Crossover5 tracks to place on screen.
+	 */
+	void chooseCrossover5();
+
+	/**
+	 * @brief  A slot to select Crossover6 tracks to place on screen.
+	 */
+	void chooseCrossover6();
+
+	/**
+	 * @brief A slot to select Flyover9 tracks to place on screen.
+	 */
+	void chooseFlyover9();
+
+	/**
+	 * @brief A slot to select Flyover10 tracks to place on screen.
+	 */
+	void chooseFlyover10();
+
+	/**
+	 * @brief A slot to select Flyover11 tracks to place on screen.
+	 */
+	void chooseFlyover11();
+
+	/**
+	 * @brief A slot to select Flyover12 tracks to place on screen.
+	 */
+	void chooseFlyover12();
+
 
 	//Right hand side menu.
 
@@ -1117,6 +1238,101 @@ private:
 	QAction* chooseSwitchSplit8Act;
 	QIcon* switchSplit8Icon;
 
+	/*
+	 * ElementBlock3 buttons
+	 * START HERE
+	 */
+
+	//Crossover1Button
+	QToolButton* crossover1Button;
+	QAction* chooseCrossover1Act;
+	QIcon* crossover1Icon;
+
+	//Crossover2Button
+	QToolButton* crossover2Button;
+	QAction* chooseCrossover2Act;
+	QIcon* crossover2Icon;
+
+	//Flyover1Button
+	QToolButton* flyover1Button;
+	QAction* chooseFlyover1Act;
+	QIcon* flyover1Icon;
+
+	//Flyover2Button
+	QToolButton* flyover2Button;
+	QAction* chooseFlyover2Act;
+	QIcon* flyover2Icon;
+
+	//Flyover3Button
+	QToolButton* flyover3Button;
+	QAction* chooseFlyover3Act;
+	QIcon* flyover3Icon;
+
+	//Flyover4Button
+	QToolButton* flyover4Button;
+	QAction* chooseFlyover4Act;
+	QIcon* flyover4Icon;
+
+	//Crossover3Button
+	QToolButton* crossover3Button;
+	QAction* chooseCrossover3Act;
+	QIcon* crossover3Icon;
+
+	//Crossover4Button
+	QToolButton* crossover4Button;
+	QAction* chooseCrossover4Act;
+	QIcon* crossover4Icon;
+
+	//Flyover5Button
+	QToolButton* flyover5Button;
+	QAction* chooseFlyover5Act;
+	QIcon* flyover5Icon;
+
+	//Flyover6Button
+	QToolButton* flyover6Button;
+	QAction* chooseFlyover6Act;
+	QIcon* flyover6Icon;
+
+	//Flyover7Button
+	QToolButton* flyover7Button;
+	QAction* chooseFlyover7Act;
+	QIcon* flyover7Icon;
+
+	//Flyover8Button
+	QToolButton* flyover8Button;
+	QAction* chooseFlyover8Act;
+	QIcon* flyover8Icon;
+
+	//Crossover5Button
+	QToolButton* crossover5Button;
+	QAction* chooseCrossover5Act;
+	QIcon* crossover5Icon;
+
+	//Crossover6Button
+	QToolButton* crossover6Button;
+	QAction* chooseCrossover6Act;
+	QIcon* crossover6Icon;
+
+	//Flyover9Button
+	QToolButton* flyover9Button;
+	QAction* chooseFlyover9Act;
+	QIcon* flyover9Icon;
+
+	//Flyover10Button
+	QToolButton* flyover10Button;
+	QAction* chooseFlyover10Act;
+	QIcon* flyover10Icon;
+
+	//Flyover11Button
+	QToolButton* flyover11Button;
+	QAction* chooseFlyover11Act;
+	QIcon* flyover11Icon;
+
+	//Flyover12Button
+	QToolButton* flyover12Button;
+	QAction* chooseFlyover12Act;
+	QIcon* flyover12Icon;
+
 
 
 	//SetConvertSpeedDistance menu
@@ -1206,9 +1422,14 @@ private:
 	void createElementBlock1();
 
 	/**
-	 * @brief A method to create the part 1 of the element buttons where the user can choose track type.
+	 * @brief A method to create the part 2 of the element buttons where the user can choose track type.
 	 */
 	void createElementBlock2();
+
+	/**
+	 * @brief A method to create the part 3 of the element buttons where the user can choose track type.
+	 */
+	void createElementBlock3();
 
 
 	//SetConvertSpeedDistance menu
