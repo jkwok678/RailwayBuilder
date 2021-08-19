@@ -864,6 +864,18 @@ private:
 	 * @param painter
 	 */
 	void drawSwitchTrack(QPainter &painter);
+
+	/**
+	 * @brief Draw CrossoverTracks onto the canvas.
+	 * @param painter
+	 */
+	void drawCrossoverTrack(QPainter &painter);
+
+	/**
+	 * @brief Draw FlyoverTracks onto the canvas.
+	 * @param painter
+	 */
+	void drawFlyoverTrack(QPainter &painter);
 };
 
 #endif // CANVAS_H

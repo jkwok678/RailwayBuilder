@@ -2892,3 +2892,145 @@ void Canvas::drawSwitchTrack(QPainter &painter)
 		}
 	}
 }
+
+void Canvas::drawCrossoverTrack(QPainter &painter)
+{
+	for (std::shared_ptr<CrossoverTrack> currentElement : map->getCrossoverTrackList())
+	{
+		int currentX = currentElement->getLocationX();
+		int currentY = currentElement->getLocationY();
+		int minCoordinateX = (offsetX * canvasSizeX);
+		int maxCoordinateX = ((offsetX+1) * canvasSizeX);
+		int minCoordinateY = ((offsetY-1) * canvasSizeY);
+		int maxCoordinateY = (offsetY*canvasSizeY);;
+		int minDisplayX = (offsetX * canvasSizeX);
+		int maxDisplayY = (offsetY*canvasSizeY);
+		if (currentX >= minCoordinateX && currentX <= maxCoordinateX)
+		{
+			if (currentY >= minCoordinateY && currentY <= maxCoordinateY)
+			{
+				int displayX = currentX- minDisplayX;
+				int displayY = 0-(currentY - maxDisplayY);
+				switch (currentElement->getCrossoverType())
+				{
+					case CrossoverType::CROSSOVER1:
+					{
+						painter.drawImage(displayX, displayY, *crossover1Image);
+						break;
+					}
+					case CrossoverType::CROSSOVER2:
+					{
+						painter.drawImage(displayX, displayY, *crossover2Image);
+						break;
+					}
+					case CrossoverType::CROSSOVER3:
+					{
+						painter.drawImage(displayX, displayY, *crossover3Image);
+						break;
+					}
+					case CrossoverType::CROSSOVER4:
+					{
+						painter.drawImage(displayX, displayY, *crossover4Image);
+						break;
+					}
+					case CrossoverType::CROSSOVER5:
+					{
+						painter.drawImage(displayX, displayY, *crossover5Image);
+						break;
+					}
+					case CrossoverType::CROSSOVER6:
+					{
+						painter.drawImage(displayX, displayY, *crossover6Image);
+						break;
+					}
+				}
+			}
+		}
+	}
+}
+
+void Canvas::drawFlyoverTrack(QPainter &painter)
+{
+	for (std::shared_ptr<FlyoverTrack> currentElement : drawnLayout->getFlyoverTrackList())
+	{
+		int currentX = currentElement->getLocationX();
+		int currentY = currentElement->getLocationY();
+		int minCoordinateX = (offsetX * canvasSizeX);
+		int maxCoordinateX = ((offsetX+1) * canvasSizeX);
+		int minCoordinateY = ((offsetY-1) * canvasSizeY);
+		int maxCoordinateY = (offsetY*canvasSizeY);;
+		int minDisplayX = (offsetX * canvasSizeX);
+		int maxDisplayY = (offsetY*canvasSizeY);
+		if (currentX >= minCoordinateX && currentX <= maxCoordinateX)
+		{
+			if (currentY >= minCoordinateY && currentY <= maxCoordinateY)
+			{
+				int displayX = currentX- minDisplayX;
+				int displayY = 0-(currentY - maxDisplayY);
+				switch (currentElement->getFlyoverType())
+				{
+					case FlyoverType::FLYOVER1:
+					{
+						painter.drawImage(displayX, displayY, *flyover1Image);
+						break;
+					}
+					case FlyoverType::FLYOVER2:
+					{
+						painter.drawImage(displayX, displayY, *flyover2Image);
+						break;
+					}
+					case FlyoverType::FLYOVER3:
+					{
+						painter.drawImage(displayX, displayY, *flyover3Image);
+						break;
+					}
+					case FlyoverType::FLYOVER4:
+					{
+						painter.drawImage(displayX, displayY, *flyover4Image);
+						break;
+					}
+					case FlyoverType::FLYOVER5:
+					{
+						painter.drawImage(displayX, displayY, *flyover5Image);
+						break;
+					}
+					case FlyoverType::FLYOVER6:
+					{
+						painter.drawImage(displayX, displayY, *flyover6Image);
+						break;
+					}
+					case FlyoverType::FLYOVER7:
+					{
+						painter.drawImage(displayX, displayY, *flyover7Image);
+						break;
+					}
+					case FlyoverType::FLYOVER8:
+					{
+						painter.drawImage(displayX, displayY, *flyover8Image);
+						break;
+					}
+					case FlyoverType::FLYOVER9:
+					{
+						painter.drawImage(displayX, displayY, *flyover9Image);
+						break;
+					}
+					case FlyoverType::FLYOVER10:
+					{
+						painter.drawImage(displayX, displayY, *flyover10Image);
+						break;
+					}
+					case FlyoverType::FLYOVER11:
+					{
+						painter.drawImage(displayX, displayY, *flyover11Image);
+						break;
+					}
+					case FlyoverType::FLYOVER12:
+					{
+						painter.drawImage(displayX, displayY, *flyover12Image);
+						break;
+					}
+				}
+			}
+		}
+	}
+}
