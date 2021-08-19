@@ -1285,6 +1285,114 @@ void Canvas::createAddElement(ElementChosen elementToAdd, int overallX, int over
 			addedTrack = true;
 			break;
 		}
+		case ElementChosen::CROSSOVER1:
+		{
+			map->createAddCrossoverTrack(CrossoverType::CROSSOVER1, overallX, overallY);
+			addedTrack = true;
+			break;
+		}
+		case ElementChosen::CROSSOVER2:
+		{
+			map->createAddCrossoverTrack(CrossoverType::CROSSOVER2, overallX, overallY);
+			addedTrack = true;
+			break;
+		}
+		case ElementChosen::FLYOVER1:
+		{
+			map->createAddFlyoverTrack(FlyoverType::FLYOVER1, overallX, overallY);
+			addedTrack = true;
+			break;
+		}
+		case ElementChosen::FLYOVER2:
+		{
+			map->createAddFlyoverTrack(FlyoverType::FLYOVER2, overallX, overallY);
+			addedTrack = true;
+			break;
+		}
+		case ElementChosen::FLYOVER3:
+		{
+			map->createAddFlyoverTrack(FlyoverType::FLYOVER3, overallX, overallY);
+			addedTrack = true;
+			break;
+		}
+		case ElementChosen::FLYOVER4:
+		{
+			map->createAddFlyoverTrack(FlyoverType::FLYOVER4, overallX, overallY);
+			addedTrack = true;
+			break;
+		}
+		case ElementChosen::CROSSOVER3:
+		{
+			map->createAddCrossoverTrack(CrossoverType::CROSSOVER3, overallX, overallY);
+			addedTrack = true;
+			break;
+		}
+		case ElementChosen::CROSSOVER4:
+		{
+			map->createAddCrossoverTrack(CrossoverType::CROSSOVER4, overallX, overallY);
+			addedTrack = true;
+			break;
+		}
+		case ElementChosen::FLYOVER5:
+		{
+			map->createAddFlyoverTrack(FlyoverType::FLYOVER5, overallX, overallY);
+			addedTrack = true;
+			break;
+		}
+		case ElementChosen::FLYOVER6:
+		{
+			map->createAddFlyoverTrack(FlyoverType::FLYOVER6, overallX, overallY);
+			addedTrack = true;
+			break;
+		}
+		case ElementChosen::FLYOVER7:
+		{
+			map->createAddFlyoverTrack(FlyoverType::FLYOVER7, overallX, overallY);
+			addedTrack = true;
+			break;
+		}
+		case ElementChosen::FLYOVER8:
+		{
+			map->createAddFlyoverTrack(FlyoverType::FLYOVER8, overallX, overallY);
+			addedTrack = true;
+			break;
+		}
+		case ElementChosen::CROSSOVER5:
+		{
+			map->createAddCrossoverTrack(CrossoverType::CROSSOVER5, overallX, overallY);
+			addedTrack = true;
+			break;
+		}
+		case ElementChosen::CROSSOVER6:
+		{
+			map->createAddCrossoverTrack(CrossoverType::CROSSOVER6, overallX, overallY);
+			addedTrack = true;
+			break;
+		}
+		case ElementChosen::FLYOVER9:
+		{
+			map->createAddFlyoverTrack(FlyoverType::FLYOVER9, overallX, overallY);
+			addedTrack = true;
+			break;
+		}
+		case ElementChosen::FLYOVER10:
+		{
+			map->createAddFlyoverTrack(FlyoverType::FLYOVER10, overallX, overallY);
+			addedTrack = true;
+			break;
+		}
+		case ElementChosen::FLYOVER11:
+		{
+			map->createAddFlyoverTrack(FlyoverType::FLYOVER11, overallX, overallY);
+			addedTrack = true;
+			break;
+		}
+		case ElementChosen::FLYOVER12:
+		{
+			map->createAddFlyoverTrack(FlyoverType::FLYOVER12, overallX, overallY);
+			addedTrack = true;
+			break;
+		}
 	}
 }
 
@@ -1340,10 +1448,6 @@ void Canvas::paintEvent(QPaintEvent *event)
 	}
 
 }
-
-
-
-
 
 
 
