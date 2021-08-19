@@ -1445,6 +1445,8 @@ void Canvas::paintEvent(QPaintEvent *event)
 		drawSignalTrack(painter);
 		drawBridgeUnderpassTrack(painter);
 		drawSwitchTrack(painter);
+		drawCrossoverTrack(painter);
+		drawFlyoverTrack(painter);
 	}
 
 }
@@ -2951,7 +2953,7 @@ void Canvas::drawCrossoverTrack(QPainter &painter)
 
 void Canvas::drawFlyoverTrack(QPainter &painter)
 {
-	for (std::shared_ptr<FlyoverTrack> currentElement : drawnLayout->getFlyoverTrackList())
+	for (std::shared_ptr<FlyoverTrack> currentElement : map->getFlyoverTrackList())
 	{
 		int currentX = currentElement->getLocationX();
 		int currentY = currentElement->getLocationY();

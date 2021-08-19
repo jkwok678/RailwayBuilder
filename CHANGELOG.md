@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## Core features - 19/08/2021
+
+### Added
+* The GUI for adding Element Block 3 (Includes implementation and documentation)
+* The methods for adding Element Block 3 to the screen (Includes implementation and documentation)
+
 ## Core features - 14/08/2021
 
 ### Added
