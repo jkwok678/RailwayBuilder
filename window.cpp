@@ -261,7 +261,7 @@ void Window::changeAspect()
 
 //Element menu to choose element
 
-//Element block 1.
+//Element block 1 slots.
 
 void Window::chooseStraightH()
 {
@@ -989,7 +989,7 @@ void Window::chooseUnderpass2()
 	}
 }
 
-//Element block 2
+//Element block 2 slots.
 
 void Window::chooseSwitchTight1()
 {
@@ -1376,6 +1376,223 @@ void Window::chooseSwitchSplit8()
 	}
 }
 
+//Element block 3 slots.
+
+void Window::chooseCrossover1()
+{
+	if (drawingArea->getMode() == Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::CROSSOVER1)
+	{
+		drawingArea->setElementChosen(ElementChosen::CROSSOVER1);
+	}
+	else
+	{
+		drawingArea->setElementChosen(ElementChosen::NONE);
+	}
+}
+
+void Window::chooseCrossover2()
+{
+	if (drawingArea->getMode() == Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::CROSSOVER2)
+	{
+		drawingArea->setElementChosen(ElementChosen::CROSSOVER2);
+	}
+	else
+	{
+		drawingArea->setElementChosen(ElementChosen::NONE);
+	}
+}
+
+void Window::chooseFlyover1()
+{
+	if (drawingArea->getMode() == Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::FLYOVER1)
+	{
+		drawingArea->setElementChosen(ElementChosen::FLYOVER1);
+	}
+	else
+	{
+		drawingArea->setElementChosen(ElementChosen::NONE);
+	}
+}
+
+void Window::chooseFlyover2()
+{
+	if (drawingArea->getMode() == Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::FLYOVER2)
+	{
+		drawingArea->setElementChosen(ElementChosen::FLYOVER2);
+	}
+	else
+	{
+		drawingArea->setElementChosen(ElementChosen::NONE);
+	}
+}
+
+void Window::chooseFlyover3()
+{
+	if (drawingArea->getMode() == Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::FLYOVER3)
+	{
+		drawingArea->setElementChosen(ElementChosen::FLYOVER3);
+	}
+	else
+	{
+		drawingArea->setElementChosen(ElementChosen::NONE);
+	}
+}
+
+void Window::chooseFlyover4()
+{
+	if (drawingArea->getMode() == Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::FLYOVER4)
+	{
+		drawingArea->setElementChosen(ElementChosen::FLYOVER4);
+	}
+	else
+	{
+		drawingArea->setElementChosen(ElementChosen::NONE);
+	}
+}
+
+void Window::chooseCrossover3()
+{
+	if (drawingArea->getMode() == Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::CROSSOVER3)
+	{
+		drawingArea->setElementChosen(ElementChosen::CROSSOVER3);
+	}
+	else
+	{
+		drawingArea->setElementChosen(ElementChosen::NONE);
+	}
+}
+
+void Window::chooseCrossover4()
+{
+	if (drawingArea->getMode() == Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::CROSSOVER4)
+	{
+		drawingArea->setElementChosen(ElementChosen::CROSSOVER4);
+	}
+	else
+	{
+		drawingArea->setElementChosen(ElementChosen::NONE);
+	}
+}
+
+void Window::chooseFlyover5()
+{
+	if (drawingArea->getMode() == Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::FLYOVER5)
+	{
+		drawingArea->setElementChosen(ElementChosen::FLYOVER5);
+	}
+	else
+	{
+		drawingArea->setElementChosen(ElementChosen::NONE);
+	}
+}
+
+void Window::chooseFlyover6()
+{
+	if (drawingArea->getMode() == Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::FLYOVER6)
+	{
+		drawingArea->setElementChosen(ElementChosen::FLYOVER6);
+	}
+	else
+	{
+		drawingArea->setElementChosen(ElementChosen::NONE);
+	}
+}
+
+void Window::chooseFlyover7()
+{
+	if (drawingArea->getMode() == Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::FLYOVER7)
+	{
+		drawingArea->setElementChosen(ElementChosen::FLYOVER7);
+	}
+	else
+	{
+		drawingArea->setElementChosen(ElementChosen::NONE);
+	}
+}
+
+void Window::chooseFlyover8()
+{
+	if (drawingArea->getMode() == Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::FLYOVER8)
+	{
+		drawingArea->setElementChosen(ElementChosen::FLYOVER8);
+	}
+	else
+	{
+		drawingArea->setElementChosen(ElementChosen::NONE);
+	}
+}
+
+void Window::chooseCrossover5()
+{
+	if (drawingArea->getMode() == Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::CROSSOVER5)
+	{
+		drawingArea->setElementChosen(ElementChosen::CROSSOVER5);
+	}
+	else
+	{
+		drawingArea->setElementChosen(ElementChosen::NONE);
+	}
+}
+
+void Window::chooseCrossover6()
+{
+	if (drawingArea->getMode() == Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::CROSSOVER6)
+	{
+		drawingArea->setElementChosen(ElementChosen::CROSSOVER6);
+	}
+	else
+	{
+		drawingArea->setElementChosen(ElementChosen::NONE);
+	}
+}
+
+void Window::chooseFlyover9()
+{
+	if (drawingArea->getMode() == Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::FLYOVER9)
+	{
+		drawingArea->setElementChosen(ElementChosen::FLYOVER9);
+	}
+	else
+	{
+		drawingArea->setElementChosen(ElementChosen::NONE);
+	}
+}
+
+void Window::chooseFlyover10()
+{
+	if (drawingArea->getMode() == Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::FLYOVER10)
+	{
+		drawingArea->setElementChosen(ElementChosen::FLYOVER10);
+	}
+	else
+	{
+		drawingArea->setElementChosen(ElementChosen::NONE);
+	}
+}
+
+void Window::chooseFlyover11()
+{
+	if (drawingArea->getMode() == Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::FLYOVER11)
+	{
+		drawingArea->setElementChosen(ElementChosen::FLYOVER11);
+	}
+	else
+	{
+		drawingArea->setElementChosen(ElementChosen::NONE);
+	}
+}
+
+void Window::chooseFlyover12()
+{
+	if (drawingArea->getMode() == Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::FLYOVER12)
+	{
+		drawingArea->setElementChosen(ElementChosen::FLYOVER12);
+	}
+	else
+	{
+		drawingArea->setElementChosen(ElementChosen::NONE);
+	}
+}
 
 //Right hand side menu.
 
