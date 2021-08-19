@@ -1707,9 +1707,13 @@ void Window::createElementMenu()
 	elementMenu->setAutoFillBackground(true);
 	elementMenu->setPalette(pal);
 	elementMenuLayout = new QGridLayout;
+	elementMenuLayout->setContentsMargins(1, 1, 1, 1);
+	elementMenuLayout->setHorizontalSpacing(1);
+	elementMenuLayout->setVerticalSpacing(1);
 	elementMenu->setLayout(elementMenuLayout);
 	createElementBlock1();
 	createElementBlock2();
+	createElementBlock3();
 }
 
 void Window::createElementBlock1()
@@ -2557,6 +2561,176 @@ void Window::createElementBlock2()
 	switchSplit8Icon = new QIcon(":/graphics/graphics/switchSplit8.png");
 	switchSplit8Button->setIcon(*switchSplit8Icon);
 	elementMenuLayout->addWidget(switchSplit8Button, 2, 30);
+}
+
+void Window::createElementBlock3()
+{
+	elementMenuLayout->addItem(new QSpacerItem(32,32),0,32);
+	elementMenuLayout->addItem(new QSpacerItem(32,32),1,32);
+	elementMenuLayout->addItem(new QSpacerItem(32,32),2,32);
+
+	crossover1Button = new QToolButton();
+	crossover1Button->setMaximumSize(QSize(32, 32));
+	chooseCrossover1Act = new QAction();
+	crossover1Button->setDefaultAction(chooseCrossover1Act);
+	connect(chooseCrossover1Act, &QAction::triggered, this, &Window::chooseCrossover1);
+	crossover1Icon = new QIcon(":/graphics/graphics/crossover1.png");
+	crossover1Button->setIcon(*crossover1Icon);
+	elementMenuLayout->addWidget(crossover1Button, 0, 33);
+
+	crossover2Button = new QToolButton();
+	crossover2Button->setMaximumSize(QSize(32, 32));
+	chooseCrossover2Act = new QAction();
+	crossover2Button->setDefaultAction(chooseCrossover2Act);
+	connect(chooseCrossover2Act, &QAction::triggered, this, &Window::chooseCrossover2);
+	crossover2Icon = new QIcon(":/graphics/graphics/crossover2.png");
+	crossover2Button->setIcon(*crossover2Icon);
+	elementMenuLayout->addWidget(crossover2Button, 0, 34);
+
+	flyover1Button = new QToolButton();
+	flyover1Button->setMaximumSize(QSize(32, 32));
+	chooseFlyover1Act = new QAction();
+	flyover1Button->setDefaultAction(chooseFlyover1Act);
+	connect(chooseFlyover1Act, &QAction::triggered, this, &Window::chooseFlyover1);
+	flyover1Icon = new QIcon(":/graphics/graphics/flyover1.png");
+	flyover1Button->setIcon(*flyover1Icon);
+	elementMenuLayout->addWidget(flyover1Button, 0, 35);
+
+	flyover2Button = new QToolButton();
+	flyover2Button->setMaximumSize(QSize(32, 32));
+	chooseFlyover2Act = new QAction();
+	flyover2Button->setDefaultAction(chooseFlyover2Act);
+	connect(chooseFlyover2Act, &QAction::triggered, this, &Window::chooseFlyover2);
+	flyover2Icon = new QIcon(":/graphics/graphics/flyover2.png");
+	flyover2Button->setIcon(*flyover2Icon);
+	elementMenuLayout->addWidget(flyover2Button, 0, 36);
+
+	flyover3Button = new QToolButton();
+	flyover3Button->setMaximumSize(QSize(32, 32));
+	chooseFlyover3Act = new QAction();
+	flyover3Button->setDefaultAction(chooseFlyover3Act);
+	connect(chooseFlyover3Act, &QAction::triggered, this, &Window::chooseFlyover3);
+	flyover3Icon = new QIcon(":/graphics/graphics/flyover3.png");
+	flyover3Button->setIcon(*flyover3Icon);
+	elementMenuLayout->addWidget(flyover3Button, 0, 37);
+
+	flyover4Button = new QToolButton();
+	flyover4Button->setMaximumSize(QSize(32, 32));
+	chooseFlyover4Act = new QAction();
+	flyover4Button->setDefaultAction(chooseFlyover4Act);
+	connect(chooseFlyover4Act, &QAction::triggered, this, &Window::chooseFlyover4);
+	flyover4Icon = new QIcon(":/graphics/graphics/flyover4.png");
+	flyover4Button->setIcon(*flyover4Icon);
+	elementMenuLayout->addWidget(flyover4Button, 0, 38);
+
+	crossover3Button = new QToolButton();
+	crossover3Button->setMaximumSize(QSize(32, 32));
+	chooseCrossover3Act = new QAction();
+	crossover3Button->setDefaultAction(chooseCrossover3Act);
+	connect(chooseCrossover3Act, &QAction::triggered, this, &Window::chooseCrossover3);
+	crossover3Icon = new QIcon(":/graphics/graphics/crossover3.png");
+	crossover3Button->setIcon(*crossover3Icon);
+	elementMenuLayout->addWidget(crossover3Button, 1, 33);
+
+	crossover4Button = new QToolButton();
+	crossover4Button->setMaximumSize(QSize(32, 32));
+	chooseCrossover4Act = new QAction();
+	crossover4Button->setDefaultAction(chooseCrossover4Act);
+	connect(chooseCrossover4Act, &QAction::triggered, this, &Window::chooseCrossover4);
+	crossover4Icon = new QIcon(":/graphics/graphics/crossover4.png");
+	crossover4Button->setIcon(*crossover4Icon);
+	elementMenuLayout->addWidget(crossover4Button, 1, 34);
+
+	flyover5Button = new QToolButton();
+	flyover5Button->setMaximumSize(QSize(32, 32));
+	chooseFlyover5Act = new QAction();
+	flyover5Button->setDefaultAction(chooseFlyover5Act);
+	connect(chooseFlyover5Act, &QAction::triggered, this, &Window::chooseFlyover5);
+	flyover5Icon = new QIcon(":/graphics/graphics/flyover5.png");
+	flyover5Button->setIcon(*flyover5Icon);
+	elementMenuLayout->addWidget(flyover5Button, 1, 35);
+
+	flyover6Button = new QToolButton();
+	flyover6Button->setMaximumSize(QSize(32, 32));
+	chooseFlyover6Act = new QAction();
+	flyover6Button->setDefaultAction(chooseFlyover6Act);
+	connect(chooseFlyover6Act, &QAction::triggered, this, &Window::chooseFlyover6);
+	flyover6Icon = new QIcon(":/graphics/graphics/flyover6.png");
+	flyover6Button->setIcon(*flyover6Icon);
+	elementMenuLayout->addWidget(flyover6Button, 1, 36);
+
+	flyover7Button = new QToolButton();
+	flyover7Button->setMaximumSize(QSize(32, 32));
+	chooseFlyover7Act = new QAction();
+	flyover7Button->setDefaultAction(chooseFlyover7Act);
+	connect(chooseFlyover7Act, &QAction::triggered, this, &Window::chooseFlyover7);
+	flyover7Icon = new QIcon(":/graphics/graphics/flyover7.png");
+	flyover7Button->setIcon(*flyover7Icon);
+	elementMenuLayout->addWidget(flyover7Button, 1, 37);
+
+	flyover8Button = new QToolButton();
+	flyover8Button->setMaximumSize(QSize(32, 32));
+	chooseFlyover8Act = new QAction();
+	flyover8Button->setDefaultAction(chooseFlyover8Act);
+	connect(chooseFlyover8Act, &QAction::triggered, this, &Window::chooseFlyover8);
+	flyover8Icon = new QIcon(":/graphics/graphics/flyover8.png");
+	flyover8Button->setIcon(*flyover8Icon);
+	elementMenuLayout->addWidget(flyover8Button, 1, 38);
+
+	crossover5Button = new QToolButton();
+	crossover5Button->setMaximumSize(QSize(32, 32));
+	chooseCrossover5Act = new QAction();
+	crossover5Button->setDefaultAction(chooseCrossover5Act);
+	connect(chooseCrossover5Act, &QAction::triggered, this, &Window::chooseCrossover5);
+	crossover5Icon = new QIcon(":/graphics/graphics/crossover5.png");
+	crossover5Button->setIcon(*crossover5Icon);
+	elementMenuLayout->addWidget(crossover5Button, 2, 33);
+
+	crossover6Button = new QToolButton();
+	crossover6Button->setMaximumSize(QSize(32, 32));
+	chooseCrossover6Act = new QAction();
+	crossover6Button->setDefaultAction(chooseCrossover6Act);
+	connect(chooseCrossover6Act, &QAction::triggered, this, &Window::chooseCrossover6);
+	crossover6Icon = new QIcon(":/graphics/graphics/crossover6.png");
+	crossover6Button->setIcon(*crossover6Icon);
+	elementMenuLayout->addWidget(crossover6Button, 2, 34);
+
+	flyover9Button = new QToolButton();
+	flyover9Button->setMaximumSize(QSize(32, 32));
+	chooseFlyover9Act = new QAction();
+	flyover9Button->setDefaultAction(chooseFlyover9Act);
+	connect(chooseFlyover9Act, &QAction::triggered, this, &Window::chooseFlyover9);
+	flyover9Icon = new QIcon(":/graphics/graphics/flyover9.png");
+	flyover9Button->setIcon(*flyover9Icon);
+	elementMenuLayout->addWidget(flyover9Button, 2, 35);
+
+	flyover10Button = new QToolButton();
+	flyover10Button->setMaximumSize(QSize(32, 32));
+	chooseFlyover10Act = new QAction();
+	flyover10Button->setDefaultAction(chooseFlyover10Act);
+	connect(chooseFlyover10Act, &QAction::triggered, this, &Window::chooseFlyover10);
+	flyover10Icon = new QIcon(":/graphics/graphics/flyover10.png");
+	flyover10Button->setIcon(*flyover10Icon);
+	elementMenuLayout->addWidget(flyover10Button, 2, 36);
+
+	flyover11Button = new QToolButton();
+	flyover11Button->setMaximumSize(QSize(32, 32));
+	chooseFlyover11Act = new QAction();
+	flyover11Button->setDefaultAction(chooseFlyover11Act);
+	connect(chooseFlyover11Act, &QAction::triggered, this, &Window::chooseFlyover11);
+	flyover11Icon = new QIcon(":/graphics/graphics/flyover11.png");
+	flyover11Button->setIcon(*flyover11Icon);
+	elementMenuLayout->addWidget(flyover11Button, 2, 37);
+
+	flyover12Button = new QToolButton();
+	flyover12Button->setMaximumSize(QSize(32, 32));
+	chooseFlyover12Act = new QAction();
+	flyover12Button->setDefaultAction(chooseFlyover12Act);
+	connect(chooseFlyover12Act, &QAction::triggered, this, &Window::chooseFlyover12);
+	flyover12Icon = new QIcon(":/graphics/graphics/flyover12.png");
+	flyover12Button->setIcon(*flyover12Icon);
+	elementMenuLayout->addWidget(flyover12Button, 2, 38);
+
 }
 
 	//SetConvertSpeedDistanceMenu
