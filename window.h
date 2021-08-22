@@ -697,6 +697,191 @@ private slots:
 	 */
 	void chooseFlyover12();
 
+	/*
+	 *ElementBlock4 slots
+	 *STARTS HERE
+	 */
+
+	/**
+	 * @brief A slot to select NamedLocations to place on screen.
+	 */
+	void chooseNamedLocation();
+
+	/**
+	 * @brief A slot to select Concourses to place on screen.
+	 */
+	void chooseConcourse();
+
+	/**
+	 * @brief A slot to select platforms left to place on screen.
+	 */
+	void choosePlatformLeft();
+
+	/**
+	 * @brief A slot to select platforms right to place on screen.
+	 */
+	void choosePlatformRight();
+
+	/**
+	 * @brief A slot to select platforms down to place on screen.
+	 */
+	void choosePlatformDown();
+
+	/**
+	 * @brief A slot to select platforms up to place on screen.
+	 */
+	void choosePlatformUp();
+
+	/*
+	 *ElementBlock5 slots
+	 *STARTS HERE
+	 */
+
+	//Row 1
+
+	/**
+	 * @brief A slot to select parapet 1 to place on screen.
+	 */
+	void chooseParapet1();
+
+	/**
+	 * @brief A slot to select parapet 2 to place on screen.
+	 */
+	void chooseParapet2();
+
+	/**
+	 * @brief A slot to select parapet 3 to place on screen.
+	 */
+	void chooseParapet3();
+
+	/**
+	 * @brief A slot to select parapet 4 to place on screen.
+	 */
+	void chooseParapet4();
+
+	/**
+	 * @brief A slot to select parapet 5 to place on screen.
+	 */
+	void chooseParapet5();
+
+	/**
+	 * @brief A slot to select parapet 6 to place on screen.
+	 */
+	void chooseParapet6();
+
+	/**
+	 * @brief A slot to select parapet 7 to place on screen.
+	 */
+	void chooseParapet7();
+
+	/**
+	 * @brief A slot to select parapet 8 to place on screen.
+	 */
+	void chooseParapet8();
+
+	/**
+	 * @brief A slot to select parapet 9 to place on screen.
+	 */
+	void chooseParapet9();
+
+	/**
+	 * @brief A slot to select parapet 10 to place on screen.
+	 */
+	void chooseParapet10();
+
+	//Row 2
+
+	/**
+	 * @brief A slot to select parapet 11 to place on screen.
+	 */
+	void chooseParapet11();
+
+	/**
+	 * @brief A slot to select parapet 12 to place on screen.
+	 */
+	void chooseParapet12();
+
+	/**
+	 * @brief A slot to select parapet 13 to place on screen.
+	 */
+	void chooseParapet13();
+
+	/**
+	 * @brief A slot to select parapet 14 to place on screen.
+	 */
+	void chooseParapet14();
+
+	/**
+	 * @brief A slot to select parapet 15 to place on screen.
+	 */
+	void chooseParapet15();
+
+	/**
+	 * @brief A slot to select parapet 16 to place on screen.
+	 */
+	void chooseParapet16();
+
+	/**
+	 * @brief A slot to select parapet 17 to place on screen.
+	 */
+	void chooseParapet17();
+
+	/**
+	 * @brief A slot to select parapet 18 to place on screen.
+	 */
+	void chooseParapet18();
+
+	/**
+	 * @brief A slot to select parapet 19 to place on screen.
+	 */
+	void chooseParapet19();
+
+	/**
+	 * @brief A slot to select parapet 20 to place on screen.
+	 */
+	void chooseParapet20();
+
+	//Row 3
+
+	/**
+	 * @brief A slot to select parapet 21 to place on screen.
+	 */
+	void chooseParapet21();
+
+	/**
+	 * @brief A slot to select parapet 22 to place on screen.
+	 */
+	void chooseParapet22();
+
+	/**
+	 * @brief A slot to select parapet 23 to place on screen.
+	 */
+	void chooseParapet23();
+
+	/**
+	 * @brief A slot to select parapet 24 to place on screen.
+	 */
+	void chooseParapet24();
+
+	/**
+	 * @brief A slot to select parapet 25 to place on screen.
+	 */
+	void chooseParapet25();
+
+	/**
+	 * @brief A slot to select parapet 26 to place on screen.
+	 */
+	void chooseParapet26();
+
+	/**
+	 * @brief A slot to select parapet 27 to place on screen.
+	 */
+	void chooseParapet27();
+
+	/**
+	 * @brief A slot to select parapet 28 to place on screen.
+	 */
+	void chooseParapet28();
 
 	//Right hand side menu.
 
@@ -1334,6 +1519,185 @@ private:
 	QIcon* flyover12Icon;
 
 
+	/*
+	 * ElementBlock4 buttons
+	 * START HERE
+	 */
+
+	//NamedLocationButton
+	QToolButton* namedLocationButton;
+	QAction* chooseNamedLocationAct;
+	QIcon* namedLocationIcon;
+
+	//ConcourseButton
+	QToolButton* concourseButton;
+	QAction* chooseConcourseAct;
+	QIcon* concourseIcon;
+
+	//PlatformUpButton
+	QToolButton* platformUpButton;
+	QAction* choosePlatformUpAct;
+	QIcon* platformUpIcon;
+
+	//PlatformDownButton
+	QToolButton* platformDownButton;
+	QAction* choosePlatformDownAct;
+	QIcon* platformDownIcon;
+
+	//PlatformLeftButton
+	QToolButton* platformLeftButton;
+	QAction* choosePlatformLeftAct;
+	QIcon* platformLeftIcon;
+
+	//PlatformRightButton
+	QToolButton* platformRightButton;
+	QAction* choosePlatformRightAct;
+	QIcon* platformRightIcon;
+
+	/*
+	 * ElementBlock5 buttons
+	 * START HERE
+	 */
+
+	//Parapet1Button
+	QToolButton* parapet1Button;
+	QAction* chooseParapet1Act;
+	QIcon* parapet1Icon;
+
+	//Parapet2Button
+	QToolButton* parapet2Button;
+	QAction* chooseParapet2Act;
+	QIcon* parapet2Icon;
+
+	//Parapet3Button
+	QToolButton* parapet3Button;
+	QAction* chooseParapet3Act;
+	QIcon* parapet3Icon;
+
+	//Parapet4Button
+	QToolButton* parapet4Button;
+	QAction* chooseParapet4Act;
+	QIcon* parapet4Icon;
+
+	//Parapet5Button
+	QToolButton* parapet5Button;
+	QAction* chooseParapet5Act;
+	QIcon* parapet5Icon;
+
+	//Parapet6Button
+	QToolButton* parapet6Button;
+	QAction* chooseParapet6Act;
+	QIcon* parapet6Icon;
+
+	//Parapet7Button
+	QToolButton* parapet7Button;
+	QAction* chooseParapet7Act;
+	QIcon* parapet7Icon;
+
+	//Parapet8Button
+	QToolButton* parapet8Button;
+	QAction* chooseParapet8Act;
+	QIcon* parapet8Icon;
+
+	//Parapet9Button
+	QToolButton* parapet9Button;
+	QAction* chooseParapet9Act;
+	QIcon* parapet9Icon;
+
+	//Parapet10Button
+	QToolButton* parapet10Button;
+	QAction* chooseParapet10Act;
+	QIcon* parapet10Icon;
+
+	//Parapet11Button
+	QToolButton* parapet11Button;
+	QAction* chooseParapet11Act;
+	QIcon* parapet11Icon;
+
+	//Parapet12Button
+	QToolButton* parapet12Button;
+	QAction* chooseParapet12Act;
+	QIcon* parapet12Icon;
+
+	//Parapet13Button
+	QToolButton* parapet13Button;
+	QAction* chooseParapet13Act;
+	QIcon* parapet13Icon;
+
+	//Parapet14Button
+	QToolButton* parapet14Button;
+	QAction* chooseParapet14Act;
+	QIcon* parapet14Icon;
+
+	//Parapet15Button
+	QToolButton* parapet15Button;
+	QAction* chooseParapet15Act;
+	QIcon* parapet15Icon;
+
+	//Parapet16Button
+	QToolButton* parapet16Button;
+	QAction* chooseParapet16Act;
+	QIcon* parapet16Icon;
+
+	//Parapet17Button
+	QToolButton* parapet17Button;
+	QAction* chooseParapet17Act;
+	QIcon* parapet17Icon;
+
+	//Parapet18Button
+	QToolButton* parapet18Button;
+	QAction* chooseParapet18Act;
+	QIcon* parapet18Icon;
+
+	//Parapet19Button
+	QToolButton* parapet19Button;
+	QAction* chooseParapet19Act;
+	QIcon* parapet19Icon;
+
+	//Parapet20Button
+	QToolButton* parapet20Button;
+	QAction* chooseParapet20Act;
+	QIcon* parapet20Icon;
+
+	//Parapet21Button
+	QToolButton* parapet21Button;
+	QAction* chooseParapet21Act;
+	QIcon* parapet21Icon;
+
+	//Parapet22Button
+	QToolButton* parapet22Button;
+	QAction* chooseParapet22Act;
+	QIcon* parapet22Icon;
+
+	//Parapet23Button
+	QToolButton* parapet23Button;
+	QAction* chooseParapet23Act;
+	QIcon* parapet23Icon;
+
+	//Parapet24Button
+	QToolButton* parapet24Button;
+	QAction* chooseParapet24Act;
+	QIcon* parapet24Icon;
+
+	//Parapet25Button
+	QToolButton* parapet25Button;
+	QAction* chooseParapet25Act;
+	QIcon* parapet25Icon;
+
+	//Parapet26Button
+	QToolButton* parapet26Button;
+	QAction* chooseParapet26Act;
+	QIcon* parapet26Icon;
+
+	//Parapet27Button
+	QToolButton* parapet27Button;
+	QAction* chooseParapet27Act;
+	QIcon* parapet27Icon;
+
+	//Parapet28Button
+	QToolButton* parapet28Button;
+	QAction* chooseParapet28Act;
+	QIcon* parapet28Icon;
 
 	//SetConvertSpeedDistance menu
 

@@ -155,6 +155,8 @@ Concourse::Concourse(int newLocationX, int newLocationY)
 
 }
 
+//Parapet class implementation.
+
 Parapet::Parapet(ParapetType newParapetType, int newLocationX, int newLocationY)
 {
 	parapetType = newParapetType;
