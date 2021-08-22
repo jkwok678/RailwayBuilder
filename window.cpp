@@ -1594,6 +1594,418 @@ void Window::chooseFlyover12()
 	}
 }
 
+//Element block 4 slots.
+
+void Window::chooseNamedLocation()
+{
+	if (drawingArea->getMode() == Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::NAMEDLOCATION)
+	{
+		drawingArea->setElementChosen(ElementChosen::NAMEDLOCATION);
+	}
+	else
+	{
+		drawingArea->setElementChosen(ElementChosen::NONE);
+	}
+}
+
+void Window::chooseConcourse()
+{
+	if (drawingArea->getMode() == Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::CONCOURSE)
+	{
+		drawingArea->setElementChosen(ElementChosen::CONCOURSE);
+	}
+	else
+	{
+		drawingArea->setElementChosen(ElementChosen::NONE);
+	}
+}
+
+void Window::choosePlatformLeft()
+{
+	if (drawingArea->getMode() == Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::PLATFORMLEFT)
+	{
+		drawingArea->setElementChosen(ElementChosen::PLATFORMLEFT);
+	}
+	else
+	{
+		drawingArea->setElementChosen(ElementChosen::NONE);
+	}
+}
+
+void Window::choosePlatformRight()
+{
+	if (drawingArea->getMode() == Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::PLATFORMRIGHT)
+	{
+		drawingArea->setElementChosen(ElementChosen::PLATFORMRIGHT);
+	}
+	else
+	{
+		drawingArea->setElementChosen(ElementChosen::NONE);
+	}
+}
+
+void Window::choosePlatformDown()
+{
+	if (drawingArea->getMode() == Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::PLATFORMDOWN)
+	{
+		drawingArea->setElementChosen(ElementChosen::PLATFORMDOWN);
+	}
+	else
+	{
+		drawingArea->setElementChosen(ElementChosen::NONE);
+	}
+}
+
+void Window::choosePlatformUp()
+{
+	if (drawingArea->getMode() == Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::PLATFORMUP)
+	{
+		drawingArea->setElementChosen(ElementChosen::PLATFORMUP);
+	}
+	else
+	{
+		drawingArea->setElementChosen(ElementChosen::NONE);
+	}
+}
+
+//Element block 5 slots.
+
+void Window::chooseParapet1()
+{
+	if (drawingArea->getMode() == Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::PARAPET1)
+	{
+		drawingArea->setElementChosen(ElementChosen::PARAPET1);
+	}
+	else
+	{
+		drawingArea->setElementChosen(ElementChosen::NONE);
+	}
+}
+
+void Window::chooseParapet2()
+{
+	if (drawingArea->getMode() == Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::PARAPET2)
+	{
+		drawingArea->setElementChosen(ElementChosen::PARAPET2);
+	}
+	else
+	{
+		drawingArea->setElementChosen(ElementChosen::NONE);
+	}
+}
+
+void Window::chooseParapet3()
+{
+	if (drawingArea->getMode() == Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::PARAPET3)
+	{
+		drawingArea->setElementChosen(ElementChosen::PARAPET3);
+	}
+	else
+	{
+		drawingArea->setElementChosen(ElementChosen::NONE);
+	}
+}
+
+void Window::chooseParapet4()
+{
+	if (drawingArea->getMode() == Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::PARAPET4)
+	{
+		drawingArea->setElementChosen(ElementChosen::PARAPET4);
+	}
+	else
+	{
+		drawingArea->setElementChosen(ElementChosen::NONE);
+	}
+}
+
+void Window::chooseParapet5()
+{
+	if (drawingArea->getMode() == Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::PARAPET5)
+	{
+		drawingArea->setElementChosen(ElementChosen::PARAPET5);
+	}
+	else
+	{
+		drawingArea->setElementChosen(ElementChosen::NONE);
+	}
+}
+
+void Window::chooseParapet6()
+{
+	if (drawingArea->getMode() == Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::PARAPET6)
+	{
+		drawingArea->setElementChosen(ElementChosen::PARAPET6);
+	}
+	else
+	{
+		drawingArea->setElementChosen(ElementChosen::NONE);
+	}
+}
+
+void Window::chooseParapet7()
+{
+	if (drawingArea->getMode() == Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::PARAPET7)
+	{
+		drawingArea->setElementChosen(ElementChosen::PARAPET7);
+	}
+	else
+	{
+		drawingArea->setElementChosen(ElementChosen::NONE);
+	}
+}
+
+void Window::chooseParapet8()
+{
+	if (drawingArea->getMode() == Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::PARAPET8)
+	{
+		drawingArea->setElementChosen(ElementChosen::PARAPET8);
+	}
+	else
+	{
+		drawingArea->setElementChosen(ElementChosen::NONE);
+	}
+}
+
+void Window::chooseParapet9()
+{
+	if (drawingArea->getMode() == Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::PARAPET9)
+	{
+		drawingArea->setElementChosen(ElementChosen::PARAPET9);
+	}
+	else
+	{
+		drawingArea->setElementChosen(ElementChosen::NONE);
+	}
+}
+
+void Window::chooseParapet10()
+{
+	if (drawingArea->getMode() == Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::PARAPET10)
+	{
+		drawingArea->setElementChosen(ElementChosen::PARAPET10);
+	}
+	else
+	{
+		drawingArea->setElementChosen(ElementChosen::NONE);
+	}
+}
+
+void Window::chooseParapet11()
+{
+	if (drawingArea->getMode() == Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::PARAPET11)
+	{
+		drawingArea->setElementChosen(ElementChosen::PARAPET11);
+	}
+	else
+	{
+		drawingArea->setElementChosen(ElementChosen::NONE);
+	}
+}
+
+void Window::chooseParapet12()
+{
+	if (drawingArea->getMode() == Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::PARAPET12)
+	{
+		drawingArea->setElementChosen(ElementChosen::PARAPET12);
+	}
+	else
+	{
+		drawingArea->setElementChosen(ElementChosen::NONE);
+	}
+}
+
+void Window::chooseParapet13()
+{
+	if (drawingArea->getMode() == Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::PARAPET13)
+	{
+		drawingArea->setElementChosen(ElementChosen::PARAPET13);
+	}
+	else
+	{
+		drawingArea->setElementChosen(ElementChosen::NONE);
+	}
+}
+
+void Window::chooseParapet14()
+{
+	if (drawingArea->getMode() == Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::PARAPET14)
+	{
+		drawingArea->setElementChosen(ElementChosen::PARAPET14);
+	}
+	else
+	{
+		drawingArea->setElementChosen(ElementChosen::NONE);
+	}
+}
+
+void Window::chooseParapet15()
+{
+	if (drawingArea->getMode() == Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::PARAPET15)
+	{
+		drawingArea->setElementChosen(ElementChosen::PARAPET15);
+	}
+	else
+	{
+		drawingArea->setElementChosen(ElementChosen::NONE);
+	}
+}
+
+void Window::chooseParapet16()
+{
+	if (drawingArea->getMode() == Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::PARAPET16)
+	{
+		drawingArea->setElementChosen(ElementChosen::PARAPET16);
+	}
+	else
+	{
+		drawingArea->setElementChosen(ElementChosen::NONE);
+	}
+}
+
+void Window::chooseParapet17()
+{
+	if (drawingArea->getMode() == Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::PARAPET17)
+	{
+		drawingArea->setElementChosen(ElementChosen::PARAPET17);
+	}
+	else
+	{
+		drawingArea->setElementChosen(ElementChosen::NONE);
+	}
+}
+
+void Window::chooseParapet18()
+{
+	if (drawingArea->getMode() == Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::PARAPET18)
+	{
+		drawingArea->setElementChosen(ElementChosen::PARAPET18);
+	}
+	else
+	{
+		drawingArea->setElementChosen(ElementChosen::NONE);
+	}
+}
+
+void Window::chooseParapet19()
+{
+	if (drawingArea->getMode() == Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::PARAPET19)
+	{
+		drawingArea->setElementChosen(ElementChosen::PARAPET19);
+	}
+	else
+	{
+		drawingArea->setElementChosen(ElementChosen::NONE);
+	}
+}
+
+void Window::chooseParapet20()
+{
+	if (drawingArea->getMode() == Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::PARAPET20)
+	{
+		drawingArea->setElementChosen(ElementChosen::PARAPET20);
+	}
+	else
+	{
+		drawingArea->setElementChosen(ElementChosen::NONE);
+	}
+}
+
+void Window::chooseParapet21()
+{
+	if (drawingArea->getMode() == Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::PARAPET21)
+	{
+		drawingArea->setElementChosen(ElementChosen::PARAPET21);
+	}
+	else
+	{
+		drawingArea->setElementChosen(ElementChosen::NONE);
+	}
+}
+
+void Window::chooseParapet22()
+{
+	if (drawingArea->getMode() == Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::PARAPET22)
+	{
+		drawingArea->setElementChosen(ElementChosen::PARAPET22);
+	}
+	else
+	{
+		drawingArea->setElementChosen(ElementChosen::NONE);
+	}
+}
+
+void Window::chooseParapet23()
+{
+	if (drawingArea->getMode() == Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::PARAPET23)
+	{
+		drawingArea->setElementChosen(ElementChosen::PARAPET23);
+	}
+	else
+	{
+		drawingArea->setElementChosen(ElementChosen::NONE);
+	}
+}
+
+void Window::chooseParapet24()
+{
+	if (drawingArea->getMode() == Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::PARAPET24)
+	{
+		drawingArea->setElementChosen(ElementChosen::PARAPET24);
+	}
+	else
+	{
+		drawingArea->setElementChosen(ElementChosen::NONE);
+	}
+}
+
+void Window::chooseParapet25()
+{
+	if (drawingArea->getMode() == Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::PARAPET25)
+	{
+		drawingArea->setElementChosen(ElementChosen::PARAPET25);
+	}
+	else
+	{
+		drawingArea->setElementChosen(ElementChosen::NONE);
+	}
+}
+
+void Window::chooseParapet26()
+{
+	if (drawingArea->getMode() == Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::PARAPET26)
+	{
+		drawingArea->setElementChosen(ElementChosen::PARAPET26);
+	}
+	else
+	{
+		drawingArea->setElementChosen(ElementChosen::NONE);
+	}
+}
+
+void Window::chooseParapet27()
+{
+	if (drawingArea->getMode() == Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::PARAPET27)
+	{
+		drawingArea->setElementChosen(ElementChosen::PARAPET27);
+	}
+	else
+	{
+		drawingArea->setElementChosen(ElementChosen::NONE);
+	}
+}
+
+void Window::chooseParapet28()
+{
+	if (drawingArea->getMode() == Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::PARAPET28)
+	{
+		drawingArea->setElementChosen(ElementChosen::PARAPET28);
+	}
+	else
+	{
+		drawingArea->setElementChosen(ElementChosen::NONE);
+	}
+}
+
 //Right hand side menu.
 
 void Window::moveRightOnCanvas()
