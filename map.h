@@ -109,6 +109,25 @@ private:
 	 */
 	void addFlyoverTrack(std::shared_ptr<FlyoverTrack> newFlyoverTrack);
 
+	/**
+	 * @brief Adds a new NamedLocation to the vector.
+	 * @param newNamedLocation The new NamedLocation to add.
+	 */
+	void addNamedLocation(std::shared_ptr<NamedLocation> newNamedLocation);
+
+	/**
+	 * @brief Adds a new Concourse to the vector.
+	 * @param newConcourse The new Concourse to add.
+	 */
+	void addConcourse(std::shared_ptr<Concourse> newConcourse);
+
+
+	/**
+	 * @brief Adds a new Parapet to the vector.
+	 * @param newParapet The new Parapet to add.
+	 */
+	void addParapet(std::shared_ptr<Parapet> newParapet);
+
 public:
 
 	//General map methods.
@@ -476,6 +495,93 @@ public:
 	 * @return FlyoverTrack at (X,Y) if there is one, otherwise return a nullptr.
 	 */
 	std::shared_ptr<FlyoverTrack> getFlyoverTrackAt(int locationX,int locationY);
+
+	//NamedLocation related methods.
+
+	/**
+	 * @brief Gets the list of NamedLocations.
+	 * @return A vector of shared pointers that points to NamedLocations.
+	 */
+	std::vector<std::shared_ptr<NamedLocation> > getNamedLocationList() const;
+
+	/**
+	 * @brief Sets the list of NamedLocations.
+	 * @param newNamedLocationList A new vector of shared pointers that point to NamedLocations.
+	 */
+	void setNamedLocationList(const std::vector<std::shared_ptr<NamedLocation> >& newNamedLocationList);
+
+	/**
+	 * @brief Creates the NamedLocation and adds it to the map if possible.
+	 * @param overallX X coordinate to look at.
+	 * @param overallY Y coordinate to look at.
+	 */
+	void createAddNamedLocation(int overallX, int overallY);
+
+	/**
+	 * @brief Gets the NamedLocation at given coordinates if one exists there.
+	 * @param locationX X coordinate to look at.
+	 * @param locationY Y coordinate to look at.
+	 * @return NamedLocation at (X,Y) if there is one, otherwise return a nullptr.
+	 */
+	std::shared_ptr<NamedLocation> getNamedLocationAt(int locationX,int locationY);
+
+	//Concourse related methods.
+
+	/**
+	 * @brief Gets the list of Concourses.
+	 * @return A vector of shared pointers that points to Concourses.
+	 */
+	std::vector<std::shared_ptr<Concourse> > getConcourseList() const;
+
+	/**
+	 * @brief Sets the list of Concourses.
+	 * @param newConourseList A new vector of shared pointers that point to Concourses.
+	 */
+	void setConcourseList(const std::vector<std::shared_ptr<Concourse> >& newConcourseList);
+
+	/**
+	 * @brief Creates the Concourse and adds it to the map if possible.
+	 * @param overallX X coordinate to look at.
+	 * @param overallY Y coordinate to look at.
+	 */
+	void createAddConcourse(int overallX, int overallY);
+
+	/**
+	 * @brief Gets the Concourse at given coordinates if one exists there.
+	 * @param locationX X coordinate to look at.
+	 * @param locationY Y coordinate to look at.
+	 * @return Concourse at (X,Y) if there is one, otherwise return a nullptr.
+	 */
+	std::shared_ptr<Concourse> getConcourseAt(int locationX,int locationY);
+
+	//Parapet related methods.
+
+	/**
+	 * @brief Gets the list of Parapets.
+	 * @return A vector of shared pointers that points to Parapets.
+	 */
+	std::vector<std::shared_ptr<Parapet> > getParapetList() const;
+
+	/**
+	 * @brief Sets the list of Parapets.
+	 * @param newParapetList A new vector of shared pointers that point to Parapets.
+	 */
+	void setParapetList(const std::vector<std::shared_ptr<Parapet> >& newParapetList);
+
+	/**
+	 * @brief Creates the Parapets and adds it to the map if possible.
+	 * @param overallX X coordinate to look at.
+	 * @param overallY Y coordinate to look at.
+	 */
+	void createAddParapets(int overallX, int overallY);
+
+	/**
+	 * @brief Gets the Parapet at given coordinates if one exists there.
+	 * @param locationX X coordinate to look at.
+	 * @param locationY Y coordinate to look at.
+	 * @return Parapet at (X,Y) if there is one, otherwise return a nullptr.
+	 */
+	std::shared_ptr<Parapet> getParapetAt(int locationX,int locationY);
 };
 
 #endif // MAP_H
