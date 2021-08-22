@@ -2126,12 +2126,14 @@ void Window::createElementMenu()
 	createElementBlock1();
 	createElementBlock2();
 	createElementBlock3();
+	createElementBlock4();
+	createElementBlock5();
 }
 
 void Window::createElementBlock1()
 {
 	straightHButton = new QToolButton();
-	straightHButton->setMaximumSize(QSize(32, 32));
+	straightHButton->setMaximumSize(QSize(elementMenuButtonSize, elementMenuButtonSize));
 	chooseStraightHAct = new QAction();
 	straightHButton->setDefaultAction(chooseStraightHAct);
 	connect(chooseStraightHAct, &QAction::triggered, this, &Window::chooseStraightH);
@@ -2140,7 +2142,7 @@ void Window::createElementBlock1()
 	elementMenuLayout->addWidget(straightHButton, 0, 0);
 
 	straightVButton = new QToolButton();
-	straightVButton->setMaximumSize(QSize(32, 32));
+	straightVButton->setMaximumSize(QSize(elementMenuButtonSize, elementMenuButtonSize));
 	chooseStraightVAct = new QAction();
 	straightVButton->setDefaultAction(chooseStraightVAct);
 	connect(chooseStraightVAct, &QAction::triggered, this, &Window::chooseStraightV);
@@ -2149,7 +2151,7 @@ void Window::createElementBlock1()
 	elementMenuLayout->addWidget(straightVButton, 0, 1);
 
 	directedLeftButton = new QToolButton();
-	directedLeftButton->setMaximumSize(QSize(32, 32));
+	directedLeftButton->setMaximumSize(QSize(elementMenuButtonSize, elementMenuButtonSize));
 	chooseDirectedLeftAct = new QAction();
 	directedLeftButton->setDefaultAction(chooseDirectedLeftAct);
 	connect(chooseDirectedLeftAct, &QAction::triggered, this, &Window::chooseDirectedLeft);
@@ -2158,7 +2160,7 @@ void Window::createElementBlock1()
 	elementMenuLayout->addWidget(directedLeftButton, 0, 2);
 
 	directedRightButton = new QToolButton();
-	directedRightButton->setMaximumSize(QSize(32, 32));
+	directedRightButton->setMaximumSize(QSize(elementMenuButtonSize, elementMenuButtonSize));
 	chooseDirectedRightAct = new QAction();
 	directedRightButton->setDefaultAction(chooseDirectedRightAct);
 	connect(chooseDirectedRightAct, &QAction::triggered, this, &Window::chooseDirectedRight);
@@ -2167,7 +2169,7 @@ void Window::createElementBlock1()
 	elementMenuLayout->addWidget(directedRightButton, 0, 3);
 
 	directedUpButton = new QToolButton();
-	directedUpButton->setMaximumSize(QSize(32, 32));
+	directedUpButton->setMaximumSize(QSize(elementMenuButtonSize, elementMenuButtonSize));
 	chooseDirectedUpAct = new QAction();
 	directedUpButton->setDefaultAction(chooseDirectedUpAct);
 	connect(chooseDirectedUpAct, &QAction::triggered, this, &Window::chooseDirectedUp);
@@ -2176,7 +2178,7 @@ void Window::createElementBlock1()
 	elementMenuLayout->addWidget(directedUpButton, 0, 4);
 
 	directedDownButton = new QToolButton();
-	directedDownButton->setMaximumSize(QSize(32, 32));
+	directedDownButton->setMaximumSize(QSize(elementMenuButtonSize, elementMenuButtonSize));
 	chooseDirectedDownAct = new QAction();
 	directedDownButton->setDefaultAction(chooseDirectedDownAct);
 	connect(chooseDirectedDownAct, &QAction::triggered, this, &Window::chooseDirectedDown);
@@ -2185,7 +2187,7 @@ void Window::createElementBlock1()
 	elementMenuLayout->addWidget(directedDownButton, 0, 5);
 
 	straightRightUpButton = new QToolButton();
-	straightRightUpButton->setMaximumSize(QSize(32, 32));
+	straightRightUpButton->setMaximumSize(QSize(elementMenuButtonSize, elementMenuButtonSize));
 	chooseStraightRightUpAct = new QAction();
 	straightRightUpButton->setDefaultAction(chooseStraightRightUpAct);
 	connect(chooseStraightRightUpAct, &QAction::triggered, this, &Window::chooseStraightRightUp);
@@ -2194,7 +2196,7 @@ void Window::createElementBlock1()
 	elementMenuLayout->addWidget(straightRightUpButton, 0, 6);
 
 	straightLeftUpButton = new QToolButton();
-	straightLeftUpButton->setMaximumSize(QSize(32, 32));
+	straightLeftUpButton->setMaximumSize(QSize(elementMenuButtonSize, elementMenuButtonSize));
 	chooseStraightLeftUpAct = new QAction();
 	straightLeftUpButton->setDefaultAction(chooseStraightLeftUpAct);
 	connect(chooseStraightLeftUpAct, &QAction::triggered, this, &Window::chooseStraightLeftUp);
@@ -2203,7 +2205,7 @@ void Window::createElementBlock1()
 	elementMenuLayout->addWidget(straightLeftUpButton, 0, 7);
 
 	directedRightUpButton = new QToolButton();
-	directedRightUpButton->setMaximumSize(QSize(32, 32));
+	directedRightUpButton->setMaximumSize(QSize(elementMenuButtonSize, elementMenuButtonSize));
 	chooseDirectedRightUpAct = new QAction();
 	directedRightUpButton->setDefaultAction(chooseDirectedRightUpAct);
 	connect(chooseDirectedRightUpAct, &QAction::triggered, this, &Window::chooseDirectedRightUp);
@@ -2212,7 +2214,7 @@ void Window::createElementBlock1()
 	elementMenuLayout->addWidget(directedRightUpButton, 0, 8);
 
 	directedLeftUpButton = new QToolButton();
-	directedLeftUpButton->setMaximumSize(QSize(32, 32));
+	directedLeftUpButton->setMaximumSize(QSize(elementMenuButtonSize, elementMenuButtonSize));
 	chooseDirectedLeftUpAct = new QAction();
 	directedLeftUpButton->setDefaultAction(chooseDirectedLeftUpAct);
 	connect(chooseDirectedLeftUpAct, &QAction::triggered, this, &Window::chooseDirectedLeftUp);
@@ -2221,7 +2223,7 @@ void Window::createElementBlock1()
 	elementMenuLayout->addWidget(directedLeftUpButton, 0, 9);
 
 	directedLeftDownButton = new QToolButton();
-	directedLeftDownButton->setMaximumSize(QSize(32, 32));
+	directedLeftDownButton->setMaximumSize(QSize(elementMenuButtonSize, elementMenuButtonSize));
 	chooseDirectedLeftDownAct = new QAction();
 	directedLeftDownButton->setDefaultAction(chooseDirectedLeftDownAct);
 	connect(chooseDirectedLeftDownAct, &QAction::triggered, this, &Window::chooseDirectedLeftDown);
@@ -2230,7 +2232,7 @@ void Window::createElementBlock1()
 	elementMenuLayout->addWidget(directedLeftDownButton, 0, 10);
 
 	directedRightDownButton = new QToolButton();
-	directedRightDownButton->setMaximumSize(QSize(32, 32));
+	directedRightDownButton->setMaximumSize(QSize(elementMenuButtonSize, elementMenuButtonSize));
 	chooseDirectedRightDownAct = new QAction();
 	directedRightDownButton->setDefaultAction(chooseDirectedRightDownAct);
 	connect(chooseDirectedRightDownAct, &QAction::triggered, this, &Window::chooseDirectedRightDown);
@@ -2239,7 +2241,7 @@ void Window::createElementBlock1()
 	elementMenuLayout->addWidget(directedRightDownButton, 0, 11);
 
 	tightCurve1Button = new QToolButton();
-	tightCurve1Button->setMaximumSize(QSize(32, 32));
+	tightCurve1Button->setMaximumSize(QSize(elementMenuButtonSize, elementMenuButtonSize));
 	chooseTightCurve1Act = new QAction();
 	tightCurve1Button->setDefaultAction(chooseTightCurve1Act);
 	connect(chooseTightCurve1Act, &QAction::triggered, this, &Window::chooseTightCurve1);
@@ -2248,7 +2250,7 @@ void Window::createElementBlock1()
 	elementMenuLayout->addWidget(tightCurve1Button, 0, 12);
 
 	tightCurve2Button = new QToolButton();
-	tightCurve2Button->setMaximumSize(QSize(32, 32));
+	tightCurve2Button->setMaximumSize(QSize(elementMenuButtonSize, elementMenuButtonSize));
 	chooseTightCurve2Act = new QAction();
 	tightCurve2Button->setDefaultAction(chooseTightCurve2Act);
 	connect(chooseTightCurve2Act, &QAction::triggered, this, &Window::chooseTightCurve2);
@@ -2257,7 +2259,7 @@ void Window::createElementBlock1()
 	elementMenuLayout->addWidget(tightCurve2Button, 0, 13);
 
 	tightCurve3Button = new QToolButton();
-	tightCurve3Button->setMaximumSize(QSize(32, 32));
+	tightCurve3Button->setMaximumSize(QSize(elementMenuButtonSize, elementMenuButtonSize));
 	chooseTightCurve3Act = new QAction();
 	tightCurve3Button->setDefaultAction(chooseTightCurve3Act);
 	connect(chooseTightCurve3Act, &QAction::triggered, this, &Window::chooseTightCurve3);
@@ -2266,7 +2268,7 @@ void Window::createElementBlock1()
 	elementMenuLayout->addWidget(tightCurve3Button, 0, 14);
 
 	tightCurve4Button = new QToolButton();
-	tightCurve4Button->setMaximumSize(QSize(32, 32));
+	tightCurve4Button->setMaximumSize(QSize(elementMenuButtonSize, elementMenuButtonSize));
 	chooseTightCurve4Act = new QAction();
 	tightCurve4Button->setDefaultAction(chooseTightCurve4Act);
 	connect(chooseTightCurve4Act, &QAction::triggered, this, &Window::chooseTightCurve4);
@@ -2275,7 +2277,7 @@ void Window::createElementBlock1()
 	elementMenuLayout->addWidget(tightCurve4Button, 0, 15);
 
 	curve1Button = new QToolButton();
-	curve1Button->setMaximumSize(QSize(32, 32));
+	curve1Button->setMaximumSize(QSize(elementMenuButtonSize, elementMenuButtonSize));
 	chooseCurve1Act = new QAction();
 	curve1Button->setDefaultAction(chooseCurve1Act);
 	connect(chooseCurve1Act, &QAction::triggered, this, &Window::chooseCurve1);
@@ -2284,7 +2286,7 @@ void Window::createElementBlock1()
 	elementMenuLayout->addWidget(curve1Button, 0, 16);
 
 	curve2Button = new QToolButton();
-	curve2Button->setMaximumSize(QSize(32, 32));
+	curve2Button->setMaximumSize(QSize(elementMenuButtonSize, elementMenuButtonSize));
 	chooseCurve2Act = new QAction();
 	curve2Button->setDefaultAction(chooseCurve2Act);
 	connect(chooseCurve2Act, &QAction::triggered, this, &Window::chooseCurve2);
@@ -2293,7 +2295,7 @@ void Window::createElementBlock1()
 	elementMenuLayout->addWidget(curve2Button, 0, 17);
 
 	curve3Button = new QToolButton();
-	curve3Button->setMaximumSize(QSize(32, 32));
+	curve3Button->setMaximumSize(QSize(elementMenuButtonSize, elementMenuButtonSize));
 	chooseCurve3Act = new QAction();
 	curve3Button->setDefaultAction(chooseCurve3Act);
 	connect(chooseCurve3Act, &QAction::triggered, this, &Window::chooseCurve3);
@@ -2302,7 +2304,7 @@ void Window::createElementBlock1()
 	elementMenuLayout->addWidget(curve3Button, 0, 18);
 
 	curve4Button = new QToolButton();
-	curve4Button->setMaximumSize(QSize(32, 32));
+	curve4Button->setMaximumSize(QSize(elementMenuButtonSize, elementMenuButtonSize));
 	chooseCurve4Act = new QAction();
 	curve4Button->setDefaultAction(chooseCurve4Act);
 	connect(chooseCurve4Act, &QAction::triggered, this, &Window::chooseCurve4);
@@ -2311,7 +2313,7 @@ void Window::createElementBlock1()
 	elementMenuLayout->addWidget(curve4Button, 0, 19);
 
 	linkLeftButton = new QToolButton();
-	linkLeftButton->setMaximumSize(QSize(32, 32));
+	linkLeftButton->setMaximumSize(QSize(elementMenuButtonSize, elementMenuButtonSize));
 	chooseLinkLeftAct = new QAction();
 	linkLeftButton->setDefaultAction(chooseLinkLeftAct);
 	connect(chooseLinkLeftAct, &QAction::triggered, this, &Window::chooseLinkLeft);
@@ -2320,7 +2322,7 @@ void Window::createElementBlock1()
 	elementMenuLayout->addWidget(linkLeftButton, 1, 0);
 
 	linkRightButton = new QToolButton();
-	linkRightButton->setMaximumSize(QSize(32, 32));
+	linkRightButton->setMaximumSize(QSize(elementMenuButtonSize, elementMenuButtonSize));
 	chooseLinkRightAct = new QAction();
 	linkRightButton->setDefaultAction(chooseLinkRightAct);
 	connect(chooseLinkRightAct, &QAction::triggered, this, &Window::chooseLinkRight);
@@ -2329,7 +2331,7 @@ void Window::createElementBlock1()
 	elementMenuLayout->addWidget(linkRightButton, 1, 1);
 
 	linkDownButton = new QToolButton();
-	linkDownButton->setMaximumSize(QSize(32, 32));
+	linkDownButton->setMaximumSize(QSize(elementMenuButtonSize, elementMenuButtonSize));
 	chooseLinkDownAct = new QAction();
 	linkDownButton->setDefaultAction(chooseLinkDownAct);
 	connect(chooseLinkDownAct, &QAction::triggered, this, &Window::chooseLinkDown);
@@ -2338,7 +2340,7 @@ void Window::createElementBlock1()
 	elementMenuLayout->addWidget(linkDownButton, 1, 2);
 
 	linkUpButton = new QToolButton();
-	linkUpButton->setMaximumSize(QSize(32, 32));
+	linkUpButton->setMaximumSize(QSize(elementMenuButtonSize, elementMenuButtonSize));
 	chooseLinkUpAct = new QAction();
 	linkUpButton->setDefaultAction(chooseLinkUpAct);
 	connect(chooseLinkUpAct, &QAction::triggered, this, &Window::chooseLinkUp);
@@ -2347,7 +2349,7 @@ void Window::createElementBlock1()
 	elementMenuLayout->addWidget(linkUpButton, 1, 3);
 
 	linkLeftUpButton = new QToolButton();
-	linkLeftUpButton->setMaximumSize(QSize(32, 32));
+	linkLeftUpButton->setMaximumSize(QSize(elementMenuButtonSize, elementMenuButtonSize));
 	chooseLinkLeftUpAct = new QAction();
 	linkLeftUpButton->setDefaultAction(chooseLinkLeftUpAct);
 	connect(chooseLinkLeftUpAct, &QAction::triggered, this, &Window::chooseLinkLeftUp);
@@ -2356,7 +2358,7 @@ void Window::createElementBlock1()
 	elementMenuLayout->addWidget(linkLeftUpButton, 1, 4);
 
 	linkRightUpButton = new QToolButton();
-	linkRightUpButton->setMaximumSize(QSize(32, 32));
+	linkRightUpButton->setMaximumSize(QSize(elementMenuButtonSize, elementMenuButtonSize));
 	chooseLinkRightUpAct = new QAction();
 	linkRightUpButton->setDefaultAction(chooseLinkRightUpAct);
 	connect(chooseLinkRightUpAct, &QAction::triggered, this, &Window::chooseLinkRightUp);
@@ -2365,7 +2367,7 @@ void Window::createElementBlock1()
 	elementMenuLayout->addWidget(linkRightUpButton, 1, 5);
 
 	linkLeftDownButton = new QToolButton();
-	linkLeftDownButton->setMaximumSize(QSize(32, 32));
+	linkLeftDownButton->setMaximumSize(QSize(elementMenuButtonSize, elementMenuButtonSize));
 	chooseLinkLeftDownAct = new QAction();
 	linkLeftDownButton->setDefaultAction(chooseLinkLeftDownAct);
 	connect(chooseLinkLeftDownAct, &QAction::triggered, this, &Window::chooseLinkLeftDown);
@@ -2374,7 +2376,7 @@ void Window::createElementBlock1()
 	elementMenuLayout->addWidget(linkLeftDownButton, 1, 6);
 
 	linkRightDownButton = new QToolButton();
-	linkRightDownButton->setMaximumSize(QSize(32, 32));
+	linkRightDownButton->setMaximumSize(QSize(elementMenuButtonSize, elementMenuButtonSize));
 	chooseLinkRightDownAct = new QAction();
 	linkRightDownButton->setDefaultAction(chooseLinkRightDownAct);
 	connect(chooseLinkRightDownAct, &QAction::triggered, this, &Window::chooseLinkRightDown);
@@ -2383,7 +2385,7 @@ void Window::createElementBlock1()
 	elementMenuLayout->addWidget(linkRightDownButton, 1, 7);
 
 	exitLeftButton = new QToolButton();
-	exitLeftButton->setMaximumSize(QSize(32, 32));
+	exitLeftButton->setMaximumSize(QSize(elementMenuButtonSize, elementMenuButtonSize));
 	chooseExitLeftAct = new QAction();
 	exitLeftButton->setDefaultAction(chooseExitLeftAct);
 	connect(chooseExitLeftAct, &QAction::triggered, this, &Window::chooseExitLeft);
@@ -2392,7 +2394,7 @@ void Window::createElementBlock1()
 	elementMenuLayout->addWidget(exitLeftButton, 1, 8);
 
 	exitRightButton = new QToolButton();
-	exitRightButton->setMaximumSize(QSize(32, 32));
+	exitRightButton->setMaximumSize(QSize(elementMenuButtonSize, elementMenuButtonSize));
 	chooseExitRightAct = new QAction();
 	exitRightButton->setDefaultAction(chooseExitRightAct);
 	connect(chooseExitRightAct, &QAction::triggered, this, &Window::chooseExitRight);
@@ -2401,7 +2403,7 @@ void Window::createElementBlock1()
 	elementMenuLayout->addWidget(exitRightButton, 1, 9);
 
 	exitDownButton = new QToolButton();
-	exitDownButton->setMaximumSize(QSize(32, 32));
+	exitDownButton->setMaximumSize(QSize(elementMenuButtonSize, elementMenuButtonSize));
 	chooseExitDownAct = new QAction();
 	exitDownButton->setDefaultAction(chooseExitDownAct);
 	connect(chooseExitDownAct, &QAction::triggered, this, &Window::chooseExitDown);
@@ -2410,7 +2412,7 @@ void Window::createElementBlock1()
 	elementMenuLayout->addWidget(exitDownButton, 1, 10);
 
 	exitUpButton = new QToolButton();
-	exitUpButton->setMaximumSize(QSize(32, 32));
+	exitUpButton->setMaximumSize(QSize(elementMenuButtonSize, elementMenuButtonSize));
 	chooseExitUpAct = new QAction();
 	exitUpButton->setDefaultAction(chooseExitUpAct);
 	connect(chooseExitUpAct, &QAction::triggered, this, &Window::chooseExitUp);
@@ -2419,7 +2421,7 @@ void Window::createElementBlock1()
 	elementMenuLayout->addWidget(exitUpButton, 1, 11);
 
 	exitLeftUpButton = new QToolButton();
-	exitLeftUpButton->setMaximumSize(QSize(32, 32));
+	exitLeftUpButton->setMaximumSize(QSize(elementMenuButtonSize, elementMenuButtonSize));
 	chooseExitLeftUpAct = new QAction();
 	exitLeftUpButton->setDefaultAction(chooseExitLeftUpAct);
 	connect(chooseExitLeftUpAct, &QAction::triggered, this, &Window::chooseExitLeftUp);
@@ -2428,7 +2430,7 @@ void Window::createElementBlock1()
 	elementMenuLayout->addWidget(exitLeftUpButton, 1, 12);
 
 	exitRightUpButton = new QToolButton();
-	exitRightUpButton->setMaximumSize(QSize(32, 32));
+	exitRightUpButton->setMaximumSize(QSize(elementMenuButtonSize, elementMenuButtonSize));
 	chooseExitRightUpAct = new QAction();
 	exitRightUpButton->setDefaultAction(chooseExitRightUpAct);
 	connect(chooseExitRightUpAct, &QAction::triggered, this, &Window::chooseExitRightUp);
@@ -2437,7 +2439,7 @@ void Window::createElementBlock1()
 	elementMenuLayout->addWidget(exitRightUpButton, 1, 13);
 
 	exitLeftDownButton = new QToolButton();
-	exitLeftDownButton->setMaximumSize(QSize(32, 32));
+	exitLeftDownButton->setMaximumSize(QSize(elementMenuButtonSize, elementMenuButtonSize));
 	chooseExitLeftDownAct = new QAction();
 	exitLeftDownButton->setDefaultAction(chooseExitLeftDownAct);
 	connect(chooseExitLeftDownAct, &QAction::triggered, this, &Window::chooseExitLeftDown);
@@ -2446,7 +2448,7 @@ void Window::createElementBlock1()
 	elementMenuLayout->addWidget(exitLeftDownButton, 1, 14);
 
 	exitRightDownButton = new QToolButton();
-	exitRightDownButton->setMaximumSize(QSize(32, 32));
+	exitRightDownButton->setMaximumSize(QSize(elementMenuButtonSize, elementMenuButtonSize));
 	chooseExitRightDownAct = new QAction();
 	exitRightDownButton->setDefaultAction(chooseExitRightDownAct);
 	connect(chooseExitRightDownAct, &QAction::triggered, this, &Window::chooseExitRightDown);
@@ -2455,7 +2457,7 @@ void Window::createElementBlock1()
 	elementMenuLayout->addWidget(exitRightDownButton, 1, 15);
 
 	curve5Button = new QToolButton();
-	curve5Button->setMaximumSize(QSize(32, 32));
+	curve5Button->setMaximumSize(QSize(elementMenuButtonSize, elementMenuButtonSize));
 	chooseCurve5Act = new QAction();
 	curve5Button->setDefaultAction(chooseCurve5Act);
 	connect(chooseCurve5Act, &QAction::triggered, this, &Window::chooseCurve5);
@@ -2464,7 +2466,7 @@ void Window::createElementBlock1()
 	elementMenuLayout->addWidget(curve5Button, 1, 16);
 
 	curve6Button = new QToolButton();
-	curve6Button->setMaximumSize(QSize(32, 32));
+	curve6Button->setMaximumSize(QSize(elementMenuButtonSize, elementMenuButtonSize));
 	chooseCurve6Act = new QAction();
 	curve6Button->setDefaultAction(chooseCurve6Act);
 	connect(chooseCurve6Act, &QAction::triggered, this, &Window::chooseCurve6);
@@ -2473,7 +2475,7 @@ void Window::createElementBlock1()
 	elementMenuLayout->addWidget(curve6Button, 1, 17);
 
 	curve7Button = new QToolButton();
-	curve7Button->setMaximumSize(QSize(32, 32));
+	curve7Button->setMaximumSize(QSize(elementMenuButtonSize, elementMenuButtonSize));
 	chooseCurve7Act = new QAction();
 	curve7Button->setDefaultAction(chooseCurve7Act);
 	connect(chooseCurve7Act, &QAction::triggered, this, &Window::chooseCurve7);
@@ -2482,7 +2484,7 @@ void Window::createElementBlock1()
 	elementMenuLayout->addWidget(curve7Button, 1, 18);
 
 	curve8Button = new QToolButton();
-	curve8Button->setMaximumSize(QSize(32, 32));
+	curve8Button->setMaximumSize(QSize(elementMenuButtonSize, elementMenuButtonSize));
 	chooseCurve8Act = new QAction();
 	curve8Button->setDefaultAction(chooseCurve8Act);
 	connect(chooseCurve8Act, &QAction::triggered, this, &Window::chooseCurve8);
@@ -2491,7 +2493,7 @@ void Window::createElementBlock1()
 	elementMenuLayout->addWidget(curve8Button, 1, 19);
 
 	bufferLeftButton = new QToolButton();
-	bufferLeftButton->setMaximumSize(QSize(32, 32));
+	bufferLeftButton->setMaximumSize(QSize(elementMenuButtonSize, elementMenuButtonSize));
 	chooseBufferLeftAct = new QAction();
 	bufferLeftButton->setDefaultAction(chooseBufferLeftAct);
 	connect(chooseBufferLeftAct, &QAction::triggered, this, &Window::chooseBufferLeft);
@@ -2500,7 +2502,7 @@ void Window::createElementBlock1()
 	elementMenuLayout->addWidget(bufferLeftButton, 2, 0);
 
 	bufferRightButton = new QToolButton();
-	bufferRightButton->setMaximumSize(QSize(32, 32));
+	bufferRightButton->setMaximumSize(QSize(elementMenuButtonSize, elementMenuButtonSize));
 	chooseBufferRightAct = new QAction();
 	bufferRightButton->setDefaultAction(chooseBufferRightAct);
 	connect(chooseBufferRightAct, &QAction::triggered, this, &Window::chooseBufferRight);
@@ -2509,7 +2511,7 @@ void Window::createElementBlock1()
 	elementMenuLayout->addWidget(bufferRightButton, 2, 1);
 
 	bufferDownButton = new QToolButton();
-	bufferDownButton->setMaximumSize(QSize(32, 32));
+	bufferDownButton->setMaximumSize(QSize(elementMenuButtonSize, elementMenuButtonSize));
 	chooseBufferDownAct = new QAction();
 	bufferDownButton->setDefaultAction(chooseBufferDownAct);
 	connect(chooseBufferDownAct, &QAction::triggered, this, &Window::chooseBufferDown);
@@ -2518,7 +2520,7 @@ void Window::createElementBlock1()
 	elementMenuLayout->addWidget(bufferDownButton, 2, 2);
 
 	bufferUpButton = new QToolButton();
-	bufferUpButton->setMaximumSize(QSize(32, 32));
+	bufferUpButton->setMaximumSize(QSize(elementMenuButtonSize, elementMenuButtonSize));
 	chooseBufferUpAct = new QAction();
 	bufferUpButton->setDefaultAction(chooseBufferUpAct);
 	connect(chooseBufferUpAct, &QAction::triggered, this, &Window::chooseBufferUp);
@@ -2527,7 +2529,7 @@ void Window::createElementBlock1()
 	elementMenuLayout->addWidget(bufferUpButton, 2, 3);
 
 	bufferLeftUpButton = new QToolButton();
-	bufferLeftUpButton->setMaximumSize(QSize(32, 32));
+	bufferLeftUpButton->setMaximumSize(QSize(elementMenuButtonSize, elementMenuButtonSize));
 	chooseBufferLeftUpAct = new QAction();
 	bufferLeftUpButton->setDefaultAction(chooseBufferLeftUpAct);
 	connect(chooseBufferLeftUpAct, &QAction::triggered, this, &Window::chooseBufferLeftUp);
@@ -2536,7 +2538,7 @@ void Window::createElementBlock1()
 	elementMenuLayout->addWidget(bufferLeftUpButton, 2, 4);
 
 	bufferRightUpButton = new QToolButton();
-	bufferRightUpButton->setMaximumSize(QSize(32, 32));
+	bufferRightUpButton->setMaximumSize(QSize(elementMenuButtonSize, elementMenuButtonSize));
 	chooseBufferRightUpAct = new QAction();
 	bufferRightUpButton->setDefaultAction(chooseBufferRightUpAct);
 	connect(chooseBufferRightUpAct, &QAction::triggered, this, &Window::chooseBufferRightUp);
@@ -2545,7 +2547,7 @@ void Window::createElementBlock1()
 	elementMenuLayout->addWidget(bufferRightUpButton, 2, 5);
 
 	bufferLeftDownButton = new QToolButton();
-	bufferLeftDownButton->setMaximumSize(QSize(32, 32));
+	bufferLeftDownButton->setMaximumSize(QSize(elementMenuButtonSize, elementMenuButtonSize));
 	chooseBufferLeftDownAct = new QAction();
 	bufferLeftDownButton->setDefaultAction(chooseBufferLeftDownAct);
 	connect(chooseBufferLeftDownAct, &QAction::triggered, this, &Window::chooseBufferLeftDown);
@@ -2554,7 +2556,7 @@ void Window::createElementBlock1()
 	elementMenuLayout->addWidget(bufferLeftDownButton, 2, 6);
 
 	bufferRightDownButton = new QToolButton();
-	bufferRightDownButton->setMaximumSize(QSize(32, 32));
+	bufferRightDownButton->setMaximumSize(QSize(elementMenuButtonSize, elementMenuButtonSize));
 	chooseBufferRightDownAct = new QAction();
 	bufferRightDownButton->setDefaultAction(chooseBufferRightDownAct);
 	connect(chooseBufferRightDownAct, &QAction::triggered, this, &Window::chooseBufferRightDown);
@@ -2563,7 +2565,7 @@ void Window::createElementBlock1()
 	elementMenuLayout->addWidget(bufferRightDownButton, 2, 7);
 
 	signalLeftButton = new QToolButton();
-	signalLeftButton->setMaximumSize(QSize(32, 32));
+	signalLeftButton->setMaximumSize(QSize(elementMenuButtonSize, elementMenuButtonSize));
 	chooseSignalLeftAct = new QAction();
 	signalLeftButton->setDefaultAction(chooseSignalLeftAct);
 	connect(chooseSignalLeftAct, &QAction::triggered, this, &Window::chooseSignalLeft);
@@ -2573,7 +2575,7 @@ void Window::createElementBlock1()
 	elementMenuLayout->addWidget(signalLeftButton, 2, 8);
 
 	signalRightButton = new QToolButton();
-	signalRightButton->setMaximumSize(QSize(32, 32));
+	signalRightButton->setMaximumSize(QSize(elementMenuButtonSize, elementMenuButtonSize));
 	chooseSignalRightAct = new QAction();
 	signalRightButton->setDefaultAction(chooseSignalRightAct);
 	connect(chooseSignalRightAct, &QAction::triggered, this, &Window::chooseSignalRight);
@@ -2583,7 +2585,7 @@ void Window::createElementBlock1()
 	elementMenuLayout->addWidget(signalRightButton, 2, 9);
 
 	signalDownButton = new QToolButton();
-	signalDownButton->setMaximumSize(QSize(32, 32));
+	signalDownButton->setMaximumSize(QSize(elementMenuButtonSize, elementMenuButtonSize));
 	chooseSignalDownAct = new QAction();
 	signalDownButton->setDefaultAction(chooseSignalDownAct);
 	connect(chooseSignalDownAct, &QAction::triggered, this, &Window::chooseSignalDown);
@@ -2593,7 +2595,7 @@ void Window::createElementBlock1()
 	elementMenuLayout->addWidget(signalDownButton, 2, 10);
 
 	signalUpButton = new QToolButton();
-	signalUpButton->setMaximumSize(QSize(32, 32));
+	signalUpButton->setMaximumSize(QSize(elementMenuButtonSize, elementMenuButtonSize));
 	chooseSignalUpAct = new QAction();
 	signalUpButton->setDefaultAction(chooseSignalUpAct);
 	connect(chooseSignalUpAct, &QAction::triggered, this, &Window::chooseSignalUp);
@@ -2603,7 +2605,7 @@ void Window::createElementBlock1()
 	elementMenuLayout->addWidget(signalUpButton, 2, 11);
 
 	signalLeftUpButton = new QToolButton();
-	signalLeftUpButton->setMaximumSize(QSize(32, 32));
+	signalLeftUpButton->setMaximumSize(QSize(elementMenuButtonSize, elementMenuButtonSize));
 	chooseSignalLeftUpAct = new QAction();
 	signalLeftUpButton->setDefaultAction(chooseSignalLeftUpAct);
 	connect(chooseSignalLeftUpAct, &QAction::triggered, this, &Window::chooseSignalLeftUp);
@@ -2613,7 +2615,7 @@ void Window::createElementBlock1()
 	elementMenuLayout->addWidget(signalLeftUpButton, 2, 12);
 
 	signalRightUpButton = new QToolButton();
-	signalRightUpButton->setMaximumSize(QSize(32, 32));
+	signalRightUpButton->setMaximumSize(QSize(elementMenuButtonSize, elementMenuButtonSize));
 	chooseSignalRightUpAct = new QAction();
 	signalRightUpButton->setDefaultAction(chooseSignalRightUpAct);
 	connect(chooseSignalRightUpAct, &QAction::triggered, this, &Window::chooseSignalRightUp);
@@ -2623,7 +2625,7 @@ void Window::createElementBlock1()
 	elementMenuLayout->addWidget(signalRightUpButton, 2, 13);
 
 	signalLeftDownButton = new QToolButton();
-	signalLeftDownButton->setMaximumSize(QSize(32, 32));
+	signalLeftDownButton->setMaximumSize(QSize(elementMenuButtonSize, elementMenuButtonSize));
 	chooseSignalLeftDownAct = new QAction();
 	signalLeftDownButton->setDefaultAction(chooseSignalLeftDownAct);
 	connect(chooseSignalLeftDownAct, &QAction::triggered, this, &Window::chooseSignalLeftDown);
@@ -2633,7 +2635,7 @@ void Window::createElementBlock1()
 	elementMenuLayout->addWidget(signalLeftDownButton, 2, 14);
 
 	signalRightDownButton = new QToolButton();
-	signalRightDownButton->setMaximumSize(QSize(32, 32));
+	signalRightDownButton->setMaximumSize(QSize(elementMenuButtonSize, elementMenuButtonSize));
 	chooseSignalRightDownAct = new QAction();
 	signalRightDownButton->setDefaultAction(chooseSignalRightDownAct);
 	connect(chooseSignalRightDownAct, &QAction::triggered, this, &Window::chooseSignalRightDown);
@@ -2643,7 +2645,7 @@ void Window::createElementBlock1()
 	elementMenuLayout->addWidget(signalRightDownButton, 2, 15);
 
 	bridge1Button = new QToolButton();
-	bridge1Button->setMaximumSize(QSize(32, 32));
+	bridge1Button->setMaximumSize(QSize(elementMenuButtonSize, elementMenuButtonSize));
 	chooseBridge1Act = new QAction();
 	bridge1Button->setDefaultAction(chooseBridge1Act);
 	connect(chooseBridge1Act, &QAction::triggered, this, &Window::chooseBridge1);
@@ -2652,7 +2654,7 @@ void Window::createElementBlock1()
 	elementMenuLayout->addWidget(bridge1Button, 2, 16);
 
 	bridge2Button = new QToolButton();
-	bridge2Button->setMaximumSize(QSize(32, 32));
+	bridge2Button->setMaximumSize(QSize(elementMenuButtonSize, elementMenuButtonSize));
 	chooseBridge2Act = new QAction();
 	bridge2Button->setDefaultAction(chooseBridge2Act);
 	connect(chooseBridge2Act, &QAction::triggered, this, &Window::chooseBridge2);
@@ -2661,7 +2663,7 @@ void Window::createElementBlock1()
 	elementMenuLayout->addWidget(bridge2Button, 2, 17);
 
 	underpass1Button = new QToolButton();
-	underpass1Button->setMaximumSize(QSize(32, 32));
+	underpass1Button->setMaximumSize(QSize(elementMenuButtonSize, elementMenuButtonSize));
 	chooseUnderpass1Act = new QAction();
 	underpass1Button->setDefaultAction(chooseUnderpass1Act);
 	connect(chooseUnderpass1Act, &QAction::triggered, this, &Window::chooseUnderpass1);
@@ -2670,7 +2672,7 @@ void Window::createElementBlock1()
 	elementMenuLayout->addWidget(underpass1Button, 2, 18);
 
 	underpass2Button = new QToolButton();
-	underpass2Button->setMaximumSize(QSize(32, 32));
+	underpass2Button->setMaximumSize(QSize(elementMenuButtonSize, elementMenuButtonSize));
 	chooseUnderpass2Act = new QAction();
 	underpass2Button->setDefaultAction(chooseUnderpass2Act);
 	connect(chooseUnderpass2Act, &QAction::triggered, this, &Window::chooseUnderpass2);
@@ -2682,12 +2684,12 @@ void Window::createElementBlock1()
 
 void Window::createElementBlock2()
 {
-	elementMenuLayout->addItem(new QSpacerItem(32,32),0,20);
-	elementMenuLayout->addItem(new QSpacerItem(32,32),1,20);
-	elementMenuLayout->addItem(new QSpacerItem(32,32),2,20);
+	elementMenuLayout->addItem(new QSpacerItem(elementMenuButtonSize,elementMenuButtonSize),0,20);
+	elementMenuLayout->addItem(new QSpacerItem(elementMenuButtonSize,elementMenuButtonSize),1,20);
+	elementMenuLayout->addItem(new QSpacerItem(elementMenuButtonSize,elementMenuButtonSize),2,20);
 
 	switchTight1Button = new QToolButton();
-	switchTight1Button->setMaximumSize(QSize(32, 32));
+	switchTight1Button->setMaximumSize(QSize(elementMenuButtonSize, elementMenuButtonSize));
 	chooseSwitchTight1Act = new QAction();
 	switchTight1Button->setDefaultAction(chooseSwitchTight1Act);
 	connect(chooseSwitchTight1Act, &QAction::triggered, this, &Window::chooseSwitchTight1);
@@ -2696,7 +2698,7 @@ void Window::createElementBlock2()
 	elementMenuLayout->addWidget(switchTight1Button, 0, 21);
 
 	switchTight2Button = new QToolButton();
-	switchTight2Button->setMaximumSize(QSize(32, 32));
+	switchTight2Button->setMaximumSize(QSize(elementMenuButtonSize, elementMenuButtonSize));
 	chooseSwitchTight2Act = new QAction();
 	switchTight2Button->setDefaultAction(chooseSwitchTight2Act);
 	connect(chooseSwitchTight2Act, &QAction::triggered, this, &Window::chooseSwitchTight2);
@@ -2705,7 +2707,7 @@ void Window::createElementBlock2()
 	elementMenuLayout->addWidget(switchTight2Button, 0, 22);
 
 	switchTight3Button = new QToolButton();
-	switchTight3Button->setMaximumSize(QSize(32, 32));
+	switchTight3Button->setMaximumSize(QSize(elementMenuButtonSize, elementMenuButtonSize));
 	chooseSwitchTight3Act = new QAction();
 	switchTight3Button->setDefaultAction(chooseSwitchTight3Act);
 	connect(chooseSwitchTight3Act, &QAction::triggered, this, &Window::chooseSwitchTight3);
@@ -2714,7 +2716,7 @@ void Window::createElementBlock2()
 	elementMenuLayout->addWidget(switchTight3Button, 0, 23);
 
 	switchTight4Button = new QToolButton();
-	switchTight4Button->setMaximumSize(QSize(32, 32));
+	switchTight4Button->setMaximumSize(QSize(elementMenuButtonSize, elementMenuButtonSize));
 	chooseSwitchTight4Act = new QAction();
 	switchTight4Button->setDefaultAction(chooseSwitchTight4Act);
 	connect(chooseSwitchTight4Act, &QAction::triggered, this, &Window::chooseSwitchTight4);
@@ -2723,7 +2725,7 @@ void Window::createElementBlock2()
 	elementMenuLayout->addWidget(switchTight4Button, 0, 24);
 
 	switchTight5Button = new QToolButton();
-	switchTight5Button->setMaximumSize(QSize(32, 32));
+	switchTight5Button->setMaximumSize(QSize(elementMenuButtonSize, elementMenuButtonSize));
 	chooseSwitchTight5Act = new QAction();
 	switchTight5Button->setDefaultAction(chooseSwitchTight5Act);
 	connect(chooseSwitchTight5Act, &QAction::triggered, this, &Window::chooseSwitchTight5);
@@ -2732,7 +2734,7 @@ void Window::createElementBlock2()
 	elementMenuLayout->addWidget(switchTight5Button, 0, 25);
 
 	switchTight6Button = new QToolButton();
-	switchTight6Button->setMaximumSize(QSize(32, 32));
+	switchTight6Button->setMaximumSize(QSize(elementMenuButtonSize, elementMenuButtonSize));
 	chooseSwitchTight6Act = new QAction();
 	switchTight6Button->setDefaultAction(chooseSwitchTight6Act);
 	connect(chooseSwitchTight6Act, &QAction::triggered, this, &Window::chooseSwitchTight6);
@@ -2741,7 +2743,7 @@ void Window::createElementBlock2()
 	elementMenuLayout->addWidget(switchTight6Button, 0, 26);
 
 	switchTight7Button = new QToolButton();
-	switchTight7Button->setMaximumSize(QSize(32, 32));
+	switchTight7Button->setMaximumSize(QSize(elementMenuButtonSize, elementMenuButtonSize));
 	chooseSwitchTight7Act = new QAction();
 	switchTight7Button->setDefaultAction(chooseSwitchTight7Act);
 	connect(chooseSwitchTight7Act, &QAction::triggered, this, &Window::chooseSwitchTight7);
@@ -2750,7 +2752,7 @@ void Window::createElementBlock2()
 	elementMenuLayout->addWidget(switchTight7Button, 0, 27);
 
 	switchTight8Button = new QToolButton();
-	switchTight8Button->setMaximumSize(QSize(32, 32));
+	switchTight8Button->setMaximumSize(QSize(elementMenuButtonSize, elementMenuButtonSize));
 	chooseSwitchTight8Act = new QAction();
 	switchTight8Button->setDefaultAction(chooseSwitchTight8Act);
 	connect(chooseSwitchTight8Act, &QAction::triggered, this, &Window::chooseSwitchTight8);
@@ -2759,7 +2761,7 @@ void Window::createElementBlock2()
 	elementMenuLayout->addWidget(switchTight8Button, 0, 28);
 
 	switchSplit1Button = new QToolButton();
-	switchSplit1Button->setMaximumSize(QSize(32, 32));
+	switchSplit1Button->setMaximumSize(QSize(elementMenuButtonSize, elementMenuButtonSize));
 	chooseSwitchSplit1Act = new QAction();
 	switchSplit1Button->setDefaultAction(chooseSwitchSplit1Act);
 	connect(chooseSwitchSplit1Act, &QAction::triggered, this, &Window::chooseSwitchSplit1);
@@ -2768,7 +2770,7 @@ void Window::createElementBlock2()
 	elementMenuLayout->addWidget(switchSplit1Button, 0, 29);
 
 	switchSplit2Button = new QToolButton();
-	switchSplit2Button->setMaximumSize(QSize(32, 32));
+	switchSplit2Button->setMaximumSize(QSize(elementMenuButtonSize, elementMenuButtonSize));
 	chooseSwitchSplit2Act = new QAction();
 	switchSplit2Button->setDefaultAction(chooseSwitchSplit2Act);
 	connect(chooseSwitchSplit2Act, &QAction::triggered, this, &Window::chooseSwitchSplit2);
@@ -2777,7 +2779,7 @@ void Window::createElementBlock2()
 	elementMenuLayout->addWidget(switchSplit2Button, 0, 30);
 
 	switchSplit3Button = new QToolButton();
-	switchSplit3Button->setMaximumSize(QSize(32, 32));
+	switchSplit3Button->setMaximumSize(QSize(elementMenuButtonSize, elementMenuButtonSize));
 	chooseSwitchSplit3Act = new QAction();
 	switchSplit3Button->setDefaultAction(chooseSwitchSplit3Act);
 	connect(chooseSwitchSplit3Act, &QAction::triggered, this, &Window::chooseSwitchSplit3);
@@ -2786,7 +2788,7 @@ void Window::createElementBlock2()
 	elementMenuLayout->addWidget(switchSplit3Button, 0, 31);
 
 	switch1Button = new QToolButton();
-	switch1Button->setMaximumSize(QSize(32, 32));
+	switch1Button->setMaximumSize(QSize(elementMenuButtonSize, elementMenuButtonSize));
 	chooseSwitch1Act = new QAction();
 	switch1Button->setDefaultAction(chooseSwitch1Act);
 	connect(chooseSwitch1Act, &QAction::triggered, this, &Window::chooseSwitch1);
@@ -2795,7 +2797,7 @@ void Window::createElementBlock2()
 	elementMenuLayout->addWidget(switch1Button, 1, 21);
 
 	switch2Button = new QToolButton();
-	switch2Button->setMaximumSize(QSize(32, 32));
+	switch2Button->setMaximumSize(QSize(elementMenuButtonSize, elementMenuButtonSize));
 	chooseSwitch2Act = new QAction();
 	switch2Button->setDefaultAction(chooseSwitch2Act);
 	connect(chooseSwitch2Act, &QAction::triggered, this, &Window::chooseSwitch2);
@@ -2804,7 +2806,7 @@ void Window::createElementBlock2()
 	elementMenuLayout->addWidget(switch2Button, 1, 22);
 
 	switch3Button = new QToolButton();
-	switch3Button->setMaximumSize(QSize(32, 32));
+	switch3Button->setMaximumSize(QSize(elementMenuButtonSize, elementMenuButtonSize));
 	chooseSwitch3Act = new QAction();
 	switch3Button->setDefaultAction(chooseSwitch3Act);
 	connect(chooseSwitch3Act, &QAction::triggered, this, &Window::chooseSwitch3);
@@ -2813,7 +2815,7 @@ void Window::createElementBlock2()
 	elementMenuLayout->addWidget(switch3Button, 1, 23);
 
 	switch4Button = new QToolButton();
-	switch4Button->setMaximumSize(QSize(32, 32));
+	switch4Button->setMaximumSize(QSize(elementMenuButtonSize, elementMenuButtonSize));
 	chooseSwitch4Act = new QAction();
 	switch4Button->setDefaultAction(chooseSwitch4Act);
 	connect(chooseSwitch4Act, &QAction::triggered, this, &Window::chooseSwitch4);
@@ -2822,7 +2824,7 @@ void Window::createElementBlock2()
 	elementMenuLayout->addWidget(switch4Button, 1, 24);
 
 	switch5Button = new QToolButton();
-	switch5Button->setMaximumSize(QSize(32, 32));
+	switch5Button->setMaximumSize(QSize(elementMenuButtonSize, elementMenuButtonSize));
 	chooseSwitch5Act = new QAction();
 	switch5Button->setDefaultAction(chooseSwitch5Act);
 	connect(chooseSwitch5Act, &QAction::triggered, this, &Window::chooseSwitch5);
@@ -2831,7 +2833,7 @@ void Window::createElementBlock2()
 	elementMenuLayout->addWidget(switch5Button, 1, 25);
 
 	switch6Button = new QToolButton();
-	switch6Button->setMaximumSize(QSize(32, 32));
+	switch6Button->setMaximumSize(QSize(elementMenuButtonSize, elementMenuButtonSize));
 	chooseSwitch6Act = new QAction();
 	switch6Button->setDefaultAction(chooseSwitch6Act);
 	connect(chooseSwitch6Act, &QAction::triggered, this, &Window::chooseSwitch6);
@@ -2840,7 +2842,7 @@ void Window::createElementBlock2()
 	elementMenuLayout->addWidget(switch6Button, 1, 26);
 
 	switch7Button = new QToolButton();
-	switch7Button->setMaximumSize(QSize(32, 32));
+	switch7Button->setMaximumSize(QSize(elementMenuButtonSize, elementMenuButtonSize));
 	chooseSwitch7Act = new QAction();
 	switch7Button->setDefaultAction(chooseSwitch7Act);
 	connect(chooseSwitch7Act, &QAction::triggered, this, &Window::chooseSwitch7);
@@ -2849,7 +2851,7 @@ void Window::createElementBlock2()
 	elementMenuLayout->addWidget(switch7Button, 1, 27);
 
 	switch8Button = new QToolButton();
-	switch8Button->setMaximumSize(QSize(32, 32));
+	switch8Button->setMaximumSize(QSize(elementMenuButtonSize, elementMenuButtonSize));
 	chooseSwitch8Act = new QAction();
 	switch8Button->setDefaultAction(chooseSwitch8Act);
 	connect(chooseSwitch8Act, &QAction::triggered, this, &Window::chooseSwitch8);
@@ -2858,7 +2860,7 @@ void Window::createElementBlock2()
 	elementMenuLayout->addWidget(switch8Button, 1, 28);
 
 	switchSplit4Button = new QToolButton();
-	switchSplit4Button->setMaximumSize(QSize(32, 32));
+	switchSplit4Button->setMaximumSize(QSize(elementMenuButtonSize, elementMenuButtonSize));
 	chooseSwitchSplit4Act = new QAction();
 	switchSplit4Button->setDefaultAction(chooseSwitchSplit4Act);
 	connect(chooseSwitchSplit4Act, &QAction::triggered, this, &Window::chooseSwitchSplit4);
@@ -2867,7 +2869,7 @@ void Window::createElementBlock2()
 	elementMenuLayout->addWidget(switchSplit4Button, 1, 29);
 
 	switchSplit5Button = new QToolButton();
-	switchSplit5Button->setMaximumSize(QSize(32, 32));
+	switchSplit5Button->setMaximumSize(QSize(elementMenuButtonSize, elementMenuButtonSize));
 	chooseSwitchSplit5Act = new QAction();
 	switchSplit5Button->setDefaultAction(chooseSwitchSplit5Act);
 	connect(chooseSwitchSplit5Act, &QAction::triggered, this, &Window::chooseSwitchSplit5);
@@ -2876,7 +2878,7 @@ void Window::createElementBlock2()
 	elementMenuLayout->addWidget(switchSplit5Button, 1, 30);
 
 	switchSplit6Button = new QToolButton();
-	switchSplit6Button->setMaximumSize(QSize(32, 32));
+	switchSplit6Button->setMaximumSize(QSize(elementMenuButtonSize, elementMenuButtonSize));
 	chooseSwitchSplit6Act = new QAction();
 	switchSplit6Button->setDefaultAction(chooseSwitchSplit6Act);
 	connect(chooseSwitchSplit6Act, &QAction::triggered, this, &Window::chooseSwitchSplit6);
@@ -2885,7 +2887,7 @@ void Window::createElementBlock2()
 	elementMenuLayout->addWidget(switchSplit6Button, 1, 31);
 
 	switch9Button = new QToolButton();
-	switch9Button->setMaximumSize(QSize(32, 32));
+	switch9Button->setMaximumSize(QSize(elementMenuButtonSize, elementMenuButtonSize));
 	chooseSwitch9Act = new QAction();
 	switch9Button->setDefaultAction(chooseSwitch9Act);
 	connect(chooseSwitch9Act, &QAction::triggered, this, &Window::chooseSwitch9);
@@ -2894,7 +2896,7 @@ void Window::createElementBlock2()
 	elementMenuLayout->addWidget(switch9Button, 2, 21);
 
 	switch10Button = new QToolButton();
-	switch10Button->setMaximumSize(QSize(32, 32));
+	switch10Button->setMaximumSize(QSize(elementMenuButtonSize, elementMenuButtonSize));
 	chooseSwitch10Act = new QAction();
 	switch10Button->setDefaultAction(chooseSwitch10Act);
 	connect(chooseSwitch10Act, &QAction::triggered, this, &Window::chooseSwitch10);
@@ -2903,7 +2905,7 @@ void Window::createElementBlock2()
 	elementMenuLayout->addWidget(switch10Button, 2, 22);
 
 	switch11Button = new QToolButton();
-	switch11Button->setMaximumSize(QSize(32, 32));
+	switch11Button->setMaximumSize(QSize(elementMenuButtonSize, elementMenuButtonSize));
 	chooseSwitch11Act = new QAction();
 	switch11Button->setDefaultAction(chooseSwitch11Act);
 	connect(chooseSwitch11Act, &QAction::triggered, this, &Window::chooseSwitch11);
@@ -2912,7 +2914,7 @@ void Window::createElementBlock2()
 	elementMenuLayout->addWidget(switch11Button, 2, 23);
 
 	switch12Button = new QToolButton();
-	switch12Button->setMaximumSize(QSize(32, 32));
+	switch12Button->setMaximumSize(QSize(elementMenuButtonSize, elementMenuButtonSize));
 	chooseSwitch12Act = new QAction();
 	switch12Button->setDefaultAction(chooseSwitch12Act);
 	connect(chooseSwitch12Act, &QAction::triggered, this, &Window::chooseSwitch12);
@@ -2921,7 +2923,7 @@ void Window::createElementBlock2()
 	elementMenuLayout->addWidget(switch12Button, 2, 24);
 
 	switch13Button = new QToolButton();
-	switch13Button->setMaximumSize(QSize(32, 32));
+	switch13Button->setMaximumSize(QSize(elementMenuButtonSize, elementMenuButtonSize));
 	chooseSwitch13Act = new QAction();
 	switch13Button->setDefaultAction(chooseSwitch13Act);
 	connect(chooseSwitch13Act, &QAction::triggered, this, &Window::chooseSwitch13);
@@ -2930,7 +2932,7 @@ void Window::createElementBlock2()
 	elementMenuLayout->addWidget(switch13Button, 2, 25);
 
 	switch14Button = new QToolButton();
-	switch14Button->setMaximumSize(QSize(32, 32));
+	switch14Button->setMaximumSize(QSize(elementMenuButtonSize, elementMenuButtonSize));
 	chooseSwitch14Act = new QAction();
 	switch14Button->setDefaultAction(chooseSwitch14Act);
 	connect(chooseSwitch14Act, &QAction::triggered, this, &Window::chooseSwitch14);
@@ -2939,7 +2941,7 @@ void Window::createElementBlock2()
 	elementMenuLayout->addWidget(switch14Button, 2, 26);
 
 	switch15Button = new QToolButton();
-	switch15Button->setMaximumSize(QSize(32, 32));
+	switch15Button->setMaximumSize(QSize(elementMenuButtonSize, elementMenuButtonSize));
 	chooseSwitch15Act = new QAction();
 	switch15Button->setDefaultAction(chooseSwitch15Act);
 	connect(chooseSwitch15Act, &QAction::triggered, this, &Window::chooseSwitch15);
@@ -2948,7 +2950,7 @@ void Window::createElementBlock2()
 	elementMenuLayout->addWidget(switch15Button, 2, 27);
 
 	switch16Button = new QToolButton();
-	switch16Button->setMaximumSize(QSize(32, 32));
+	switch16Button->setMaximumSize(QSize(elementMenuButtonSize, elementMenuButtonSize));
 	chooseSwitch16Act = new QAction();
 	switch16Button->setDefaultAction(chooseSwitch16Act);
 	connect(chooseSwitch16Act, &QAction::triggered, this, &Window::chooseSwitch16);
@@ -2957,7 +2959,7 @@ void Window::createElementBlock2()
 	elementMenuLayout->addWidget(switch16Button, 2, 28);
 
 	switchSplit7Button = new QToolButton();
-	switchSplit7Button->setMaximumSize(QSize(32, 32));
+	switchSplit7Button->setMaximumSize(QSize(elementMenuButtonSize, elementMenuButtonSize));
 	chooseSwitchSplit7Act = new QAction();
 	switchSplit7Button->setDefaultAction(chooseSwitchSplit7Act);
 	connect(chooseSwitchSplit7Act, &QAction::triggered, this, &Window::chooseSwitchSplit7);
@@ -2966,7 +2968,7 @@ void Window::createElementBlock2()
 	elementMenuLayout->addWidget(switchSplit7Button, 2, 29);
 
 	switchSplit8Button = new QToolButton();
-	switchSplit8Button->setMaximumSize(QSize(32, 32));
+	switchSplit8Button->setMaximumSize(QSize(elementMenuButtonSize, elementMenuButtonSize));
 	chooseSwitchSplit8Act = new QAction();
 	switchSplit8Button->setDefaultAction(chooseSwitchSplit8Act);
 	connect(chooseSwitchSplit8Act, &QAction::triggered, this, &Window::chooseSwitchSplit8);
@@ -2977,12 +2979,12 @@ void Window::createElementBlock2()
 
 void Window::createElementBlock3()
 {
-	elementMenuLayout->addItem(new QSpacerItem(32,32),0,32);
-	elementMenuLayout->addItem(new QSpacerItem(32,32),1,32);
-	elementMenuLayout->addItem(new QSpacerItem(32,32),2,32);
+	elementMenuLayout->addItem(new QSpacerItem(elementMenuButtonSize,elementMenuButtonSize),0,32);
+	elementMenuLayout->addItem(new QSpacerItem(elementMenuButtonSize,elementMenuButtonSize),1,32);
+	elementMenuLayout->addItem(new QSpacerItem(elementMenuButtonSize,elementMenuButtonSize),2,32);
 
 	crossover1Button = new QToolButton();
-	crossover1Button->setMaximumSize(QSize(32, 32));
+	crossover1Button->setMaximumSize(QSize(elementMenuButtonSize, elementMenuButtonSize));
 	chooseCrossover1Act = new QAction();
 	crossover1Button->setDefaultAction(chooseCrossover1Act);
 	connect(chooseCrossover1Act, &QAction::triggered, this, &Window::chooseCrossover1);
@@ -2991,7 +2993,7 @@ void Window::createElementBlock3()
 	elementMenuLayout->addWidget(crossover1Button, 0, 33);
 
 	crossover2Button = new QToolButton();
-	crossover2Button->setMaximumSize(QSize(32, 32));
+	crossover2Button->setMaximumSize(QSize(elementMenuButtonSize, elementMenuButtonSize));
 	chooseCrossover2Act = new QAction();
 	crossover2Button->setDefaultAction(chooseCrossover2Act);
 	connect(chooseCrossover2Act, &QAction::triggered, this, &Window::chooseCrossover2);
@@ -3000,7 +3002,7 @@ void Window::createElementBlock3()
 	elementMenuLayout->addWidget(crossover2Button, 0, 34);
 
 	flyover1Button = new QToolButton();
-	flyover1Button->setMaximumSize(QSize(32, 32));
+	flyover1Button->setMaximumSize(QSize(elementMenuButtonSize, elementMenuButtonSize));
 	chooseFlyover1Act = new QAction();
 	flyover1Button->setDefaultAction(chooseFlyover1Act);
 	connect(chooseFlyover1Act, &QAction::triggered, this, &Window::chooseFlyover1);
@@ -3009,7 +3011,7 @@ void Window::createElementBlock3()
 	elementMenuLayout->addWidget(flyover1Button, 0, 35);
 
 	flyover2Button = new QToolButton();
-	flyover2Button->setMaximumSize(QSize(32, 32));
+	flyover2Button->setMaximumSize(QSize(elementMenuButtonSize, elementMenuButtonSize));
 	chooseFlyover2Act = new QAction();
 	flyover2Button->setDefaultAction(chooseFlyover2Act);
 	connect(chooseFlyover2Act, &QAction::triggered, this, &Window::chooseFlyover2);
@@ -3018,7 +3020,7 @@ void Window::createElementBlock3()
 	elementMenuLayout->addWidget(flyover2Button, 0, 36);
 
 	flyover3Button = new QToolButton();
-	flyover3Button->setMaximumSize(QSize(32, 32));
+	flyover3Button->setMaximumSize(QSize(elementMenuButtonSize, elementMenuButtonSize));
 	chooseFlyover3Act = new QAction();
 	flyover3Button->setDefaultAction(chooseFlyover3Act);
 	connect(chooseFlyover3Act, &QAction::triggered, this, &Window::chooseFlyover3);
@@ -3027,7 +3029,7 @@ void Window::createElementBlock3()
 	elementMenuLayout->addWidget(flyover3Button, 0, 37);
 
 	flyover4Button = new QToolButton();
-	flyover4Button->setMaximumSize(QSize(32, 32));
+	flyover4Button->setMaximumSize(QSize(elementMenuButtonSize, elementMenuButtonSize));
 	chooseFlyover4Act = new QAction();
 	flyover4Button->setDefaultAction(chooseFlyover4Act);
 	connect(chooseFlyover4Act, &QAction::triggered, this, &Window::chooseFlyover4);
@@ -3036,7 +3038,7 @@ void Window::createElementBlock3()
 	elementMenuLayout->addWidget(flyover4Button, 0, 38);
 
 	crossover3Button = new QToolButton();
-	crossover3Button->setMaximumSize(QSize(32, 32));
+	crossover3Button->setMaximumSize(QSize(elementMenuButtonSize, elementMenuButtonSize));
 	chooseCrossover3Act = new QAction();
 	crossover3Button->setDefaultAction(chooseCrossover3Act);
 	connect(chooseCrossover3Act, &QAction::triggered, this, &Window::chooseCrossover3);
@@ -3045,7 +3047,7 @@ void Window::createElementBlock3()
 	elementMenuLayout->addWidget(crossover3Button, 1, 33);
 
 	crossover4Button = new QToolButton();
-	crossover4Button->setMaximumSize(QSize(32, 32));
+	crossover4Button->setMaximumSize(QSize(elementMenuButtonSize, elementMenuButtonSize));
 	chooseCrossover4Act = new QAction();
 	crossover4Button->setDefaultAction(chooseCrossover4Act);
 	connect(chooseCrossover4Act, &QAction::triggered, this, &Window::chooseCrossover4);
@@ -3054,7 +3056,7 @@ void Window::createElementBlock3()
 	elementMenuLayout->addWidget(crossover4Button, 1, 34);
 
 	flyover5Button = new QToolButton();
-	flyover5Button->setMaximumSize(QSize(32, 32));
+	flyover5Button->setMaximumSize(QSize(elementMenuButtonSize, elementMenuButtonSize));
 	chooseFlyover5Act = new QAction();
 	flyover5Button->setDefaultAction(chooseFlyover5Act);
 	connect(chooseFlyover5Act, &QAction::triggered, this, &Window::chooseFlyover5);
@@ -3063,7 +3065,7 @@ void Window::createElementBlock3()
 	elementMenuLayout->addWidget(flyover5Button, 1, 35);
 
 	flyover6Button = new QToolButton();
-	flyover6Button->setMaximumSize(QSize(32, 32));
+	flyover6Button->setMaximumSize(QSize(elementMenuButtonSize, elementMenuButtonSize));
 	chooseFlyover6Act = new QAction();
 	flyover6Button->setDefaultAction(chooseFlyover6Act);
 	connect(chooseFlyover6Act, &QAction::triggered, this, &Window::chooseFlyover6);
@@ -3072,7 +3074,7 @@ void Window::createElementBlock3()
 	elementMenuLayout->addWidget(flyover6Button, 1, 36);
 
 	flyover7Button = new QToolButton();
-	flyover7Button->setMaximumSize(QSize(32, 32));
+	flyover7Button->setMaximumSize(QSize(elementMenuButtonSize, elementMenuButtonSize));
 	chooseFlyover7Act = new QAction();
 	flyover7Button->setDefaultAction(chooseFlyover7Act);
 	connect(chooseFlyover7Act, &QAction::triggered, this, &Window::chooseFlyover7);
@@ -3081,7 +3083,7 @@ void Window::createElementBlock3()
 	elementMenuLayout->addWidget(flyover7Button, 1, 37);
 
 	flyover8Button = new QToolButton();
-	flyover8Button->setMaximumSize(QSize(32, 32));
+	flyover8Button->setMaximumSize(QSize(elementMenuButtonSize, elementMenuButtonSize));
 	chooseFlyover8Act = new QAction();
 	flyover8Button->setDefaultAction(chooseFlyover8Act);
 	connect(chooseFlyover8Act, &QAction::triggered, this, &Window::chooseFlyover8);
@@ -3090,7 +3092,7 @@ void Window::createElementBlock3()
 	elementMenuLayout->addWidget(flyover8Button, 1, 38);
 
 	crossover5Button = new QToolButton();
-	crossover5Button->setMaximumSize(QSize(32, 32));
+	crossover5Button->setMaximumSize(QSize(elementMenuButtonSize, elementMenuButtonSize));
 	chooseCrossover5Act = new QAction();
 	crossover5Button->setDefaultAction(chooseCrossover5Act);
 	connect(chooseCrossover5Act, &QAction::triggered, this, &Window::chooseCrossover5);
@@ -3099,7 +3101,7 @@ void Window::createElementBlock3()
 	elementMenuLayout->addWidget(crossover5Button, 2, 33);
 
 	crossover6Button = new QToolButton();
-	crossover6Button->setMaximumSize(QSize(32, 32));
+	crossover6Button->setMaximumSize(QSize(elementMenuButtonSize, elementMenuButtonSize));
 	chooseCrossover6Act = new QAction();
 	crossover6Button->setDefaultAction(chooseCrossover6Act);
 	connect(chooseCrossover6Act, &QAction::triggered, this, &Window::chooseCrossover6);
@@ -3108,7 +3110,7 @@ void Window::createElementBlock3()
 	elementMenuLayout->addWidget(crossover6Button, 2, 34);
 
 	flyover9Button = new QToolButton();
-	flyover9Button->setMaximumSize(QSize(32, 32));
+	flyover9Button->setMaximumSize(QSize(elementMenuButtonSize, elementMenuButtonSize));
 	chooseFlyover9Act = new QAction();
 	flyover9Button->setDefaultAction(chooseFlyover9Act);
 	connect(chooseFlyover9Act, &QAction::triggered, this, &Window::chooseFlyover9);
@@ -3117,7 +3119,7 @@ void Window::createElementBlock3()
 	elementMenuLayout->addWidget(flyover9Button, 2, 35);
 
 	flyover10Button = new QToolButton();
-	flyover10Button->setMaximumSize(QSize(32, 32));
+	flyover10Button->setMaximumSize(QSize(elementMenuButtonSize, elementMenuButtonSize));
 	chooseFlyover10Act = new QAction();
 	flyover10Button->setDefaultAction(chooseFlyover10Act);
 	connect(chooseFlyover10Act, &QAction::triggered, this, &Window::chooseFlyover10);
@@ -3126,7 +3128,7 @@ void Window::createElementBlock3()
 	elementMenuLayout->addWidget(flyover10Button, 2, 36);
 
 	flyover11Button = new QToolButton();
-	flyover11Button->setMaximumSize(QSize(32, 32));
+	flyover11Button->setMaximumSize(QSize(elementMenuButtonSize, elementMenuButtonSize));
 	chooseFlyover11Act = new QAction();
 	flyover11Button->setDefaultAction(chooseFlyover11Act);
 	connect(chooseFlyover11Act, &QAction::triggered, this, &Window::chooseFlyover11);
@@ -3135,7 +3137,7 @@ void Window::createElementBlock3()
 	elementMenuLayout->addWidget(flyover11Button, 2, 37);
 
 	flyover12Button = new QToolButton();
-	flyover12Button->setMaximumSize(QSize(32, 32));
+	flyover12Button->setMaximumSize(QSize(elementMenuButtonSize, elementMenuButtonSize));
 	chooseFlyover12Act = new QAction();
 	flyover12Button->setDefaultAction(chooseFlyover12Act);
 	connect(chooseFlyover12Act, &QAction::triggered, this, &Window::chooseFlyover12);
@@ -3143,6 +3145,326 @@ void Window::createElementBlock3()
 	flyover12Button->setIcon(*flyover12Icon);
 	elementMenuLayout->addWidget(flyover12Button, 2, 38);
 
+}
+
+void Window::createElementBlock4()
+{
+	elementMenuLayout->addItem(new QSpacerItem(elementMenuButtonSize,elementMenuButtonSize),0,39);
+	elementMenuLayout->addItem(new QSpacerItem(elementMenuButtonSize,elementMenuButtonSize),1,39);
+	elementMenuLayout->addItem(new QSpacerItem(elementMenuButtonSize,elementMenuButtonSize),2,39);
+
+	namedLocationButton = new QToolButton();
+	namedLocationButton->setMaximumSize(QSize(elementMenuButtonSize, elementMenuButtonSize));
+	chooseNamedLocationAct = new QAction();
+	namedLocationButton->setDefaultAction(chooseNamedLocationAct);
+	connect(chooseNamedLocationAct, &QAction::triggered, this, &Window::chooseNamedLocation);
+	namedLocationIcon = new QIcon(":/graphics/graphics/namedLocationSet.png");
+	namedLocationButton->setIcon(*namedLocationIcon);
+	elementMenuLayout->addWidget(namedLocationButton, 0, 40);
+
+	concourseButton = new QToolButton();
+	concourseButton->setMaximumSize(QSize(elementMenuButtonSize, elementMenuButtonSize));
+	chooseConcourseAct = new QAction();
+	concourseButton->setDefaultAction(chooseConcourseAct);
+	connect(chooseConcourseAct, &QAction::triggered, this, &Window::chooseConcourse);
+	concourseIcon = new QIcon(":/graphics/graphics/concourseSet.png");
+	concourseButton->setIcon(*concourseIcon);
+	elementMenuLayout->addWidget(concourseButton, 0, 41);
+
+	platformUpButton = new QToolButton();
+	platformUpButton->setMaximumSize(QSize(elementMenuButtonSize, elementMenuButtonSize));
+	choosePlatformUpAct = new QAction();
+	platformUpButton->setDefaultAction(choosePlatformUpAct);
+	connect(choosePlatformUpAct, &QAction::triggered, this, &Window::choosePlatformUp);
+	platformUpIcon = new QIcon(":/graphics/graphics/platformUpSet.png");
+	platformUpButton->setIcon(*platformUpIcon);
+	elementMenuLayout->addWidget(platformUpButton, 1, 40);
+
+	platformDownButton = new QToolButton();
+	platformDownButton->setMaximumSize(QSize(elementMenuButtonSize, elementMenuButtonSize));
+	choosePlatformDownAct = new QAction();
+	platformDownButton->setDefaultAction(choosePlatformDownAct);
+	connect(choosePlatformDownAct, &QAction::triggered, this, &Window::choosePlatformDown);
+	platformDownIcon = new QIcon(":/graphics/graphics/platformDownSet.png");
+	platformDownButton->setIcon(*platformDownIcon);
+	elementMenuLayout->addWidget(platformDownButton, 1, 41);
+
+	platformLeftButton = new QToolButton();
+	platformLeftButton->setMaximumSize(QSize(elementMenuButtonSize, elementMenuButtonSize));
+	choosePlatformLeftAct = new QAction();
+	platformLeftButton->setDefaultAction(choosePlatformLeftAct);
+	connect(choosePlatformLeftAct, &QAction::triggered, this, &Window::choosePlatformLeft);
+	platformLeftIcon = new QIcon(":/graphics/graphics/platformLeftSet.png");
+	platformLeftButton->setIcon(*platformLeftIcon);
+	elementMenuLayout->addWidget(platformLeftButton, 2, 40);
+
+	platformRightButton = new QToolButton();
+	platformRightButton->setMaximumSize(QSize(elementMenuButtonSize, elementMenuButtonSize));
+	choosePlatformRightAct = new QAction();
+	platformRightButton->setDefaultAction(choosePlatformRightAct);
+	connect(choosePlatformRightAct, &QAction::triggered, this, &Window::choosePlatformRight);
+	platformRightIcon = new QIcon(":/graphics/graphics/platformRightSet.png");
+	platformRightButton->setIcon(*platformRightIcon);
+	elementMenuLayout->addWidget(platformRightButton, 2, 41);
+}
+
+void Window::createElementBlock5()
+{
+	elementMenuLayout->addItem(new QSpacerItem(elementMenuButtonSize,elementMenuButtonSize),0,42);
+	elementMenuLayout->addItem(new QSpacerItem(elementMenuButtonSize,elementMenuButtonSize),1,42);
+	elementMenuLayout->addItem(new QSpacerItem(elementMenuButtonSize,elementMenuButtonSize),2,42);
+
+	parapet1Button = new QToolButton();
+	parapet1Button->setMaximumSize(QSize(elementMenuButtonSize, elementMenuButtonSize));
+	chooseParapet1Act = new QAction();
+	parapet1Button->setDefaultAction(chooseParapet1Act);
+	connect(chooseParapet1Act, &QAction::triggered, this, &Window::chooseParapet1);
+	parapet1Icon = new QIcon(":/graphics/graphics/parapet1.png");
+	parapet1Button->setIcon(*parapet1Icon);
+	elementMenuLayout->addWidget(parapet1Button, 0, 43);
+
+	parapet2Button = new QToolButton();
+	parapet2Button->setMaximumSize(QSize(elementMenuButtonSize, elementMenuButtonSize));
+	chooseParapet2Act = new QAction();
+	parapet2Button->setDefaultAction(chooseParapet2Act);
+	connect(chooseParapet2Act, &QAction::triggered, this, &Window::chooseParapet2);
+	parapet2Icon = new QIcon(":/graphics/graphics/parapet2.png");
+	parapet2Button->setIcon(*parapet2Icon);
+	elementMenuLayout->addWidget(parapet2Button, 0, 44);
+
+	parapet3Button = new QToolButton();
+	parapet3Button->setMaximumSize(QSize(elementMenuButtonSize, elementMenuButtonSize));
+	chooseParapet3Act = new QAction();
+	parapet3Button->setDefaultAction(chooseParapet3Act);
+	connect(chooseParapet3Act, &QAction::triggered, this, &Window::chooseParapet3);
+	parapet3Icon = new QIcon(":/graphics/graphics/parapet3.png");
+	parapet3Button->setIcon(*parapet3Icon);
+	elementMenuLayout->addWidget(parapet3Button, 0, 2);
+
+	parapet4Button = new QToolButton();
+	parapet4Button->setMaximumSize(QSize(elementMenuButtonSize, elementMenuButtonSize));
+	chooseParapet4Act = new QAction();
+	parapet4Button->setDefaultAction(chooseParapet4Act);
+	connect(chooseParapet4Act, &QAction::triggered, this, &Window::chooseParapet4);
+	parapet4Icon = new QIcon(":/graphics/graphics/parapet4.png");
+	parapet4Button->setIcon(*parapet4Icon);
+	elementMenuLayout->addWidget(parapet4Button, 0, 45);
+
+	parapet5Button = new QToolButton();
+	parapet5Button->setMaximumSize(QSize(elementMenuButtonSize, elementMenuButtonSize));
+	chooseParapet5Act = new QAction();
+	parapet5Button->setDefaultAction(chooseParapet5Act);
+	connect(chooseParapet5Act, &QAction::triggered, this, &Window::chooseParapet5);
+	parapet5Icon = new QIcon(":/graphics/graphics/parapet5.png");
+	parapet5Button->setIcon(*parapet5Icon);
+	elementMenuLayout->addWidget(parapet5Button, 0, 46);
+
+	parapet6Button = new QToolButton();
+	parapet6Button->setMaximumSize(QSize(elementMenuButtonSize, elementMenuButtonSize));
+	chooseParapet6Act = new QAction();
+	parapet6Button->setDefaultAction(chooseParapet6Act);
+	connect(chooseParapet6Act, &QAction::triggered, this, &Window::chooseParapet6);
+	parapet6Icon = new QIcon(":/graphics/graphics/parapet6.png");
+	parapet6Button->setIcon(*parapet6Icon);
+	elementMenuLayout->addWidget(parapet6Button, 0, 47);
+
+	parapet7Button = new QToolButton();
+	parapet7Button->setMaximumSize(QSize(elementMenuButtonSize, elementMenuButtonSize));
+	chooseParapet7Act = new QAction();
+	parapet7Button->setDefaultAction(chooseParapet7Act);
+	connect(chooseParapet7Act, &QAction::triggered, this, &Window::chooseParapet7);
+	parapet7Icon = new QIcon(":/graphics/graphics/parapet7.png");
+	parapet7Button->setIcon(*parapet7Icon);
+	elementMenuLayout->addWidget(parapet7Button, 0, 48);
+
+	parapet8Button = new QToolButton();
+	parapet8Button->setMaximumSize(QSize(elementMenuButtonSize, elementMenuButtonSize));
+	chooseParapet8Act = new QAction();
+	parapet8Button->setDefaultAction(chooseParapet8Act);
+	connect(chooseParapet8Act, &QAction::triggered, this, &Window::chooseParapet8);
+	parapet8Icon = new QIcon(":/graphics/graphics/parapet8.png");
+	parapet8Button->setIcon(*parapet8Icon);
+	elementMenuLayout->addWidget(parapet8Button, 0, 49);
+
+	parapet9Button = new QToolButton();
+	parapet9Button->setMaximumSize(QSize(elementMenuButtonSize, elementMenuButtonSize));
+	chooseParapet9Act = new QAction();
+	parapet9Button->setDefaultAction(chooseParapet9Act);
+	connect(chooseParapet9Act, &QAction::triggered, this, &Window::chooseParapet9);
+	parapet9Icon = new QIcon(":/graphics/graphics/parapet9.png");
+	parapet9Button->setIcon(*parapet9Icon);
+	elementMenuLayout->addWidget(parapet9Button, 0, 50);
+
+	parapet10Button = new QToolButton();
+	parapet10Button->setMaximumSize(QSize(elementMenuButtonSize, elementMenuButtonSize));
+	chooseParapet10Act = new QAction();
+	parapet10Button->setDefaultAction(chooseParapet10Act);
+	connect(chooseParapet10Act, &QAction::triggered, this, &Window::chooseParapet10);
+	parapet10Icon = new QIcon(":/graphics/graphics/parapet10.png");
+	parapet10Button->setIcon(*parapet10Icon);
+	elementMenuLayout->addWidget(parapet10Button, 0, 51);
+
+	parapet11Button = new QToolButton();
+	parapet11Button->setMaximumSize(QSize(elementMenuButtonSize, elementMenuButtonSize));
+	chooseParapet11Act = new QAction();
+	parapet11Button->setDefaultAction(chooseParapet11Act);
+	connect(chooseParapet11Act, &QAction::triggered, this, &Window::chooseParapet11);
+	parapet11Icon = new QIcon(":/graphics/graphics/parapet11.png");
+	parapet11Button->setIcon(*parapet11Icon);
+	elementMenuLayout->addWidget(parapet11Button, 1, 43);
+
+	parapet12Button = new QToolButton();
+	parapet12Button->setMaximumSize(QSize(elementMenuButtonSize, elementMenuButtonSize));
+	chooseParapet12Act = new QAction();
+	parapet12Button->setDefaultAction(chooseParapet12Act);
+	connect(chooseParapet12Act, &QAction::triggered, this, &Window::chooseParapet12);
+	parapet12Icon = new QIcon(":/graphics/graphics/parapet12.png");
+	parapet12Button->setIcon(*parapet12Icon);
+	elementMenuLayout->addWidget(parapet12Button, 1, 44);
+
+	parapet13Button = new QToolButton();
+	parapet13Button->setMaximumSize(QSize(elementMenuButtonSize, elementMenuButtonSize));
+	chooseParapet13Act = new QAction();
+	parapet13Button->setDefaultAction(chooseParapet13Act);
+	connect(chooseParapet13Act, &QAction::triggered, this, &Window::chooseParapet13);
+	parapet13Icon = new QIcon(":/graphics/graphics/parapet13.png");
+	parapet13Button->setIcon(*parapet13Icon);
+	elementMenuLayout->addWidget(parapet13Button, 1, 45);
+
+	parapet14Button = new QToolButton();
+	parapet14Button->setMaximumSize(QSize(elementMenuButtonSize, elementMenuButtonSize));
+	chooseParapet14Act = new QAction();
+	parapet14Button->setDefaultAction(chooseParapet14Act);
+	connect(chooseParapet14Act, &QAction::triggered, this, &Window::chooseParapet14);
+	parapet14Icon = new QIcon(":/graphics/graphics/parapet14.png");
+	parapet14Button->setIcon(*parapet14Icon);
+	elementMenuLayout->addWidget(parapet14Button, 1, 46);
+
+	parapet15Button = new QToolButton();
+	parapet15Button->setMaximumSize(QSize(elementMenuButtonSize, elementMenuButtonSize));
+	chooseParapet15Act = new QAction();
+	parapet15Button->setDefaultAction(chooseParapet15Act);
+	connect(chooseParapet15Act, &QAction::triggered, this, &Window::chooseParapet15);
+	parapet15Icon = new QIcon(":/graphics/graphics/parapet15.png");
+	parapet15Button->setIcon(*parapet15Icon);
+	elementMenuLayout->addWidget(parapet15Button, 1, 47);
+
+	parapet16Button = new QToolButton();
+	parapet16Button->setMaximumSize(QSize(elementMenuButtonSize, elementMenuButtonSize));
+	chooseParapet16Act = new QAction();
+	parapet16Button->setDefaultAction(chooseParapet16Act);
+	connect(chooseParapet16Act, &QAction::triggered, this, &Window::chooseParapet16);
+	parapet16Icon = new QIcon(":/graphics/graphics/parapet16.png");
+	parapet16Button->setIcon(*parapet16Icon);
+	elementMenuLayout->addWidget(parapet16Button, 1, 48);
+
+	parapet17Button = new QToolButton();
+	parapet17Button->setMaximumSize(QSize(elementMenuButtonSize, elementMenuButtonSize));
+	chooseParapet17Act = new QAction();
+	parapet17Button->setDefaultAction(chooseParapet17Act);
+	connect(chooseParapet17Act, &QAction::triggered, this, &Window::chooseParapet17);
+	parapet17Icon = new QIcon(":/graphics/graphics/parapet17.png");
+	parapet17Button->setIcon(*parapet17Icon);
+	elementMenuLayout->addWidget(parapet17Button, 1, 6);
+
+	parapet18Button = new QToolButton();
+	parapet18Button->setMaximumSize(QSize(elementMenuButtonSize, elementMenuButtonSize));
+	chooseParapet18Act = new QAction();
+	parapet18Button->setDefaultAction(chooseParapet18Act);
+	connect(chooseParapet18Act, &QAction::triggered, this, &Window::chooseParapet18);
+	parapet18Icon = new QIcon(":/graphics/graphics/parapet18.png");
+	parapet18Button->setIcon(*parapet18Icon);
+	elementMenuLayout->addWidget(parapet18Button, 1, 49);
+
+	parapet19Button = new QToolButton();
+	parapet19Button->setMaximumSize(QSize(elementMenuButtonSize, elementMenuButtonSize));
+	chooseParapet19Act = new QAction();
+	parapet19Button->setDefaultAction(chooseParapet19Act);
+	connect(chooseParapet19Act, &QAction::triggered, this, &Window::chooseParapet19);
+	parapet19Icon = new QIcon(":/graphics/graphics/parapet19.png");
+	parapet19Button->setIcon(*parapet19Icon);
+	elementMenuLayout->addWidget(parapet19Button, 1, 50);
+
+	parapet20Button = new QToolButton();
+	parapet20Button->setMaximumSize(QSize(elementMenuButtonSize, elementMenuButtonSize));
+	chooseParapet20Act = new QAction();
+	parapet20Button->setDefaultAction(chooseParapet20Act);
+	connect(chooseParapet20Act, &QAction::triggered, this, &Window::chooseParapet20);
+	parapet20Icon = new QIcon(":/graphics/graphics/parapet20.png");
+	parapet20Button->setIcon(*parapet20Icon);
+	elementMenuLayout->addWidget(parapet20Button, 1, 51);
+
+	parapet21Button = new QToolButton();
+	parapet21Button->setMaximumSize(QSize(elementMenuButtonSize, elementMenuButtonSize));
+	chooseParapet21Act = new QAction();
+	parapet21Button->setDefaultAction(chooseParapet21Act);
+	connect(chooseParapet21Act, &QAction::triggered, this, &Window::chooseParapet21);
+	parapet21Icon = new QIcon(":/graphics/graphics/parapet21.png");
+	parapet21Button->setIcon(*parapet21Icon);
+	elementMenuLayout->addWidget(parapet21Button, 2, 0);
+
+	parapet22Button = new QToolButton();
+	parapet22Button->setMaximumSize(QSize(elementMenuButtonSize, elementMenuButtonSize));
+	chooseParapet22Act = new QAction();
+	parapet22Button->setDefaultAction(chooseParapet22Act);
+	connect(chooseParapet22Act, &QAction::triggered, this, &Window::chooseParapet22);
+	parapet22Icon = new QIcon(":/graphics/graphics/parapet22.png");
+	parapet22Button->setIcon(*parapet22Icon);
+	elementMenuLayout->addWidget(parapet22Button, 2, 1);
+
+	parapet23Button = new QToolButton();
+	parapet23Button->setMaximumSize(QSize(elementMenuButtonSize, elementMenuButtonSize));
+	chooseParapet23Act = new QAction();
+	parapet23Button->setDefaultAction(chooseParapet23Act);
+	connect(chooseParapet23Act, &QAction::triggered, this, &Window::chooseParapet23);
+	parapet23Icon = new QIcon(":/graphics/graphics/parapet23.png");
+	parapet23Button->setIcon(*parapet23Icon);
+	elementMenuLayout->addWidget(parapet23Button, 2, 2);
+
+	parapet24Button = new QToolButton();
+	parapet24Button->setMaximumSize(QSize(elementMenuButtonSize, elementMenuButtonSize));
+	chooseParapet24Act = new QAction();
+	parapet24Button->setDefaultAction(chooseParapet24Act);
+	connect(chooseParapet24Act, &QAction::triggered, this, &Window::chooseParapet24);
+	parapet24Icon = new QIcon(":/graphics/graphics/parapet24.png");
+	parapet24Button->setIcon(*parapet24Icon);
+	elementMenuLayout->addWidget(parapet24Button, 2, 3);
+
+	parapet25Button = new QToolButton();
+	parapet25Button->setMaximumSize(QSize(elementMenuButtonSize, elementMenuButtonSize));
+	chooseParapet25Act = new QAction();
+	parapet25Button->setDefaultAction(chooseParapet25Act);
+	connect(chooseParapet25Act, &QAction::triggered, this, &Window::chooseParapet25);
+	parapet25Icon = new QIcon(":/graphics/graphics/parapet25.png");
+	parapet25Button->setIcon(*parapet25Icon);
+	elementMenuLayout->addWidget(parapet25Button, 2, 5);
+
+	parapet26Button = new QToolButton();
+	parapet26Button->setMaximumSize(QSize(elementMenuButtonSize, elementMenuButtonSize));
+	chooseParapet26Act = new QAction();
+	parapet26Button->setDefaultAction(chooseParapet26Act);
+	connect(chooseParapet26Act, &QAction::triggered, this, &Window::chooseParapet26);
+	parapet26Icon = new QIcon(":/graphics/graphics/parapet26.png");
+	parapet26Button->setIcon(*parapet26Icon);
+	elementMenuLayout->addWidget(parapet26Button, 2, 6);
+
+	parapet27Button = new QToolButton();
+	parapet27Button->setMaximumSize(QSize(elementMenuButtonSize, elementMenuButtonSize));
+	chooseParapet27Act = new QAction();
+	parapet27Button->setDefaultAction(chooseParapet27Act);
+	connect(chooseParapet27Act, &QAction::triggered, this, &Window::chooseParapet27);
+	parapet27Icon = new QIcon(":/graphics/graphics/parapet27.png");
+	parapet27Button->setIcon(*parapet27Icon);
+	elementMenuLayout->addWidget(parapet27Button, 2, 7);
+
+	parapet28Button = new QToolButton();
+	parapet28Button->setMaximumSize(QSize(elementMenuButtonSize, elementMenuButtonSize));
+	chooseParapet28Act = new QAction();
+	parapet28Button->setDefaultAction(chooseParapet28Act);
+	connect(chooseParapet28Act, &QAction::triggered, this, &Window::chooseParapet28);
+	parapet28Icon = new QIcon(":/graphics/graphics/parapet28.png");
+	parapet28Button->setIcon(*parapet28Icon);
+	elementMenuLayout->addWidget(parapet28Button, 2, 8);
 }
 
 	//SetConvertSpeedDistanceMenu

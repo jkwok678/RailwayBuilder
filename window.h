@@ -946,14 +946,17 @@ private:
 	QWidget *elementMenu;
 	QGridLayout* elementMenuLayout;
 
-	QToolButton *straightHButton;
-	QIcon *straightHIcon;
-	QAction *chooseStraightHAct;
-
 	/*
 	 * ElementBlock1 buttons
 	 * START HERE
 	 */
+
+	int elementMenuButtonSize ={24};
+
+	//StraightHButton
+	QToolButton *straightHButton;
+	QIcon *straightHIcon;
+	QAction *chooseStraightHAct;
 
 	//StraightVButton
 	QToolButton* straightVButton;
@@ -1794,6 +1797,16 @@ private:
 	 * @brief A method to create the part 3 of the element buttons where the user can choose track type.
 	 */
 	void createElementBlock3();
+
+	/**
+	 * @brief A method to create the part 4 of the element buttons where the user can choose element type.
+	 */
+	void createElementBlock4();
+
+	/**
+	 * @brief A method to create the part 5 of the element buttons where the user can choose parapet type.
+	 */
+	void createElementBlock5();
 
 
 	//SetConvertSpeedDistance menu
