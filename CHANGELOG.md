@@ -6,7 +6,7 @@ All notable changes to this project will be documented in this file.
 
 ### Added
 * The GUI for adding Element Block 4,5 (Includes implementation and documentation)
-* The methods for adding Element Block 4,5 to the screen (Includes implementation and documentation) Excluding platforms right now.
+* The methods for adding Element Block 4,5 to the screen (Includes implementation and documentation)
 
 ### Fixed
 * A bug that messed up some button placements in the elementMenu.
