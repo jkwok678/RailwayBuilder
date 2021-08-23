@@ -1397,36 +1397,210 @@ void Canvas::createAddElement(ElementChosen elementToAdd, int overallX, int over
 		{
 			map->createAddNamedLocation(overallX, overallY);
 			//drawnLayout->linkNewBlockToText(finalX,finalY);
+			addedElement = true;
 			break;
 		}
 		case ElementChosen::CONCOURSE:
 		{
 			map->createAddConcourse(overallX,overallY);
 			//drawnLayout->linkNewBlockToText(overallX,overallY);
+			addedElement = true;
 			break;
 		}
 		case ElementChosen::PLATFORMUP:
 		{
 			map->addPlatform(Platform::UP, overallX, overallY);
 			//map->linkNewBlockToText(overallX,overallY);
+			addedElement = true;
 			break;
 		}
 		case ElementChosen::PLATFORMDOWN:
 		{
 			map->addPlatform(Platform::DOWN, overallX, overallY);
 			//map->linkNewBlockToText(overallX,overallY);
+			addedElement = true;
 			break;
 		}
 		case ElementChosen::PLATFORMLEFT:
 		{
 			map->addPlatform(Platform::LEFT, overallX, overallY);
 			//map->linkNewBlockToText(overallX,overallY);
+			addedElement = true;
 			break;
 		}
 		case ElementChosen::PLATFORMRIGHT:
 		{
 			map->addPlatform(Platform::RIGHT, overallX, overallY);
 			//map->linkNewBlockToText(overallX,overallY);
+			addedElement = true;
+			break;
+		}
+		case ElementChosen::PARAPET1:
+		{
+			map->createAddParapets(ParapetType::PARAPET1, overallX, overallY);
+			addedElement = true;
+			break;
+		}
+		case ElementChosen::PARAPET2:
+		{
+			map->createAddParapets(ParapetType::PARAPET2, overallX, overallY);
+			addedElement = true;
+			break;
+		}
+		case ElementChosen::PARAPET3:
+		{
+			map->createAddParapets(ParapetType::PARAPET3, overallX, overallY);
+			addedElement = true;
+			break;
+		}
+		case ElementChosen::PARAPET4:
+		{
+			map->createAddParapets(ParapetType::PARAPET4, overallX, overallY);
+			addedElement = true;
+			break;
+		}
+		case ElementChosen::PARAPET5:
+		{
+			map->createAddParapets(ParapetType::PARAPET5, overallX, overallY);
+			addedElement = true;
+			break;
+		}
+		case ElementChosen::PARAPET6:
+		{
+			map->createAddParapets(ParapetType::PARAPET6, overallX, overallY);
+			addedElement = true;
+			break;
+		}
+		case ElementChosen::PARAPET7:
+		{
+			map->createAddParapets(ParapetType::PARAPET7, overallX, overallY);
+			addedElement = true;
+			break;
+		}
+		case ElementChosen::PARAPET8:
+		{
+			map->createAddParapets(ParapetType::PARAPET8, overallX, overallY);
+			addedElement = true;
+			break;
+		}
+		case ElementChosen::PARAPET9:
+		{
+			map->createAddParapets(ParapetType::PARAPET9, overallX, overallY);
+			addedElement = true;
+			break;
+		}
+		case ElementChosen::PARAPET10:
+		{
+			map->createAddParapets(ParapetType::PARAPET10, overallX, overallY);
+			addedElement = true;
+			break;
+		}
+		case ElementChosen::PARAPET11:
+		{
+			map->createAddParapets(ParapetType::PARAPET11, overallX, overallY);
+			addedElement = true;
+			break;
+		}
+		case ElementChosen::PARAPET12:
+		{
+			map->createAddParapets(ParapetType::PARAPET12, overallX, overallY);
+			addedElement = true;
+			break;
+		}
+		case ElementChosen::PARAPET13:
+		{
+			map->createAddParapets(ParapetType::PARAPET13, overallX, overallY);
+			addedElement = true;
+			break;
+		}
+		case ElementChosen::PARAPET14:
+		{
+			map->createAddParapets(ParapetType::PARAPET14, overallX, overallY);
+			addedElement = true;
+			break;
+		}
+		case ElementChosen::PARAPET15:
+		{
+			map->createAddParapets(ParapetType::PARAPET15, overallX, overallY);
+			addedElement = true;
+			break;
+		}
+		case ElementChosen::PARAPET16:
+		{
+			map->createAddParapets(ParapetType::PARAPET16, overallX, overallY);
+			addedElement = true;
+			break;
+		}
+		case ElementChosen::PARAPET17:
+		{
+			map->createAddParapets(ParapetType::PARAPET17, overallX, overallY);
+			addedElement = true;
+			break;
+		}
+		case ElementChosen::PARAPET18:
+		{
+			map->createAddParapets(ParapetType::PARAPET18, overallX, overallY);
+			addedElement = true;
+			break;
+		}
+		case ElementChosen::PARAPET19:
+		{
+			map->createAddParapets(ParapetType::PARAPET19, overallX, overallY);
+			addedElement = true;
+			break;
+		}
+		case ElementChosen::PARAPET20:
+		{
+			map->createAddParapets(ParapetType::PARAPET20, overallX, overallY);
+			addedElement = true;
+			break;
+		}
+		case ElementChosen::PARAPET21:
+		{
+			map->createAddParapets(ParapetType::PARAPET21, overallX, overallY);
+			addedElement = true;
+			break;
+		}
+		case ElementChosen::PARAPET22:
+		{
+			map->createAddParapets(ParapetType::PARAPET22, overallX, overallY);
+			addedElement = true;
+			break;
+		}
+		case ElementChosen::PARAPET23:
+		{
+			map->createAddParapets(ParapetType::PARAPET23, overallX, overallY);
+			addedElement = true;
+			break;
+		}
+		case ElementChosen::PARAPET24:
+		{
+			map->createAddParapets(ParapetType::PARAPET24, overallX, overallY);
+			addedElement = true;
+			break;
+		}
+		case ElementChosen::PARAPET25:
+		{
+			map->createAddParapets(ParapetType::PARAPET25, overallX, overallY);
+			addedElement = true;
+			break;
+		}
+		case ElementChosen::PARAPET26:
+		{
+			map->createAddParapets(ParapetType::PARAPET26, overallX, overallY);
+			addedElement = true;
+			break;
+		}
+		case ElementChosen::PARAPET27:
+		{
+			map->createAddParapets(ParapetType::PARAPET27, overallX, overallY);
+			addedElement = true;
+			break;
+		}
+		case ElementChosen::PARAPET28:
+		{
+			map->createAddParapets(ParapetType::PARAPET28, overallX, overallY);
+			addedElement = true;
 			break;
 		}
 	}
@@ -1485,6 +1659,7 @@ void Canvas::paintEvent(QPaintEvent *event)
 		drawFlyoverTrack(painter);
 		drawNamedLocation(painter);
 		drawConcourse(painter);
+		drawParapet(painter);
 	}
 
 }
@@ -3131,6 +3306,172 @@ void Canvas::drawConcourse(QPainter &painter)
 				else
 				{
 					painter.drawImage(displayX, displayY, *concourseUnsetImage);
+				}
+			}
+		}
+	}
+}
+
+void Canvas::drawParapet(QPainter &painter)
+{
+	for (std::shared_ptr<Parapet> currentElement : map->getParapetList())
+	{
+		int currentX = currentElement->getLocationX();
+		int currentY = currentElement->getLocationY();
+		int minCoordinateX = (offsetX * canvasSizeX);
+		int maxCoordinateX = ((offsetX+1) * canvasSizeX);
+		int minCoordinateY = ((offsetY-1) * canvasSizeY);
+		int maxCoordinateY = (offsetY*canvasSizeY);;
+		int minDisplayX = (offsetX * canvasSizeX);
+		int maxDisplayY = (offsetY*canvasSizeY);
+		if (currentX >= minCoordinateX && currentX <= maxCoordinateX)
+		{
+			if (currentY >= minCoordinateY && currentY <= maxCoordinateY)
+			{
+				int displayX = currentX- minDisplayX;
+				int displayY = 0-(currentY - maxDisplayY);
+				switch (currentElement->getParapetType())
+				{
+					case ParapetType::PARAPET1:
+					{
+						painter.drawImage(displayX, displayY, *parapet1Image);
+						break;
+					}
+					case ParapetType::PARAPET2:
+					{
+						painter.drawImage(displayX, displayY, *parapet2Image);
+						break;
+					}
+					case ParapetType::PARAPET3:
+					{
+						painter.drawImage(displayX, displayY, *parapet3Image);
+						break;
+					}
+					case ParapetType::PARAPET4:
+					{
+						painter.drawImage(displayX, displayY, *parapet4Image);
+						break;
+					}
+					case ParapetType::PARAPET5:
+					{
+						painter.drawImage(displayX, displayY, *parapet5Image);
+						break;
+					}
+					case ParapetType::PARAPET6:
+					{
+						painter.drawImage(displayX, displayY, *parapet6Image);
+						break;
+					}
+					case ParapetType::PARAPET7:
+					{
+						painter.drawImage(displayX, displayY, *parapet7Image);
+						break;
+					}
+					case ParapetType::PARAPET8:
+					{
+						painter.drawImage(displayX, displayY, *parapet8Image);
+						break;
+					}
+					case ParapetType::PARAPET9:
+					{
+						painter.drawImage(displayX, displayY, *parapet9Image);
+						break;
+					}
+					case ParapetType::PARAPET10:
+					{
+						painter.drawImage(displayX, displayY, *parapet10Image);
+						break;
+					}
+					case ParapetType::PARAPET11:
+					{
+						painter.drawImage(displayX, displayY, *parapet11Image);
+						break;
+					}
+					case ParapetType::PARAPET12:
+					{
+						painter.drawImage(displayX, displayY, *parapet12Image);
+						break;
+					}
+					case ParapetType::PARAPET13:
+					{
+						painter.drawImage(displayX, displayY, *parapet13Image);
+						break;
+					}
+					case ParapetType::PARAPET14:
+					{
+						painter.drawImage(displayX, displayY, *parapet14Image);
+						break;
+					}
+					case ParapetType::PARAPET15:
+					{
+						painter.drawImage(displayX, displayY, *parapet15Image);
+						break;
+					}
+					case ParapetType::PARAPET16:
+					{
+						painter.drawImage(displayX, displayY, *parapet16Image);
+						break;
+					}
+					case ParapetType::PARAPET17:
+					{
+						painter.drawImage(displayX, displayY, *parapet17Image);
+						break;
+					}
+					case ParapetType::PARAPET18:
+					{
+						painter.drawImage(displayX, displayY, *parapet18Image);
+						break;
+					}
+					case ParapetType::PARAPET19:
+					{
+						painter.drawImage(displayX, displayY, *parapet19Image);
+						break;
+					}
+					case ParapetType::PARAPET20:
+					{
+						painter.drawImage(displayX, displayY, *parapet20Image);
+						break;
+					}
+					case ParapetType::PARAPET21:
+					{
+						painter.drawImage(displayX, displayY, *parapet21Image);
+						break;
+					}
+					case ParapetType::PARAPET22:
+					{
+						painter.drawImage(displayX, displayY, *parapet22Image);
+						break;
+					}
+					case ParapetType::PARAPET23:
+					{
+						painter.drawImage(displayX, displayY, *parapet23Image);
+						break;
+					}
+					case ParapetType::PARAPET24:
+					{
+						painter.drawImage(displayX, displayY, *parapet24Image);
+						break;
+					}
+					case ParapetType::PARAPET25:
+					{
+						painter.drawImage(displayX, displayY, *parapet25Image);
+						break;
+					}
+					case ParapetType::PARAPET26:
+					{
+						painter.drawImage(displayX, displayY, *parapet26Image);
+						break;
+					}
+					case ParapetType::PARAPET27:
+					{
+						painter.drawImage(displayX, displayY, *parapet27Image);
+						break;
+					}
+					case ParapetType::PARAPET28:
+					{
+						painter.drawImage(displayX, displayY, *parapet28Image);
+						break;
+					}
 				}
 			}
 		}

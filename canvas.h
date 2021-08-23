@@ -888,6 +888,12 @@ private:
 	 * @param painter
 	 */
 	void drawConcourse(QPainter &painter);
+
+	/**
+	 * @brief Draw Parapets onto the canvas.
+	 * @param painter
+	 */
+	void drawParapet(QPainter &painter);
 };
 
 #endif // CANVAS_H
