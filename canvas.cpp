@@ -1402,31 +1402,31 @@ void Canvas::createAddElement(ElementChosen elementToAdd, int overallX, int over
 		case ElementChosen::CONCOURSE:
 		{
 			map->createAddConcourse(overallX,overallY);
-			//drawnLayout->linkNewBlockToText(finalX,finalY);
+			//drawnLayout->linkNewBlockToText(overallX,overallY);
 			break;
 		}
 		case ElementChosen::PLATFORMUP:
 		{
-			//map->addPlatform(Platform::UP, finalX, finalY);
-			//map->linkNewBlockToText(finalX,finalY);
+			map->addPlatform(Platform::UP, overallX, overallY);
+			//map->linkNewBlockToText(overallX,overallY);
 			break;
 		}
 		case ElementChosen::PLATFORMDOWN:
 		{
-			//map->addPlatform(Platform::DOWN, finalX, finalY);
-			//map->linkNewBlockToText(finalX,finalY);
+			map->addPlatform(Platform::DOWN, overallX, overallY);
+			//map->linkNewBlockToText(overallX,overallY);
 			break;
 		}
 		case ElementChosen::PLATFORMLEFT:
 		{
-			//map->addPlatform(Platform::LEFT, finalX, finalY);
-			//map->linkNewBlockToText(finalX,finalY);
+			map->addPlatform(Platform::LEFT, overallX, overallY);
+			//map->linkNewBlockToText(overallX,overallY);
 			break;
 		}
 		case ElementChosen::PLATFORMRIGHT:
 		{
-			//map->addPlatform(Platform::RIGHT, finalX, finalY);
-			//map->linkNewBlockToText(finalX,finalY);
+			map->addPlatform(Platform::RIGHT, overallX, overallY);
+			//map->linkNewBlockToText(overallX,overallY);
 			break;
 		}
 	}

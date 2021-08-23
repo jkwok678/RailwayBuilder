@@ -581,6 +581,10 @@ public:
 	 * @return Parapet at (X,Y) if there is one, otherwise return a nullptr.
 	 */
 	std::shared_ptr<Parapet> getParapetAt(int locationX,int locationY);
+
+	//Platform related methods
+
+	void addPlatform(Platform side, int locationX, int locationY);
 };
 
 #endif // MAP_H

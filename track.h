@@ -4,8 +4,17 @@
 #include <iostream>
 #include "element.h"
 
-
-
+/**
+ * @brief The Platform enum.
+ *
+ * This enum is for the the platforms that can be placed on the side of the track.
+ */
+enum class Platform {
+	LEFT,
+	RIGHT,
+	UP,
+	DOWN
+};
 
 /**
  * @brief The StraightType enum.
