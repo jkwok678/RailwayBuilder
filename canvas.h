@@ -876,6 +876,18 @@ private:
 	 * @param painter
 	 */
 	void drawFlyoverTrack(QPainter &painter);
+
+	/**
+	 * @brief Draw NamedLocations onto the canvas.
+	 * @param painter
+	 */
+	void drawNamedLocation(QPainter &painter);
+
+	/**
+	 * @brief Draw Concourses onto the canvas.
+	 * @param painter
+	 */
+	void drawConcourse(QPainter &painter);
 };
 
 #endif // CANVAS_H

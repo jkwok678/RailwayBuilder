@@ -3239,7 +3239,7 @@ void Window::createElementBlock5()
 	connect(chooseParapet3Act, &QAction::triggered, this, &Window::chooseParapet3);
 	parapet3Icon = new QIcon(":/graphics/graphics/parapet3.png");
 	parapet3Button->setIcon(*parapet3Icon);
-	elementMenuLayout->addWidget(parapet3Button, 0, 2);
+	elementMenuLayout->addWidget(parapet3Button, 0, 45);
 
 	parapet4Button = new QToolButton();
 	parapet4Button->setMaximumSize(QSize(elementMenuButtonSize, elementMenuButtonSize));
@@ -3248,7 +3248,7 @@ void Window::createElementBlock5()
 	connect(chooseParapet4Act, &QAction::triggered, this, &Window::chooseParapet4);
 	parapet4Icon = new QIcon(":/graphics/graphics/parapet4.png");
 	parapet4Button->setIcon(*parapet4Icon);
-	elementMenuLayout->addWidget(parapet4Button, 0, 45);
+	elementMenuLayout->addWidget(parapet4Button, 0, 46);
 
 	parapet5Button = new QToolButton();
 	parapet5Button->setMaximumSize(QSize(elementMenuButtonSize, elementMenuButtonSize));
@@ -3257,7 +3257,7 @@ void Window::createElementBlock5()
 	connect(chooseParapet5Act, &QAction::triggered, this, &Window::chooseParapet5);
 	parapet5Icon = new QIcon(":/graphics/graphics/parapet5.png");
 	parapet5Button->setIcon(*parapet5Icon);
-	elementMenuLayout->addWidget(parapet5Button, 0, 46);
+	elementMenuLayout->addWidget(parapet5Button, 0, 47);
 
 	parapet6Button = new QToolButton();
 	parapet6Button->setMaximumSize(QSize(elementMenuButtonSize, elementMenuButtonSize));
@@ -3266,7 +3266,7 @@ void Window::createElementBlock5()
 	connect(chooseParapet6Act, &QAction::triggered, this, &Window::chooseParapet6);
 	parapet6Icon = new QIcon(":/graphics/graphics/parapet6.png");
 	parapet6Button->setIcon(*parapet6Icon);
-	elementMenuLayout->addWidget(parapet6Button, 0, 47);
+	elementMenuLayout->addWidget(parapet6Button, 0, 48);
 
 	parapet7Button = new QToolButton();
 	parapet7Button->setMaximumSize(QSize(elementMenuButtonSize, elementMenuButtonSize));
@@ -3275,7 +3275,7 @@ void Window::createElementBlock5()
 	connect(chooseParapet7Act, &QAction::triggered, this, &Window::chooseParapet7);
 	parapet7Icon = new QIcon(":/graphics/graphics/parapet7.png");
 	parapet7Button->setIcon(*parapet7Icon);
-	elementMenuLayout->addWidget(parapet7Button, 0, 48);
+	elementMenuLayout->addWidget(parapet7Button, 0, 49);
 
 	parapet8Button = new QToolButton();
 	parapet8Button->setMaximumSize(QSize(elementMenuButtonSize, elementMenuButtonSize));
@@ -3284,7 +3284,7 @@ void Window::createElementBlock5()
 	connect(chooseParapet8Act, &QAction::triggered, this, &Window::chooseParapet8);
 	parapet8Icon = new QIcon(":/graphics/graphics/parapet8.png");
 	parapet8Button->setIcon(*parapet8Icon);
-	elementMenuLayout->addWidget(parapet8Button, 0, 49);
+	elementMenuLayout->addWidget(parapet8Button, 0, 50);
 
 	parapet9Button = new QToolButton();
 	parapet9Button->setMaximumSize(QSize(elementMenuButtonSize, elementMenuButtonSize));
@@ -3293,7 +3293,7 @@ void Window::createElementBlock5()
 	connect(chooseParapet9Act, &QAction::triggered, this, &Window::chooseParapet9);
 	parapet9Icon = new QIcon(":/graphics/graphics/parapet9.png");
 	parapet9Button->setIcon(*parapet9Icon);
-	elementMenuLayout->addWidget(parapet9Button, 0, 50);
+	elementMenuLayout->addWidget(parapet9Button, 0, 51);
 
 	parapet10Button = new QToolButton();
 	parapet10Button->setMaximumSize(QSize(elementMenuButtonSize, elementMenuButtonSize));
@@ -3302,7 +3302,7 @@ void Window::createElementBlock5()
 	connect(chooseParapet10Act, &QAction::triggered, this, &Window::chooseParapet10);
 	parapet10Icon = new QIcon(":/graphics/graphics/parapet10.png");
 	parapet10Button->setIcon(*parapet10Icon);
-	elementMenuLayout->addWidget(parapet10Button, 0, 51);
+	elementMenuLayout->addWidget(parapet10Button, 0, 52);
 
 	parapet11Button = new QToolButton();
 	parapet11Button->setMaximumSize(QSize(elementMenuButtonSize, elementMenuButtonSize));
@@ -3365,7 +3365,7 @@ void Window::createElementBlock5()
 	connect(chooseParapet17Act, &QAction::triggered, this, &Window::chooseParapet17);
 	parapet17Icon = new QIcon(":/graphics/graphics/parapet17.png");
 	parapet17Button->setIcon(*parapet17Icon);
-	elementMenuLayout->addWidget(parapet17Button, 1, 6);
+	elementMenuLayout->addWidget(parapet17Button, 1, 49);
 
 	parapet18Button = new QToolButton();
 	parapet18Button->setMaximumSize(QSize(elementMenuButtonSize, elementMenuButtonSize));
@@ -3374,7 +3374,7 @@ void Window::createElementBlock5()
 	connect(chooseParapet18Act, &QAction::triggered, this, &Window::chooseParapet18);
 	parapet18Icon = new QIcon(":/graphics/graphics/parapet18.png");
 	parapet18Button->setIcon(*parapet18Icon);
-	elementMenuLayout->addWidget(parapet18Button, 1, 49);
+	elementMenuLayout->addWidget(parapet18Button, 1, 50);
 
 	parapet19Button = new QToolButton();
 	parapet19Button->setMaximumSize(QSize(elementMenuButtonSize, elementMenuButtonSize));
@@ -3383,7 +3383,7 @@ void Window::createElementBlock5()
 	connect(chooseParapet19Act, &QAction::triggered, this, &Window::chooseParapet19);
 	parapet19Icon = new QIcon(":/graphics/graphics/parapet19.png");
 	parapet19Button->setIcon(*parapet19Icon);
-	elementMenuLayout->addWidget(parapet19Button, 1, 50);
+	elementMenuLayout->addWidget(parapet19Button, 1, 51);
 
 	parapet20Button = new QToolButton();
 	parapet20Button->setMaximumSize(QSize(elementMenuButtonSize, elementMenuButtonSize));
@@ -3392,7 +3392,7 @@ void Window::createElementBlock5()
 	connect(chooseParapet20Act, &QAction::triggered, this, &Window::chooseParapet20);
 	parapet20Icon = new QIcon(":/graphics/graphics/parapet20.png");
 	parapet20Button->setIcon(*parapet20Icon);
-	elementMenuLayout->addWidget(parapet20Button, 1, 51);
+	elementMenuLayout->addWidget(parapet20Button, 1, 52);
 
 	parapet21Button = new QToolButton();
 	parapet21Button->setMaximumSize(QSize(elementMenuButtonSize, elementMenuButtonSize));
@@ -3401,7 +3401,7 @@ void Window::createElementBlock5()
 	connect(chooseParapet21Act, &QAction::triggered, this, &Window::chooseParapet21);
 	parapet21Icon = new QIcon(":/graphics/graphics/parapet21.png");
 	parapet21Button->setIcon(*parapet21Icon);
-	elementMenuLayout->addWidget(parapet21Button, 2, 0);
+	elementMenuLayout->addWidget(parapet21Button, 2, 43);
 
 	parapet22Button = new QToolButton();
 	parapet22Button->setMaximumSize(QSize(elementMenuButtonSize, elementMenuButtonSize));
@@ -3410,7 +3410,7 @@ void Window::createElementBlock5()
 	connect(chooseParapet22Act, &QAction::triggered, this, &Window::chooseParapet22);
 	parapet22Icon = new QIcon(":/graphics/graphics/parapet22.png");
 	parapet22Button->setIcon(*parapet22Icon);
-	elementMenuLayout->addWidget(parapet22Button, 2, 1);
+	elementMenuLayout->addWidget(parapet22Button, 2, 44);
 
 	parapet23Button = new QToolButton();
 	parapet23Button->setMaximumSize(QSize(elementMenuButtonSize, elementMenuButtonSize));
@@ -3419,7 +3419,7 @@ void Window::createElementBlock5()
 	connect(chooseParapet23Act, &QAction::triggered, this, &Window::chooseParapet23);
 	parapet23Icon = new QIcon(":/graphics/graphics/parapet23.png");
 	parapet23Button->setIcon(*parapet23Icon);
-	elementMenuLayout->addWidget(parapet23Button, 2, 2);
+	elementMenuLayout->addWidget(parapet23Button, 2, 45);
 
 	parapet24Button = new QToolButton();
 	parapet24Button->setMaximumSize(QSize(elementMenuButtonSize, elementMenuButtonSize));
@@ -3428,7 +3428,9 @@ void Window::createElementBlock5()
 	connect(chooseParapet24Act, &QAction::triggered, this, &Window::chooseParapet24);
 	parapet24Icon = new QIcon(":/graphics/graphics/parapet24.png");
 	parapet24Button->setIcon(*parapet24Icon);
-	elementMenuLayout->addWidget(parapet24Button, 2, 3);
+	elementMenuLayout->addWidget(parapet24Button, 2, 46);
+
+	elementMenuLayout->addItem(new QSpacerItem(elementMenuButtonSize,elementMenuButtonSize),2,47);
 
 	parapet25Button = new QToolButton();
 	parapet25Button->setMaximumSize(QSize(elementMenuButtonSize, elementMenuButtonSize));
@@ -3437,7 +3439,7 @@ void Window::createElementBlock5()
 	connect(chooseParapet25Act, &QAction::triggered, this, &Window::chooseParapet25);
 	parapet25Icon = new QIcon(":/graphics/graphics/parapet25.png");
 	parapet25Button->setIcon(*parapet25Icon);
-	elementMenuLayout->addWidget(parapet25Button, 2, 5);
+	elementMenuLayout->addWidget(parapet25Button, 2, 48);
 
 	parapet26Button = new QToolButton();
 	parapet26Button->setMaximumSize(QSize(elementMenuButtonSize, elementMenuButtonSize));
@@ -3446,7 +3448,7 @@ void Window::createElementBlock5()
 	connect(chooseParapet26Act, &QAction::triggered, this, &Window::chooseParapet26);
 	parapet26Icon = new QIcon(":/graphics/graphics/parapet26.png");
 	parapet26Button->setIcon(*parapet26Icon);
-	elementMenuLayout->addWidget(parapet26Button, 2, 6);
+	elementMenuLayout->addWidget(parapet26Button, 2, 49);
 
 	parapet27Button = new QToolButton();
 	parapet27Button->setMaximumSize(QSize(elementMenuButtonSize, elementMenuButtonSize));
@@ -3455,7 +3457,7 @@ void Window::createElementBlock5()
 	connect(chooseParapet27Act, &QAction::triggered, this, &Window::chooseParapet27);
 	parapet27Icon = new QIcon(":/graphics/graphics/parapet27.png");
 	parapet27Button->setIcon(*parapet27Icon);
-	elementMenuLayout->addWidget(parapet27Button, 2, 7);
+	elementMenuLayout->addWidget(parapet27Button, 2, 50);
 
 	parapet28Button = new QToolButton();
 	parapet28Button->setMaximumSize(QSize(elementMenuButtonSize, elementMenuButtonSize));
@@ -3464,7 +3466,7 @@ void Window::createElementBlock5()
 	connect(chooseParapet28Act, &QAction::triggered, this, &Window::chooseParapet28);
 	parapet28Icon = new QIcon(":/graphics/graphics/parapet28.png");
 	parapet28Button->setIcon(*parapet28Icon);
-	elementMenuLayout->addWidget(parapet28Button, 2, 8);
+	elementMenuLayout->addWidget(parapet28Button, 2, 51);
 }
 
 	//SetConvertSpeedDistanceMenu

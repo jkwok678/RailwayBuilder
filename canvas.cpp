@@ -1483,6 +1483,8 @@ void Canvas::paintEvent(QPaintEvent *event)
 		drawSwitchTrack(painter);
 		drawCrossoverTrack(painter);
 		drawFlyoverTrack(painter);
+		drawNamedLocation(painter);
+		drawConcourse(painter);
 	}
 
 }
@@ -3067,6 +3069,68 @@ void Canvas::drawFlyoverTrack(QPainter &painter)
 						painter.drawImage(displayX, displayY, *flyover12Image);
 						break;
 					}
+				}
+			}
+		}
+	}
+}
+
+void Canvas::drawNamedLocation(QPainter &painter)
+{
+	for (std::shared_ptr<NamedLocation> currentElement : map->getNamedLocationList())
+	{
+		int currentX = currentElement->getLocationX();
+		int currentY = currentElement->getLocationY();
+		int minCoordinateX = (offsetX * canvasSizeX);
+		int maxCoordinateX = ((offsetX+1) * canvasSizeX);
+		int minCoordinateY = ((offsetY-1) * canvasSizeY);
+		int maxCoordinateY = (offsetY*canvasSizeY);;
+		int minDisplayX = (offsetX * canvasSizeX);
+		int maxDisplayY = (offsetY*canvasSizeY);
+		if (currentX >= minCoordinateX && currentX <= maxCoordinateX)
+		{
+			if (currentY >= minCoordinateY && currentY <= maxCoordinateY)
+			{
+				int displayX = currentX- minDisplayX;
+				int displayY = 0-(currentY - maxDisplayY);
+				if (currentElement->getNamed())
+				{
+					painter.drawImage(displayX, displayY, *namedLocationSetImage);
+				}
+				else
+				{
+					painter.drawImage(displayX, displayY, *namedLocationUnsetImage);
+				}
+			}
+		}
+	}
+}
+
+void Canvas::drawConcourse(QPainter &painter)
+{
+	for (std::shared_ptr<Concourse> currentElement : map->getConcourseList())
+	{
+		int currentX = currentElement->getLocationX();
+		int currentY = currentElement->getLocationY();
+		int minCoordinateX = (offsetX * canvasSizeX);
+		int maxCoordinateX = ((offsetX+1) * canvasSizeX);
+		int minCoordinateY = ((offsetY-1) * canvasSizeY);
+		int maxCoordinateY = (offsetY*canvasSizeY);;
+		int minDisplayX = (offsetX * canvasSizeX);
+		int maxDisplayY = (offsetY*canvasSizeY);
+		if (currentX >= minCoordinateX && currentX <= maxCoordinateX)
+		{
+			if (currentY >= minCoordinateY && currentY <= maxCoordinateY)
+			{
+				int displayX = currentX- minDisplayX;
+				int displayY = 0-(currentY - maxDisplayY);
+				if (currentElement->getNamed())
+				{
+					painter.drawImage(displayX, displayY, *concourseSetImage);
+				}
+				else
+				{
+					painter.drawImage(displayX, displayY, *concourseUnsetImage);
 				}
 			}
 		}

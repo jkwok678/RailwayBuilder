@@ -5,6 +5,15 @@ All notable changes to this project will be documented in this file.
 ## Core features - 19/08/2021
 
 ### Added
+* The GUI for adding Element Block 4,5 (Includes implementation and documentation)
+* The methods for adding Element Block 4,5 to the screen (Includes implementation and documentation) Excluding platforms right now.
+
+### Fixed
+* A bug that messed up some button placements in the elementMenu.
+
+## Core features - 19/08/2021
+
+### Added
 * The GUI for adding Element Block 3 (Includes implementation and documentation)
 * The methods for adding Element Block 3 to the screen (Includes implementation and documentation)
 
