@@ -175,6 +175,50 @@ void Map::addFlyoverTrack(std::shared_ptr<FlyoverTrack> newFlyoverTrack)
 	}
 }
 
+void Map::addNamedLocation(std::shared_ptr<NamedLocation> newNamedLocation)
+{
+	int tempLocationX = newNamedLocation->getLocationX();
+	int templocationY = newNamedLocation->getLocationY();
+	if (!checkElementExists(tempLocationX, templocationY))
+	{
+		namedLocationList.push_back(newNamedLocation);
+	}
+	else
+	{
+		showElementAlreadyThereError();
+	}
+}
+
+void Map::addConcourse(std::shared_ptr<Concourse> newConcourseTrack)
+{
+	int tempLocationX = newConcourseTrack->getLocationX();
+	int templocationY = newConcourseTrack->getLocationY();
+	if (!checkElementExists(tempLocationX, templocationY))
+	{
+		concourseList.push_back(newConcourseTrack);
+	}
+	else
+	{
+		showElementAlreadyThereError();
+	}
+}
+
+void Map::addParapet(std::shared_ptr<Parapet> newParapet)
+{
+
+	int tempLocationX = newParapet->getLocationX();
+	int templocationY = newParapet->getLocationY();
+	if (!checkElementExists(tempLocationX, templocationY))
+	{
+		parapetList.push_back(newParapet);
+	}
+	else
+	{
+		showElementAlreadyThereError();
+	}
+
+}
+
 //public
 
 Map::Map()
@@ -815,4 +859,117 @@ std::shared_ptr<FlyoverTrack> Map::getFlyoverTrackAt(int locationX, int location
 		}
 	}
 	return flyoverTrack;
+}
+
+//NamedLocation related methods
+
+std::vector<std::shared_ptr<NamedLocation> > Map::getNamedLocationList() const
+{
+	return namedLocationList;
+}
+
+void Map::setNamedLocationList(const std::vector<std::shared_ptr<NamedLocation> >& newNamedLocationList)
+{
+	namedLocationList = newNamedLocationList;
+}
+
+void Map::createAddNamedLocation(int overallX, int overallY)
+{
+	std::shared_ptr<NamedLocation> namedLocation(new NamedLocation(overallX, overallY));
+	addNamedLocation(namedLocation);
+}
+
+std::shared_ptr<NamedLocation> Map::getNamedLocationAt(int locationX, int locationY)
+{
+	std::shared_ptr<NamedLocation> namedLocation = nullptr;
+	if (!namedLocationList.empty())
+	{
+		for (std::shared_ptr<NamedLocation>& currentElement : namedLocationList)
+		{
+			int currentX = currentElement->getLocationX();
+			int currentY = currentElement->getLocationY();
+			if (currentX == locationX && currentY == locationY)
+			{
+				namedLocation = currentElement;
+				break;
+			}
+		}
+	}
+	return namedLocation;
+}
+
+//Concourse related methods
+
+std::vector<std::shared_ptr<Concourse> > Map::getConcourseList() const
+{
+	return concourseList;
+}
+
+void Map::setConcourseList(const std::vector<std::shared_ptr<Concourse> >& newConcourseList)
+{
+	concourseList = newConcourseList;
+}
+
+void Map::createAddConcourse(int overallX, int overallY)
+{
+	std::shared_ptr<Concourse> concourse(new Concourse(overallX, overallY));
+	addConcourse(concourse);
+}
+
+std::shared_ptr<Concourse> Map::getConcourseAt(int locationX, int locationY)
+{
+	std::shared_ptr<Concourse> concourse = nullptr;
+	if (!concourseList.empty())
+	{
+		for (std::shared_ptr<Concourse>& currentElement : concourseList)
+		{
+			int currentX = currentElement->getLocationX();
+			int currentY = currentElement->getLocationY();
+			if (currentX == locationX && currentY == locationY)
+			{
+				concourse = currentElement;
+				break;
+			}
+		}
+	}
+	return concourse;
+}
+
+//Parapet related methods
+
+std::vector<std::shared_ptr<Parapet> > Map::getParapetList() const
+{
+	return parapetList;
+}
+
+void Map::setParapetList(const std::vector<std::shared_ptr<Parapet> >& newParapetList)
+{
+	parapetList = newParapetList;
+}
+
+void Map::createAddParapets(ParapetType parapetType, int overallX, int overallY)
+{
+	std::shared_ptr<Parapet> parapet(new Parapet(parapetType, overallX, overallY));
+	addParapet(parapet);
+}
+
+std::shared_ptr<Parapet> Map::getParapetAt(int locationX, int locationY)
+{
+	bool found = false;
+	std::shared_ptr<Parapet> parapet = nullptr;
+	if (!parapetList.empty())
+	{
+		for (std::shared_ptr<Parapet>& currentElement : parapetList)
+		{
+			int currentX = currentElement->getLocationX();
+			int currentY = currentElement->getLocationY();
+			if (currentX == locationX && currentY == locationY)
+			{
+				parapet = currentElement;
+				found = true;
+				break;
+			}
+		}
+	}
+	return parapet;
 }

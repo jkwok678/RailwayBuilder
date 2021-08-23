@@ -721,7 +721,7 @@ void Canvas::setSignalAspectToAdd(int newSignalAspectToAdd)
 
 void Canvas::createAddElement(ElementChosen elementToAdd, int overallX, int overallY)
 {
-	bool addedTrack = false;
+	bool addedElement = false;
 	switch (elementToAdd)
 	{
 		case ElementChosen::NONE:
@@ -735,662 +735,698 @@ void Canvas::createAddElement(ElementChosen elementToAdd, int overallX, int over
 		case ElementChosen::STRAIGHTH:
 		{
 			map->createAddStraightTrack(StraightType::STRAIGHTH, overallX, overallY);
-			addedTrack = true;
+			addedElement = true;
 			break;
 		}
 		case ElementChosen::STRAIGHTV:
 		{
 			map->createAddStraightTrack(StraightType::STRAIGHTV, overallX, overallY);
-			addedTrack = true;
+			addedElement = true;
 			break;
 		}
 		case ElementChosen::DIRECTEDLEFT:
 		{
 			map->createAddDirectedTrack(DirectedType::DIRECTEDLEFT, overallX, overallY);
-			addedTrack = true;
+			addedElement = true;
 			break;
 		}
 		case ElementChosen::DIRECTEDRIGHT:
 		{
 			map->createAddDirectedTrack(DirectedType::DIRECTEDRIGHT, overallX, overallY);
-			addedTrack = true;
+			addedElement = true;
 			break;
 		}
 		case ElementChosen::DIRECTEDUP:
 		{
 			map->createAddDirectedTrack(DirectedType::DIRECTEDUP, overallX, overallY);
-			addedTrack = true;
+			addedElement = true;
 			break;
 		}
 		case ElementChosen::DIRECTEDDOWN:
 		{
 			map->createAddDirectedTrack(DirectedType::DIRECTEDDOWN, overallX, overallY);
-			addedTrack = true;
+			addedElement = true;
 			break;
 		}
 		case ElementChosen::STRAIGHTRIGHTUP:
 		{
 			map->createAddStraightTrack(StraightType::STRAIGHTRIGHTUP, overallX, overallY);
-			addedTrack = true;
+			addedElement = true;
 			break;
 		}
 		case ElementChosen::STRAIGHTLEFTUP:
 		{
 			map->createAddStraightTrack(StraightType::STRAIGHTLEFTUP, overallX, overallY);
-			addedTrack = true;
+			addedElement = true;
 			break;
 		}
 		case ElementChosen::DIRECTEDRIGHTUP:
 		{
 			map->createAddDirectedTrack(DirectedType::DIRECTEDRIGHTUP, overallX, overallY);
-			addedTrack = true;
+			addedElement = true;
 			break;
 		}
 		case ElementChosen::DIRECTEDLEFTUP:
 		{
 			map->createAddDirectedTrack(DirectedType::DIRECTEDLEFTUP, overallX, overallY);
-			addedTrack = true;
+			addedElement = true;
 			break;
 		}
 		case ElementChosen::DIRECTEDLEFTDOWN:
 		{
 			map->createAddDirectedTrack(DirectedType::DIRECTEDLEFTDOWN, overallX, overallY);
-			addedTrack = true;
+			addedElement = true;
 			break;
 		}
 		case ElementChosen::DIRECTEDRIGHTDOWN:
 		{
 			map->createAddDirectedTrack(DirectedType::DIRECTEDRIGHTDOWN, overallX, overallY);
-			addedTrack = true;
+			addedElement = true;
 			break;
 		}
 		case ElementChosen::TIGHTCURVE1:
 		{
 			map->createAddCurvedTrack(CurvedType::TIGHTCURVE1, overallX, overallY);
-			addedTrack = true;
+			addedElement = true;
 			break;
 		}
 		case ElementChosen::TIGHTCURVE2:
 		{
 			map->createAddCurvedTrack(CurvedType::TIGHTCURVE2, overallX, overallY);
-			addedTrack = true;
+			addedElement = true;
 			break;
 		}
 		case ElementChosen::TIGHTCURVE3:
 		{
 			map->createAddCurvedTrack(CurvedType::TIGHTCURVE3, overallX, overallY);
-			addedTrack = true;
+			addedElement = true;
 			break;
 		}
 		case ElementChosen::TIGHTCURVE4:
 		{
 			map->createAddCurvedTrack(CurvedType::TIGHTCURVE4, overallX, overallY);
-			addedTrack = true;
+			addedElement = true;
 			break;
 		}
 		case ElementChosen::CURVE1:
 		{
 			map->createAddCurvedTrack(CurvedType::CURVE1, overallX, overallY);
-			addedTrack = true;
+			addedElement = true;
 			break;
 		}
 		case ElementChosen::CURVE2:
 		{
 			map->createAddCurvedTrack(CurvedType::CURVE2, overallX, overallY);
-			addedTrack = true;
+			addedElement = true;
 			break;
 		}
 		case ElementChosen::CURVE3:
 		{
 			map->createAddCurvedTrack(CurvedType::CURVE3, overallX, overallY);
-			addedTrack = true;
+			addedElement = true;
 			break;
 		}
 		case ElementChosen::CURVE4:
 		{
 			map->createAddCurvedTrack(CurvedType::CURVE4, overallX, overallY);
-			addedTrack = true;
+			addedElement = true;
 			break;
 		}
 		case ElementChosen::LINKLEFT:
 		{
 			map->createAddLinkedTrack(LinkedType::LINKLEFT, overallX, overallY);
-			addedTrack = true;
+			addedElement = true;
 			break;
 		}
 		case ElementChosen::LINKRIGHT:
 		{
 			map->createAddLinkedTrack(LinkedType::LINKRIGHT, overallX, overallY);
-			addedTrack = true;
+			addedElement = true;
 			break;
 		}
 		case ElementChosen::LINKDOWN:
 		{
 			map->createAddLinkedTrack(LinkedType::LINKDOWN, overallX, overallY);
-			addedTrack = true;
+			addedElement = true;
 			break;
 		}
 		case ElementChosen::LINKUP:
 		{
 			map->createAddLinkedTrack(LinkedType::LINKUP, overallX, overallY);
-			addedTrack = true;
+			addedElement = true;
 			break;
 		}
 		case ElementChosen::LINKLEFTUP:
 		{
 			map->createAddLinkedTrack(LinkedType::LINKLEFTUP, overallX, overallY);
-			addedTrack = true;
+			addedElement = true;
 			break;
 		}
 		case ElementChosen::LINKRIGHTUP:
 		{
 			map->createAddLinkedTrack(LinkedType::LINKRIGHTUP, overallX, overallY);
-			addedTrack = true;
+			addedElement = true;
 			break;
 		}
 		case ElementChosen::LINKRIGHTDOWN:
 		{
 			map->createAddLinkedTrack(LinkedType::LINKRIGHTDOWN, overallX, overallY);
-			addedTrack = true;
+			addedElement = true;
 			break;
 		}
 		case ElementChosen::LINKLEFTDOWN:
 		{
 			map->createAddLinkedTrack(LinkedType::LINKLEFTDOWN, overallX, overallY);
-			addedTrack = true;
+			addedElement = true;
 			break;
 		}
 		case ElementChosen::EXITLEFT:
 		{
 			map->createAddExitTrack(ExitType::EXITLEFT, overallX, overallY);
-			addedTrack = true;
+			addedElement = true;
 			break;
 		}
 		case ElementChosen::EXITRIGHT:
 		{
 			map->createAddExitTrack(ExitType::EXITRIGHT, overallX, overallY);
-			addedTrack = true;
+			addedElement = true;
 			break;
 		}
 		case ElementChosen::EXITDOWN:
 		{
 			map->createAddExitTrack(ExitType::EXITDOWN, overallX, overallY);
-			addedTrack = true;
+			addedElement = true;
 			break;
 		}
 		case ElementChosen::EXITUP:
 		{
 			map->createAddExitTrack(ExitType::EXITUP, overallX, overallY);
-			addedTrack = true;
+			addedElement = true;
 			break;
 		}
 		case ElementChosen::EXITLEFTUP:
 		{
 			map->createAddExitTrack(ExitType::EXITLEFTUP, overallX, overallY);
-			addedTrack = true;
+			addedElement = true;
 			break;
 		}
 		case ElementChosen::EXITRIGHTUP:
 		{
 			map->createAddExitTrack(ExitType::EXITRIGHTUP, overallX, overallY);
-			addedTrack = true;
+			addedElement = true;
 			break;
 		}
 		case ElementChosen::EXITLEFTDOWN:
 		{
 			map->createAddExitTrack(ExitType::EXITLEFTDOWN, overallX, overallY);
-			addedTrack = true;
+			addedElement = true;
 			break;
 		}
 		case ElementChosen::EXITRIGHTDOWN:
 		{
 			map->createAddExitTrack(ExitType::EXITRIGHTDOWN, overallX, overallY);
-			addedTrack = true;
+			addedElement = true;
 			break;
 		}
 		case ElementChosen::CURVE5:
 		{
 			map->createAddCurvedTrack(CurvedType::CURVE5, overallX, overallY);
-			addedTrack = true;
+			addedElement = true;
 			break;
 		}
 		case ElementChosen::CURVE6:
 		{
 			map->createAddCurvedTrack(CurvedType::CURVE6, overallX, overallY);
-			addedTrack = true;
+			addedElement = true;
 			break;
 		}
 		case ElementChosen::CURVE7:
 		{
 			map->createAddCurvedTrack(CurvedType::CURVE7, overallX, overallY);
-			addedTrack = true;
+			addedElement = true;
 			break;
 		}
 		case ElementChosen::CURVE8:
 		{
 			map->createAddCurvedTrack(CurvedType::CURVE8, overallX, overallY);
-			addedTrack = true;
+			addedElement = true;
 			break;
 		}
 		case ElementChosen::BUFFERLEFT:
 		{
 			map->createAddBufferTrack(BufferType::BUFFERLEFT, overallX, overallY);
-			addedTrack = true;
+			addedElement = true;
 			break;
 		}
 		case ElementChosen::BUFFERRIGHT:
 		{
 			map->createAddBufferTrack(BufferType::BUFFERRIGHT, overallX, overallY);
-			addedTrack = true;
+			addedElement = true;
 			break;
 		}
 		case ElementChosen::BUFFERDOWN:
 		{
 			map->createAddBufferTrack(BufferType::BUFFERDOWN, overallX, overallY);
-			addedTrack = true;
+			addedElement = true;
 			break;
 		}
 		case ElementChosen::BUFFERUP:
 		{
 			map->createAddBufferTrack(BufferType::BUFFERUP, overallX, overallY);
-			addedTrack = true;
+			addedElement = true;
 			break;
 		}
 
 		case ElementChosen::BUFFERLEFTUP:
 		{
 			map->createAddBufferTrack(BufferType::BUFFERLEFTUP, overallX, overallY);
-			addedTrack = true;
+			addedElement = true;
 			break;
 		}
 		case ElementChosen::BUFFERRIGHTUP:
 		{
 			map->createAddBufferTrack(BufferType::BUFFERRIGHTUP, overallX, overallY);
-			addedTrack = true;
+			addedElement = true;
 			break;
 		}
 		case ElementChosen::BUFFERLEFTDOWN:
 		{
 			map->createAddBufferTrack(BufferType::BUFFERLEFTDOWN, overallX, overallY);
-			addedTrack = true;
+			addedElement = true;
 			break;
 		}
 		case ElementChosen::BUFFERRIGHTDOWN:
 		{
 			map->createAddBufferTrack(BufferType::BUFFERRIGHTDOWN, overallX, overallY);
-			addedTrack = true;
+			addedElement = true;
 			break;
 		}
 		case ElementChosen::SIGNALLEFT:
 		{
 			map->createAddSignalTrack(SignalType::SIGNALLEFT,signalAspectToAdd, overallX, overallY);
-			addedTrack = true;
+			addedElement = true;
 			break;
 		}
 		case ElementChosen::SIGNALRIGHT:
 		{
 			map->createAddSignalTrack(SignalType::SIGNALRIGHT,signalAspectToAdd, overallX, overallY);
-			addedTrack = true;
+			addedElement = true;
 			break;
 		}
 		case ElementChosen::SIGNALDOWN:
 		{
 			map->createAddSignalTrack(SignalType::SIGNALDOWN,signalAspectToAdd, overallX, overallY);
-			addedTrack = true;
+			addedElement = true;
 			break;
 		}
 		case ElementChosen::SIGNALUP:
 		{
 			map->createAddSignalTrack(SignalType::SIGNALUP,signalAspectToAdd, overallX, overallY);
-			addedTrack = true;
+			addedElement = true;
 			break;
 		}
 		case ElementChosen::SIGNALLEFTUP:
 		{
 			map->createAddSignalTrack(SignalType::SIGNALLEFTUP,signalAspectToAdd, overallX, overallY);
-			addedTrack = true;
+			addedElement = true;
 			break;
 		}
 		case ElementChosen::SIGNALRIGHTUP:
 		{
 			map->createAddSignalTrack(SignalType::SIGNALRIGHTUP,signalAspectToAdd, overallX, overallY);
-			addedTrack = true;
+			addedElement = true;
 			break;
 		}
 		case ElementChosen::SIGNALLEFTDOWN:
 		{
 			map->createAddSignalTrack(SignalType::SIGNALLEFTDOWN,signalAspectToAdd, overallX, overallY);
-			addedTrack = true;
+			addedElement = true;
 			break;
 		}
 		case ElementChosen::SIGNALRIGHTDOWN:
 		{
 			map->createAddSignalTrack(SignalType::SIGNALRIGHTDOWN,signalAspectToAdd, overallX, overallY);
-			addedTrack = true;
+			addedElement = true;
 			break;
 		}
 		case ElementChosen::BRIDGE1:
 		{
 			map->createAddBridgeUnderpassTrack(BridgeUnderpassType::BRIDGE1, overallX, overallY);
-			addedTrack = true;
+			addedElement = true;
 			break;
 		}
 		case ElementChosen::BRIDGE2:
 		{
 			map->createAddBridgeUnderpassTrack(BridgeUnderpassType::BRIDGE2, overallX, overallY);
-			addedTrack = true;
+			addedElement = true;
 			break;
 		}
 		case ElementChosen::UNDERPASS1:
 		{
 			map->createAddBridgeUnderpassTrack(BridgeUnderpassType::UNDERPASS1, overallX, overallY);
-			addedTrack = true;
+			addedElement = true;
 			break;
 		}
 		case ElementChosen::UNDERPASS2:
 		{
 			map->createAddBridgeUnderpassTrack(BridgeUnderpassType::UNDERPASS2, overallX, overallY);
-			addedTrack = true;
+			addedElement = true;
 			break;
 		}
 		case ElementChosen::SWITCHTIGHT1:
 		{
 			map->createAddSwitchTrack(SwitchType::SWITCHTIGHT1, overallX, overallY);
-			addedTrack = true;
+			addedElement = true;
 			break;
 		}
 		case ElementChosen::SWITCHTIGHT2:
 		{
 			map->createAddSwitchTrack(SwitchType::SWITCHTIGHT2, overallX, overallY);
-			addedTrack = true;
+			addedElement = true;
 			break;
 		}
 		case ElementChosen::SWITCHTIGHT3:
 		{
 			map->createAddSwitchTrack(SwitchType::SWITCHTIGHT3, overallX, overallY);
-			addedTrack = true;
+			addedElement = true;
 			break;
 		}
 		case ElementChosen::SWITCHTIGHT4:
 		{
 			map->createAddSwitchTrack(SwitchType::SWITCHTIGHT4, overallX, overallY);
-			addedTrack = true;
+			addedElement = true;
 			break;
 		}
 		case ElementChosen::SWITCHTIGHT5:
 		{
 			map->createAddSwitchTrack(SwitchType::SWITCHTIGHT5, overallX, overallY);
-			addedTrack = true;
+			addedElement = true;
 			break;
 		}
 		case ElementChosen::SWITCHTIGHT6:
 		{
 			map->createAddSwitchTrack(SwitchType::SWITCHTIGHT6, overallX, overallY);
-			addedTrack = true;
+			addedElement = true;
 			break;
 		}
 		case ElementChosen::SWITCHTIGHT7:
 		{
 			map->createAddSwitchTrack(SwitchType::SWITCHTIGHT7, overallX, overallY);
-			addedTrack = true;
+			addedElement = true;
 			break;
 		}
 		case ElementChosen::SWITCHTIGHT8:
 		{
 			map->createAddSwitchTrack(SwitchType::SWITCHTIGHT8, overallX, overallY);
-			addedTrack = true;
+			addedElement = true;
 			break;
 		}
 		case ElementChosen::SWITCHSPLIT1:
 		{
 			map->createAddSwitchTrack(SwitchType::SWITCHSPLIT1, overallX, overallY);
-			addedTrack = true;
+			addedElement = true;
 			break;
 		}
 		case ElementChosen::SWITCHSPLIT2:
 		{
 			map->createAddSwitchTrack(SwitchType::SWITCHSPLIT2, overallX, overallY);
-			addedTrack = true;
+			addedElement = true;
 			break;
 		}
 		case ElementChosen::SWITCHSPLIT3:
 		{
 			map->createAddSwitchTrack(SwitchType::SWITCHSPLIT3, overallX, overallY);
-			addedTrack = true;
+			addedElement = true;
 			break;
 		}
 		case ElementChosen::SWITCH1:
 		{
 			map->createAddSwitchTrack(SwitchType::SWITCH1, overallX, overallY);
-			addedTrack = true;
+			addedElement = true;
 			break;
 		}
 		case ElementChosen::SWITCH2:
 		{
 			map->createAddSwitchTrack(SwitchType::SWITCH2, overallX, overallY);
-			addedTrack = true;
+			addedElement = true;
 			break;
 		}
 		case ElementChosen::SWITCH3:
 		{
 			map->createAddSwitchTrack(SwitchType::SWITCH3, overallX, overallY);
-			addedTrack = true;
+			addedElement = true;
 			break;
 		}
 		case ElementChosen::SWITCH4:
 		{
 			map->createAddSwitchTrack(SwitchType::SWITCH4, overallX, overallY);
-			addedTrack = true;
+			addedElement = true;
 			break;
 		}
 		case ElementChosen::SWITCH5:
 		{
 			map->createAddSwitchTrack(SwitchType::SWITCH5, overallX, overallY);
-			addedTrack = true;
+			addedElement = true;
 			break;
 		}
 		case ElementChosen::SWITCH6:
 		{
 			map->createAddSwitchTrack(SwitchType::SWITCH6, overallX, overallY);
-			addedTrack = true;
+			addedElement = true;
 			break;
 		}
 		case ElementChosen::SWITCH7:
 		{
 			map->createAddSwitchTrack(SwitchType::SWITCH7, overallX, overallY);
-			addedTrack = true;
+			addedElement = true;
 			break;
 		}
 		case ElementChosen::SWITCH8:
 		{
 			map->createAddSwitchTrack(SwitchType::SWITCH8, overallX, overallY);
-			addedTrack = true;
+			addedElement = true;
 			break;
 		}
 		case ElementChosen::SWITCHSPLIT4:
 		{
 			map->createAddSwitchTrack(SwitchType::SWITCHSPLIT4, overallX, overallY);
-			addedTrack = true;
+			addedElement = true;
 			break;
 		}
 		case ElementChosen::SWITCHSPLIT5:
 		{
 			map->createAddSwitchTrack(SwitchType::SWITCHSPLIT5, overallX, overallY);
-			addedTrack = true;
+			addedElement = true;
 			break;
 		}
 		case ElementChosen::SWITCHSPLIT6:
 		{
 			map->createAddSwitchTrack(SwitchType::SWITCHSPLIT6, overallX, overallY);
-			addedTrack = true;
+			addedElement = true;
 			break;
 		}
 		case ElementChosen::SWITCH9:
 		{
 			map->createAddSwitchTrack(SwitchType::SWITCH9, overallX, overallY);
-			addedTrack = true;
+			addedElement = true;
 			break;
 		}
 		case ElementChosen::SWITCH10:
 		{
 			map->createAddSwitchTrack(SwitchType::SWITCH10, overallX, overallY);
-			addedTrack = true;
+			addedElement = true;
 			break;
 		}
 		case ElementChosen::SWITCH11:
 		{
 			map->createAddSwitchTrack(SwitchType::SWITCH11, overallX, overallY);
-			addedTrack = true;
+			addedElement = true;
 			break;
 		}
 		case ElementChosen::SWITCH12:
 		{
 			map->createAddSwitchTrack(SwitchType::SWITCH12, overallX, overallY);
-			addedTrack = true;
+			addedElement = true;
 			break;
 		}
 		case ElementChosen::SWITCH13:
 		{
 			map->createAddSwitchTrack(SwitchType::SWITCH13, overallX, overallY);
-			addedTrack = true;
+			addedElement = true;
 			break;
 		}
 		case ElementChosen::SWITCH14:
 		{
 			map->createAddSwitchTrack(SwitchType::SWITCH14, overallX, overallY);
-			addedTrack = true;
+			addedElement = true;
 			break;
 		}
 		case ElementChosen::SWITCH15:
 		{
 			map->createAddSwitchTrack(SwitchType::SWITCH15, overallX, overallY);
-			addedTrack = true;
+			addedElement = true;
 			break;
 		}
 		case ElementChosen::SWITCH16:
 		{
 			map->createAddSwitchTrack(SwitchType::SWITCH16, overallX, overallY);
-			addedTrack = true;
+			addedElement = true;
 			break;
 		}
 		case ElementChosen::SWITCHSPLIT7:
 		{
 			map->createAddSwitchTrack(SwitchType::SWITCHSPLIT7, overallX, overallY);
-			addedTrack = true;
+			addedElement = true;
 			break;
 		}
 		case ElementChosen::SWITCHSPLIT8:
 		{
 			map->createAddSwitchTrack(SwitchType::SWITCHSPLIT8, overallX, overallY);
-			addedTrack = true;
+			addedElement = true;
 			break;
 		}
 		case ElementChosen::CROSSOVER1:
 		{
 			map->createAddCrossoverTrack(CrossoverType::CROSSOVER1, overallX, overallY);
-			addedTrack = true;
+			addedElement = true;
 			break;
 		}
 		case ElementChosen::CROSSOVER2:
 		{
 			map->createAddCrossoverTrack(CrossoverType::CROSSOVER2, overallX, overallY);
-			addedTrack = true;
+			addedElement = true;
 			break;
 		}
 		case ElementChosen::FLYOVER1:
 		{
 			map->createAddFlyoverTrack(FlyoverType::FLYOVER1, overallX, overallY);
-			addedTrack = true;
+			addedElement = true;
 			break;
 		}
 		case ElementChosen::FLYOVER2:
 		{
 			map->createAddFlyoverTrack(FlyoverType::FLYOVER2, overallX, overallY);
-			addedTrack = true;
+			addedElement = true;
 			break;
 		}
 		case ElementChosen::FLYOVER3:
 		{
 			map->createAddFlyoverTrack(FlyoverType::FLYOVER3, overallX, overallY);
-			addedTrack = true;
+			addedElement = true;
 			break;
 		}
 		case ElementChosen::FLYOVER4:
 		{
 			map->createAddFlyoverTrack(FlyoverType::FLYOVER4, overallX, overallY);
-			addedTrack = true;
+			addedElement = true;
 			break;
 		}
 		case ElementChosen::CROSSOVER3:
 		{
 			map->createAddCrossoverTrack(CrossoverType::CROSSOVER3, overallX, overallY);
-			addedTrack = true;
+			addedElement = true;
 			break;
 		}
 		case ElementChosen::CROSSOVER4:
 		{
 			map->createAddCrossoverTrack(CrossoverType::CROSSOVER4, overallX, overallY);
-			addedTrack = true;
+			addedElement = true;
 			break;
 		}
 		case ElementChosen::FLYOVER5:
 		{
 			map->createAddFlyoverTrack(FlyoverType::FLYOVER5, overallX, overallY);
-			addedTrack = true;
+			addedElement = true;
 			break;
 		}
 		case ElementChosen::FLYOVER6:
 		{
 			map->createAddFlyoverTrack(FlyoverType::FLYOVER6, overallX, overallY);
-			addedTrack = true;
+			addedElement = true;
 			break;
 		}
 		case ElementChosen::FLYOVER7:
 		{
 			map->createAddFlyoverTrack(FlyoverType::FLYOVER7, overallX, overallY);
-			addedTrack = true;
+			addedElement = true;
 			break;
 		}
 		case ElementChosen::FLYOVER8:
 		{
 			map->createAddFlyoverTrack(FlyoverType::FLYOVER8, overallX, overallY);
-			addedTrack = true;
+			addedElement = true;
 			break;
 		}
 		case ElementChosen::CROSSOVER5:
 		{
 			map->createAddCrossoverTrack(CrossoverType::CROSSOVER5, overallX, overallY);
-			addedTrack = true;
+			addedElement = true;
 			break;
 		}
 		case ElementChosen::CROSSOVER6:
 		{
 			map->createAddCrossoverTrack(CrossoverType::CROSSOVER6, overallX, overallY);
-			addedTrack = true;
+			addedElement = true;
 			break;
 		}
 		case ElementChosen::FLYOVER9:
 		{
 			map->createAddFlyoverTrack(FlyoverType::FLYOVER9, overallX, overallY);
-			addedTrack = true;
+			addedElement = true;
 			break;
 		}
 		case ElementChosen::FLYOVER10:
 		{
 			map->createAddFlyoverTrack(FlyoverType::FLYOVER10, overallX, overallY);
-			addedTrack = true;
+			addedElement = true;
 			break;
 		}
 		case ElementChosen::FLYOVER11:
 		{
 			map->createAddFlyoverTrack(FlyoverType::FLYOVER11, overallX, overallY);
-			addedTrack = true;
+			addedElement = true;
 			break;
 		}
 		case ElementChosen::FLYOVER12:
 		{
 			map->createAddFlyoverTrack(FlyoverType::FLYOVER12, overallX, overallY);
-			addedTrack = true;
+			addedElement = true;
+			break;
+		}
+		case ElementChosen::NAMEDLOCATION:
+		{
+			map->createAddNamedLocation(overallX, overallY);
+			//drawnLayout->linkNewBlockToText(finalX,finalY);
+			break;
+		}
+		case ElementChosen::CONCOURSE:
+		{
+			map->createAddConcourse(overallX,overallY);
+			//drawnLayout->linkNewBlockToText(finalX,finalY);
+			break;
+		}
+		case ElementChosen::PLATFORMUP:
+		{
+			//map->addPlatform(Platform::UP, finalX, finalY);
+			//map->linkNewBlockToText(finalX,finalY);
+			break;
+		}
+		case ElementChosen::PLATFORMDOWN:
+		{
+			//map->addPlatform(Platform::DOWN, finalX, finalY);
+			//map->linkNewBlockToText(finalX,finalY);
+			break;
+		}
+		case ElementChosen::PLATFORMLEFT:
+		{
+			//map->addPlatform(Platform::LEFT, finalX, finalY);
+			//map->linkNewBlockToText(finalX,finalY);
+			break;
+		}
+		case ElementChosen::PLATFORMRIGHT:
+		{
+			//map->addPlatform(Platform::RIGHT, finalX, finalY);
+			//map->linkNewBlockToText(finalX,finalY);
 			break;
 		}
 	}
@@ -1415,7 +1451,7 @@ void Canvas::mousePressEvent(QMouseEvent *event)
 	int overallX = calculateOverallXCoordinate(roundedX);
 	int overallY = calculateOverallYCoordinate(roundedY);
 
-	bool addedTrack = false;
+	bool addedElement = false;
 	if (event->button() == Qt::LeftButton)
 	{
 		createAddElement(elementChosen, overallX, overallY);

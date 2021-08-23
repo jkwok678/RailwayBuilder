@@ -121,7 +121,6 @@ private:
 	 */
 	void addConcourse(std::shared_ptr<Concourse> newConcourse);
 
-
 	/**
 	 * @brief Adds a new Parapet to the vector.
 	 * @param newParapet The new Parapet to add.
@@ -573,7 +572,7 @@ public:
 	 * @param overallX X coordinate to look at.
 	 * @param overallY Y coordinate to look at.
 	 */
-	void createAddParapets(int overallX, int overallY);
+	void createAddParapets(ParapetType parapetType, int overallX, int overallY);
 
 	/**
 	 * @brief Gets the Parapet at given coordinates if one exists there.
