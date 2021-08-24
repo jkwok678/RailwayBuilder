@@ -2006,6 +2006,20 @@ void Window::chooseParapet28()
 	}
 }
 
+//Element block 6 slots.
+
+void Window::chooseLevelCrossing()
+{
+	if (drawingArea->getMode() == Mode::ADDREMOVETRACK && drawingArea->getElementChosen() != ElementChosen::LEVELCROSSING)
+	{
+		drawingArea->setElementChosen(ElementChosen::LEVELCROSSING);
+	}
+	else
+	{
+		drawingArea->setElementChosen(ElementChosen::NONE);
+	}
+}
+
 //Right hand side menu.
 
 void Window::moveRightOnCanvas()
@@ -2128,6 +2142,7 @@ void Window::createElementMenu()
 	createElementBlock3();
 	createElementBlock4();
 	createElementBlock5();
+	createElementBlock6();
 }
 
 void Window::createElementBlock1()
@@ -3467,6 +3482,24 @@ void Window::createElementBlock5()
 	parapet28Icon = new QIcon(":/graphics/graphics/parapet28.png");
 	parapet28Button->setIcon(*parapet28Icon);
 	elementMenuLayout->addWidget(parapet28Button, 2, 51);
+}
+
+void Window::createElementBlock6()
+{
+	elementMenuLayout->addItem(new QSpacerItem(elementMenuButtonSize,elementMenuButtonSize),0,52);
+	elementMenuLayout->addItem(new QSpacerItem(elementMenuButtonSize,elementMenuButtonSize),1,52);
+	elementMenuLayout->addItem(new QSpacerItem(elementMenuButtonSize,elementMenuButtonSize),2,52);
+
+
+	levelCrossingButton = new QToolButton();
+	levelCrossingButton->setMaximumSize(QSize(32, 32));
+	chooseLevelCrossingAct = new QAction();
+	levelCrossingButton->setDefaultAction(chooseLevelCrossingAct);
+	connect(chooseLevelCrossingAct, &QAction::triggered, this, &Window::chooseLevelCrossing);
+	levelCrossingIcon = new QIcon(":/graphics/graphics/levelCrossingIcon.png");
+	levelCrossingButton->setIcon(*levelCrossingIcon);
+	//levelCrossingButton->setAutoRaise(true);
+	elementMenuLayout->addWidget(levelCrossingButton, 2, 53);
 }
 
 	//SetConvertSpeedDistanceMenu

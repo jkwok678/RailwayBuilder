@@ -883,6 +883,16 @@ private slots:
 	 */
 	void chooseParapet28();
 
+	/*
+	 *ElementBlock6 slots
+	 *STARTS HERE
+	 */
+
+	/**
+	 * @brief A slot to select level crossings to place on screen.
+	 */
+	void chooseLevelCrossing();
+
 	//Right hand side menu.
 
 	/**
@@ -1702,6 +1712,17 @@ private:
 	QAction* chooseParapet28Act;
 	QIcon* parapet28Icon;
 
+	/*
+	 * ElementBlock6 buttons
+	 * START HERE
+	 */
+
+	//LevelCrossingButton
+	QToolButton* levelCrossingButton;
+	QAction* chooseLevelCrossingAct;
+	QIcon* levelCrossingIcon;
+
+
 	//SetConvertSpeedDistance menu
 
 
@@ -1807,6 +1828,11 @@ private:
 	 * @brief A method to create the part 5 of the element buttons where the user can choose parapet type.
 	 */
 	void createElementBlock5();
+
+	/**
+	 * @brief A method to create the part 6 of the element buttons where the user can choose the level crossing.
+	 */
+	void createElementBlock6();
 
 
 	//SetConvertSpeedDistance menu
