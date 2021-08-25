@@ -1420,3 +1420,22 @@ void Map::addPlatform(Platform side, int locationX, int locationY)
 		}
 	}
 }
+
+void Map::addLevelCrossing(int locationX, int locationY)
+{
+	for (int i = 0; i < straightTrackList.size(); i++)
+		{
+			std::shared_ptr<StraightTrack>& currentElement = straightTrackList[i];
+			int currentX = currentElement->getLocationX();
+			int currentY = currentElement->getLocationY();
+			bool platform1 = currentElement->getPlatform1();
+			bool platform2 = currentElement->getPlatform2();
+			if (currentX == locationX && currentY == locationY)
+			{
+				if (!platform1 && !platform2)
+				{
+					currentElement->addLevelCrossing();
+				}
+			}
+		}
+}

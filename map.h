@@ -585,6 +585,8 @@ public:
 	//Platform related methods
 
 	void addPlatform(Platform side, int locationX, int locationY);
+
+	void addLevelCrossing( int locationX, int locationY);
 };
 
 #endif // MAP_H

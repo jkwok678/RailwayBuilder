@@ -1603,6 +1603,12 @@ void Canvas::createAddElement(ElementChosen elementToAdd, int overallX, int over
 			addedElement = true;
 			break;
 		}
+		case ElementChosen::LEVELCROSSING:
+		{
+			map->addLevelCrossing(overallX, overallY);
+			addedElement = true;
+			break;
+		}
 	}
 }
 

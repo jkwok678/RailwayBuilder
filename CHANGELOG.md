@@ -2,7 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
-## Core features - 19/08/2021
+## Core features - 25/08/2021
+
+### Added
+* The GUI is able to add everything to the screen.
+
+## Core features - 22/08/2021
 
 ### Added
 * The GUI for adding Element Block 4,5 (Includes implementation and documentation)
