@@ -14,7 +14,6 @@
 #include "map.h"
 #include "mode.h"
 #include "elementChosen.h"
-#include "colour.h"
 
 
 /**
@@ -78,6 +77,23 @@ public:
 	 * It then stores them all in the named pointer variables
 	 */
 	void loadMixColourTrackImages();
+	/**
+	 * @brief A method to add all track images onto a vector.
+	 */
+	void fillImageList();
+
+	const QColor getCanvasColour() const;
+	void setCanvasColour(QColor newCanvasColour);
+
+	/**
+	 * @brief A method to change the canvas colour.
+	 */
+	void canvasChangeColour();
+
+	/**
+	 * @brief A method to change the track colour.
+	 */
+	void trackChangeColour();
 
 	/**
 	 * @brief Get the offset of the canvas in the X direction.
@@ -182,6 +198,8 @@ public:
 
 
 
+
+
 signals:
 
 public slots:
@@ -193,7 +211,9 @@ protected:
 private:
 
 	QPalette pal;
-	Colour canvasColour{Colour::WHITE};
+	QColor canvasColour;
+	//This list is for changing the track colour for bright and dark backgrounds
+	std::vector<QImage*> imageList;
 	Mode mode{Mode::NONE};
 	ElementChosen elementChosen{ElementChosen::NONE};
 	int signalAspectToAdd{4};

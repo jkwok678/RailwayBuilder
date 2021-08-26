@@ -81,6 +81,23 @@ public:
 
 private slots:
 
+	//Canvas colour slots
+
+	/**
+	 * @brief A method to setup the canvas to have a white background.
+	 */
+	void canvasToWhite();
+
+	/**
+	 * @brief A method to setup the canvas to have a dark blue background.
+	 */
+	void canvasToDarkBlue();
+
+	/**
+	 * @brief A method to setup the canvas to have a black background.
+	 */
+	void canvasToBlack();
+
 	/**
 	 * @brief A slot to open the element menu to place elements on screen.
 	 */
@@ -924,6 +941,9 @@ private:
 	QMenuBar *menuBar;
 	QMenu *fileMenu;
 	QMenu *modeMenu;
+	QAction *toWhiteBackgroundAct;
+	QAction *toDarkBlueBackgroundAct;
+	QAction *toBlackBackgroundAct;
 
 
 
@@ -1784,6 +1804,11 @@ private:
 	 * @version 0.1
 	 */
 	void createMenuBar();
+
+	/**
+	 * @brief A method to create the mode menu.
+	 */
+	void createModeMenu();
 
 	/**
 	 * @brief A method to create the overall menu of the program.

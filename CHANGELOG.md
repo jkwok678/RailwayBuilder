@@ -5,6 +5,12 @@ All notable changes to this project will be documented in this file.
 ## Core features - 25/08/2021
 
 ### Added
+* A feature that allows the user to change the background of the canvas.
+
+
+## Core features - 25/08/2021
+
+### Added
 * The GUI is able to add everything to the screen.
 
 ## Core features - 22/08/2021

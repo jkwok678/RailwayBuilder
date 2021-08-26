@@ -139,6 +139,28 @@ double Window::convertSpeed(double speed)
 
 //private slots
 
+void Window::canvasToWhite()
+{
+	drawingArea->setCanvasColour(Qt::white);
+	drawingArea->canvasChangeColour();
+	drawingArea->trackChangeColour();
+}
+
+void Window::canvasToDarkBlue()
+{
+	drawingArea->setCanvasColour(Qt::darkBlue);
+	drawingArea->canvasChangeColour();
+	drawingArea->trackChangeColour();
+}
+
+void Window::canvasToBlack()
+{
+	drawingArea->setCanvasColour(Qt::black);
+	drawingArea->canvasChangeColour();
+	drawingArea->trackChangeColour();
+}
+
+
 void Window::openElementMenu()
 {
 	//Set the QStackWidget to the AddMoveTrack menu if it isn't on there yet.
@@ -2053,8 +2075,31 @@ void Window::createMenuBar()
 	menuBar = new QMenuBar();
 	fileMenu = new QMenu("File");
 	modeMenu = new QMenu("Mode");
+	createModeMenu();
 	menuBar->addMenu(fileMenu);
 	menuBar->addMenu(modeMenu);
+}
+
+void Window::createModeMenu()
+{
+	/*
+	openBuildModifyAct = new QAction(tr("&Build/Modify Menu"), this);
+	openBuildModifyAct->setShortcut(QKeySequence(Qt::CTRL + Qt::Key_B));
+	connect(openBuildModifyAct, &QAction::triggered, this, &Window::openBuildModifyMenu);
+	modeMenu->addAction(openBuildModifyAct);
+	*/
+
+	toWhiteBackgroundAct = new QAction(tr("&White Background"), this);
+	connect(toWhiteBackgroundAct, &QAction::triggered, this, &Window::canvasToWhite);
+	modeMenu->addAction(toWhiteBackgroundAct);
+
+	toDarkBlueBackgroundAct = new QAction(tr("&Dark Blue Background"), this);
+	connect(toDarkBlueBackgroundAct, &QAction::triggered, this, &Window::canvasToDarkBlue);
+	modeMenu->addAction(toDarkBlueBackgroundAct);
+
+	toBlackBackgroundAct = new QAction(tr("&Black Background"), this);
+	connect(toBlackBackgroundAct, &QAction::triggered, this, &Window::canvasToBlack);
+	modeMenu->addAction(toBlackBackgroundAct);
 }
 
 void Window::createOverallMenu()

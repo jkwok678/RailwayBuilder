@@ -5,7 +5,9 @@ Canvas::Canvas()
 	setMinimumSize(640,480);
 	QPalette pal = palette();
 	// set white background
-	pal.setColor(QPalette::Window, Qt::white);
+
+	canvasColour = Qt::white;
+	pal.setColor(QPalette::Window, canvasColour);
 	map = new Map();
 
 	//Hints
@@ -15,6 +17,7 @@ Canvas::Canvas()
 	setAutoFillBackground(true);
 	loadAllTrackImages();
 	setPalette(pal);
+	fillImageList();
 }
 
 void Canvas::loadAllTrackImages()
@@ -646,6 +649,230 @@ void Canvas::loadAllBlueTrackImages()
 	flyover10BlueImage = new QImage(":/graphicsBlue/graphicsBlue/flyover10Blue.png");
 	flyover11BlueImage = new QImage(":/graphicsBlue/graphicsBlue/flyover11Blue.png");
 	flyover12BlueImage = new QImage(":/graphicsBlue/graphicsBlue/flyover12Blue.png");
+}
+
+void Canvas::fillImageList()
+{
+	//ElementBlock1 images
+	   imageList.push_back(straightHImage);
+	   imageList.push_back(straightVImage);
+	   imageList.push_back(directLeftImage);
+	   imageList.push_back(directRightImage);
+	   imageList.push_back(directUpImage);
+	   imageList.push_back(directDownImage);
+	   imageList.push_back(straightLeftUpImage);
+	   imageList.push_back(straightRightUpImage);
+	   imageList.push_back(directLeftUpImage);
+	   imageList.push_back(directRightUpImage);
+	   imageList.push_back(directRightDownImage);
+	   imageList.push_back(directLeftDownImage);
+	   imageList.push_back(tightCurve1Image);
+	   imageList.push_back(tightCurve2Image);
+	   imageList.push_back(tightCurve3Image);
+	   imageList.push_back(tightCurve4Image);
+	   imageList.push_back(curve1Image);
+	   imageList.push_back(curve2Image);
+	   imageList.push_back(curve3Image);
+	   imageList.push_back(curve4Image);
+
+	   imageList.push_back(linkLeftUnsetImage);
+	   imageList.push_back(linkRightUnsetImage);
+	   imageList.push_back(linkDownUnsetImage);
+	   imageList.push_back(linkUpUnsetImage);
+	   imageList.push_back(linkLeftUpUnsetImage);
+	   imageList.push_back(linkRightUpUnsetImage);
+	   imageList.push_back(linkRightDownUnsetImage);
+	   imageList.push_back(linkLeftDownUnsetImage);
+	   imageList.push_back(linkLeftSetImage);
+	   imageList.push_back(linkRightSetImage);
+	   imageList.push_back(linkDownSetImage);
+	   imageList.push_back(linkUpSetImage);
+	   imageList.push_back(linkLeftUpSetImage);
+	   imageList.push_back(linkRightUpSetImage);
+	   imageList.push_back(linkRightDownSetImage);
+	   imageList.push_back(linkLeftDownSetImage);
+	   imageList.push_back(exitLeftImage);
+	   imageList.push_back(exitRightImage);
+	   imageList.push_back(exitDownImage);
+	   imageList.push_back(exitUpImage);
+	   imageList.push_back(exitLeftUpImage);
+	   imageList.push_back(exitRightUpImage);
+	   imageList.push_back(exitLeftDownImage);
+	   imageList.push_back(exitRightDownImage);
+	   imageList.push_back(curve5Image);
+	   imageList.push_back(curve6Image);
+	   imageList.push_back(curve7Image);
+	   imageList.push_back(curve8Image);
+
+	   imageList.push_back(bufferLeftImage);
+	   imageList.push_back(bufferRightImage);
+	   imageList.push_back(bufferDownImage);
+	   imageList.push_back(bufferUpImage);
+	   imageList.push_back(bufferLeftUpImage);
+	   imageList.push_back(bufferRightUpImage);
+	   imageList.push_back(bufferLeftDownImage);
+	   imageList.push_back(bufferRightDownImage);
+	   imageList.push_back(signalLeftImage);
+	   imageList.push_back(signalRightImage);
+	   imageList.push_back(signalDownImage);
+	   imageList.push_back(signalUpImage);
+	   imageList.push_back(signalLeftUpImage);
+	   imageList.push_back(signalRightUpImage);
+	   imageList.push_back(signalLeftDownImage);
+	   imageList.push_back(signalRightDownImage);
+	   imageList.push_back(shuntLeftImage);
+	   imageList.push_back(shuntRightImage);
+	   imageList.push_back(shuntDownImage);
+	   imageList.push_back(shuntUpImage);
+	   imageList.push_back(shuntLeftUpImage);
+	   imageList.push_back(shuntRightUpImage);
+	   imageList.push_back(shuntLeftDownImage);
+	   imageList.push_back(shuntRightDownImage);
+	   imageList.push_back(bridgeUnset1Image);
+	   imageList.push_back(bridgeUnset2Image);
+	   imageList.push_back(underpassUnset1Image);
+	   imageList.push_back(underpassUnset2Image);
+	   imageList.push_back(bridgeSet1Image);
+	   imageList.push_back(bridgeSet2Image);
+	   imageList.push_back(underpassSet1Image);
+	   imageList.push_back(underpassSet2Image);
+
+	   //ElementBlock2 images
+
+	   imageList.push_back(switchTight1Image);
+	   imageList.push_back(switchTight2Image);
+	   imageList.push_back(switchTight3Image);
+	   imageList.push_back(switchTight4Image);
+	   imageList.push_back(switchTight5Image);
+	   imageList.push_back(switchTight6Image);
+	   imageList.push_back(switchTight7Image);
+	   imageList.push_back(switchTight8Image);
+	   imageList.push_back(switchSplit1Image);
+	   imageList.push_back(switchSplit2Image);
+	   imageList.push_back(switchSplit3Image);
+
+	   imageList.push_back(switch1Image);
+	   imageList.push_back(switch2Image);
+	   imageList.push_back(switch3Image);
+	   imageList.push_back(switch4Image);
+	   imageList.push_back(switch5Image);
+	   imageList.push_back(switch6Image);
+	   imageList.push_back(switch7Image);
+	   imageList.push_back(switch8Image);
+	   imageList.push_back(switchSplit4Image);
+	   imageList.push_back(switchSplit5Image);
+	   imageList.push_back(switchSplit6Image);
+
+	   imageList.push_back(switch9Image);
+	   imageList.push_back(switch10Image);
+	   imageList.push_back(switch11Image);
+	   imageList.push_back(switch12Image);
+	   imageList.push_back(switch13Image);
+	   imageList.push_back(switch14Image);
+	   imageList.push_back(switch15Image);
+	   imageList.push_back(switch16Image);
+	   imageList.push_back(switchSplit7Image);
+	   imageList.push_back(switchSplit8Image);
+
+
+
+	   //ElementBlock3 images
+
+	   imageList.push_back(crossover1Image);
+	   imageList.push_back(crossover2Image);
+	   imageList.push_back(flyover1Image);
+	   imageList.push_back(flyover2Image);
+	   imageList.push_back(flyover3Image);
+	   imageList.push_back(flyover4Image);
+
+	   imageList.push_back(crossover3Image);
+	   imageList.push_back(crossover4Image);
+	   imageList.push_back(flyover5Image);
+	   imageList.push_back(flyover6Image);
+	   imageList.push_back(flyover7Image);
+	   imageList.push_back(flyover8Image);
+
+	   imageList.push_back(crossover5Image);
+	   imageList.push_back(crossover6Image);
+	   imageList.push_back(flyover9Image);
+	   imageList.push_back(flyover10Image);
+	   imageList.push_back(flyover11Image);
+	   imageList.push_back(flyover12Image);
+
+	   //ElementBlock6Image
+	   levelCrossingHImage = new QImage(":/graphics/graphics/levelCrossingH.png");
+	   levelCrossingVImage = new QImage(":/graphics/graphics/levelCrossingV.png");
+}
+
+const QColor Canvas::getCanvasColour() const
+{
+	return canvasColour;
+}
+
+void Canvas::setCanvasColour(QColor newCanvasColour)
+{
+	canvasColour = newCanvasColour;
+}
+
+void Canvas::canvasChangeColour()
+{
+	if (canvasColour == Qt::white)
+	{
+		pal.setColor(QPalette::Window, Qt::white);
+	}
+	else if (canvasColour == Qt::darkBlue)
+	{
+		pal.setColor(QPalette::Window, Qt::darkBlue);
+	}
+	else
+	{
+		pal.setColor(QPalette::Window, Qt::black);
+	}
+	setPalette(pal);
+	show();
+}
+
+void Canvas::trackChangeColour()
+{
+	if (canvasColour == Qt::white)
+		{
+			for (QImage* image : imageList)
+			{
+				int height = image->height();
+				int width = image->width();
+				for (int y=0; y<height; y++)
+				{
+					for (int x=0; x<width;x++)
+					{
+						if (image->pixelColor(x,y) == Qt::white)
+						{
+							image->setPixelColor(x,y,Qt::black);
+						}
+
+					}
+				}
+			}
+		}
+		else
+		{
+			for (QImage* image : imageList)
+			{
+				int height = image->height();
+				int width = image->width();
+				QColor black =  QColor(0,0,0,255);
+				for (int y=0; y<height; y++)
+				{
+					for (int x=0; x<width;x++)
+					{
+						if (image->pixelColor(x,y) == Qt::black)
+						{
+							image->setPixelColor(x,y,Qt::white);
+						}
+
+					}
+				}
+			}
+		}
 }
 
 
@@ -1669,6 +1896,8 @@ void Canvas::paintEvent(QPaintEvent *event)
 	}
 
 }
+
+
 
 
 
