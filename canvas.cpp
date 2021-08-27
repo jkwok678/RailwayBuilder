@@ -829,7 +829,6 @@ void Canvas::canvasChangeColour()
 		pal.setColor(QPalette::Window, Qt::black);
 	}
 	setPalette(pal);
-	show();
 }
 
 void Canvas::trackChangeColour()
@@ -944,6 +943,16 @@ int Canvas::getSignalAspectToAdd() const
 void Canvas::setSignalAspectToAdd(int newSignalAspectToAdd)
 {
 	signalAspectToAdd = newSignalAspectToAdd;
+}
+
+bool Canvas::getGrid() const
+{
+	return grid;
+}
+
+void Canvas::setGrid(bool newGrid)
+{
+	grid = newGrid;
 }
 
 void Canvas::createAddElement(ElementChosen elementToAdd, int overallX, int overallY)
@@ -1893,9 +1902,14 @@ void Canvas::paintEvent(QPaintEvent *event)
 		drawNamedLocation(painter);
 		drawConcourse(painter);
 		drawParapet(painter);
+		if (grid){
+			drawGrid(painter);
+		}
 	}
 
 }
+
+
 
 
 
@@ -3710,5 +3724,33 @@ void Canvas::drawParapet(QPainter &painter)
 				}
 			}
 		}
+	}
+}
+
+void Canvas::drawGrid(QPainter &painter)
+{
+	if (canvasColour == Qt::white || canvasColour == Qt::darkBlue)
+	{
+		QPen penLight;  // creates a default pen
+		penLight.setStyle(Qt::DashLine);
+		penLight.setWidth(1);
+		penLight.setBrush(Qt::darkGray);
+		painter.setPen(penLight);
+	}
+	else
+	{
+		QPen penDark;
+		penDark.setStyle(Qt::DashLine);
+		penDark.setWidth(1);
+		penDark.setBrush(Qt::lightGray);
+		painter.setPen(penDark);
+	}
+	for (int x = 0; x < canvasSizeX+1;x = x+16)
+	{
+		painter.drawLine(x,0,x,canvasSizeY);
+	}
+	for (int y = 0; y < canvasSizeY+1;y = y+16)
+	{
+		painter.drawLine(0,y,canvasSizeX,y);
 	}
 }

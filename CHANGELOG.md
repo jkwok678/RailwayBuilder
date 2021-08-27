@@ -5,6 +5,11 @@ All notable changes to this project will be documented in this file.
 ## Core features - 25/08/2021
 
 ### Added
+* A grid feature to the canvas( The user can toggle the Grid ON and OFF)
+
+## Core features - 25/08/2021
+
+### Added
 * A feature that allows the user to change the background of the canvas.
 
 

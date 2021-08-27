@@ -186,6 +186,19 @@ public:
 	 * @param newSignalAspectToAdd the new int signal aspect.
 	 */
 	void setSignalAspectToAdd(int newSignalAspectToAdd);
+
+	/**
+	 * @brief Get if the grid is active or not.
+	 * @return A bool that says if the grid is active or not.
+	 */
+	bool getGrid() const;
+
+	/**
+	 * @brief Set if the grid is active or not.
+	 * @param newGrid The Grid is true for on and false for off.
+	 */
+	void setGrid(bool newGrid);
+
 	/**
 	 * @brief Create and add the element to the coordinates.
 	 * @param elementToAdd The element to add.
@@ -193,6 +206,8 @@ public:
 	 * @param overallY Y coordinate relative to the entire map.
 	 */
 	void createAddElement(ElementChosen elementToAdd, int overallX, int overallY);
+
+
 
 
 
@@ -914,6 +929,8 @@ private:
 	 * @param painter
 	 */
 	void drawParapet(QPainter &painter);
+
+	void drawGrid(QPainter &painter);
 };
 
 #endif // CANVAS_H

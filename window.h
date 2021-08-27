@@ -913,6 +913,11 @@ private slots:
 	//Right hand side menu.
 
 	/**
+	 * @brief A slot to toggle the grid on the canvas
+	 */
+	void toggleGrid();
+
+	/**
 	 * @brief A slot to move the canvas to the right.
 	 */
 	void moveRightOnCanvas();
@@ -1780,6 +1785,10 @@ private:
 
 	QWidget* rightDirectionalMenu;
 	QVBoxLayout* rightDirectionalMenuLayout;
+
+	QToolButton *toggleGridButton;
+	QIcon   *toggleGridIcon;
+	QAction *toggleGridAct;
 
 	QToolButton *canvasMoveRightButton;
 	QIcon   *canvasMoveRightIcon;

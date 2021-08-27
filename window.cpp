@@ -2042,6 +2042,19 @@ void Window::chooseLevelCrossing()
 	}
 }
 
+void Window::toggleGrid()
+{
+	if (drawingArea->getGrid())
+	{
+		drawingArea->setGrid(false);
+	}
+	else
+	{
+		drawingArea->setGrid(true);
+	}
+	drawingArea->update();
+}
+
 //Right hand side menu.
 
 void Window::moveRightOnCanvas()
@@ -3740,6 +3753,15 @@ void Window::createRightDirectionalMenu()
 
 	rightDirectionalMenuLayout = new QVBoxLayout;
 	rightDirectionalMenu->setLayout(rightDirectionalMenuLayout);
+
+	toggleGridButton = new QToolButton();
+	toggleGridButton->setMaximumSize(QSize(32, 32));
+	toggleGridAct = new QAction();
+	toggleGridButton->setDefaultAction(toggleGridAct);
+	connect(toggleGridAct, &QAction::triggered, this, &Window::toggleGrid);
+	toggleGridIcon = new QIcon(":/icons/icons/grid.png");
+	toggleGridButton->setIcon(*toggleGridIcon);
+	rightDirectionalMenuLayout->addWidget(toggleGridButton);
 
 	canvasMoveRightButton = new QToolButton();
 	canvasMoveRightButton->setMaximumSize(QSize(32, 32));
