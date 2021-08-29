@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file.
 
+## Core features - 29/08/2021
+
+### Changed
+* The location of the toggle grid button
+
 ## Core features - 25/08/2021
 
 ### Added

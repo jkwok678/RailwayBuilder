@@ -972,6 +972,10 @@ private:
 	QIcon* aspectShuntIcon;
 	QAction *changeAspectAct;
 
+	QToolButton *toggleGridButton;
+	QIcon   *toggleGridIcon;
+	QAction *toggleGridAct;
+
 	QStackedWidget *allMenus;
 
 
@@ -1785,10 +1789,6 @@ private:
 
 	QWidget* rightDirectionalMenu;
 	QVBoxLayout* rightDirectionalMenuLayout;
-
-	QToolButton *toggleGridButton;
-	QIcon   *toggleGridIcon;
-	QAction *toggleGridAct;
 
 	QToolButton *canvasMoveRightButton;
 	QIcon   *canvasMoveRightIcon;

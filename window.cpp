@@ -2175,6 +2175,15 @@ void Window::createBuildModifyMenu()
 	aspectShuntIcon = new QIcon(":/icons/icons/aspectShunt.png");
 	setAspectButton->setIcon(*aspect4Icon);
 	buildModifyMenu1->addWidget(setAspectButton);
+
+	toggleGridButton = new QToolButton();
+	toggleGridButton->setMaximumSize(QSize(32, 32));
+	toggleGridAct = new QAction();
+	toggleGridButton->setDefaultAction(toggleGridAct);
+	connect(toggleGridAct, &QAction::triggered, this, &Window::toggleGrid);
+	toggleGridIcon = new QIcon(":/icons/icons/grid.png");
+	toggleGridButton->setIcon(*toggleGridIcon);
+	buildModifyMenu1->addWidget(toggleGridButton);
 	//These menus will be on the QStackedWidget.
 	//The user will be able to choose which one comes up.
 	createElementMenu();
@@ -3753,15 +3762,6 @@ void Window::createRightDirectionalMenu()
 
 	rightDirectionalMenuLayout = new QVBoxLayout;
 	rightDirectionalMenu->setLayout(rightDirectionalMenuLayout);
-
-	toggleGridButton = new QToolButton();
-	toggleGridButton->setMaximumSize(QSize(32, 32));
-	toggleGridAct = new QAction();
-	toggleGridButton->setDefaultAction(toggleGridAct);
-	connect(toggleGridAct, &QAction::triggered, this, &Window::toggleGrid);
-	toggleGridIcon = new QIcon(":/icons/icons/grid.png");
-	toggleGridButton->setIcon(*toggleGridIcon);
-	rightDirectionalMenuLayout->addWidget(toggleGridButton);
 
 	canvasMoveRightButton = new QToolButton();
 	canvasMoveRightButton->setMaximumSize(QSize(32, 32));
