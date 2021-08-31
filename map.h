@@ -38,6 +38,14 @@ private:
 
 	std::vector<std::shared_ptr<Track>> trackList;
 
+	std::shared_ptr<LinkedTrack> linkedTrack1{nullptr};
+	std::shared_ptr<LinkedTrack> linkedTrack2{nullptr};
+
+	/**
+	 * @brief A method to reset the connectLinkedTrack mechanics.
+	 */
+	void resetConnectLinkedTrack();
+
 	/**
 	 * @brief Shows the user an error message saying they cannot place an element on top of an existing element.
 	 */
@@ -587,6 +595,37 @@ public:
 	void addPlatform(Platform side, int locationX, int locationY);
 
 	void addLevelCrossing( int locationX, int locationY);
+
+	//Connecting Linked tracks methods
+
+	/**
+	 * @brief A method to get the first LinkedTrack.
+	 * @return The first LinkedTrack chosen.
+	 */
+	std::shared_ptr<LinkedTrack> getLinkedTrack1() const;
+
+	/**
+	 * @brief A method to set the first chosen LinkedTrack.
+	 * @param newLinkedTrack1 The first chosen LinkedTrack.
+	 */
+	void setLinkedTrack1(const std::shared_ptr<LinkedTrack> &newLinkedTrack1);
+
+	/**
+	 * @brief A method to get the second LinkedTrack.
+	 * @return The second LinkedTrack chosen.
+	 */
+	std::shared_ptr<LinkedTrack> getLinkedTrack2() const;
+
+	/**
+	 * @brief A method to set the second chosen LinkedTrack.
+	 * @param newLinkedTrack2 The second chosen LinkedTrack.
+	 */
+	void setLinkedTrack2(const std::shared_ptr<LinkedTrack> &newLinkedTrack2);
+
+	/**
+	 * @brief A method that links the 2 chosen LinkedTracks.
+	 */
+	void connectLinkedTrack();
 };
 
 #endif // MAP_H

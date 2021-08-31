@@ -2,6 +2,12 @@
 
 //private
 
+void Map::resetConnectLinkedTrack()
+{
+	linkedTrack1 = nullptr;
+	linkedTrack2 = nullptr;
+}
+
 void Map::showElementAlreadyThereError()
 {
 	//Show error if an element already exists there.
@@ -1437,5 +1443,36 @@ void Map::addLevelCrossing(int locationX, int locationY)
 					currentElement->addLevelCrossing();
 				}
 			}
-		}
+	}
+}
+
+//Connecting Linked tracks methods
+
+std::shared_ptr<LinkedTrack> Map::getLinkedTrack1() const
+{
+	return linkedTrack1;
+}
+
+void Map::setLinkedTrack1(const std::shared_ptr<LinkedTrack> &newLinkedTrack1)
+{
+	linkedTrack1 = newLinkedTrack1;
+}
+
+std::shared_ptr<LinkedTrack> Map::getLinkedTrack2() const
+{
+	return linkedTrack2;
+}
+
+void Map::setLinkedTrack2(const std::shared_ptr<LinkedTrack> &newLinkedTrack2)
+{
+	linkedTrack2 = newLinkedTrack2;
+}
+
+void Map::connectLinkedTrack()
+{
+	linkedTrack1->setOtherLinkTrack(linkedTrack2);
+	linkedTrack2->setOtherLinkTrack(linkedTrack1);
+	linkedTrack1->setLinked(true);
+	linkedTrack2->setLinked(true);
+	resetConnectLinkedTrack();
 }
