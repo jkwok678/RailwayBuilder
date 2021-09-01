@@ -874,6 +874,16 @@ void Canvas::trackChangeColour()
 		}
 }
 
+Map *Canvas::getMap() const
+{
+	return map;
+}
+
+void Canvas::setMap(Map *newMap)
+{
+	map = newMap;
+}
+
 
 int Canvas::getOffsetX() const
 {
@@ -1908,6 +1918,7 @@ void Canvas::paintEvent(QPaintEvent *event)
 	}
 
 }
+
 
 
 

@@ -238,6 +238,28 @@ void Window::updateMPHKMHGUI()
 
 }
 
+void Window::connectLinkedTrack()
+{
+	//If the mode is not CONNECTLINKEDTRACK get number of linkedTrack.
+	if (drawingArea->getMode() != Mode::CONNECTLINKEDTRACK)
+	{
+		int linkTrackNum =  drawingArea->getMap()->getLinkedTrackList().size();
+		//If the number is even, change the mode to CONNECTLINKEDTRACK.
+		if ((linkTrackNum % 2) == 0)
+		{
+			drawingArea->setMode(Mode::CONNECTLINKEDTRACK);
+		}
+		else
+		{
+			showOddNumOfLinkTrack();
+		}
+	}
+	else
+	{
+		drawingArea->setMode(Mode::NONE);
+	}
+}
+
 void Window::changeAspect()
 {
 	//Change aspect from 4 -> 3 -> 2 -> 1 then back to 4.
@@ -2190,7 +2212,7 @@ void Window::createBuildModifyMenu()
 	createSetConvertSpeedDistanceMenu();
 }
 
-	//Element Menu
+//Element Menu
 
 void Window::createElementMenu()
 {
@@ -3569,7 +3591,7 @@ void Window::createElementBlock6()
 	elementMenuLayout->addWidget(levelCrossingButton, 2, 53);
 }
 
-	//SetConvertSpeedDistanceMenu
+//SetConvertSpeedDistanceMenu
 
 void Window::createSetConvertSpeedDistanceMenu()
 {
@@ -3754,7 +3776,7 @@ double Window::convertKMPHToMPH(double kmph)
 	return kmph / MPH_TO_KMPH;
 }
 
-	//Right side directional menu.
+//Right side directional menu.
 
 void Window::createRightDirectionalMenu()
 {
@@ -3798,4 +3820,15 @@ void Window::createRightDirectionalMenu()
 	canvasMoveDownIcon = new QIcon(":/icons/icons/down.png");
 	canvasMoveDownButton->setIcon(*canvasMoveDownIcon);
 	rightDirectionalMenuLayout->addWidget(canvasMoveDownButton);
+}
+
+//Error message methods.
+
+void Window::showOddNumOfLinkTrack()
+{
+	//Show oddNumOfLinkTrack error box.
+	QMessageBox oddNumOfLinkTrack;
+	oddNumOfLinkTrack.setIcon(QMessageBox::Critical);
+	oddNumOfLinkTrack.setText("Cannot link track. Odd number of LinkedTrack");
+	oddNumOfLinkTrack.exec();
 }

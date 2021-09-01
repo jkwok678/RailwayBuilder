@@ -41,15 +41,14 @@ private:
 	std::shared_ptr<LinkedTrack> linkedTrack1{nullptr};
 	std::shared_ptr<LinkedTrack> linkedTrack2{nullptr};
 
+	//General methods.
+
 	/**
 	 * @brief A method to reset the connectLinkedTrack mechanics.
 	 */
 	void resetConnectLinkedTrack();
 
-	/**
-	 * @brief Shows the user an error message saying they cannot place an element on top of an existing element.
-	 */
-	void showElementAlreadyThereError();
+	//Adding element methods.
 
 	/**
 	 * @brief Adds a new StraightTrack to the vector.
@@ -134,6 +133,13 @@ private:
 	 * @param newParapet The new Parapet to add.
 	 */
 	void addParapet(std::shared_ptr<Parapet> newParapet);
+
+	//Error message methods.
+
+	/**
+	 * @brief Shows the user an error message saying they cannot place an element on top of an existing element.
+	 */
+	void showElementAlreadyThereError();
 
 public:
 

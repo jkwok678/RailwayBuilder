@@ -2,20 +2,15 @@
 
 //private
 
+//General methods.
+
 void Map::resetConnectLinkedTrack()
 {
 	linkedTrack1 = nullptr;
 	linkedTrack2 = nullptr;
 }
 
-void Map::showElementAlreadyThereError()
-{
-	//Show error if an element already exists there.
-	QMessageBox elementExistsAlreadyAlert;
-	elementExistsAlreadyAlert.setIcon(QMessageBox::Critical);
-	elementExistsAlreadyAlert.setText("An element already exists here.");
-	elementExistsAlreadyAlert.exec();
-}
+//Adding element methods.
 
 void Map::addStraightTrack(std::shared_ptr<StraightTrack> newStraightTrack)
 {
@@ -224,6 +219,18 @@ void Map::addParapet(std::shared_ptr<Parapet> newParapet)
 	}
 
 }
+
+//Error message methods.
+
+void Map::showElementAlreadyThereError()
+{
+	//Show error if an element already exists there.
+	QMessageBox elementExistsAlreadyAlert;
+	elementExistsAlreadyAlert.setIcon(QMessageBox::Critical);
+	elementExistsAlreadyAlert.setText("An element already exists here.");
+	elementExistsAlreadyAlert.exec();
+}
+
 
 //public
 

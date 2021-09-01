@@ -84,17 +84,17 @@ private slots:
 	//Canvas colour slots
 
 	/**
-	 * @brief A method to setup the canvas to have a white background.
+	 * @brief A slot to setup the canvas to have a white background.
 	 */
 	void canvasToWhite();
 
 	/**
-	 * @brief A method to setup the canvas to have a dark blue background.
+	 * @brief A slot to setup the canvas to have a dark blue background.
 	 */
 	void canvasToDarkBlue();
 
 	/**
-	 * @brief A method to setup the canvas to have a black background.
+	 * @brief A slot to setup the canvas to have a black background.
 	 */
 	void canvasToBlack();
 
@@ -114,17 +114,22 @@ private slots:
 	void updateMilesChainsYardsToMetresGUI();
 
 	/**
-	 * @brief A method to swap the labels so they make better sense when converting speed.
+	 * @brief A slot to swap the labels so they make better sense when converting speed.
 	 */
 	void swapSpeedLabel();
 
 	/**
-	 * @brief A method to convert Mph to Km/h and vice versa.
+	 * @brief A slot to convert Mph to Km/h and vice versa.
 	 */
 	void updateMPHKMHGUI();
 
 	/**
-	 * @brief A method to change the aspects of signal tracks added to screen.
+	 * @brief A slot to connect LinkedTracks together.
+	 */
+	void connectLinkedTrack();
+
+	/**
+	 * @brief A slot to change the aspects of signal tracks added to screen.
 	 */
 	void changeAspect();
 
@@ -960,6 +965,10 @@ private:
 	QToolButton *elementMenuButton;
 	QIcon   *elementMenuIcon;
 	QAction *openElementMenuAct;
+
+	QToolButton* connectLinkedTrackButton;
+	QAction* connectLinkedTrackAct;
+	QIcon* connectLinkedTrackIcon;
 
 	QToolButton *setConvertSpeedDistanceMenuButton;
 	QIcon   *setConvertSpeedDistanceMenuIcon;
@@ -1944,5 +1953,9 @@ private:
 	 * @brief A method to make the right hand side menu.
 	 */
 	void createRightDirectionalMenu();
+
+	//Error message methods.
+
+	void showOddNumOfLinkTrack();
 };
 #endif // WINDOW_H

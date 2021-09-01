@@ -82,7 +82,16 @@ public:
 	 */
 	void fillImageList();
 
+	/**
+	 * @brief A method to get the colour of the canvas.
+	 * @return A QColor object.
+	 */
 	const QColor getCanvasColour() const;
+
+	/**
+	 * @brief A method to set the new colour of the canvas.
+	 * @param newCanvasColour The new QColor object.
+	 */
 	void setCanvasColour(QColor newCanvasColour);
 
 	/**
@@ -94,6 +103,18 @@ public:
 	 * @brief A method to change the track colour.
 	 */
 	void trackChangeColour();
+
+	/**
+	 * @brief A method to get the map of the layout.
+	 * @return A map onject that is the current layout.
+	 */
+	Map *getMap() const;
+
+	/**
+	 * @brief A method to set the new map.
+	 * @param newMap The new map.
+	 */
+	void setMap(Map *newMap);
 
 	/**
 	 * @brief Get the offset of the canvas in the X direction.
@@ -206,11 +227,6 @@ public:
 	 * @param overallY Y coordinate relative to the entire map.
 	 */
 	void createAddElement(ElementChosen elementToAdd, int overallX, int overallY);
-
-
-
-
-
 
 
 
