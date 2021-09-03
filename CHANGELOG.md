@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## Core features - 03/09/2021
+
+### Added
+* The ability to connect LinkedTracks together.
+* The ability to change the connections of LinkedTracks. 
+
 ## Core features - 29/08/2021
 
 ### Changed

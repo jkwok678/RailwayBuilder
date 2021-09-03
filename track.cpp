@@ -383,14 +383,19 @@ void LinkedTrack::setLinked(bool newLinked)
 	linked = newLinked;
 }
 
-std::shared_ptr<LinkedTrack> LinkedTrack::getOtherLinkTrack()
+std::shared_ptr<LinkedTrack> LinkedTrack::getOtherLinkedTrack()
 {
 	return otherLinkTrack;
 }
 
-void LinkedTrack::setOtherLinkTrack(std::shared_ptr<LinkedTrack> &newLinkedTrack)
+void LinkedTrack::setOtherLinkedTrack(std::shared_ptr<LinkedTrack> &newLinkedTrack)
 {
 	otherLinkTrack = newLinkedTrack;
+}
+
+void LinkedTrack::removeOtherLinkedTrack()
+{
+	otherLinkTrack = nullptr;
 }
 
 

@@ -633,13 +633,18 @@ public:
 	 * @brief Get the linked track.
 	 * @return A shared pointer that contains another LinkedTrack.
 	 */
-	std::shared_ptr<LinkedTrack> getOtherLinkTrack();
+	std::shared_ptr<LinkedTrack> getOtherLinkedTrack();
 
 	/**
 	 * @brief Set the linked track to another LinkedTrack.
 	 * @param newLinkedTrack A shared pointer that has a LinkedTrack.
 	 */
-	void setOtherLinkTrack(std::shared_ptr<LinkedTrack> &newLinkedTrack);
+	void setOtherLinkedTrack(std::shared_ptr<LinkedTrack> &newLinkedTrack);
+
+	/**
+	 * @brief Removes the other Linked Track.
+	 */
+	void removeOtherLinkedTrack();
 };
 
 

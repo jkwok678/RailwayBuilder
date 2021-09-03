@@ -4,14 +4,6 @@
 
 //General methods.
 
-void Map::resetConnectLinkedTrack()
-{
-	linkedTrack1 = nullptr;
-	linkedTrack2 = nullptr;
-}
-
-//Adding element methods.
-
 void Map::addStraightTrack(std::shared_ptr<StraightTrack> newStraightTrack)
 {
 	int tempLocationX = newStraightTrack->getLocationX();
@@ -218,6 +210,31 @@ void Map::addParapet(std::shared_ptr<Parapet> newParapet)
 		showElementAlreadyThereError();
 	}
 
+}
+
+//Linked Track private methods
+
+void Map::connectLinkedTrack()
+{
+	linkedTrack1->setOtherLinkedTrack(linkedTrack2);
+	linkedTrack2->setOtherLinkedTrack(linkedTrack1);
+	linkedTrack1->setLinked(true);
+	linkedTrack2->setLinked(true);
+	resetConnectLinkedTrack();
+}
+
+void Map::disconnectLinkedTrack(std::shared_ptr<LinkedTrack> alreadyLinkedTrack1, std::shared_ptr<LinkedTrack> alreadyLinkedTrack2)
+{
+	alreadyLinkedTrack1->removeOtherLinkedTrack();
+	alreadyLinkedTrack1->setLinked(false);
+	alreadyLinkedTrack2->removeOtherLinkedTrack();
+	alreadyLinkedTrack2->setLinked(false);
+}
+
+void Map::resetConnectLinkedTrack()
+{
+	linkedTrack1 = nullptr;
+	linkedTrack2 = nullptr;
 }
 
 //Error message methods.
@@ -607,6 +624,77 @@ std::shared_ptr<LinkedTrack> Map::getLinkedTrackAt(int locationX, int locationY)
 		}
 	}
 	return linkedTrack;
+}
+
+	//Connecting Linked tracks methods
+
+std::shared_ptr<LinkedTrack> Map::getLinkedTrack1() const
+{
+	return linkedTrack1;
+}
+
+void Map::setLinkedTrack1(const std::shared_ptr<LinkedTrack> &newLinkedTrack1)
+{
+	linkedTrack1 = newLinkedTrack1;
+}
+
+std::shared_ptr<LinkedTrack> Map::getLinkedTrack2() const
+{
+	return linkedTrack2;
+}
+
+void Map::setLinkedTrack2(const std::shared_ptr<LinkedTrack> &newLinkedTrack2)
+{
+	linkedTrack2 = newLinkedTrack2;
+}
+
+bool Map::hasLinkedTrackAt(int locationX, int locationY)
+{
+	if (getLinkedTrackAt(locationX,locationY) == nullptr)
+	{
+		return false;
+	}
+	return true;
+}
+
+void Map::connectTwoLinkedTracks(int locationX, int locationY)
+{
+	if (linkedTrack1 == nullptr)
+	{
+		if (hasLinkedTrackAt(locationX,locationY))
+		{
+			std::shared_ptr<LinkedTrack> temp1 = getLinkedTrackAt(locationX, locationY);
+			linkedTrack1 = temp1;
+		}
+	}
+	else if (linkedTrack2 == nullptr && linkedTrack1 != nullptr)
+	{
+		if (hasLinkedTrackAt(locationX,locationY))
+		{
+			std::shared_ptr<LinkedTrack> temp2 = getLinkedTrackAt(locationX, locationY);
+			if (temp2 != linkedTrack1)
+			{
+				linkedTrack2 = temp2;
+				if (!temp2->getLinked())
+				{
+
+					connectLinkedTrack();
+				}
+				else
+				{
+					if (linkedTrack1->getLinked())
+					{
+						disconnectLinkedTrack(linkedTrack1,linkedTrack1->getOtherLinkedTrack());
+					}
+					if (linkedTrack2->getLinked())
+					{
+						disconnectLinkedTrack(linkedTrack2,linkedTrack2->getOtherLinkedTrack());
+					}
+					connectLinkedTrack();
+				}
+			}
+		}
+	}
 }
 
 //ExitTrack related methods
@@ -1453,33 +1541,3 @@ void Map::addLevelCrossing(int locationX, int locationY)
 	}
 }
 
-//Connecting Linked tracks methods
-
-std::shared_ptr<LinkedTrack> Map::getLinkedTrack1() const
-{
-	return linkedTrack1;
-}
-
-void Map::setLinkedTrack1(const std::shared_ptr<LinkedTrack> &newLinkedTrack1)
-{
-	linkedTrack1 = newLinkedTrack1;
-}
-
-std::shared_ptr<LinkedTrack> Map::getLinkedTrack2() const
-{
-	return linkedTrack2;
-}
-
-void Map::setLinkedTrack2(const std::shared_ptr<LinkedTrack> &newLinkedTrack2)
-{
-	linkedTrack2 = newLinkedTrack2;
-}
-
-void Map::connectLinkedTrack()
-{
-	linkedTrack1->setOtherLinkTrack(linkedTrack2);
-	linkedTrack2->setOtherLinkTrack(linkedTrack1);
-	linkedTrack1->setLinked(true);
-	linkedTrack2->setLinked(true);
-	resetConnectLinkedTrack();
-}

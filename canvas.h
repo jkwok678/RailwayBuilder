@@ -228,6 +228,13 @@ public:
 	 */
 	void createAddElement(ElementChosen elementToAdd, int overallX, int overallY);
 
+	/**
+	 * @brief Connect the last 2 selected linked tracks.
+	 * @param overallX X coordinate.
+	 * @param overallY Y coordinate.
+	 */
+	void connectLinkedTracksAfterClick(int overallX, int overallY);
+
 
 
 
@@ -887,6 +894,12 @@ private:
 	void drawLinkedTrack(QPainter &painter);
 
 	/**
+	 * @brief Draw hints for connecting linked tracks.
+	 * @param painter
+	 */
+	void drawConnectTrackHints(QPainter &painter);
+
+	/**
 	 * @brief Draw ExitTracks onto the canvas.
 	 * @param painter
 	 */
@@ -946,7 +959,16 @@ private:
 	 */
 	void drawParapet(QPainter &painter);
 
+	/**
+	 * @brief Draw the grid onto the canvas.
+	 * @param painter
+	 */
 	void drawGrid(QPainter &painter);
+
+	/**
+	 * @brief Draw all elements normally.
+	 */
+	void drawEverythingNormal(QPainter &painter);
 };
 
 #endif // CANVAS_H

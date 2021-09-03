@@ -1858,6 +1858,11 @@ void Canvas::createAddElement(ElementChosen elementToAdd, int overallX, int over
 	}
 }
 
+void Canvas::connectLinkedTracksAfterClick(int overallX, int overallY)
+{
+	map->connectTwoLinkedTracks(overallX,overallY);
+}
+
 
 void Canvas::mousePressEvent(QMouseEvent *event)
 {
@@ -1880,7 +1885,29 @@ void Canvas::mousePressEvent(QMouseEvent *event)
 	bool addedElement = false;
 	if (event->button() == Qt::LeftButton)
 	{
-		createAddElement(elementChosen, overallX, overallY);
+		switch (mode)
+		{
+			case Mode::ADDREMOVETRACK:
+			{
+				createAddElement(elementChosen, overallX, overallY);
+				break;
+			}
+			case Mode::CONNECTLINKEDTRACK:
+			{
+				connectLinkedTracksAfterClick(overallX, overallY);
+				break;
+			}
+			case Mode::SETCONVERTSPEEDDISTANCE:
+			{
+				break;
+			}
+			default:
+			{
+				break;
+			}
+		}
+
+
 	}
 	update();
 }
@@ -1889,32 +1916,32 @@ void Canvas::paintEvent(QPaintEvent *event)
 {
 	canvasSizeX = width();
 	canvasSizeY = height();
-
-	if (mode == Mode::SETCONVERTSPEEDDISTANCE)
+	QPainter painter(this);
+	switch (mode)
 	{
-
-	}
-	else
-	{
-		//map->resetSetTrackSpeedLengthMechanics();
-		QPainter painter(this);
-		drawStraightTrack(painter);
-		drawDirectedTrack(painter);
-		drawCurvedTrack(painter);
-		drawLinkedTrack(painter);
-		drawExitTrack(painter);
-		drawBufferTrack(painter);
-		drawSignalTrack(painter);
-		drawBridgeUnderpassTrack(painter);
-		drawSwitchTrack(painter);
-		drawCrossoverTrack(painter);
-		drawFlyoverTrack(painter);
-		drawNamedLocation(painter);
-		drawConcourse(painter);
-		drawParapet(painter);
-		if (grid){
-			drawGrid(painter);
+		case Mode::NONE:
+		{
+			drawEverythingNormal(painter);
+			break;
 		}
+		case Mode::ADDREMOVETRACK:
+		{
+			drawEverythingNormal(painter);
+			break;
+		}
+		case Mode::CONNECTLINKEDTRACK:
+		{
+			drawEverythingNormal(painter);
+			drawConnectTrackHints(painter);
+			break;
+		}
+		case Mode::SETCONVERTSPEEDDISTANCE:
+		{
+			break;
+		}
+	}
+	if (grid){
+		drawGrid(painter);
 	}
 
 }
@@ -2412,6 +2439,56 @@ void Canvas::drawLinkedTrack(QPainter &painter)
 		}
 	}
 
+}
+
+void Canvas::drawConnectTrackHints(QPainter &painter)
+{
+	std::shared_ptr<LinkedTrack> linkedTrack1 = map->getLinkedTrack1();
+	std::shared_ptr<LinkedTrack> linkedTrack2 = map->getLinkedTrack2();
+	if (linkedTrack1 != nullptr)
+	{
+		int currentX = linkedTrack1->getLocationX();
+		int currentY = linkedTrack1->getLocationY();
+		int minDisplayX = (offsetX * canvasSizeX);
+		int maxDisplayY = (offsetY*canvasSizeY);
+		int displayX = currentX- minDisplayX;
+		int displayY = 0-(currentY - maxDisplayY);
+		painter.drawImage(displayX,displayY,*selectBlue);
+	}
+
+	if (linkedTrack2 != nullptr)
+	{
+		int currentX = linkedTrack2->getLocationX();
+		int currentY = linkedTrack2->getLocationY();
+		int minDisplayX = (offsetX * canvasSizeX);
+		int maxDisplayY = (offsetY*canvasSizeY);
+		int displayX = currentX- minDisplayX;
+		int displayY = 0-(currentY - maxDisplayY);
+		painter.drawImage(displayX,displayY,*selectBlue);
+	}
+	for (std::shared_ptr<LinkedTrack> currentElement : map->getLinkedTrackList())
+	{
+		int currentX = currentElement->getLocationX();
+		int currentY = currentElement->getLocationY();
+		int minDisplayX = (offsetX * canvasSizeX);
+		int maxDisplayY = (offsetY*canvasSizeY);
+		int displayX = currentX- minDisplayX;
+		int displayY = 0-(currentY - maxDisplayY);
+		if (currentElement != linkedTrack1 && currentElement != linkedTrack2)
+		{
+			if (!currentElement->getLinked())
+			{
+				painter.drawImage(displayX,displayY,*selectRed);
+			}
+			else
+			{
+				painter.drawImage(displayX,displayY, * selectGreen);
+				painter.drawLine(displayX+8, displayY+8,
+				currentElement->getOtherLinkedTrack()->getLocationX()+8- minDisplayX,
+				0-(currentElement->getOtherLinkedTrack()->getLocationY()-8 - maxDisplayY));
+			}
+		}
+	}
 }
 
 void Canvas::drawExitTrack(QPainter &painter)
@@ -3764,4 +3841,22 @@ void Canvas::drawGrid(QPainter &painter)
 	{
 		painter.drawLine(0,y,canvasSizeX,y);
 	}
+}
+
+void Canvas::drawEverythingNormal(QPainter &painter)
+{
+	drawStraightTrack(painter);
+	drawDirectedTrack(painter);
+	drawCurvedTrack(painter);
+	drawLinkedTrack(painter);
+	drawExitTrack(painter);
+	drawBufferTrack(painter);
+	drawSignalTrack(painter);
+	drawBridgeUnderpassTrack(painter);
+	drawSwitchTrack(painter);
+	drawCrossoverTrack(painter);
+	drawFlyoverTrack(painter);
+	drawNamedLocation(painter);
+	drawConcourse(painter);
+	drawParapet(painter);
 }

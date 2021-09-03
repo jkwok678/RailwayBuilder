@@ -43,10 +43,7 @@ private:
 
 	//General methods.
 
-	/**
-	 * @brief A method to reset the connectLinkedTrack mechanics.
-	 */
-	void resetConnectLinkedTrack();
+
 
 	//Adding element methods.
 
@@ -133,6 +130,23 @@ private:
 	 * @param newParapet The new Parapet to add.
 	 */
 	void addParapet(std::shared_ptr<Parapet> newParapet);
+
+	//Linked Track private methods
+
+	/**
+	 * @brief A method that links the 2 chosen LinkedTracks.
+	 */
+	void connectLinkedTrack();
+
+	/**
+	 * @brief A method that disconnects the 2 chosen LinkedTracks.
+	 */
+	void disconnectLinkedTrack(std::shared_ptr<LinkedTrack> linkTrack1, std::shared_ptr<LinkedTrack> linkedTrack2);
+
+	/**
+	 * @brief A method to reset the connectLinkedTrack mechanics.
+	 */
+	void resetConnectLinkedTrack();
 
 	//Error message methods.
 
@@ -297,7 +311,49 @@ public:
 	 */
 	std::shared_ptr<LinkedTrack> getLinkedTrackAt(int locationX,int locationY);
 
-	//bool haslinkTrackAt(int locationX, int locationY);
+		//Connecting Linked tracks methods
+
+	/**
+	 * @brief A method to get the first LinkedTrack.
+	 * @return The first LinkedTrack chosen.
+	 */
+	std::shared_ptr<LinkedTrack> getLinkedTrack1() const;
+
+	/**
+	 * @brief A method to set the first chosen LinkedTrack.
+	 * @param newLinkedTrack1 The first chosen LinkedTrack.
+	 */
+	void setLinkedTrack1(const std::shared_ptr<LinkedTrack> &newLinkedTrack1);
+
+	/**
+	 * @brief A method to get the second LinkedTrack.
+	 * @return The second LinkedTrack chosen.
+	 */
+	std::shared_ptr<LinkedTrack> getLinkedTrack2() const;
+
+	/**
+	 * @brief A method to set the second chosen LinkedTrack.
+	 * @param newLinkedTrack2 The second chosen LinkedTrack.
+	 */
+	void setLinkedTrack2(const std::shared_ptr<LinkedTrack> &newLinkedTrack2);
+
+
+	/**
+	 * @brief Checks if there is a linked track at that location
+	 * @param locationX X coordinate.
+	 * @param locationY Y coordinate.
+	 * @return A bool, true if there is a linked track there false if not.
+	 */
+	bool hasLinkedTrackAt(int locationX, int locationY);
+
+	/**
+	 * @brief Connects the last two chosen linked tracks.
+	 * @param locationX X coordinate of a linked track.
+	 * @param locationY Y coordinate of a linked track.
+	 */
+	void connectTwoLinkedTracks(int locationX, int locationY);
+
+
 
 	//ExitTrack related methods
 
@@ -602,36 +658,7 @@ public:
 
 	void addLevelCrossing( int locationX, int locationY);
 
-	//Connecting Linked tracks methods
 
-	/**
-	 * @brief A method to get the first LinkedTrack.
-	 * @return The first LinkedTrack chosen.
-	 */
-	std::shared_ptr<LinkedTrack> getLinkedTrack1() const;
-
-	/**
-	 * @brief A method to set the first chosen LinkedTrack.
-	 * @param newLinkedTrack1 The first chosen LinkedTrack.
-	 */
-	void setLinkedTrack1(const std::shared_ptr<LinkedTrack> &newLinkedTrack1);
-
-	/**
-	 * @brief A method to get the second LinkedTrack.
-	 * @return The second LinkedTrack chosen.
-	 */
-	std::shared_ptr<LinkedTrack> getLinkedTrack2() const;
-
-	/**
-	 * @brief A method to set the second chosen LinkedTrack.
-	 * @param newLinkedTrack2 The second chosen LinkedTrack.
-	 */
-	void setLinkedTrack2(const std::shared_ptr<LinkedTrack> &newLinkedTrack2);
-
-	/**
-	 * @brief A method that links the 2 chosen LinkedTracks.
-	 */
-	void connectLinkedTrack();
 };
 
 #endif // MAP_H

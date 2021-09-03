@@ -243,15 +243,20 @@ void Window::connectLinkedTrack()
 	//If the mode is not CONNECTLINKEDTRACK get number of linkedTrack.
 	if (drawingArea->getMode() != Mode::CONNECTLINKEDTRACK)
 	{
-		int linkTrackNum =  drawingArea->getMap()->getLinkedTrackList().size();
+		int linkedTrackNum =  drawingArea->getMap()->getLinkedTrackList().size();
 		//If the number is even, change the mode to CONNECTLINKEDTRACK.
-		if ((linkTrackNum % 2) == 0)
+		if ((linkedTrackNum % 2) == 0 && linkedTrackNum >=MIN_LINKTRACK_NEEDED)
 		{
 			drawingArea->setMode(Mode::CONNECTLINKEDTRACK);
+			drawingArea->update();
+		}
+		else if (linkedTrackNum < MIN_LINKTRACK_NEEDED)
+		{
+			showLowNumOfLinkedTrackErrorMessage();
 		}
 		else
 		{
-			showOddNumOfLinkTrack();
+			showOddNumOfLinkedTrackErrorMessage();
 		}
 	}
 	else
@@ -2173,6 +2178,16 @@ void Window::createBuildModifyMenu()
 	elementMenuButton->setIcon(*elementMenuIcon);
 	buildModifyMenu1->addWidget(elementMenuButton);
 
+	connectLinkedTrackButton = new QToolButton();
+	connectLinkedTrackButton->setMaximumSize(QSize(32, 32));
+	connectLinkedTrackAct = new QAction();
+	connectLinkedTrackButton->setDefaultAction(connectLinkedTrackAct);
+	connect(connectLinkedTrackAct, &QAction::triggered, this, &Window::connectLinkedTrack);
+	connectLinkedTrackIcon = new QIcon(":/icons/icons/connectLinkTrack.png");
+	connectLinkedTrackButton->setIcon(*connectLinkedTrackIcon);
+	buildModifyMenu1->addWidget(connectLinkedTrackButton);
+	//connectLinkedTrackButton->setEnabled(false);
+
 	//Add the button to bring up the menu that allows the user to set and convert speed and distances.
 	setConvertSpeedDistanceMenuButton = new QToolButton();
 	setConvertSpeedDistanceMenuButton->setMaximumSize(QSize(32,32));
@@ -2210,6 +2225,20 @@ void Window::createBuildModifyMenu()
 	//The user will be able to choose which one comes up.
 	createElementMenu();
 	createSetConvertSpeedDistanceMenu();
+}
+
+//ConnectLinkedTrack Button
+
+void Window::checkMinimumLinkedTrack()
+{
+	if (drawingArea->getMap()->getLinkedTrackList().size() > MIN_LINKTRACK_NEEDED)
+	{
+		connectLinkedTrackButton->setEnabled(true);
+	}
+	else
+	{
+		connectLinkedTrackButton->setEnabled(false);
+	}
 }
 
 //Element Menu
@@ -3824,11 +3853,19 @@ void Window::createRightDirectionalMenu()
 
 //Error message methods.
 
-void Window::showOddNumOfLinkTrack()
+void Window::showLowNumOfLinkedTrackErrorMessage()
+{
+	QMessageBox lowLinkedTrack;
+	lowLinkedTrack.setIcon(QMessageBox::Critical);
+	lowLinkedTrack.setText("There needs to be 2 or more Linked tracks to connect! Number of Linked Track also has to be even!");
+	lowLinkedTrack.exec();
+}
+
+void Window::showOddNumOfLinkedTrackErrorMessage()
 {
 	//Show oddNumOfLinkTrack error box.
-	QMessageBox oddNumOfLinkTrack;
-	oddNumOfLinkTrack.setIcon(QMessageBox::Critical);
-	oddNumOfLinkTrack.setText("Cannot link track. Odd number of LinkedTrack");
-	oddNumOfLinkTrack.exec();
+	QMessageBox oddNumofLinkedTrack;
+	oddNumofLinkedTrack.setIcon(QMessageBox::Critical);
+	oddNumofLinkedTrack.setText("Cannot link track. Odd number of LinkedTrack");
+	oddNumofLinkedTrack.exec();
 }

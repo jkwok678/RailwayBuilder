@@ -966,6 +966,7 @@ private:
 	QIcon   *elementMenuIcon;
 	QAction *openElementMenuAct;
 
+	const unsigned int MIN_LINKTRACK_NEEDED{2};
 	QToolButton* connectLinkedTrackButton;
 	QAction* connectLinkedTrackAct;
 	QIcon* connectLinkedTrackIcon;
@@ -1839,6 +1840,15 @@ private:
 	void createBuildModifyMenu();
 
 
+	//ConnectLinkedTrack button
+
+
+	/**
+	 * @brief A method to check the minimum amount of Linked Track needed
+	 */
+	void checkMinimumLinkedTrack();
+
+
 	//Element menu
 
 
@@ -1956,6 +1966,14 @@ private:
 
 	//Error message methods.
 
-	void showOddNumOfLinkTrack();
+	/**
+	 * @brief A method that shows an error message if the user tries to connect Linked Tracks when there are none.
+	 */
+	void showLowNumOfLinkedTrackErrorMessage();
+
+	/**
+	 * @brief A method that shows an error message if the user tries to connect Linked Tracks when there is an odd number of them.
+	 */
+	void showOddNumOfLinkedTrackErrorMessage();
 };
 #endif // WINDOW_H
