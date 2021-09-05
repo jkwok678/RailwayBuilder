@@ -131,6 +131,120 @@ private:
 	 */
 	void addParapet(std::shared_ptr<Parapet> newParapet);
 
+	//Remove element methods
+
+	/**
+	 * @brief Removes a StraightTrack from those coordinates if it exists there.
+	 * @param xLocation The X coordinate of the Straight Track.
+	 * @param yLocation The Y coordinate of the Straight Track.
+	 * @return true if a track was deleted, false if nothing was deleted
+	 */
+	bool removeStraightTrack(int xLocation, int yLocation);
+
+	/**
+	 * @brief Removes a DirectedTrack from those coordinates if it exists there.
+	 * @param xLocation The X coordinate of the Directed Track.
+	 * @param yLocation The Y coordinate of the Directed Track.
+	 * @return true if a track was deleted, false if nothing was deleted
+	 */
+	bool removeDirectedTrack(int xLocation, int yLocation);
+
+	/**
+	 * @brief Removes a CurvedTrack from those coordinates if it exists there.
+	 * @param xLocation The X coordinate of the Curved Track.
+	 * @param yLocation The Y coordinate of the Curved Track.
+	 * @return true if a track was deleted, false if nothing was deleted
+	 */
+	bool removeCurvedTrack(int xLocation, int yLocation);
+
+	/**
+	 * @brief Removes a LinkedTrack from those coordinates if it exists there.
+	 * @param xLocation The X coordinate of the Linked Track.
+	 * @param yLocation The Y coordinate of the Linked Track.
+	 * @return true if a track was deleted, false if nothing was deleted
+	 */
+	bool removeLinkedTrack(int xLocation, int yLocation);
+
+	/**
+	 * @brief Removes a ExitTrack from those coordinates if it exists there.
+	 * @param xLocation The X coordinate of the Exit Track.
+	 * @param yLocation The Y coordinate of the Exit Track.
+	 * @return true if a track was deleted, false if nothing was deleted
+	 */
+	bool removeExitTrack(int xLocation, int yLocation);
+
+	/**
+	 * @brief Removes a BufferTrack from those coordinates if it exists there.
+	 * @param xLocation The X coordinate of the Buffer Track.
+	 * @param yLocation The Y coordinate of the Buffer Track.
+	 * @return true if a track was deleted, false if nothing was deleted
+	 */
+	bool removeBufferTrack(int xLocation, int yLocation);
+
+	/**
+	 * @brief Removes a SignalTrack from those coordinates if it exists there.
+	 * @param xLocation The X coordinate of the Signal Track.
+	 * @param yLocation The Y coordinate of the Signal Track.
+	 * @return true if a track was deleted, false if nothing was deleted
+	 */
+	bool removeSignalTrack(int xLocation, int yLocation);
+
+	/**
+	 * @brief Removes a BridgeUnderpassTrack from those coordinates if it exists there.
+	 * @param xLocation The X coordinate of the BridgeUnderpass Track.
+	 * @param yLocation The Y coordinate of the BridgeUnderpass Track.
+	 * @return true if a track was deleted, false if nothing was deleted
+	 */
+	bool removeBridgeUnderpassTrack(int xLocation, int yLocation);
+
+	/**
+	 * @brief Removes a SwitchTrack from those coordinates if it exists there.
+	 * @param xLocation The X coordinate of the Switch Track.
+	 * @param yLocation The Y coordinate of the Switch Track.
+	 * @return true if a track was deleted, false if nothing was deleted
+	 */
+	bool removeSwitchTrack(int xLocation, int yLocation);
+
+	/**
+	 * @brief Removes a CrossoverTrack from those coordinates if it exists there.
+	 * @param xLocation The X coordinate of the Crossover Track.
+	 * @param yLocation The Y coordinate of the Crossover Track.
+	 * @return true if a track was deleted, false if nothing was deleted
+	 */
+	bool removeCrossoverTrack(int xLocation, int yLocation);
+
+	/**
+	 * @brief Removes a FlyoverTrack from those coordinates if it exists there.
+	 * @param xLocation The X coordinate of the Flyover Track.
+	 * @param yLocation The Y coordinate of the Flyover Track.
+	 * @return true if a track was deleted, false if nothing was deleted
+	 */
+	bool removeFlyoverTrack(int xLocation, int yLocation);
+
+	/**
+	 * @brief Removes a NamedLocation from those coordinates if it exists there.
+	 * @param xLocation The X coordinate of the NamedLocation.
+	 * @param yLocation The Y coordinate of the NamedLocation.
+	 * @return true if a track was deleted, false if nothing was deleted
+	 */
+	bool removeNamedLocation(int xLocation, int yLocation);
+
+	/**
+	 * @brief Removes a Concourse from those coordinates if it exists there.
+	 * @param xLocation The X coordinate of the Concourse.
+	 * @param yLocation The Y coordinate of the Concourse.
+	 * @return true if a track was deleted, false if nothing was deleted
+	 */
+	bool removeConcourse(int xLocation, int yLocation);
+
+	/**
+	 * @brief Removes a Parapet from those coordinates if it exists there.
+	 * @param xLocation The X coordinate of the Parapet.
+	 * @param yLocation The Y coordinate of the Parapet.
+	 * @return true if a track was deleted, false if nothing was deleted
+	 */
+	bool removeParapet(int xLocation, int yLocation);
+
 	//Linked Track private methods
 
 	/**
@@ -658,6 +772,9 @@ public:
 
 	void addLevelCrossing( int locationX, int locationY);
 
+	//Deleting methods
+
+	bool deleteElement(int locationX, int locationY);
 
 };
 

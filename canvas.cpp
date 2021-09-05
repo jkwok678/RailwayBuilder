@@ -1909,6 +1909,10 @@ void Canvas::mousePressEvent(QMouseEvent *event)
 
 
 	}
+	else if (event->button() == Qt::RightButton)
+	{
+
+	}
 	update();
 }
 

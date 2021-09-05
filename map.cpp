@@ -212,6 +212,237 @@ void Map::addParapet(std::shared_ptr<Parapet> newParapet)
 
 }
 
+//Remove element methods
+
+bool Map::removeStraightTrack(int xLocation, int yLocation)
+{
+	for (unsigned int i = 0; i < straightTrackList.size(); i++)
+	{
+		std::shared_ptr<StraightTrack>& currentElement = straightTrackList[i];
+		int currentX = currentElement->getLocationX();
+		int currentY = currentElement->getLocationY();
+		if (currentX == xLocation && currentY == yLocation)
+		{
+			straightTrackList.erase(straightTrackList.begin() + i);
+			return true;
+		}
+	}
+	return false;
+}
+
+bool Map::removeDirectedTrack(int xLocation, int yLocation)
+{
+	for (unsigned int i = 0; i < directedTrackList.size(); i++)
+	{
+		std::shared_ptr<DirectedTrack>& currentElement = directedTrackList[i];
+		int currentX = currentElement->getLocationX();
+		int currentY = currentElement->getLocationY();
+		if (currentX == xLocation && currentY == yLocation)
+		{
+			directedTrackList.erase(directedTrackList.begin() + i);
+			return true;
+		}
+	}
+	return false;
+}
+
+bool Map::removeCurvedTrack(int xLocation, int yLocation)
+{
+	for (unsigned int i = 0; i < curvedTrackList.size(); i++)
+	{
+		std::shared_ptr<CurvedTrack>& currentElement = curvedTrackList[i];
+		int currentX = currentElement->getLocationX();
+		int currentY = currentElement->getLocationY();
+		if (currentX == xLocation && currentY == yLocation)
+		{
+			curvedTrackList.erase(curvedTrackList.begin() + i);
+			return true;
+		}
+	}
+	return false;
+}
+
+bool Map::removeLinkedTrack(int xLocation, int yLocation)
+{
+	for (unsigned int i = 0; i < linkedTrackList.size(); i++)
+	{
+		std::shared_ptr<LinkedTrack>& currentElement = linkedTrackList[i];
+		int currentX = currentElement->getLocationX();
+		int currentY = currentElement->getLocationY();
+		if (currentX == xLocation && currentY == yLocation)
+		{
+			if (currentElement->getLinked())
+			{
+				disconnectLinkedTrack(currentElement,currentElement->getOtherLinkedTrack());
+			}
+			linkedTrackList.erase(linkedTrackList.begin() + i);
+			return true;
+		}
+	}
+	return false;
+}
+
+bool Map::removeExitTrack(int xLocation, int yLocation)
+{
+	for (int i = 0; i < exitTrackList.size(); i++)
+	{
+		std::shared_ptr<ExitTrack>& currentElement = exitTrackList[i];
+		int currentX = currentElement->getLocationX();
+		int currentY = currentElement->getLocationY();
+		if (currentX == xLocation && currentY == yLocation)
+		{
+			exitTrackList.erase(exitTrackList.begin() + i);
+			return true;
+		}
+	}
+	return false;
+}
+
+bool Map::removeBufferTrack(int xLocation, int yLocation)
+{
+	for (unsigned int i = 0; i < bufferTrackList.size(); i++)
+	{
+		std::shared_ptr<BufferTrack>& currentElement = bufferTrackList[i];
+		int currentX = currentElement->getLocationX();
+		int currentY = currentElement->getLocationY();
+		if (currentX == xLocation && currentY == yLocation)
+		{
+			bufferTrackList.erase(bufferTrackList.begin() + i);
+			return true;
+		}
+	}
+	return false;
+}
+
+bool Map::removeSignalTrack(int xLocation, int yLocation)
+{
+
+	for (unsigned int i = 0; i < signalTrackList.size(); i++)
+	{
+		std::shared_ptr<SignalTrack>& currentElement = signalTrackList[i];
+		int currentX = currentElement->getLocationX();
+		int currentY = currentElement->getLocationY();
+		if (currentX == xLocation && currentY == yLocation)
+		{
+			signalTrackList.erase(signalTrackList.begin() + i);
+			return true;
+		}
+	}
+	return false;
+}
+
+bool Map::removeBridgeUnderpassTrack(int xLocation, int yLocation)
+{
+	for (unsigned int i = 0; i < bridgeUnderpassTrackList.size(); i++)
+	{
+		std::shared_ptr<BridgeUnderpassTrack>& currentElement = bridgeUnderpassTrackList[i];
+		int currentX = currentElement->getLocationX();
+		int currentY = currentElement->getLocationY();
+		if (currentX == xLocation && currentY == yLocation)
+		{
+			bridgeUnderpassTrackList.erase(bridgeUnderpassTrackList.begin() + i);
+			return true;
+		}
+	}
+	return false;
+}
+
+bool Map::removeSwitchTrack(int xLocation, int yLocation)
+{
+	for (unsigned int i = 0; i < switchTrackList.size(); i++)
+	{
+		std::shared_ptr<SwitchTrack>& currentElement = switchTrackList[i];
+		int currentX = currentElement->getLocationX();
+		int currentY = currentElement->getLocationY();
+		if (currentX == xLocation && currentY == yLocation)
+		{
+			switchTrackList.erase(switchTrackList.begin() + i);
+			return true;
+		}
+	}
+	return false;
+}
+
+bool Map::removeCrossoverTrack(int xLocation, int yLocation)
+{
+	for (unsigned int i = 0; i < crossoverTrackList.size(); i++)
+	{
+		std::shared_ptr<CrossoverTrack>& currentElement = crossoverTrackList[i];
+		int currentX = currentElement->getLocationX();
+		int currentY = currentElement->getLocationY();
+		if (currentX == xLocation && currentY == yLocation)
+		{
+			crossoverTrackList.erase(crossoverTrackList.begin() + i);
+			return true;
+		}
+	}
+	return false;
+}
+
+bool Map::removeFlyoverTrack(int xLocation, int yLocation)
+{
+	for (unsigned int i = 0; i < flyoverTrackList.size(); i++)
+	{
+		std::shared_ptr<FlyoverTrack>& currentElement = flyoverTrackList[i];
+		int currentX = currentElement->getLocationX();
+		int currentY = currentElement->getLocationY();
+		if (currentX == xLocation && currentY == yLocation)
+		{
+			flyoverTrackList.erase(flyoverTrackList.begin() + i);
+			return true;
+		}
+	}
+	return false;
+}
+
+bool Map::removeNamedLocation(int xLocation, int yLocation)
+{
+	for (unsigned int i = 0; i < namedLocationList.size(); i++)
+	{
+		std::shared_ptr<NamedLocation>& currentElement = namedLocationList[i];
+		int currentX = currentElement->getLocationX();
+		int currentY = currentElement->getLocationY();
+		if (currentX == xLocation && currentY == yLocation)
+		{
+			namedLocationList.erase(namedLocationList.begin() + i);
+			return true;
+		}
+	}
+	return false;
+}
+
+bool Map::removeConcourse(int xLocation, int yLocation)
+{
+	for (unsigned int i = 0; i < concourseList.size(); i++)
+	{
+		std::shared_ptr<Concourse>& currentElement = concourseList[i];
+		int currentX = currentElement->getLocationX();
+		int currentY = currentElement->getLocationY();
+		if (currentX == xLocation && currentY == yLocation)
+		{
+			concourseList.erase(concourseList.begin() + i);
+			return true;
+		}
+	}
+	return false;
+}
+
+bool Map::removeParapet(int xLocation, int yLocation)
+{
+	for (unsigned int i = 0; i < parapetList.size(); i++)
+	{
+		std::shared_ptr<Parapet>& currentElement = parapetList[i];
+		int currentX = currentElement->getLocationX();
+		int currentY = currentElement->getLocationY();
+		if (currentX == xLocation && currentY == yLocation)
+		{
+			parapetList.erase(parapetList.begin() + i);
+			return true;
+		}
+	}
+	return false;
+}
+
 //Linked Track private methods
 
 void Map::connectLinkedTrack()
@@ -1539,5 +1770,12 @@ void Map::addLevelCrossing(int locationX, int locationY)
 				}
 			}
 	}
+}
+
+//Deleting methods
+
+bool Map::deleteElement(int locationX, int locationY)
+{
+
 }
 
