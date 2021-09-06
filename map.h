@@ -262,13 +262,6 @@ private:
 	 */
 	void resetConnectLinkedTrack();
 
-	//Error message methods.
-
-	/**
-	 * @brief Shows the user an error message saying they cannot place an element on top of an existing element.
-	 */
-	void showElementAlreadyThereError();
-
 public:
 
 	//General map methods.

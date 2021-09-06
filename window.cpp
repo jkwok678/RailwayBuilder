@@ -252,11 +252,11 @@ void Window::connectLinkedTrack()
 		}
 		else if (linkedTrackNum < MIN_LINKTRACK_NEEDED)
 		{
-			showLowNumOfLinkedTrackErrorMessage();
+			ErrorMessage::showLowNumOfLinkedTrackErrorMessage();
 		}
 		else
 		{
-			showOddNumOfLinkedTrackErrorMessage();
+			ErrorMessage::showOddNumOfLinkedTrackErrorMessage();
 		}
 	}
 	else
@@ -3849,23 +3849,4 @@ void Window::createRightDirectionalMenu()
 	canvasMoveDownIcon = new QIcon(":/icons/icons/down.png");
 	canvasMoveDownButton->setIcon(*canvasMoveDownIcon);
 	rightDirectionalMenuLayout->addWidget(canvasMoveDownButton);
-}
-
-//Error message methods.
-
-void Window::showLowNumOfLinkedTrackErrorMessage()
-{
-	QMessageBox lowLinkedTrack;
-	lowLinkedTrack.setIcon(QMessageBox::Critical);
-	lowLinkedTrack.setText("There needs to be 2 or more Linked tracks to connect! Number of Linked Track also has to be even!");
-	lowLinkedTrack.exec();
-}
-
-void Window::showOddNumOfLinkedTrackErrorMessage()
-{
-	//Show oddNumOfLinkTrack error box.
-	QMessageBox oddNumofLinkedTrack;
-	oddNumofLinkedTrack.setIcon(QMessageBox::Critical);
-	oddNumofLinkedTrack.setText("Cannot link track. Odd number of LinkedTrack");
-	oddNumofLinkedTrack.exec();
 }

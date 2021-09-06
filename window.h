@@ -21,6 +21,7 @@
 #include "element.h"
 #include "mode.h"
 #include "elementChosen.h"
+#include "errormessage.h"
 
 
 

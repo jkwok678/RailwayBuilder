@@ -470,14 +470,7 @@ void Map::resetConnectLinkedTrack()
 
 //Error message methods.
 
-void Map::showElementAlreadyThereError()
-{
-	//Show error if an element already exists there.
-	QMessageBox elementExistsAlreadyAlert;
-	elementExistsAlreadyAlert.setIcon(QMessageBox::Critical);
-	elementExistsAlreadyAlert.setText("An element already exists here.");
-	elementExistsAlreadyAlert.exec();
-}
+
 
 
 //public

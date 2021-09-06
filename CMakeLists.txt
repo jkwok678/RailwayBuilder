@@ -20,6 +20,8 @@ add_library(RailwayBuilderLib STATIC borderlayout.cpp
     map.h
     window.cpp
     window.h
+    errormessage.cpp
+    errormessage.h
     )
 # Add an alias to the library to avoid typos
 add_library(RailwayBuilderLib::RailwayBuilderLib ALIAS RailwayBuilderLib)
