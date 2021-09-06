@@ -15,7 +15,7 @@ void Map::addStraightTrack(std::shared_ptr<StraightTrack> newStraightTrack)
 	}
 	else
 	{
-		showElementAlreadyThereError();
+		ErrorMessage::showElementAlreadyThereError();
 	}
 }
 
@@ -30,7 +30,7 @@ void Map::addDirectedTrack(std::shared_ptr<DirectedTrack> newDirectedTrack)
 		}
 		else
 		{
-			showElementAlreadyThereError();
+			ErrorMessage::showElementAlreadyThereError();
 		}
 }
 
@@ -45,7 +45,7 @@ void Map::addCurvedTrack(std::shared_ptr<CurvedTrack> newCurvedTrack)
 	}
 	else
 	{
-		showElementAlreadyThereError();
+		ErrorMessage::showElementAlreadyThereError();
 	}
 }
 
@@ -60,7 +60,7 @@ void Map::addLinkedTrack(std::shared_ptr<LinkedTrack> newLinkedTrack)
 	}
 	else
 	{
-		showElementAlreadyThereError();
+		ErrorMessage::showElementAlreadyThereError();
 	}
 }
 
@@ -74,7 +74,7 @@ void Map::addExitTrack(std::shared_ptr<ExitTrack> newExitTrack)
 	}
 	else
 	{
-		showElementAlreadyThereError();
+		ErrorMessage::showElementAlreadyThereError();
 	}
 }
 
@@ -89,7 +89,7 @@ void Map::addBufferTrack(std::shared_ptr<BufferTrack> newBufferTrack)
 	}
 	else
 	{
-		showElementAlreadyThereError();
+		ErrorMessage::showElementAlreadyThereError();
 	}
 }
 
@@ -104,7 +104,7 @@ void Map::addSignalTrack(std::shared_ptr<SignalTrack> newSignalTrack)
 	}
 	else
 	{
-		showElementAlreadyThereError();
+		ErrorMessage::showElementAlreadyThereError();
 	}
 }
 
@@ -119,7 +119,7 @@ void Map::addBridgeUnderpassTrack(std::shared_ptr<BridgeUnderpassTrack> newBridg
 	}
 	else
 	{
-		showElementAlreadyThereError();
+		ErrorMessage::showElementAlreadyThereError();
 	}
 }
 
@@ -134,7 +134,7 @@ void Map::addSwitchTrack(std::shared_ptr<SwitchTrack> newSwitchTrack)
 	}
 	else
 	{
-		showElementAlreadyThereError();
+		ErrorMessage::showElementAlreadyThereError();
 	}
 }
 
@@ -149,7 +149,7 @@ void Map::addCrossoverTrack(std::shared_ptr<CrossoverTrack> newCrossoverTrack)
 	}
 	else
 	{
-		showElementAlreadyThereError();
+		ErrorMessage::showElementAlreadyThereError();
 	}
 }
 
@@ -164,7 +164,7 @@ void Map::addFlyoverTrack(std::shared_ptr<FlyoverTrack> newFlyoverTrack)
 	}
 	else
 	{
-		showElementAlreadyThereError();
+		ErrorMessage::showElementAlreadyThereError();
 	}
 }
 
@@ -178,7 +178,7 @@ void Map::addNamedLocation(std::shared_ptr<NamedLocation> newNamedLocation)
 	}
 	else
 	{
-		showElementAlreadyThereError();
+		ErrorMessage::showElementAlreadyThereError();
 	}
 }
 
@@ -192,7 +192,7 @@ void Map::addConcourse(std::shared_ptr<Concourse> newConcourseTrack)
 	}
 	else
 	{
-		showElementAlreadyThereError();
+		ErrorMessage::showElementAlreadyThereError();
 	}
 }
 
@@ -207,7 +207,7 @@ void Map::addParapet(std::shared_ptr<Parapet> newParapet)
 	}
 	else
 	{
-		showElementAlreadyThereError();
+		ErrorMessage::showElementAlreadyThereError();
 	}
 
 }

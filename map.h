@@ -6,6 +6,7 @@
 #include <QMessageBox>
 #include "element.h"
 #include "track.h"
+#include "errormessage.h"
 
 /**
  * @brief The Map class

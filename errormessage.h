@@ -13,7 +13,7 @@ public:
 	 *
 	 * Used in the Map class when placing elements.
 	 */
-	void showElementAlreadyThereError();
+	static void showElementAlreadyThereError();
 
 	/**
 	 * @brief A method that shows an error message if the user tries to connect Linked Tracks when there are none.
