@@ -1776,6 +1776,63 @@ void Map::addLevelCrossing(int locationX, int locationY)
 
 bool Map::deleteElement(int locationX, int locationY)
 {
-
+	bool deleted = false;
+	if (!deleted)
+	{
+		deleted = removeStraightTrack(locationX, locationY);
+	}
+	if (!deleted)
+	{
+		deleted = removeDirectedTrack(locationX, locationY);
+	}
+	if (!deleted)
+	{
+		deleted = removeCurvedTrack(locationX, locationY);
+	}
+	if (!deleted)
+	{
+		deleted = removeLinkedTrack(locationX, locationY);
+	}
+	if (!deleted)
+	{
+		deleted = removeExitTrack(locationX, locationY);
+	}
+	if (!deleted)
+	{
+		deleted = removeBufferTrack(locationX, locationY);
+	}
+	if (!deleted)
+	{
+		deleted = removeSignalTrack(locationX, locationY);
+	}
+	if (!deleted)
+	{
+		deleted = removeBridgeUnderpassTrack(locationX, locationY);
+	}
+	if (!deleted)
+	{
+		deleted = removeSwitchTrack(locationX, locationY);
+	}
+	if (!deleted)
+	{
+		deleted = removeCrossoverTrack(locationX, locationY);
+	}
+	if (!deleted)
+	{
+		deleted = removeFlyoverTrack(locationX, locationY);
+	}
+	if (!deleted)
+	{
+		deleted = removeNamedLocation(locationX, locationY);
+	}
+	if (!deleted)
+	{
+		deleted = removeConcourse(locationX, locationY);
+	}
+	if (!deleted)
+	{
+		deleted = removeParapet(locationX, locationY);
+	}
+	return deleted;
 }
 

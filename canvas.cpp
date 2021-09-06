@@ -1863,6 +1863,11 @@ void Canvas::clickConnectLinkedTracks(int overallX, int overallY)
 	map->connectTwoLinkedTracks(overallX,overallY);
 }
 
+void Canvas::clickDeleteElement(int overallX, int overallY)
+{
+	map->deleteElement(overallX, overallY);
+}
+
 
 void Canvas::mousePressEvent(QMouseEvent *event)
 {
@@ -1915,7 +1920,7 @@ void Canvas::mousePressEvent(QMouseEvent *event)
 		{
 			case Mode::ADDREMOVETRACK:
 			{
-
+				clickDeleteElement(overallX, overallY);
 			}
 		}
 	}

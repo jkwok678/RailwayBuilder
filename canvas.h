@@ -235,6 +235,13 @@ public:
 	 */
 	void clickConnectLinkedTracks(int overallX, int overallY);
 
+	/**
+	 * @brief Delete the element at that location
+	 * @param overallX X coordinate.
+	 * @param overallY Y coordinate.
+	 */
+	void clickDeleteElement(int overallX, int overallY);
+
 
 
 
