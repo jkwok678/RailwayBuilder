@@ -226,14 +226,14 @@ public:
 	 * @param overallX X coordinate relative to the entire map.
 	 * @param overallY Y coordinate relative to the entire map.
 	 */
-	void createAddElement(ElementChosen elementToAdd, int overallX, int overallY);
+	void clickCreateAddElement(ElementChosen elementToAdd, int overallX, int overallY);
 
 	/**
 	 * @brief Connect the last 2 selected linked tracks.
 	 * @param overallX X coordinate.
 	 * @param overallY Y coordinate.
 	 */
-	void connectLinkedTracksAfterClick(int overallX, int overallY);
+	void clickConnectLinkedTracks(int overallX, int overallY);
 
 
 

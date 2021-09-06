@@ -965,7 +965,7 @@ void Canvas::setGrid(bool newGrid)
 	grid = newGrid;
 }
 
-void Canvas::createAddElement(ElementChosen elementToAdd, int overallX, int overallY)
+void Canvas::clickCreateAddElement(ElementChosen elementToAdd, int overallX, int overallY)
 {
 	bool addedElement = false;
 	switch (elementToAdd)
@@ -1858,7 +1858,7 @@ void Canvas::createAddElement(ElementChosen elementToAdd, int overallX, int over
 	}
 }
 
-void Canvas::connectLinkedTracksAfterClick(int overallX, int overallY)
+void Canvas::clickConnectLinkedTracks(int overallX, int overallY)
 {
 	map->connectTwoLinkedTracks(overallX,overallY);
 }
@@ -1889,12 +1889,12 @@ void Canvas::mousePressEvent(QMouseEvent *event)
 		{
 			case Mode::ADDREMOVETRACK:
 			{
-				createAddElement(elementChosen, overallX, overallY);
+				clickCreateAddElement(elementChosen, overallX, overallY);
 				break;
 			}
 			case Mode::CONNECTLINKEDTRACK:
 			{
-				connectLinkedTracksAfterClick(overallX, overallY);
+				clickConnectLinkedTracks(overallX, overallY);
 				break;
 			}
 			case Mode::SETCONVERTSPEEDDISTANCE:
@@ -1911,7 +1911,13 @@ void Canvas::mousePressEvent(QMouseEvent *event)
 	}
 	else if (event->button() == Qt::RightButton)
 	{
+		switch(mode)
+		{
+			case Mode::ADDREMOVETRACK:
+			{
 
+			}
+		}
 	}
 	update();
 }
