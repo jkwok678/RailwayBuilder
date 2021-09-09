@@ -221,6 +221,11 @@ public:
 	void setGrid(bool newGrid);
 
 	/**
+	 * @brief Checks all the tracks in the map class to see if they are all connected with no unconnected ends.
+	 */
+	void checkAllTracksInMapConnected();
+
+	/**
 	 * @brief Create and add the element to the coordinates.
 	 * @param elementToAdd The element to add.
 	 * @param overallX X coordinate relative to the entire map.

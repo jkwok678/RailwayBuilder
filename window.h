@@ -130,9 +130,19 @@ private slots:
 	void connectLinkedTrack();
 
 	/**
+	 * @brief A slot that checks if all tracks are connected.
+	 */
+	void checkAllTrackConnected();
+
+	/**
 	 * @brief A slot to change the aspects of signal tracks added to screen.
 	 */
 	void changeAspect();
+
+	/**
+	 * @brief A slot to toggle the grid on the canvas
+	 */
+	void toggleGrid();
 
 	//Element Menu choose Elements.
 
@@ -917,11 +927,6 @@ private slots:
 	void chooseLevelCrossing();
 
 	//Right hand side menu.
-
-	/**
-	 * @brief A slot to toggle the grid on the canvas
-	 */
-	void toggleGrid();
 
 	/**
 	 * @brief A slot to move the canvas to the right.

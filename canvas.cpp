@@ -965,6 +965,11 @@ void Canvas::setGrid(bool newGrid)
 	grid = newGrid;
 }
 
+void Canvas::checkAllTracksInMapConnected()
+{
+	//map->checkAllTracks();
+}
+
 void Canvas::clickCreateAddElement(ElementChosen elementToAdd, int overallX, int overallY)
 {
 	bool addedElement = false;

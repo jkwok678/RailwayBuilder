@@ -265,6 +265,12 @@ void Window::connectLinkedTrack()
 	}
 }
 
+void Window::checkAllTrackConnected()
+{
+	//Run checkAllTrack
+	//drawingArea->checkAllTracks();
+}
+
 void Window::changeAspect()
 {
 	//Change aspect from 4 -> 3 -> 2 -> 1 then back to 4.
@@ -306,6 +312,19 @@ void Window::changeAspect()
 		signalLeftDownButton->setIcon(*signalLeftDownIcon);
 		signalRightDownButton->setIcon(*signalRightDownIcon);
 	}
+}
+
+void Window::toggleGrid()
+{
+	if (drawingArea->getGrid())
+	{
+		drawingArea->setGrid(false);
+	}
+	else
+	{
+		drawingArea->setGrid(true);
+	}
+	drawingArea->update();
 }
 
 //Element menu to choose element
@@ -2069,18 +2088,6 @@ void Window::chooseLevelCrossing()
 	}
 }
 
-void Window::toggleGrid()
-{
-	if (drawingArea->getGrid())
-	{
-		drawingArea->setGrid(false);
-	}
-	else
-	{
-		drawingArea->setGrid(true);
-	}
-	drawingArea->update();
-}
 
 //Right hand side menu.
 
