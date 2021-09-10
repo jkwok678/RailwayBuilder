@@ -252,11 +252,11 @@ void Window::connectLinkedTrack()
 		}
 		else if (linkedTrackNum < MIN_LINKTRACK_NEEDED)
 		{
-			ErrorMessage::showLowNumOfLinkedTrackErrorMessage();
+			Message::showLowNumOfLinkedTrackErrorMessage();
 		}
 		else
 		{
-			ErrorMessage::showOddNumOfLinkedTrackErrorMessage();
+			Message::showOddNumOfLinkedTrackErrorMessage();
 		}
 	}
 	else

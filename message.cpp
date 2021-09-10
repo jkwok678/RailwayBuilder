@@ -5,10 +5,20 @@ Message::Message()
 
 }
 
+//Success
+
+void Message::showAllTrackConnecedSuccessMessage()
+{
+	QMessageBox allConnectedBox;
+	//allConnectedBox.setIcon(QMessageBox::Accepted);
+	allConnectedBox.setText("All track connected");
+	allConnectedBox.exec();
+}
+
 
 //Errors
 
-void Message::showElementAlreadyThereError()
+void Message::showElementAlreadyThereErrorMessage()
 {
 	//Show error if an element already exists there.
 	QMessageBox elementExistsAlreadyAlert;
@@ -32,4 +42,12 @@ void Message::showOddNumOfLinkedTrackErrorMessage()
 	oddNumofLinkedTrack.setIcon(QMessageBox::Critical);
 	oddNumofLinkedTrack.setText("Cannot link track. Odd number of LinkedTrack");
 	oddNumofLinkedTrack.exec();
+}
+
+void Message::showNotAllTrackConnectedErrorMessage()
+{
+	QMessageBox notConnectedBox;
+	notConnectedBox.setIcon(QMessageBox::Critical);
+	notConnectedBox.setText("Not all track connected");
+	notConnectedBox.exec();
 }

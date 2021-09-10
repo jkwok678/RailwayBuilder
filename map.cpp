@@ -15,23 +15,23 @@ void Map::addStraightTrack(std::shared_ptr<StraightTrack> newStraightTrack)
 	}
 	else
 	{
-		ErrorMessage::showElementAlreadyThereError();
+		Message::showElementAlreadyThereErrorMessage();
 	}
 }
 
 void Map::addDirectedTrack(std::shared_ptr<DirectedTrack> newDirectedTrack)
 {
 	int tempLocationX = newDirectedTrack->getLocationX();
-		int templocationY = newDirectedTrack->getLocationY();
-		if (!checkElementExists(tempLocationX, templocationY))
-		{
-			directedTrackList.push_back(newDirectedTrack);
-			++totalTrack;
-		}
-		else
-		{
-			ErrorMessage::showElementAlreadyThereError();
-		}
+	int templocationY = newDirectedTrack->getLocationY();
+	if (!checkElementExists(tempLocationX, templocationY))
+	{
+		directedTrackList.push_back(newDirectedTrack);
+		++totalTrack;
+	}
+	else
+	{
+		Message::showElementAlreadyThereErrorMessage();
+	}
 }
 
 void Map::addCurvedTrack(std::shared_ptr<CurvedTrack> newCurvedTrack)
@@ -45,7 +45,7 @@ void Map::addCurvedTrack(std::shared_ptr<CurvedTrack> newCurvedTrack)
 	}
 	else
 	{
-		ErrorMessage::showElementAlreadyThereError();
+		Message::showElementAlreadyThereErrorMessage();
 	}
 }
 
@@ -60,7 +60,7 @@ void Map::addLinkedTrack(std::shared_ptr<LinkedTrack> newLinkedTrack)
 	}
 	else
 	{
-		ErrorMessage::showElementAlreadyThereError();
+		Message::showElementAlreadyThereErrorMessage();
 	}
 }
 
@@ -74,7 +74,7 @@ void Map::addExitTrack(std::shared_ptr<ExitTrack> newExitTrack)
 	}
 	else
 	{
-		ErrorMessage::showElementAlreadyThereError();
+		Message::showElementAlreadyThereErrorMessage();
 	}
 }
 
@@ -89,7 +89,7 @@ void Map::addBufferTrack(std::shared_ptr<BufferTrack> newBufferTrack)
 	}
 	else
 	{
-		ErrorMessage::showElementAlreadyThereError();
+		Message::showElementAlreadyThereErrorMessage();
 	}
 }
 
@@ -104,7 +104,7 @@ void Map::addSignalTrack(std::shared_ptr<SignalTrack> newSignalTrack)
 	}
 	else
 	{
-		ErrorMessage::showElementAlreadyThereError();
+		Message::showElementAlreadyThereErrorMessage();
 	}
 }
 
@@ -119,7 +119,7 @@ void Map::addBridgeUnderpassTrack(std::shared_ptr<BridgeUnderpassTrack> newBridg
 	}
 	else
 	{
-		ErrorMessage::showElementAlreadyThereError();
+		Message::showElementAlreadyThereErrorMessage();
 	}
 }
 
@@ -134,7 +134,7 @@ void Map::addSwitchTrack(std::shared_ptr<SwitchTrack> newSwitchTrack)
 	}
 	else
 	{
-		ErrorMessage::showElementAlreadyThereError();
+		Message::showElementAlreadyThereErrorMessage();
 	}
 }
 
@@ -149,7 +149,7 @@ void Map::addCrossoverTrack(std::shared_ptr<CrossoverTrack> newCrossoverTrack)
 	}
 	else
 	{
-		ErrorMessage::showElementAlreadyThereError();
+		Message::showElementAlreadyThereErrorMessage();
 	}
 }
 
@@ -164,7 +164,7 @@ void Map::addFlyoverTrack(std::shared_ptr<FlyoverTrack> newFlyoverTrack)
 	}
 	else
 	{
-		ErrorMessage::showElementAlreadyThereError();
+		Message::showElementAlreadyThereErrorMessage();
 	}
 }
 
@@ -178,7 +178,7 @@ void Map::addNamedLocation(std::shared_ptr<NamedLocation> newNamedLocation)
 	}
 	else
 	{
-		ErrorMessage::showElementAlreadyThereError();
+		Message::showElementAlreadyThereErrorMessage();
 	}
 }
 
@@ -192,7 +192,7 @@ void Map::addConcourse(std::shared_ptr<Concourse> newConcourseTrack)
 	}
 	else
 	{
-		ErrorMessage::showElementAlreadyThereError();
+		Message::showElementAlreadyThereErrorMessage();
 	}
 }
 
@@ -207,7 +207,7 @@ void Map::addParapet(std::shared_ptr<Parapet> newParapet)
 	}
 	else
 	{
-		ErrorMessage::showElementAlreadyThereError();
+		Message::showElementAlreadyThereErrorMessage();
 	}
 
 }
@@ -2292,19 +2292,14 @@ bool Map::checkAllTracksConnected()
 					allConnected = false;
 				}
 			}
-			if (allConnected && allLinkedTrackLinked)
-				{
-					QMessageBox allConnectedBox;
-					allConnectedBox.setText("All track connected");
-					allConnectedBox.exec();
-				}
-				else
-				{
-					QMessageBox notConnectedBox;
-					notConnectedBox.setText("Not all track connected");
-					notConnectedBox.exec();
-				}
-			//Show error.
+			if (allConnected)
+			{
+				Message::showAllTrackConnecedSuccessMessage();
+			}
+			else
+			{
+				Message::showNotAllTrackConnectedErrorMessage();
+			}
 		}
 	}
 }
