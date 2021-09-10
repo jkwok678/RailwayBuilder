@@ -263,6 +263,14 @@ private:
 	 */
 	void resetConnectLinkedTrack();
 
+	//General methods
+
+	/**
+	 * @brief Gets the top left track.
+	 * @return the top left track.
+	 */
+	std::shared_ptr<Track> findTopLeftTrack();
+
 public:
 
 	//General map methods.
@@ -460,6 +468,12 @@ public:
 	 * @param locationY Y coordinate of a linked track.
 	 */
 	void connectTwoLinkedTracks(int locationX, int locationY);
+
+	/**
+	 * @brief Checks if all LinkedTracks are connected.
+	 * @return true if all linked tracks are connected, otherwise false.
+	 */
+	bool checkAllLinkTrackLinked();
 
 
 
@@ -762,13 +776,81 @@ public:
 
 	//Platform related methods
 
+	/**
+	 * @brief Adds a platform to a track, if its possible.
+	 * @param side The side of the platform relative to the track.
+	 * @param locationX X coordinate of the track.
+	 * @param locationY Y coordinate of the track.
+	 */
 	void addPlatform(Platform side, int locationX, int locationY);
 
+	/**
+	 * @brief Adds a level crossing if it's possible.
+	 * @param locationX X coordinate of the track.
+	 * @param locationY Y coordinate of the track.
+	 */
 	void addLevelCrossing( int locationX, int locationY);
 
 	//Deleting methods
 
+	/**
+	 * @brief Deletes an element from storage.
+	 * @param locationX X coordinate of the element to delete.
+	 * @param locationY Y coordinate of the element to delete.
+	 * @return true if something was deleted at those coordinates, otherwise false.
+	 */
 	bool deleteElement(int locationX, int locationY);
+
+	//General methods
+
+	/**
+	 * @brief Gets the element at the coordinates.
+	 * @param locationX X coordinate of the element.
+	 * @param locationY Y coordinate of the element.
+	 * @return an element, otherwise nullptr.
+	 */
+	std::shared_ptr<Element> getElementAt( int locationX, int locationY);
+
+
+	/**
+	 * @brief Gets the namedElement at the coordinates.
+	 * @param locationX X coordinate of the element.
+	 * @param locationY Y coordinate of the element.
+	 * @return a element, otherwise nullptr.
+	 */
+	std::shared_ptr<NamedElement> getNamedElementAt( int locationX, int locationY);
+
+	/**
+	 * @brief Gets the track at the coordinates.
+	 * @param locationX X coordinate of the track.
+	 * @param locationY Y coordinate of the track.
+	 * @return a track, otherwise nullptr.
+	 */
+	std::shared_ptr<Track> getTrackAt( int locationX, int locationY);
+
+
+	/**
+	 * @brief Gets the trackList.
+	 * @return A list of every track.
+	 */
+	std::vector<std::shared_ptr<Track> > getTrackList() const;
+
+	/**
+	 * @brief Sets the trackList.
+	 * @param value
+	 */
+	void setTrackList(const std::vector<std::shared_ptr<Track> > &newTrackList);
+
+	/**
+	 * @brief Makes the trackList.
+	 */
+	void makeTrackList();
+
+	/**
+	 * @brief Checks if all tracks are connected.
+	 * @return true if they are, otherwise false.
+	 */
+	bool checkAllTracksConnected();
 
 };
 

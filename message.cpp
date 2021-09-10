@@ -1,11 +1,14 @@
-#include "errormessage.h"
+#include "message.h"
 
-ErrorMessage::ErrorMessage()
+Message::Message()
 {
 
 }
 
-void ErrorMessage::showElementAlreadyThereError()
+
+//Errors
+
+void Message::showElementAlreadyThereError()
 {
 	//Show error if an element already exists there.
 	QMessageBox elementExistsAlreadyAlert;
@@ -14,7 +17,7 @@ void ErrorMessage::showElementAlreadyThereError()
 	elementExistsAlreadyAlert.exec();
 }
 
-void ErrorMessage::showLowNumOfLinkedTrackErrorMessage()
+void Message::showLowNumOfLinkedTrackErrorMessage()
 {
 	QMessageBox lowLinkedTrack;
 	lowLinkedTrack.setIcon(QMessageBox::Critical);
@@ -22,7 +25,7 @@ void ErrorMessage::showLowNumOfLinkedTrackErrorMessage()
 	lowLinkedTrack.exec();
 }
 
-void ErrorMessage::showOddNumOfLinkedTrackErrorMessage()
+void Message::showOddNumOfLinkedTrackErrorMessage()
 {
 	//Show oddNumOfLinkTrack error box.
 	QMessageBox oddNumofLinkedTrack;

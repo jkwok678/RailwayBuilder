@@ -1,12 +1,21 @@
-#ifndef ERRORMESSAGE_H
-#define ERRORMESSAGE_H
+#ifndef MESSAGE_H
+#define MESSAGE_H
 
 #include<QMessageBox>
 
-class ErrorMessage
+class Message
 {
 public:
-	ErrorMessage();
+	Message();
+
+	//Success
+
+
+	//Confirmations
+
+
+
+	//Errors
 
 	/**
 	 * @brief Shows the user an error message saying they cannot place an element on top of an existing element.
@@ -30,4 +39,4 @@ public:
 	static void showOddNumOfLinkedTrackErrorMessage();
 };
 
-#endif // ERRORMESSAGE_H
+#endif // MESSAGE_H
