@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file.
 
+## Core features - 14/09/2021
+
+### Added
+* The ability to check if the system is completely connected.
+
 ## Core features - 03/09/2021
 
 ### Added

@@ -2234,86 +2234,94 @@ bool Map::checkAllTracksConnected()
 	makeTrackList();
 	bool allConnected = true;
 	allConnected = checkAllLinkTrackLinked();
-	if (allConnected)
+	if (trackList.size() == 0)
 	{
-		for (std::shared_ptr<Track> currentTrack : trackList)
+		Message::showZeroTrackErrorMessage();
+	}
+	else
+	{
+		if (allConnected)
 		{
-			int centreTrackX = currentTrack->getLocationX();
-			int centreTrackY = currentTrack->getLocationY();
-			if (currentTrack->getLinkAt(0))
+			for (std::shared_ptr<Track> currentTrack : trackList)
 			{
-				std::shared_ptr<Track> leftUpTrack = getTrackAt(centreTrackX-16, centreTrackY+16);
-				if (leftUpTrack == nullptr)
+				int centreTrackX = currentTrack->getLocationX();
+				int centreTrackY = currentTrack->getLocationY();
+				if (currentTrack->getLinkAt(0))
 				{
-					allConnected = false;
+					std::shared_ptr<Track> leftUpTrack = getTrackAt(centreTrackX-16, centreTrackY+16);
+					if (leftUpTrack == nullptr)
+					{
+						allConnected = false;
+					}
 				}
-			}
-			if (currentTrack->getLinkAt(1) && allConnected)
-			{
-				std::shared_ptr<Track> upTrack = getTrackAt(centreTrackX, centreTrackY+16);
-				if (upTrack == nullptr)
+				if (currentTrack->getLinkAt(1) && allConnected)
 				{
-					allConnected = false;
+					std::shared_ptr<Track> upTrack = getTrackAt(centreTrackX, centreTrackY+16);
+					if (upTrack == nullptr)
+					{
+						allConnected = false;
+					}
 				}
-			}
-			if (currentTrack->getLinkAt(2) && allConnected)
-			{
-				std::shared_ptr<Track> rightUpTrack = getTrackAt(centreTrackX+16, centreTrackY+16);
-				if (rightUpTrack == nullptr)
+				if (currentTrack->getLinkAt(2) && allConnected)
 				{
-					allConnected = false;
+					std::shared_ptr<Track> rightUpTrack = getTrackAt(centreTrackX+16, centreTrackY+16);
+					if (rightUpTrack == nullptr)
+					{
+						allConnected = false;
+					}
 				}
-			}
-			if (currentTrack->getLinkAt(3) && allConnected)
-			{
-				std::shared_ptr<Track> leftTrack = getTrackAt(centreTrackX-16, centreTrackY);
-				if (leftTrack == nullptr)
+				if (currentTrack->getLinkAt(3) && allConnected)
 				{
-					allConnected = false;
+					std::shared_ptr<Track> leftTrack = getTrackAt(centreTrackX-16, centreTrackY);
+					if (leftTrack == nullptr)
+					{
+						allConnected = false;
+					}
 				}
-			}
-			if (currentTrack->getLinkAt(5) && allConnected)
-			{
-				std::shared_ptr<Track> rightTrack = getTrackAt(centreTrackX+16, centreTrackY);
-				if (rightTrack == nullptr)
+				if (currentTrack->getLinkAt(5) && allConnected)
 				{
-					allConnected = false;
+					std::shared_ptr<Track> rightTrack = getTrackAt(centreTrackX+16, centreTrackY);
+					if (rightTrack == nullptr)
+					{
+						allConnected = false;
+					}
 				}
-			}
-			if (currentTrack->getLinkAt(6) && allConnected)
-			{
-				std::shared_ptr<Track> rightDownTrack = getTrackAt(centreTrackX-16, centreTrackY-16);
-				if (rightDownTrack == nullptr)
+				if (currentTrack->getLinkAt(6) && allConnected)
 				{
-					allConnected = false;
+					std::shared_ptr<Track> rightDownTrack = getTrackAt(centreTrackX-16, centreTrackY-16);
+					if (rightDownTrack == nullptr)
+					{
+						allConnected = false;
+					}
 				}
-			}
-			if (currentTrack->getLinkAt(7) && allConnected)
-			{
-				std::shared_ptr<Track> downTrack = getTrackAt(centreTrackX, centreTrackY-16);
-				if (downTrack == nullptr)
+				if (currentTrack->getLinkAt(7) && allConnected)
 				{
-					allConnected = false;
+					std::shared_ptr<Track> downTrack = getTrackAt(centreTrackX, centreTrackY-16);
+					if (downTrack == nullptr)
+					{
+						allConnected = false;
+					}
 				}
-			}
-			if (currentTrack->getLinkAt(8) && allConnected)
-			{
-				std::shared_ptr<Track> rightDownTrack = getTrackAt(centreTrackX+16, centreTrackY-16);
-				if (rightDownTrack == nullptr)
+				if (currentTrack->getLinkAt(8) && allConnected)
 				{
-					allConnected = false;
+					std::shared_ptr<Track> rightDownTrack = getTrackAt(centreTrackX+16, centreTrackY-16);
+					if (rightDownTrack == nullptr)
+					{
+						allConnected = false;
+					}
 				}
-			}
-			if (allConnected)
-			{
-				Message::showAllTrackConnecedSuccessMessage();
-			}
-			else
-			{
-				Message::showNotAllTrackConnectedErrorMessage();
 			}
 		}
+		if (allConnected)
+		{
+			Message::showAllTrackConnecedSuccessMessage();
+		}
+		else
+		{
+			Message::showNotAllTrackConnectedErrorMessage();
+		}
 	}
+
 	return allConnected;
 }
 

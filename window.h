@@ -977,6 +977,10 @@ private:
 	QAction* connectLinkedTrackAct;
 	QIcon* connectLinkedTrackIcon;
 
+	QToolButton* checkAllTrackConnectedButton;
+	QAction* checkAllTrackConnectedAct;
+	QIcon* checkAllTrackConnectedIcon;
+
 	QToolButton *setConvertSpeedDistanceMenuButton;
 	QIcon   *setConvertSpeedDistanceMenuIcon;
 	QAction *openSetConvertSpeedDistanceMenuAct;

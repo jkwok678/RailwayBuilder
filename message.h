@@ -51,6 +51,13 @@ public:
 	 */
 	static void showNotAllTrackConnectedErrorMessage();
 
+	/**
+	 * @brief A method that shows an error message there are no tracks stored.
+	 *
+	 * Used in the Map class when checking if tracks are all connected.
+	 */
+	static void showZeroTrackErrorMessage();
+
 };
 
 #endif // MESSAGE_H

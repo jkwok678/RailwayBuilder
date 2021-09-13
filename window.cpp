@@ -268,7 +268,7 @@ void Window::connectLinkedTrack()
 void Window::checkAllTrackConnected()
 {
 	//Run checkAllTrack
-	//drawingArea->checkAllTracks();
+	drawingArea->getMap()->checkAllTracksConnected();
 }
 
 void Window::changeAspect()
@@ -2194,6 +2194,16 @@ void Window::createBuildModifyMenu()
 	connectLinkedTrackButton->setIcon(*connectLinkedTrackIcon);
 	buildModifyMenu1->addWidget(connectLinkedTrackButton);
 	//connectLinkedTrackButton->setEnabled(false);
+
+	checkAllTrackConnectedButton = new QToolButton();
+	checkAllTrackConnectedButton->setMaximumSize(QSize(32, 32));
+	checkAllTrackConnectedAct = new QAction();
+	checkAllTrackConnectedButton->setDefaultAction(checkAllTrackConnectedAct);
+	connect(checkAllTrackConnectedAct, &QAction::triggered, this, &Window::checkAllTrackConnected);
+	checkAllTrackConnectedIcon = new QIcon(":/icons/icons/checkAllTrackLinked.png");
+	checkAllTrackConnectedButton->setIcon(*checkAllTrackConnectedIcon);
+	buildModifyMenu1->addWidget(checkAllTrackConnectedButton);
+	//checkAllTrackButton->setEnabled(false);
 
 	//Add the button to bring up the menu that allows the user to set and convert speed and distances.
 	setConvertSpeedDistanceMenuButton = new QToolButton();

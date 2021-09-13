@@ -51,3 +51,11 @@ void Message::showNotAllTrackConnectedErrorMessage()
 	notConnectedBox.setText("Not all track connected");
 	notConnectedBox.exec();
 }
+
+void Message::showZeroTrackErrorMessage()
+{
+	QMessageBox zeroTrackBox;
+	zeroTrackBox.setIcon(QMessageBox::Critical);
+	zeroTrackBox.setText("There are zero tracks stored.");
+	zeroTrackBox.exec();
+}
