@@ -1883,8 +1883,8 @@ void Canvas::mousePressEvent(QMouseEvent *event)
 	int exactX = event->pos().x();
 	int exactY = event->pos().y();
 	//Find out how close it is to the nearest image size. E.g. split the canvas into a grid with each square being imageSize big
-	int extraX = exactX % imageSize;
-	int extraY = exactY % imageSize;
+	int extraX = exactX % map->getImageSize();
+	int extraY = exactY % map->getImageSize();
 	//Find the closest box to snap to.
 	int roundedX = exactX - extraX;
 	int roundedY = exactY - extraY;

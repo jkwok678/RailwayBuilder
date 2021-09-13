@@ -19,6 +19,8 @@
 class Map
 {
 private:
+
+	int imageSize{16};
 	int totalTrack{0};
 
 	std::vector<std::shared_ptr<StraightTrack>> straightTrackList;
@@ -278,6 +280,18 @@ public:
 	 * @brief A default map constructor to create the map object.
 	 */
 	Map();
+
+	/**
+	 * @brief Gets the image size of the elements.
+	 * @return an int that is the image size.
+	 */
+	int getImageSize() const;
+
+	/**
+	 * @brief Sets the image size of the elements.
+	 * @param newImageSize an int that is the new image size.
+	 */
+	void setImageSize(int newImageSize);
 
 	/**
 	 * @brief Gets the total number of track pieces that have been placed.

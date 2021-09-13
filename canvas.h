@@ -268,7 +268,6 @@ private:
 	ElementChosen elementChosen{ElementChosen::NONE};
 	int signalAspectToAdd{4};
 	Map* map;
-	int imageSize{16};
 	bool modified{false};
 	int offsetX{0};
 	int offsetY{0};

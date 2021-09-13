@@ -4,6 +4,8 @@
 
 //General methods.
 
+
+
 void Map::addStraightTrack(std::shared_ptr<StraightTrack> newStraightTrack)
 {
 	int tempLocationX = newStraightTrack->getLocationX();
@@ -501,6 +503,16 @@ std::shared_ptr<Track> Map::findTopLeftTrack()
 Map::Map()
 {
 
+}
+
+int Map::getImageSize() const
+{
+	return imageSize;
+}
+
+void Map::setImageSize(int newImageSize)
+{
+	imageSize = newImageSize;
 }
 
 int Map::getTotalTrack() const
@@ -2302,5 +2314,6 @@ bool Map::checkAllTracksConnected()
 			}
 		}
 	}
+	return allConnected;
 }
 
