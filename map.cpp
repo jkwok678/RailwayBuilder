@@ -214,6 +214,16 @@ void Map::addParapet(std::shared_ptr<Parapet> newParapet)
 
 }
 
+void Map::addText(std::shared_ptr<Text> newText)
+{
+	int tempLocationX = newText->getLocationX();
+	int templocationY = newText->getLocationY();
+	if (!checkElementExists(tempLocationX, templocationY))
+	{
+		textList.push_back(newText);
+	}
+}
+
 //Remove element methods
 
 bool Map::removeStraightTrack(int xLocation, int yLocation)
@@ -733,6 +743,22 @@ bool Map::checkTextExists(int locationX, int locationY)
 	return found;
 }
 
+bool Map::deleteText(std::shared_ptr<Text> textToDelete)
+{
+	bool deleted = false;
+	for (int i = 0; i < textList.size(); i++)
+	{
+		std::shared_ptr<Text>& currentText = textList[i];
+		if (currentText == textToDelete)
+		{
+			textList.erase(textList.begin() + i);
+			deleted = true;
+			break;
+		}
+	}
+	return deleted;
+}
+
 
 
 //StraightTrack related methods
@@ -773,6 +799,7 @@ std::shared_ptr<StraightTrack> Map::getStraightTrackAt(int locationX, int locati
 	return straightTrack;
 }
 
+
 //DirectedTrack related methods
 
 std::vector<std::shared_ptr<DirectedTrack> > Map::getDirectedTrackList() const
@@ -809,6 +836,7 @@ std::shared_ptr<DirectedTrack> Map::getDirectedTrackAt(int locationX, int locati
 	}
 	return directedTrack;
 }
+
 
 //CurvedTrack related methods
 
@@ -847,6 +875,7 @@ std::shared_ptr<CurvedTrack> Map::getCurvedTrackAt(int locationX, int locationY)
 	}
 	return curvedTrack;
 }
+
 
 //LinkedTrack related methods
 
@@ -973,6 +1002,7 @@ bool Map::checkAllLinkTrackLinked()
 	return allLinkedTrackLinked;
 }
 
+
 //ExitTrack related methods
 
 std::vector<std::shared_ptr<ExitTrack> > Map::getExitTrackList() const
@@ -1011,6 +1041,7 @@ std::shared_ptr<ExitTrack> Map::getExitTrackAt(int locationX, int locationY)
 	return exitTrack;
 }
 
+
 //BufferTrack related methods
 
 std::vector<std::shared_ptr<BufferTrack> > Map::getBufferTrackList() const
@@ -1047,6 +1078,7 @@ std::shared_ptr<BufferTrack> Map::getBufferTrackAt(int locationX, int locationY)
 	}
 	return bufferTrack;
 }
+
 
 //SignalTrack related methods
 
@@ -1085,6 +1117,7 @@ std::shared_ptr<SignalTrack> Map::getSignalTrackAt(int locationX, int locationY)
 	return signalTrack;
 }
 
+
 //BridgeUnderpassTrack related methods
 
 std::vector<std::shared_ptr<BridgeUnderpassTrack> > Map::getBridgeUnderpassTrackList() const
@@ -1122,6 +1155,7 @@ std::shared_ptr<BridgeUnderpassTrack> Map::getBridgeUnderpassTrack(int locationX
 	return bridgeUnderpassTrack;
 }
 
+
 //SwitchTrack related methods
 
 std::vector<std::shared_ptr<SwitchTrack> > Map::getSwitchTrackList() const
@@ -1158,6 +1192,7 @@ std::shared_ptr<SwitchTrack> Map::getSwitchTrackAt(int locationX, int locationY)
 	}
 	return switchTrack;
 }
+
 
 //CrossoverTrack related methods
 
@@ -1199,6 +1234,7 @@ std::shared_ptr<CrossoverTrack> Map::getCrossoverTrackAt(int locationX, int loca
 	return crossoverTrack;
 }
 
+
 //FlyoverTrack related methods
 
 std::vector<std::shared_ptr<FlyoverTrack> > Map::getFlyoverTrackList() const
@@ -1238,6 +1274,7 @@ std::shared_ptr<FlyoverTrack> Map::getFlyoverTrackAt(int locationX, int location
 	return flyoverTrack;
 }
 
+
 //NamedLocation related methods
 
 std::vector<std::shared_ptr<NamedLocation> > Map::getNamedLocationList() const
@@ -1274,6 +1311,7 @@ std::shared_ptr<NamedLocation> Map::getNamedLocationAt(int locationX, int locati
 	}
 	return namedLocation;
 }
+
 
 //Concourse related methods
 
@@ -1312,6 +1350,7 @@ std::shared_ptr<Concourse> Map::getConcourseAt(int locationX, int locationY)
 	return concourse;
 }
 
+
 //Parapet related methods
 
 std::vector<std::shared_ptr<Parapet> > Map::getParapetList() const
@@ -1324,7 +1363,7 @@ void Map::setParapetList(const std::vector<std::shared_ptr<Parapet> >& newParape
 	parapetList = newParapetList;
 }
 
-void Map::createAddParapets(ParapetType parapetType, int overallX, int overallY)
+void Map::createAddParapet(ParapetType parapetType, int overallX, int overallY)
 {
 	std::shared_ptr<Parapet> parapet(new Parapet(parapetType, overallX, overallY));
 	addParapet(parapet);
@@ -1349,6 +1388,48 @@ std::shared_ptr<Parapet> Map::getParapetAt(int locationX, int locationY)
 		}
 	}
 	return parapet;
+}
+
+//Text related methods
+
+std::vector<std::shared_ptr<Text> > Map::getTextList() const
+{
+	return textList;
+}
+
+void Map::setTextList(const std::vector<std::shared_ptr<Text> > &newTextList)
+{
+	textList = newTextList;
+}
+
+void Map::createAddText(int overallX, int overallY, QString readableBit, QFont currentFont)
+{
+	std::shared_ptr<Text> text(new Text(overallX, overallY, readableBit, currentFont));
+	addText(text);
+}
+
+std::shared_ptr<Text> Map::getTextAt(int locationX, int locationY)
+{
+	std::shared_ptr<Text> text = nullptr;
+	if (!textList.empty())
+	{
+		for (std::shared_ptr<Text>& currentText : textList)
+		{
+			int textCurrentX = currentText->getLocationX();
+			int textCurrentY = currentText->getLocationY();
+			int textEditableX = currentText->getEditableX();
+			int textEditableY = currentText->getEditableY();
+			if (locationX >= textCurrentX && locationX <=textEditableX)
+			{
+				//Text point is at bottom left hand corner
+				if (locationY >= textCurrentY && locationY <= textEditableY)
+				{
+					text = currentText;
+				}
+			}
+		}
+	}
+	return text;
 }
 
 //Platform related methods

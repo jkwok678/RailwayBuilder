@@ -134,6 +134,13 @@ private:
 	 */
 	void addParapet(std::shared_ptr<Parapet> newParapet);
 
+	/**
+	 * @brief Adds a new Text to the vector.
+	 * @param newText The new Text to add.
+	 */
+	void addText(std::shared_ptr<Text> newText);
+
+
 	//Remove element methods
 
 	/**
@@ -313,13 +320,6 @@ public:
 	 */
 	bool checkElementExists(int locationX, int locationY);
 
-	/**
-	 * @brief Check if text exists at a location.
-	 * @param locationX X coordinate to check.
-	 * @param locationY Y coordinate to check.
-	 * @return A bool that represents if text exists there.
-	 */
-	bool checkTextExists(int locationX, int locationY);
 
 	//StraightTrack related methods.
 
@@ -778,7 +778,7 @@ public:
 	 * @param overallX X coordinate to look at.
 	 * @param overallY Y coordinate to look at.
 	 */
-	void createAddParapets(ParapetType parapetType, int overallX, int overallY);
+	void createAddParapet(ParapetType parapetType, int overallX, int overallY);
 
 	/**
 	 * @brief Gets the Parapet at given coordinates if one exists there.
@@ -787,6 +787,50 @@ public:
 	 * @return Parapet at (X,Y) if there is one, otherwise return a nullptr.
 	 */
 	std::shared_ptr<Parapet> getParapetAt(int locationX,int locationY);
+
+	//Text related methods.
+
+	/**
+	 * @brief Gets the list of Text.
+	 * @return A vector of shared pointers that points to Texts.
+	 */
+	std::vector<std::shared_ptr<Text> > getTextList() const;
+
+	/**
+	 * @brief Sets the list of Texts.
+	 * @param newTextList A new vector of shared pointers that point to Texts.
+	 */
+	void setTextList(const std::vector<std::shared_ptr<Text> >& newTextList);
+
+	/**
+	 * @brief Creates the Text and adds it to the map if possible.
+	 * @param overallX X coordinate to look at.
+	 * @param overallY Y coordinate to look at.
+	 */
+	void createAddText(int overallX, int overallY, QString readableBit, QFont currentFont);
+
+	/**
+	 * @brief Gets the Parapet at given coordinates if one exists there.
+	 * @param locationX X coordinate to look at.
+	 * @param locationY Y coordinate to look at.
+	 * @return Parapet at (X,Y) if there is one, otherwise return a nullptr.
+	 */
+	std::shared_ptr<Text> getTextAt(int locationX,int locationY);
+
+	/**
+	 * @brief Check if text exists in an area.
+	 * @param locationX X coordinate to check.
+	 * @param locationY Y coordinate to check.
+	 * @return A bool that represents if text exists there.
+	 */
+	bool checkTextExists(int locationX, int locationY);
+
+	/**
+	 * @brief Delete text if it exists.
+	 * @param textToDelete The Text to delete.
+	 * @return true if deleted  otherwise false.
+	 */
+	bool deleteText (std::shared_ptr<Text> textToDelete);
 
 	//Platform related methods
 

@@ -804,7 +804,7 @@ void Canvas::fillImageList()
 	   levelCrossingVImage = new QImage(":/graphics/graphics/levelCrossingV.png");
 }
 
-const QColor Canvas::getCanvasColour() const
+QColor Canvas::getCanvasColour() const
 {
 	return canvasColour;
 }
@@ -967,7 +967,7 @@ void Canvas::setGrid(bool newGrid)
 
 void Canvas::checkAllTracksInMapConnected()
 {
-	//map->checkAllTracks();
+	map->checkAllTracksConnected();
 }
 
 void Canvas::clickCreateAddElement(ElementChosen elementToAdd, int overallX, int overallY)
@@ -1688,169 +1688,169 @@ void Canvas::clickCreateAddElement(ElementChosen elementToAdd, int overallX, int
 		}
 		case ElementChosen::PARAPET1:
 		{
-			map->createAddParapets(ParapetType::PARAPET1, overallX, overallY);
+			map->createAddParapet(ParapetType::PARAPET1, overallX, overallY);
 			addedElement = true;
 			break;
 		}
 		case ElementChosen::PARAPET2:
 		{
-			map->createAddParapets(ParapetType::PARAPET2, overallX, overallY);
+			map->createAddParapet(ParapetType::PARAPET2, overallX, overallY);
 			addedElement = true;
 			break;
 		}
 		case ElementChosen::PARAPET3:
 		{
-			map->createAddParapets(ParapetType::PARAPET3, overallX, overallY);
+			map->createAddParapet(ParapetType::PARAPET3, overallX, overallY);
 			addedElement = true;
 			break;
 		}
 		case ElementChosen::PARAPET4:
 		{
-			map->createAddParapets(ParapetType::PARAPET4, overallX, overallY);
+			map->createAddParapet(ParapetType::PARAPET4, overallX, overallY);
 			addedElement = true;
 			break;
 		}
 		case ElementChosen::PARAPET5:
 		{
-			map->createAddParapets(ParapetType::PARAPET5, overallX, overallY);
+			map->createAddParapet(ParapetType::PARAPET5, overallX, overallY);
 			addedElement = true;
 			break;
 		}
 		case ElementChosen::PARAPET6:
 		{
-			map->createAddParapets(ParapetType::PARAPET6, overallX, overallY);
+			map->createAddParapet(ParapetType::PARAPET6, overallX, overallY);
 			addedElement = true;
 			break;
 		}
 		case ElementChosen::PARAPET7:
 		{
-			map->createAddParapets(ParapetType::PARAPET7, overallX, overallY);
+			map->createAddParapet(ParapetType::PARAPET7, overallX, overallY);
 			addedElement = true;
 			break;
 		}
 		case ElementChosen::PARAPET8:
 		{
-			map->createAddParapets(ParapetType::PARAPET8, overallX, overallY);
+			map->createAddParapet(ParapetType::PARAPET8, overallX, overallY);
 			addedElement = true;
 			break;
 		}
 		case ElementChosen::PARAPET9:
 		{
-			map->createAddParapets(ParapetType::PARAPET9, overallX, overallY);
+			map->createAddParapet(ParapetType::PARAPET9, overallX, overallY);
 			addedElement = true;
 			break;
 		}
 		case ElementChosen::PARAPET10:
 		{
-			map->createAddParapets(ParapetType::PARAPET10, overallX, overallY);
+			map->createAddParapet(ParapetType::PARAPET10, overallX, overallY);
 			addedElement = true;
 			break;
 		}
 		case ElementChosen::PARAPET11:
 		{
-			map->createAddParapets(ParapetType::PARAPET11, overallX, overallY);
+			map->createAddParapet(ParapetType::PARAPET11, overallX, overallY);
 			addedElement = true;
 			break;
 		}
 		case ElementChosen::PARAPET12:
 		{
-			map->createAddParapets(ParapetType::PARAPET12, overallX, overallY);
+			map->createAddParapet(ParapetType::PARAPET12, overallX, overallY);
 			addedElement = true;
 			break;
 		}
 		case ElementChosen::PARAPET13:
 		{
-			map->createAddParapets(ParapetType::PARAPET13, overallX, overallY);
+			map->createAddParapet(ParapetType::PARAPET13, overallX, overallY);
 			addedElement = true;
 			break;
 		}
 		case ElementChosen::PARAPET14:
 		{
-			map->createAddParapets(ParapetType::PARAPET14, overallX, overallY);
+			map->createAddParapet(ParapetType::PARAPET14, overallX, overallY);
 			addedElement = true;
 			break;
 		}
 		case ElementChosen::PARAPET15:
 		{
-			map->createAddParapets(ParapetType::PARAPET15, overallX, overallY);
+			map->createAddParapet(ParapetType::PARAPET15, overallX, overallY);
 			addedElement = true;
 			break;
 		}
 		case ElementChosen::PARAPET16:
 		{
-			map->createAddParapets(ParapetType::PARAPET16, overallX, overallY);
+			map->createAddParapet(ParapetType::PARAPET16, overallX, overallY);
 			addedElement = true;
 			break;
 		}
 		case ElementChosen::PARAPET17:
 		{
-			map->createAddParapets(ParapetType::PARAPET17, overallX, overallY);
+			map->createAddParapet(ParapetType::PARAPET17, overallX, overallY);
 			addedElement = true;
 			break;
 		}
 		case ElementChosen::PARAPET18:
 		{
-			map->createAddParapets(ParapetType::PARAPET18, overallX, overallY);
+			map->createAddParapet(ParapetType::PARAPET18, overallX, overallY);
 			addedElement = true;
 			break;
 		}
 		case ElementChosen::PARAPET19:
 		{
-			map->createAddParapets(ParapetType::PARAPET19, overallX, overallY);
+			map->createAddParapet(ParapetType::PARAPET19, overallX, overallY);
 			addedElement = true;
 			break;
 		}
 		case ElementChosen::PARAPET20:
 		{
-			map->createAddParapets(ParapetType::PARAPET20, overallX, overallY);
+			map->createAddParapet(ParapetType::PARAPET20, overallX, overallY);
 			addedElement = true;
 			break;
 		}
 		case ElementChosen::PARAPET21:
 		{
-			map->createAddParapets(ParapetType::PARAPET21, overallX, overallY);
+			map->createAddParapet(ParapetType::PARAPET21, overallX, overallY);
 			addedElement = true;
 			break;
 		}
 		case ElementChosen::PARAPET22:
 		{
-			map->createAddParapets(ParapetType::PARAPET22, overallX, overallY);
+			map->createAddParapet(ParapetType::PARAPET22, overallX, overallY);
 			addedElement = true;
 			break;
 		}
 		case ElementChosen::PARAPET23:
 		{
-			map->createAddParapets(ParapetType::PARAPET23, overallX, overallY);
+			map->createAddParapet(ParapetType::PARAPET23, overallX, overallY);
 			addedElement = true;
 			break;
 		}
 		case ElementChosen::PARAPET24:
 		{
-			map->createAddParapets(ParapetType::PARAPET24, overallX, overallY);
+			map->createAddParapet(ParapetType::PARAPET24, overallX, overallY);
 			addedElement = true;
 			break;
 		}
 		case ElementChosen::PARAPET25:
 		{
-			map->createAddParapets(ParapetType::PARAPET25, overallX, overallY);
+			map->createAddParapet(ParapetType::PARAPET25, overallX, overallY);
 			addedElement = true;
 			break;
 		}
 		case ElementChosen::PARAPET26:
 		{
-			map->createAddParapets(ParapetType::PARAPET26, overallX, overallY);
+			map->createAddParapet(ParapetType::PARAPET26, overallX, overallY);
 			addedElement = true;
 			break;
 		}
 		case ElementChosen::PARAPET27:
 		{
-			map->createAddParapets(ParapetType::PARAPET27, overallX, overallY);
+			map->createAddParapet(ParapetType::PARAPET27, overallX, overallY);
 			addedElement = true;
 			break;
 		}
 		case ElementChosen::PARAPET28:
 		{
-			map->createAddParapets(ParapetType::PARAPET28, overallX, overallY);
+			map->createAddParapet(ParapetType::PARAPET28, overallX, overallY);
 			addedElement = true;
 			break;
 		}
@@ -1871,6 +1871,43 @@ void Canvas::clickConnectLinkedTracks(int overallX, int overallY)
 void Canvas::clickDeleteElement(int overallX, int overallY)
 {
 	map->deleteElement(overallX, overallY);
+}
+
+void Canvas::addChangeRemoveText(int overallX, int overallY)
+{
+	bool ok;
+	int textX = calculateOverallXCoordinate(overallX);
+	int textY = calculateOverallYCoordinate(overallY);
+	if (!map->checkTextExists(textX,textY))
+	{
+		QString readableBit = QInputDialog::getText(this, tr("Add text"), tr("Enter text:"), QLineEdit::Normal, tr(""), &ok);
+		if (readableBit.startsWith(" "))
+		{
+			readableBit.clear();
+		}
+		if(!readableBit.isEmpty())
+		{
+			map->createAddText(textX,textY,readableBit,currentFont);
+		}
+	}
+	else
+	{
+		std::shared_ptr<Text> text = map->getTextAt(textX,textY);
+		QString newReadableBit = QInputDialog::getText(this, tr("Add text"), tr("Enter text:"), QLineEdit::Normal, text->getReadableText(), &ok);
+		if (newReadableBit.startsWith(" "))
+		{
+			newReadableBit.clear();
+		}
+		if(!newReadableBit.isEmpty())
+		{
+			text->setReadableText(newReadableBit);
+		}
+		else
+		{
+			map->deleteText(text);
+		}
+
+	}
 }
 
 
@@ -1909,6 +1946,11 @@ void Canvas::mousePressEvent(QMouseEvent *event)
 			}
 			case Mode::SETCONVERTSPEEDDISTANCE:
 			{
+				break;
+			}
+			case Mode::ADDCHANGEREMOVETEXT:
+			{
+				addChangeRemoveText(exactX, exactY);
 				break;
 			}
 			default:
@@ -1975,21 +2017,21 @@ void Canvas::paintEvent(QPaintEvent *event)
 
 
 
-int Canvas::calculateOverallXCoordinate(int roundedX)
+int Canvas::calculateOverallXCoordinate(int xCoordinate)
 {
-	return roundedX + (offsetX*canvasSizeX);
+	return xCoordinate + (offsetX*canvasSizeX);
 }
 
-int Canvas::calculateOverallYCoordinate(int roundedY)
+int Canvas::calculateOverallYCoordinate(int yCoordinate)
 {
 	int finalY = 0;
 	if (offsetY==0)
 	{
-		finalY = 0 - (roundedY+ (offsetY*canvasSizeY));
+		finalY = 0 - (yCoordinate+ (offsetY*canvasSizeY));
 	}
 	else
 	{
-		finalY = 0 - (roundedY- (offsetY*canvasSizeY));
+		finalY = 0 - (yCoordinate- (offsetY*canvasSizeY));
 	}
 	return finalY;
 }

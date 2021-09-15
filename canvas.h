@@ -86,7 +86,7 @@ public:
 	 * @brief A method to get the colour of the canvas.
 	 * @return A QColor object.
 	 */
-	const QColor getCanvasColour() const;
+	 QColor getCanvasColour() const;
 
 	/**
 	 * @brief A method to set the new colour of the canvas.
@@ -246,6 +246,13 @@ public:
 	 * @param overallY Y coordinate.
 	 */
 	void clickDeleteElement(int overallX, int overallY);
+
+	/**
+	 * @brief addChangeRemoveText
+	 * @param exactX X coordinate
+	 * @param exactY Y coordinate
+	 */
+	void addChangeRemoveText(int exactX, int exactY);
 
 
 
@@ -980,6 +987,7 @@ private:
 	 * @brief Draw all elements normally.
 	 */
 	void drawEverythingNormal(QPainter &painter);
+
 };
 
 #endif // CANVAS_H

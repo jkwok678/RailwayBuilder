@@ -268,7 +268,7 @@ void Window::connectLinkedTrack()
 void Window::checkAllTrackConnected()
 {
 	//Run checkAllTrack
-	drawingArea->getMap()->checkAllTracksConnected();
+	drawingArea->checkAllTracksInMapConnected();
 }
 
 void Window::changeAspect()
