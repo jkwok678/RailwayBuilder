@@ -271,6 +271,21 @@ void Window::checkAllTrackConnected()
 	drawingArea->checkAllTracksInMapConnected();
 }
 
+void Window::addEditRemoveText()
+{
+	//If the mode isn't ADDCHANGETEXT, make it that.
+	if (drawingArea->getMode() != Mode::ADDEDITREMOVETEXT)
+	{
+		drawingArea->setMode(Mode::ADDEDITREMOVETEXT);
+	}
+	else
+	{
+		//Otherwise go to default.
+		drawingArea->setMode(Mode::NONE);
+	}
+
+}
+
 void Window::changeAspect()
 {
 	//Change aspect from 4 -> 3 -> 2 -> 1 then back to 4.
@@ -2204,6 +2219,15 @@ void Window::createBuildModifyMenu()
 	checkAllTrackConnectedButton->setIcon(*checkAllTrackConnectedIcon);
 	buildModifyMenu1->addWidget(checkAllTrackConnectedButton);
 	//checkAllTrackButton->setEnabled(false);
+
+	addEditRemoveTextButton = new QToolButton();
+	addEditRemoveTextButton->setMaximumSize(QSize(32, 32));
+	addEditRemoveTextAct = new QAction();
+	addEditRemoveTextButton->setDefaultAction(addEditRemoveTextAct);
+	connect(addEditRemoveTextAct, &QAction::triggered, this, &Window::addEditRemoveText);
+	addEditRemoveTextIcon = new QIcon(":/icons/icons/addEditRemoveText.png");
+	addEditRemoveTextButton->setIcon(*addEditRemoveTextIcon);
+	buildModifyMenu1->addWidget(addEditRemoveTextButton);
 
 	//Add the button to bring up the menu that allows the user to set and convert speed and distances.
 	setConvertSpeedDistanceMenuButton = new QToolButton();

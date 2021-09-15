@@ -1948,7 +1948,7 @@ void Canvas::mousePressEvent(QMouseEvent *event)
 			{
 				break;
 			}
-			case Mode::ADDCHANGEREMOVETEXT:
+			case Mode::ADDEDITREMOVETEXT:
 			{
 				addChangeRemoveText(exactX, exactY);
 				break;
@@ -2002,6 +2002,7 @@ void Canvas::paintEvent(QPaintEvent *event)
 			break;
 		}
 	}
+	drawText(painter);
 	if (grid){
 		drawGrid(painter);
 	}
@@ -3872,6 +3873,31 @@ void Canvas::drawParapet(QPainter &painter)
 						break;
 					}
 				}
+			}
+		}
+	}
+}
+
+void Canvas::drawText(QPainter &painter)
+{
+	for (std::shared_ptr<Text> currentElement : map->getTextList())
+	{
+		int currentX = currentElement->getLocationX();
+		int currentY = currentElement->getLocationY();
+		int minCoordinateX = (offsetX * canvasSizeX);
+		int maxCoordinateX = ((offsetX+1) * canvasSizeX);
+		int minCoordinateY = ((offsetY-1) * canvasSizeY);
+		int maxCoordinateY = (offsetY*canvasSizeY);;
+		int minDisplayX = (offsetX * canvasSizeX);
+		int maxDisplayY = (offsetY*canvasSizeY);
+		if (currentX >= minCoordinateX && currentX <= maxCoordinateX)
+		{
+			if (currentY >= minCoordinateY && currentY <= maxCoordinateY)
+			{
+				int displayX = currentX- minDisplayX;
+				int displayY = 0-(currentY - maxDisplayY);
+				painter.setFont(currentElement->getFont());
+				painter.drawText(displayX, displayY, currentElement->getReadableText());
 			}
 		}
 	}

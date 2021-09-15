@@ -135,6 +135,11 @@ private slots:
 	void checkAllTrackConnected();
 
 	/**
+	 * @brief A slot that allows the user to add, edit or remove text.
+	 */
+	void addEditRemoveText();
+
+	/**
 	 * @brief A slot to change the aspects of signal tracks added to screen.
 	 */
 	void changeAspect();
@@ -980,6 +985,10 @@ private:
 	QToolButton* checkAllTrackConnectedButton;
 	QAction* checkAllTrackConnectedAct;
 	QIcon* checkAllTrackConnectedIcon;
+
+	QToolButton* addEditRemoveTextButton;
+	QAction* addEditRemoveTextAct;
+	QIcon* addEditRemoveTextIcon;
 
 	QToolButton *setConvertSpeedDistanceMenuButton;
 	QIcon   *setConvertSpeedDistanceMenuIcon;

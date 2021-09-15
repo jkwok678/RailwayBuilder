@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file.
 
+## Core features - 15/09/2021
+
+### Added
+* The ability to add text to the canvas.
+
 ## Core features - 14/09/2021
 
 ### Added

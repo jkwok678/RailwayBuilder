@@ -978,6 +978,12 @@ private:
 	void drawParapet(QPainter &painter);
 
 	/**
+	 * @brief Draw text onto the canvas.
+	 * @param painter
+	 */
+	void drawText(QPainter &painter);
+
+	/**
 	 * @brief Draw the grid onto the canvas.
 	 * @param painter
 	 */
