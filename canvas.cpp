@@ -1898,11 +1898,11 @@ void Canvas::addChangeRemoveText(int overallX, int overallY)
 		{
 			newReadableBit.clear();
 		}
-		if(!newReadableBit.isEmpty())
+		if(!newReadableBit.isEmpty() && ok)
 		{
 			text->setReadableText(newReadableBit);
 		}
-		else
+		else if (newReadableBit.isEmpty() && ok)
 		{
 			map->deleteText(text);
 		}
@@ -2041,6 +2041,7 @@ void Canvas::mouseMoveEvent(QMouseEvent *event)
 			map->moveText(textX, textY);
 		}
 	}
+	update();
 
 }
 

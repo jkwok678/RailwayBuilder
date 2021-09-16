@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file.
 
+## Core features - 16/09/2021
+
+### Added
+* The ability to move text to the canvas.
+
+### Changed
+* The behaviour of adding text to screen with the pop up box.(Cancel button now leaves the text without editing it.)
+
 ## Core features - 15/09/2021
 
 ### Added

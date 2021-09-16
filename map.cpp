@@ -1457,10 +1457,14 @@ void Map::setTextToMove(const std::shared_ptr<Text> &newTextToMove)
 void Map::moveText(int exactX, int exactY)
 {
 	int fontSize = textToMove->getFontSize();
-	textToMove->setLocationX(exactX);
-	textToMove->setLocationY(exactY);
-	textToMove->setEditableX(exactX+fontSize);
-	textToMove->setEditableY(exactY+fontSize);
+	if (textToMove != nullptr)
+	{
+		textToMove->setLocationX(exactX);
+		textToMove->setLocationY(exactY);
+		textToMove->setEditableX(exactX+fontSize);
+		textToMove->setEditableY(exactY+fontSize);
+	}
+
 }
 
 //Platform related methods

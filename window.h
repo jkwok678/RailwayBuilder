@@ -107,7 +107,7 @@ private slots:
 	/**
 	 * @brief A slot to open the SetSpeedDistance menu to set Track speed and length and to convert different types of measurements.
 	 */
-	void openSetConvertSpeedDistanceMenu();
+	void openSetConvertSpeedDistanceMenuMode();
 
 	/**
 	 * @brief A method to update the GUI for converting miles, chains and yards to metres.
@@ -127,7 +127,7 @@ private slots:
 	/**
 	 * @brief A slot to connect LinkedTracks together.
 	 */
-	void connectLinkedTrack();
+	void connectLinkedTrackMode();
 
 	/**
 	 * @brief A slot that checks if all tracks are connected.
@@ -137,7 +137,12 @@ private slots:
 	/**
 	 * @brief A slot that allows the user to add, edit or remove text.
 	 */
-	void addEditRemoveText();
+	void addEditRemoveTextMode();
+
+	/**
+	 * @brief A slot that allows the user to move text.
+	 */
+	void moveTextMode();
 
 	/**
 	 * @brief A slot to change the aspects of signal tracks added to screen.
@@ -989,6 +994,10 @@ private:
 	QToolButton* addEditRemoveTextButton;
 	QAction* addEditRemoveTextAct;
 	QIcon* addEditRemoveTextIcon;
+
+	QToolButton* moveTextButton;
+	QAction* moveTextAct;
+	QIcon* moveTextIcon;
 
 	QToolButton *setConvertSpeedDistanceMenuButton;
 	QIcon   *setConvertSpeedDistanceMenuIcon;

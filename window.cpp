@@ -178,7 +178,7 @@ void Window::openElementMenu()
 
 }
 
-void Window::openSetConvertSpeedDistanceMenu()
+void Window::openSetConvertSpeedDistanceMenuMode()
 {
 	//Set the QStackWidget to the setConvertSpeedDistance menu if it isn't on there yet.
 	//If it is, then go back to the start.
@@ -238,7 +238,7 @@ void Window::updateMPHKMHGUI()
 
 }
 
-void Window::connectLinkedTrack()
+void Window::connectLinkedTrackMode()
 {
 	//If the mode is not CONNECTLINKEDTRACK get number of linkedTrack.
 	if (drawingArea->getMode() != Mode::CONNECTLINKEDTRACK)
@@ -271,7 +271,7 @@ void Window::checkAllTrackConnected()
 	drawingArea->checkAllTracksInMapConnected();
 }
 
-void Window::addEditRemoveText()
+void Window::addEditRemoveTextMode()
 {
 	//If the mode isn't ADDCHANGETEXT, make it that.
 	if (drawingArea->getMode() != Mode::ADDEDITREMOVETEXT)
@@ -284,6 +284,20 @@ void Window::addEditRemoveText()
 		drawingArea->setMode(Mode::NONE);
 	}
 
+}
+
+void Window::moveTextMode()
+{
+	//If the mode isn't MOVETEXT, make it that.
+	if (drawingArea->getMode() != Mode::MOVETEXT)
+	{
+		drawingArea->setMode(Mode::MOVETEXT);
+	}
+	else
+	{
+		//Otherwise go to default.
+		drawingArea->setMode(Mode::NONE);
+	}
 }
 
 void Window::changeAspect()
@@ -2204,7 +2218,7 @@ void Window::createBuildModifyMenu()
 	connectLinkedTrackButton->setMaximumSize(QSize(32, 32));
 	connectLinkedTrackAct = new QAction();
 	connectLinkedTrackButton->setDefaultAction(connectLinkedTrackAct);
-	connect(connectLinkedTrackAct, &QAction::triggered, this, &Window::connectLinkedTrack);
+	connect(connectLinkedTrackAct, &QAction::triggered, this, &Window::connectLinkedTrackMode);
 	connectLinkedTrackIcon = new QIcon(":/icons/icons/connectLinkTrack.png");
 	connectLinkedTrackButton->setIcon(*connectLinkedTrackIcon);
 	buildModifyMenu1->addWidget(connectLinkedTrackButton);
@@ -2224,17 +2238,26 @@ void Window::createBuildModifyMenu()
 	addEditRemoveTextButton->setMaximumSize(QSize(32, 32));
 	addEditRemoveTextAct = new QAction();
 	addEditRemoveTextButton->setDefaultAction(addEditRemoveTextAct);
-	connect(addEditRemoveTextAct, &QAction::triggered, this, &Window::addEditRemoveText);
+	connect(addEditRemoveTextAct, &QAction::triggered, this, &Window::addEditRemoveTextMode);
 	addEditRemoveTextIcon = new QIcon(":/icons/icons/addEditRemoveText.png");
 	addEditRemoveTextButton->setIcon(*addEditRemoveTextIcon);
 	buildModifyMenu1->addWidget(addEditRemoveTextButton);
+
+	moveTextButton = new QToolButton();
+	moveTextButton->setMaximumSize(QSize(32, 32));
+	moveTextAct = new QAction();
+	moveTextButton->setDefaultAction(moveTextAct);
+	connect(moveTextAct, &QAction::triggered, this, &Window::moveTextMode);
+	moveTextIcon = new QIcon(":/icons/icons/moveText.png");
+	moveTextButton->setIcon(*moveTextIcon);
+	buildModifyMenu1->addWidget(moveTextButton);
 
 	//Add the button to bring up the menu that allows the user to set and convert speed and distances.
 	setConvertSpeedDistanceMenuButton = new QToolButton();
 	setConvertSpeedDistanceMenuButton->setMaximumSize(QSize(32,32));
 	openSetConvertSpeedDistanceMenuAct = new QAction;
 	setConvertSpeedDistanceMenuButton->setDefaultAction(openSetConvertSpeedDistanceMenuAct);
-	connect(openSetConvertSpeedDistanceMenuAct,&QAction::triggered,this,&Window::openSetConvertSpeedDistanceMenu);
+	connect(openSetConvertSpeedDistanceMenuAct,&QAction::triggered,this,&Window::openSetConvertSpeedDistanceMenuMode);
 	setConvertSpeedDistanceMenuIcon = new QIcon(":/icons/icons/setDistanceSpeed.png");
 	setConvertSpeedDistanceMenuButton->setIcon(*setConvertSpeedDistanceMenuIcon);
 	buildModifyMenu1->addWidget(setConvertSpeedDistanceMenuButton);
