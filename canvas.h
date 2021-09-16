@@ -1,4 +1,4 @@
-#ifndef CANVAS_H
+﻿#ifndef CANVAS_H
 #define CANVAS_H
 
 #include <QWidget>
@@ -248,12 +248,18 @@ public:
 	void clickDeleteElement(int overallX, int overallY);
 
 	/**
-	 * @brief addChangeRemoveText
-	 * @param exactX X coordinate
-	 * @param exactY Y coordinate
+	 * @brief Add, change or remove text.
+	 * @param exactX X coordinate.
+	 * @param exactY Y coordinate.
 	 */
 	void addChangeRemoveText(int exactX, int exactY);
 
+	/**
+	 * @brief Move text.
+	 * @param exactX X coordinate.
+	 * @param exactY Y coordinate.
+	 */
+	void clickMoveText(int exactX, int exactY);
 
 
 
@@ -264,6 +270,8 @@ public slots:
 protected:
 	void mousePressEvent(QMouseEvent* event) override;
 	void paintEvent(QPaintEvent* event) override;
+	void resizeEvent(QResizeEvent *event) override;
+	void mouseMoveEvent(QMouseEvent *event) override;
 
 private:
 
@@ -284,7 +292,6 @@ private:
 	bool canvasShowTrackID;
 	bool canvasShowMoreTrackInfo;
 	QFont currentFont;
-	std::shared_ptr<Text> moveText;
 	bool grid{false};
 
 	//ElementBlock1 images
@@ -878,14 +885,14 @@ private:
 	 * @param roundedX The X coordinate of the track image on the canvas.
 	 * @return the X coordinate relative to the entire map.
 	 */
-	int calculateOverallXCoordinate(int roundedX);
+	int calculateOverallXCoordinate(int xCoordinate);
 
 	/**
 	 * @brief Calculate the Y coordinate relative to the entire map.
 	 * @param roundedY The Y coordinate of the track image on the canvas.
 	 * @return the Y coordinate relative to the entire map.
 	 */
-	int calculateOverallYCoordinate(int roundedY);
+	int calculateOverallYCoordinate(int yCoordinate);
 
 	/**
 	 * @brief Draw StraightTracks onto the canvas.

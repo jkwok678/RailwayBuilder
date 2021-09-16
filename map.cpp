@@ -6,6 +6,7 @@
 
 
 
+
 void Map::addStraightTrack(std::shared_ptr<StraightTrack> newStraightTrack)
 {
 	int tempLocationX = newStraightTrack->getLocationX();
@@ -1430,6 +1431,36 @@ std::shared_ptr<Text> Map::getTextAt(int locationX, int locationY)
 		}
 	}
 	return text;
+}
+
+std::shared_ptr<Text> Map::getTextToMove() const
+{
+	return textToMove;
+}
+
+bool Map::setTextToMove(int exactX, int exactY)
+{
+	if (checkTextExists(exactX, exactY))
+	{
+		textToMove = getTextAt(exactX, exactY);
+		return true;
+	}
+	textToMove = nullptr;
+	return false;
+}
+
+void Map::setTextToMove(const std::shared_ptr<Text> &newTextToMove)
+{
+	textToMove = newTextToMove;
+}
+
+void Map::moveText(int exactX, int exactY)
+{
+	int fontSize = textToMove->getFontSize();
+	textToMove->setLocationX(exactX);
+	textToMove->setLocationY(exactY);
+	textToMove->setEditableX(exactX+fontSize);
+	textToMove->setEditableY(exactY+fontSize);
 }
 
 //Platform related methods

@@ -44,6 +44,8 @@ private:
 	std::shared_ptr<LinkedTrack> linkedTrack1{nullptr};
 	std::shared_ptr<LinkedTrack> linkedTrack2{nullptr};
 
+	std::shared_ptr<Text> textToMove{nullptr};
+
 	//General methods.
 
 
@@ -832,6 +834,28 @@ public:
 	 */
 	bool deleteText (std::shared_ptr<Text> textToDelete);
 
+	/**
+	 * @brief Get the text that needs to be moved.
+	 * @return The text to move.
+	 */
+	std::shared_ptr<Text> getTextToMove() const;
+
+	/**
+	 * @brief Set the text that needs to be moved with coordinates.
+	 * @param exactX X Coordinate.
+	 * @param exactY Y Coordinate.
+	 * @return true if set, false if no.
+	 */
+	bool setTextToMove(int exactX, int exactY);
+
+	/**
+	 * @brief Set the text that needs to be moved.
+	 * @param newTextToMove The new text to be moved.
+	 */
+	void setTextToMove(const std::shared_ptr<Text> &newTextToMove);
+
+	void moveText(int exactX, int exactY);
+
 	//Platform related methods
 
 	/**
@@ -909,6 +933,7 @@ public:
 	 * @return true if they are, otherwise false.
 	 */
 	bool checkAllTracksConnected();
+
 
 };
 

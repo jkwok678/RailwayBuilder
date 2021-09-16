@@ -1910,6 +1910,14 @@ void Canvas::addChangeRemoveText(int overallX, int overallY)
 	}
 }
 
+void Canvas::clickMoveText(int exactX, int exactY)
+{
+	int textX = calculateOverallXCoordinate(exactX);
+	int textY = calculateOverallYCoordinate(exactY);
+	map->setTextToMove(textX,textY);
+
+}
+
 
 void Canvas::mousePressEvent(QMouseEvent *event)
 {
@@ -1952,6 +1960,10 @@ void Canvas::mousePressEvent(QMouseEvent *event)
 			{
 				addChangeRemoveText(exactX, exactY);
 				break;
+			}
+			case Mode::MOVETEXT:
+			{
+				clickMoveText(exactX,exactY);
 			}
 			default:
 			{
@@ -2005,6 +2017,29 @@ void Canvas::paintEvent(QPaintEvent *event)
 	drawText(painter);
 	if (grid){
 		drawGrid(painter);
+	}
+
+}
+
+void Canvas::resizeEvent(QResizeEvent *event)
+{
+
+}
+
+void Canvas::mouseMoveEvent(QMouseEvent *event)
+{
+	if (mode == Mode::MOVETEXT)
+	{
+		canvasSizeX = width();
+		canvasSizeY = height();
+		int exactX = event->pos().x();
+		int exactY = event->pos().y();
+		int textX = calculateOverallXCoordinate(exactX);
+		int textY = calculateOverallYCoordinate(exactY);
+		if ( event->buttons() & Qt::LeftButton )
+		{
+			map->moveText(textX, textY);
+		}
 	}
 
 }
