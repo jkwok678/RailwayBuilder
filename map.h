@@ -4,9 +4,6 @@
 #include <vector>
 #include <memory>
 #include <QMessageBox>
-#include <QInputDialog>
-#include <QString>
-#include <QObject>
 #include "element.h"
 #include "track.h"
 #include "message.h"
@@ -812,14 +809,7 @@ public:
 	 * @param overallX X coordinate to look at.
 	 * @param overallY Y coordinate to look at.
 	 */
-	std::shared_ptr<Text> createAddText(int overallX, int overallY, QString readableBit, QFont currentFont);
-
-	/**
-	 * @brief Creates the Text, adds it to the map if possible then link it with it's neighbours.
-	 * @param overallX X coordinate to look at.
-	 * @param overallY Y coordinate to look at.
-	 */
-	void createAddLinkText(int overallX, int overallY, QString readableBit, bool ok, QFont currentFont);
+	void createAddText(int overallX, int overallY, QString readableBit, QFont currentFont);
 
 	/**
 	 * @brief Gets the Parapet at given coordinates if one exists there.
@@ -845,12 +835,6 @@ public:
 	bool deleteText (std::shared_ptr<Text> textToDelete);
 
 	/**
-	 * @brief Delete the text from all elements
-	 * @param textToDelete The text to delte from all elements.
-	 */
-	void deleteTextFromAllElements(std::shared_ptr<Text> textToDelete);
-
-	/**
 	 * @brief Get the text that needs to be moved.
 	 * @return The text to move.
 	 */
@@ -870,31 +854,7 @@ public:
 	 */
 	void setTextToMove(const std::shared_ptr<Text> &newTextToMove);
 
-	/**
-	 * @brief Moves text from old coordinates to the new coordinates.
-	 * @param exactX X Coordinate.
-	 * @param exactY Y Coordinate.
-	 */
 	void moveText(int exactX, int exactY);
-
-	/**
-	 * @brief Changes or deletes a text depending on input from the user.
-	 * @param readableBit
-	 * @param text
-	 */
-	void changeDeleteText(QString readableBit, bool ok, std::shared_ptr<Text> text);
-
-	/**
-	 * @brief Links text to items that are neighbours.
-	 *
-	 * X and Y coordinates is the item the place to look for neighbours.
-	 *
-	 * @param locationX X Coordinate.
-	 * @param LocationY Y Coordinate.
-	 * @param linkedText THe text to link to.
-	 */
-	void linkLocalText(int locationX, int locationY, std::shared_ptr<Text> linkedText);
-
 
 	//Platform related methods
 
@@ -950,14 +910,6 @@ public:
 	 */
 	std::shared_ptr<Track> getTrackAt( int locationX, int locationY);
 
-	/**
-	 * @brief Gets the Straight track at the coordinates.
-	 * @param locationX X coordinate of the track.
-	 * @param locationY Y coordinate of the track.
-	 * @return a striaght track, otherwise nullptr.
-	 */
-	std::shared_ptr<StraightTrack> getTrackHasPlatformAt( int locationX, int locationY);
-
 
 	/**
 	 * @brief Gets the trackList.
@@ -981,6 +933,7 @@ public:
 	 * @return true if they are, otherwise false.
 	 */
 	bool checkAllTracksConnected();
+
 
 };
 

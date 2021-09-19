@@ -261,8 +261,6 @@ public:
 	 */
 	void clickMoveText(int exactX, int exactY);
 
-	void clickSetChangeNamedElement(int overallX, int overallY);
-
 
 
 signals:
@@ -1002,7 +1000,6 @@ private:
 	 * @brief Draw all elements normally.
 	 */
 	void drawEverythingNormal(QPainter &painter);
-
 
 };
 

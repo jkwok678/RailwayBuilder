@@ -721,6 +721,44 @@ bool Map::checkElementExists(int locationX, int locationY)
 	return found;
 }
 
+bool Map::checkTextExists(int locationX, int locationY)
+{
+	bool found = false;
+	if (!textList.empty())
+	{
+		for (std::shared_ptr<Text>& currentText : textList)
+		{
+			int textCurrentX = currentText->getLocationX();
+			int textCurrentY = currentText->getLocationY();
+			int textEditableX = currentText->getEditableX();
+			int textEditableY = currentText->getEditableY();
+			if (locationX >= textCurrentX && locationX <=textEditableX)
+			{
+				if (locationY >= textCurrentY && locationY <= textEditableY)
+				{
+				found = true;
+				}
+			}
+		}
+	}
+	return found;
+}
+
+bool Map::deleteText(std::shared_ptr<Text> textToDelete)
+{
+	bool deleted = false;
+	for (int i = 0; i < textList.size(); i++)
+	{
+		std::shared_ptr<Text>& currentText = textList[i];
+		if (currentText == textToDelete)
+		{
+			textList.erase(textList.begin() + i);
+			deleted = true;
+			break;
+		}
+	}
+	return deleted;
+}
 
 
 
@@ -1365,24 +1403,10 @@ void Map::setTextList(const std::vector<std::shared_ptr<Text> > &newTextList)
 	textList = newTextList;
 }
 
-std::shared_ptr<Text> Map::createAddText(int overallX, int overallY, QString readableBit, QFont currentFont)
+void Map::createAddText(int overallX, int overallY, QString readableBit, QFont currentFont)
 {
 	std::shared_ptr<Text> text(new Text(overallX, overallY, readableBit, currentFont));
 	addText(text);
-	return text;
-}
-
-void Map::createAddLinkText(int overallX, int overallY, QString readableBit, bool ok, QFont currentFont)
-{
-	if (readableBit.startsWith(" "))
-	{
-		readableBit.clear();
-	}
-	if(!readableBit.isEmpty() && ok)
-	{
-		std::shared_ptr<Text> text = createAddText(overallX, overallY,readableBit,currentFont);
-		linkLocalText(overallX, overallY, text);
-	}
 }
 
 std::shared_ptr<Text> Map::getTextAt(int locationX, int locationY)
@@ -1407,158 +1431,6 @@ std::shared_ptr<Text> Map::getTextAt(int locationX, int locationY)
 		}
 	}
 	return text;
-}
-
-bool Map::checkTextExists(int locationX, int locationY)
-{
-	bool found = false;
-	if (!textList.empty())
-	{
-		for (std::shared_ptr<Text>& currentText : textList)
-		{
-			int textCurrentX = currentText->getLocationX();
-			int textCurrentY = currentText->getLocationY();
-			int textEditableX = currentText->getEditableX();
-			int textEditableY = currentText->getEditableY();
-			if (locationX >= textCurrentX && locationX <=textEditableX)
-			{
-				if (locationY >= textCurrentY && locationY <= textEditableY)
-				{
-				found = true;
-				}
-			}
-		}
-	}
-	return found;
-}
-
-bool Map::deleteText(std::shared_ptr<Text> textToDelete)
-{
-	bool deleted = false;
-	for (int i = 0; i < textList.size(); i++)
-	{
-		std::shared_ptr<Text>& currentText = textList[i];
-		if (currentText == textToDelete)
-		{
-			textList.erase(textList.begin() + i);
-			deleted = true;
-			break;
-		}
-	}
-	return deleted;
-}
-
-void Map::deleteTextFromAllElements(std::shared_ptr<Text> textToDelete)
-{
-	std::shared_ptr<Text> empty = nullptr;
-	for (std::shared_ptr<StraightTrack> currentElement : straightTrackList)
-	{
-		if (currentElement->getText() == textToDelete)
-		{
-			currentElement->setText(empty);
-			currentElement->setNamed(false);
-		}
-	}
-
-	for (std::shared_ptr<DirectedTrack> currentElement : directedTrackList)
-	{
-		if (currentElement->getText() == textToDelete)
-		{
-			currentElement->setText(empty);
-			currentElement->setNamed(false);
-		}
-	}
-
-	for (std::shared_ptr<CurvedTrack> currentElement : curvedTrackList)
-	{
-		if (currentElement->getText() == textToDelete)
-		{
-			currentElement->setText(empty);
-			currentElement->setNamed(false);
-		}
-	}
-
-	for (std::shared_ptr<LinkedTrack> currentElement : linkedTrackList)
-	{
-		if (currentElement->getText() == textToDelete)
-		{
-			currentElement->setText(empty);
-			currentElement->setNamed(false);
-		}
-	}
-
-	for (std::shared_ptr<ExitTrack> currentElement : exitTrackList)
-	{
-		if (currentElement->getText() == textToDelete)
-		{
-			currentElement->setText(empty);
-			currentElement->setNamed(false);
-		}
-	}
-	for (std::shared_ptr<BufferTrack> currentElement : bufferTrackList)
-	{
-		if (currentElement->getText() == textToDelete)
-		{
-			currentElement->setText(empty);
-			currentElement->setNamed(false);
-		}
-	}
-	for (std::shared_ptr<SignalTrack> currentElement : signalTrackList)
-	{
-		if (currentElement->getText() == textToDelete)
-		{
-			currentElement->setText(empty);
-			currentElement->setNamed(false);
-		}
-	}
-	for (std::shared_ptr<BridgeUnderpassTrack> currentElement : bridgeUnderpassTrackList)
-	{
-		if (currentElement->getText() == textToDelete)
-		{
-			currentElement->setText(empty);
-			currentElement->setNamed(false);
-		}
-	}
-	for (std::shared_ptr<SwitchTrack> currentElement : switchTrackList)
-	{
-		if (currentElement->getText() == textToDelete)
-		{
-			currentElement->setText(empty);
-			currentElement->setNamed(false);
-		}
-	}
-	for (std::shared_ptr<CrossoverTrack> currentElement : crossoverTrackList)
-	{
-		if (currentElement->getText() == textToDelete)
-		{
-			currentElement->setText(empty);
-			currentElement->setNamed(false);
-		}
-	}
-	for (std::shared_ptr<FlyoverTrack> currentElement : flyoverTrackList)
-	{
-		if (currentElement->getText() == textToDelete)
-		{
-			currentElement->setText(empty);
-			currentElement->setNamed(false);
-		}
-	}
-	for (std::shared_ptr<NamedLocation> currentElement : namedLocationList)
-	{
-		if (currentElement->getText() == textToDelete)
-		{
-			currentElement->setText(empty);
-			currentElement->setNamed(false);
-		}
-	}
-	for (std::shared_ptr<Concourse> currentElement : concourseList)
-	{
-		if (currentElement->getText() == textToDelete)
-		{
-			currentElement->setText(empty);
-			currentElement->setNamed(false);
-		}
-	}
 }
 
 std::shared_ptr<Text> Map::getTextToMove() const
@@ -1593,251 +1465,6 @@ void Map::moveText(int exactX, int exactY)
 		textToMove->setEditableY(exactY+fontSize);
 	}
 
-}
-
-void Map::changeDeleteText(QString readableBit, bool ok, std::shared_ptr<Text> text)
-{
-	if (readableBit.startsWith(" "))
-	{
-		readableBit.clear();
-	}
-	if(!readableBit.isEmpty() && ok)
-	{
-
-		text->setReadableText(readableBit);
-	}
-	else
-	{
-		deleteTextFromAllElements(text);
-		deleteText(text);
-	}
-}
-
-void Map::linkLocalText(int locationX, int locationY, std::shared_ptr<Text> linkedText)
-{
-	if (checkElementExists(locationX, locationY))
-	{
-		//Get whatever is at that location
-		std::shared_ptr<StraightTrack> track = getTrackHasPlatformAt(locationX,locationY);
-		std::shared_ptr<Concourse> concourse = getConcourseAt(locationX, locationY);
-		std::shared_ptr<NamedLocation> namedLocation = getNamedLocationAt(locationX, locationY);
-		std::shared_ptr<BridgeUnderpassTrack> bridgeUnderpassTrack = getBridgeUnderpassTrack(locationX, locationY);
-		//link text to it
-		if (bridgeUnderpassTrack != nullptr)
-		{
-			if (!bridgeUnderpassTrack->getNamed())
-			{
-				bridgeUnderpassTrack->setText(linkedText);
-				bridgeUnderpassTrack->setNamed(true);
-			}
-		}
-		if (track != nullptr)
-		{
-			if (track->getPlatformAny())
-			{
-				track->setText(linkedText);
-				track->setNamed(true);
-			}
-		}
-		if (concourse != nullptr)
-		{
-			if (!concourse->getNamed())
-			{
-				concourse->setText(linkedText);
-				concourse->setNamed(true);
-			}
-		}
-		if (namedLocation != nullptr)
-		{
-			if (!namedLocation->getNamed())
-			{
-				namedLocation->setText(linkedText);
-				namedLocation->setNamed(true);
-			}
-		}
-		if (track != nullptr || concourse != nullptr)
-		{
-			//See if there's a track above it
-			if (checkElementExists(locationX, locationY+16))
-			{
-				std::shared_ptr<StraightTrack> trackTempYP16 = getTrackHasPlatformAt(locationX,locationY+16);
-				std::shared_ptr<Concourse> concourseTempYP16 = getConcourseAt(locationX,locationY+16);
-				std::shared_ptr<BridgeUnderpassTrack> bridgeUnderpassTempYP16 = getBridgeUnderpassTrack(locationX,locationY+16);
-				//Try link the track to text if it has a platform.
-				//Try link if the the element isn't named yet.
-				if (trackTempYP16 != nullptr)
-				{
-					if (trackTempYP16->getPlatformAny())
-					{
-						if (!trackTempYP16->getNamed())
-						{
-							//Link it if there's a track there and it hasn't been named
-							linkLocalText(locationX, locationY+16, linkedText);
-						}
-					}
-				}
-				else if (concourseTempYP16 != nullptr)
-				{
-					if (!concourseTempYP16->getNamed())
-					{
-						linkLocalText(locationX, locationY+16, linkedText);
-					}
-				}
-				if (bridgeUnderpassTempYP16 != nullptr)
-				{
-					if (!bridgeUnderpassTempYP16->getNamed())
-					{
-						linkLocalText(locationX, locationY+16, linkedText);
-					}
-				}
-			}
-			//See if there's a track underneath
-			if (checkElementExists(locationX, locationY-16))
-			{
-				std::shared_ptr<StraightTrack> trackTempYM16 = getTrackHasPlatformAt(locationX,locationY-16);
-				std::shared_ptr<Concourse> concourseTempYM16 = getConcourseAt(locationX,locationY-16);
-				std::shared_ptr<BridgeUnderpassTrack> bridgeUnderpassTempYM16 = getBridgeUnderpassTrack(locationX,locationY-16);
-
-				if (trackTempYM16 != nullptr)
-				{
-					if (trackTempYM16->getPlatformAny())
-					{
-						if (!trackTempYM16->getNamed())
-						{
-							linkLocalText(locationX, locationY-16, linkedText);
-						}
-					}
-				}
-				else if (concourseTempYM16 != nullptr)
-				{
-					if (!concourseTempYM16->getNamed())
-					{
-						linkLocalText(locationX, locationY-16, linkedText);
-					}
-				}
-				if (bridgeUnderpassTempYM16 != nullptr)
-				{
-					if (!bridgeUnderpassTempYM16->getNamed())
-					{
-						linkLocalText(locationX, locationY-16, linkedText);
-					}
-				}
-
-			}
-			//See if there's a track on the right of it
-			if (checkElementExists(locationX+16, locationY))
-			{
-				std::shared_ptr<StraightTrack> trackTempXP16 = getTrackHasPlatformAt(locationX+16,locationY);
-				std::shared_ptr<Concourse> concourseTempXP16 = getConcourseAt(locationX+16,locationY);
-				std::shared_ptr<BridgeUnderpassTrack> bridgeUnderpassTempXP16 = getBridgeUnderpassTrack(locationX+16,locationY);
-
-				if (trackTempXP16 != nullptr)
-				{
-					if (trackTempXP16->getPlatformAny())
-					{
-						if (!trackTempXP16->getNamed())
-						{
-							linkLocalText(locationX+16, locationY, linkedText);
-						}
-					}
-				}
-				else if (concourseTempXP16 != nullptr)
-				{
-					if (!concourseTempXP16->getNamed())
-					{
-						linkLocalText(locationX+16, locationY, linkedText);
-					}
-				}
-				if (bridgeUnderpassTempXP16 != nullptr)
-				{
-					if (!bridgeUnderpassTempXP16->getNamed())
-					{
-						linkLocalText(locationX+16, locationY, linkedText);
-					}
-				}
-			}
-			//See if there's a track on the left of it
-			if (checkElementExists(locationX-16, locationY))
-			{
-				std::shared_ptr<StraightTrack> trackTempXM16 = getTrackHasPlatformAt(locationX-16,locationY);
-				std::shared_ptr<Concourse> concourseTempXM16 = getConcourseAt(locationX-16,locationY);
-				std::shared_ptr<BridgeUnderpassTrack> bridgeUnderpassTempXM16 = getBridgeUnderpassTrack(locationX-16,locationY);
-				if (trackTempXM16 != nullptr)
-				{
-					if (trackTempXM16->getPlatformAny())
-					{
-						if (!trackTempXM16->getNamed())
-						{
-							linkLocalText(locationX-16, locationY, linkedText);
-						}
-					}
-				}
-				else if (concourseTempXM16 != nullptr)
-				{
-					if (!concourseTempXM16->getNamed())
-					{
-						linkLocalText(locationX-16, locationY, linkedText);
-					}
-				}
-				if (bridgeUnderpassTempXM16 != nullptr)
-				{
-					if (!bridgeUnderpassTempXM16->getNamed())
-					{
-						linkLocalText(locationX-16, locationY, linkedText);
-					}
-				}
-			}
-		}
-		//Same for namedLocation.
-		else
-		{
-			if (checkElementExists(locationX, locationY+16))
-			{
-				std::shared_ptr<NamedLocation> namedLocationTempYP16 = getNamedLocationAt(locationX,locationY+16);
-				if (namedLocationTempYP16 != nullptr)
-				{
-					if (!namedLocationTempYP16->getNamed())
-					{
-						linkLocalText(locationX, locationY+16, linkedText);
-					}
-				}
-			}
-			if (checkElementExists(locationX, locationY-16))
-			{
-				std::shared_ptr<NamedLocation> namedLocationYM16 = getNamedLocationAt(locationX,locationY-16);
-
-				if (namedLocationYM16 != nullptr)
-				{
-					if (!namedLocationYM16->getNamed())
-					{
-						linkLocalText(locationX, locationY-16, linkedText);
-					}
-				}
-			}
-			if (checkElementExists(locationX+16, locationY))
-			{
-				std::shared_ptr<NamedLocation> namedLocationXP16 = getNamedLocationAt(locationX+16,locationY);
-				if (namedLocationXP16 != nullptr)
-				{
-					if (!namedLocationXP16->getNamed())
-					{
-						linkLocalText(locationX+16, locationY, linkedText);
-					}
-				}
-			}
-			if (checkElementExists(locationX-16, locationY))
-			{
-				std::shared_ptr<NamedLocation> namedLocationTempXM16 = getNamedLocationAt(locationX-16,locationY);
-				if (namedLocationTempXM16 != nullptr)
-				{
-					if (!namedLocationTempXM16->getNamed())
-					{
-						linkLocalText(locationX-16, locationY, linkedText);
-					}
-				}
-			}
-		}
-	}
 }
 
 //Platform related methods
@@ -2619,80 +2246,6 @@ std::shared_ptr<Track> Map::getTrackAt(int locationX, int locationY)
 		}
 	}
 	return track;
-}
-
-std::shared_ptr<StraightTrack> Map::getTrackHasPlatformAt(int locationX, int locationY)
-{
-	bool found = false;
-	std::shared_ptr<StraightTrack> track = nullptr;
-	if (!straightTrackList.empty())
-	{
-		for (std::shared_ptr<StraightTrack>& currentTrack : straightTrackList)
-		{
-			int currentX = currentTrack->getLocationX();
-			int currentY = currentTrack->getLocationY();
-			if (currentX == locationX && currentY == locationY)
-			{
-				track = currentTrack;
-				found = true;
-			}
-		}
-	}
-	if (!directedTrackList.empty() && found == false)
-	{
-		for (std::shared_ptr<DirectedTrack>& currentTrack : directedTrackList)
-		{
-			int currentX = currentTrack->getLocationX();
-			int currentY = currentTrack->getLocationY();
-			if (currentX == locationX && currentY == locationY)
-			{
-				track = currentTrack;
-				found = true;
-			}
-		}
-	}
-	if (!bufferTrackList.empty() && found == false)
-	{
-		for (std::shared_ptr<BufferTrack>& currentTrack : bufferTrackList)
-		{
-
-			int currentX = currentTrack->getLocationX();
-			int currentY = currentTrack->getLocationY();
-			if (currentX == locationX && currentY == locationY)
-			{
-				track = currentTrack;
-				found = true;
-			}
-		}
-	}
-	if (!signalTrackList.empty() && found == false)
-	{
-		for (std::shared_ptr<SignalTrack>& currentTrack : signalTrackList)
-		{
-
-			int currentX = currentTrack->getLocationX();
-			int currentY = currentTrack->getLocationY();
-			if (currentX == locationX && currentY == locationY)
-			{
-				track = currentTrack;
-				found = true;
-			}
-		}
-	}
-	if (!switchTrackList.empty() && found == false)
-	{
-		for (std::shared_ptr<SwitchTrack>& currentTrack : switchTrackList)
-		{
-
-			int currentX = currentTrack->getLocationX();
-			int currentY = currentTrack->getLocationY();
-			if (currentX == locationX && currentY == locationY)
-			{
-				track = currentTrack;
-				found = true;
-			}
-		}
-	}
 }
 
 //General methods

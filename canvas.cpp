@@ -1918,69 +1918,6 @@ void Canvas::clickMoveText(int exactX, int exactY)
 
 }
 
-void Canvas::clickSetChangeNamedElement(int overallX, int overallY)
-{
-	bool exist = false;
-	bool ok = false;
-	std::shared_ptr<StraightTrack> track = map->getTrackHasPlatformAt(overallX,overallY);
-	std::shared_ptr<NamedElement> namedElement = map->getNamedElementAt(overallX,overallY);
-	std::shared_ptr<BridgeUnderpassTrack> bridgeUnderpassTrack = map->getBridgeUnderpassTrack(overallX, overallY);
-	QString readableBit;
-	if (track != nullptr)
-	{
-		if (track->getPlatformAny())
-		{
-			if (track->getNamed())
-			{
-				readableBit = QInputDialog::getText(this, tr("Add location"), tr("Enter location:"), QLineEdit::Normal
-													, track->getText()->getReadableText(), &ok);
-				std::shared_ptr<Text> text = track->getText();
-				map->changeDeleteText(readableBit, ok, text);
-			}
-			else
-			{
-				readableBit = QInputDialog::getText(this, tr("Add location"), tr("Enter location:"), QLineEdit::Normal, tr(""), &ok);
-				map->createAddLinkText(overallX,overallY,readableBit,ok,currentFont);
-			}
-
-
-		}
-	}
-	if (bridgeUnderpassTrack != nullptr)
-	{
-		if (bridgeUnderpassTrack->getNamed())
-		{
-			readableBit = QInputDialog::getText(this, tr("Add location"), tr("Enter location:"), QLineEdit::Normal
-												, track->getText()->getReadableText(), &ok);
-			std::shared_ptr<Text> text = track->getText();
-			map->changeDeleteText(readableBit,  ok, text);
-		}
-		else
-		{
-			readableBit = QInputDialog::getText(this, tr("Add location"), tr("Enter location:"), QLineEdit::Normal, tr(""), &ok);
-			map->createAddLinkText(overallX,overallY,readableBit,ok,currentFont);
-		}
-	}
-
-
-	if (namedElement != nullptr && exist == false)
-	{
-		if (namedElement->getNamed())
-		{
-			readableBit = QInputDialog::getText(this, tr("Add location"), tr("Enter location:"), QLineEdit::Normal
-												, namedElement->getText()->getReadableText(), &ok);
-			std::shared_ptr<Text> text = namedElement->getText();
-			map->changeDeleteText(readableBit, ok, text);
-		}
-
-		else
-		{
-			readableBit = QInputDialog::getText(this, tr("Add location"), tr("Enter location:"), QLineEdit::Normal, tr(""), &ok);
-			map->createAddLinkText(overallX,overallY,readableBit,ok,currentFont);
-		}
-	}
-}
-
 
 void Canvas::mousePressEvent(QMouseEvent *event)
 {
@@ -2005,37 +1942,33 @@ void Canvas::mousePressEvent(QMouseEvent *event)
 	{
 		switch (mode)
 		{
-		case Mode::ADDREMOVETRACK:
-		{
-			clickCreateAddElement(elementChosen, overallX, overallY);
-			break;
-		}
-		case Mode::CONNECTLINKEDTRACK:
-		{
-			clickConnectLinkedTracks(overallX, overallY);
-			break;
-		}
-		case Mode::SETCONVERTSPEEDDISTANCE:
-		{
-			break;
-		}
-		case Mode::ADDEDITREMOVETEXT:
-		{
-			addChangeRemoveText(exactX, exactY);
-			break;
-		}
-		case Mode::MOVETEXT:
-		{
-			clickMoveText(exactX,exactY);
-		}
-		case Mode::SETCHANGENAMEDELEMENT:
-		{
-			clickSetChangeNamedElement(overallX, overallY);
-		}
-		default:
-		{
-			break;
-		}
+			case Mode::ADDREMOVETRACK:
+			{
+				clickCreateAddElement(elementChosen, overallX, overallY);
+				break;
+			}
+			case Mode::CONNECTLINKEDTRACK:
+			{
+				clickConnectLinkedTracks(overallX, overallY);
+				break;
+			}
+			case Mode::SETCONVERTSPEEDDISTANCE:
+			{
+				break;
+			}
+			case Mode::ADDEDITREMOVETEXT:
+			{
+				addChangeRemoveText(exactX, exactY);
+				break;
+			}
+			case Mode::MOVETEXT:
+			{
+				clickMoveText(exactX,exactY);
+			}
+			default:
+			{
+				break;
+			}
 		}
 
 
@@ -2044,10 +1977,10 @@ void Canvas::mousePressEvent(QMouseEvent *event)
 	{
 		switch(mode)
 		{
-		case Mode::ADDREMOVETRACK:
-		{
-			clickDeleteElement(overallX, overallY);
-		}
+			case Mode::ADDREMOVETRACK:
+			{
+				clickDeleteElement(overallX, overallY);
+			}
 		}
 	}
 	update();
@@ -4051,5 +3984,3 @@ void Canvas::drawEverythingNormal(QPainter &painter)
 	drawConcourse(painter);
 	drawParapet(painter);
 }
-
-
