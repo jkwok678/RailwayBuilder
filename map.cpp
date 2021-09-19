@@ -219,10 +219,8 @@ void Map::addText(std::shared_ptr<Text> newText)
 {
 	int tempLocationX = newText->getLocationX();
 	int templocationY = newText->getLocationY();
-	if (!checkElementExists(tempLocationX, templocationY))
-	{
-		textList.push_back(newText);
-	}
+	textList.push_back(newText);
+
 }
 
 //Remove element methods
@@ -1584,9 +1582,10 @@ void Map::setTextToMove(const std::shared_ptr<Text> &newTextToMove)
 
 void Map::moveText(int exactX, int exactY)
 {
-	int fontSize = textToMove->getFontSize();
+
 	if (textToMove != nullptr)
 	{
+		int fontSize = textToMove->getFontSize();
 		textToMove->setLocationX(exactX);
 		textToMove->setLocationY(exactY);
 		textToMove->setEditableX(exactX+fontSize);
@@ -2693,6 +2692,7 @@ std::shared_ptr<StraightTrack> Map::getTrackHasPlatformAt(int locationX, int loc
 			}
 		}
 	}
+	return track;
 }
 
 //General methods

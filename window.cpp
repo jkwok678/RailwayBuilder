@@ -300,6 +300,20 @@ void Window::moveTextMode()
 	}
 }
 
+void Window::setChangeDeleteNamedElementMode()
+{
+	//If the mode isn't MOVETEXT, make it that.
+	if (drawingArea->getMode() != Mode::SETCHANGENAMEDELEMENT)
+	{
+		drawingArea->setMode(Mode::SETCHANGENAMEDELEMENT);
+	}
+	else
+	{
+		//Otherwise go to default.
+		drawingArea->setMode(Mode::NONE);
+	}
+}
+
 void Window::changeAspect()
 {
 	//Change aspect from 4 -> 3 -> 2 -> 1 then back to 4.
@@ -2251,6 +2265,15 @@ void Window::createBuildModifyMenu()
 	moveTextIcon = new QIcon(":/icons/icons/moveText.png");
 	moveTextButton->setIcon(*moveTextIcon);
 	buildModifyMenu1->addWidget(moveTextButton);
+
+	setChangeDeleteNamedLocationButton = new QToolButton();
+	setChangeDeleteNamedLocationButton->setMaximumSize(QSize(32, 32));
+	setChangeDeleteNamedLocationAct = new QAction();
+	setChangeDeleteNamedLocationButton->setDefaultAction(setChangeDeleteNamedLocationAct);
+	connect(setChangeDeleteNamedLocationAct, &QAction::triggered, this, &Window::setChangeDeleteNamedElementMode);
+	setChangeDeleteNamedLocationIcon = new QIcon(":/icons/icons/setChangeNamedLocation.png");
+	setChangeDeleteNamedLocationButton->setIcon(*setChangeDeleteNamedLocationIcon);
+	buildModifyMenu1->addWidget(setChangeDeleteNamedLocationButton);
 
 	//Add the button to bring up the menu that allows the user to set and convert speed and distances.
 	setConvertSpeedDistanceMenuButton = new QToolButton();

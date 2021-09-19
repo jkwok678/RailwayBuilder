@@ -1918,7 +1918,7 @@ void Canvas::clickMoveText(int exactX, int exactY)
 
 }
 
-void Canvas::clickSetChangeNamedElement(int overallX, int overallY)
+void Canvas::clickSetChangeDeleteNamedElement(int overallX, int overallY)
 {
 	bool exist = false;
 	bool ok = false;
@@ -2027,10 +2027,12 @@ void Canvas::mousePressEvent(QMouseEvent *event)
 		case Mode::MOVETEXT:
 		{
 			clickMoveText(exactX,exactY);
+			break;
 		}
 		case Mode::SETCHANGENAMEDELEMENT:
 		{
-			clickSetChangeNamedElement(overallX, overallY);
+			clickSetChangeDeleteNamedElement(overallX, overallY);
+			break;
 		}
 		default:
 		{
@@ -2060,32 +2062,26 @@ void Canvas::paintEvent(QPaintEvent *event)
 	QPainter painter(this);
 	switch (mode)
 	{
-		case Mode::NONE:
-		{
-			drawEverythingNormal(painter);
-			break;
-		}
-		case Mode::ADDREMOVETRACK:
-		{
-			drawEverythingNormal(painter);
-			break;
-		}
-		case Mode::CONNECTLINKEDTRACK:
-		{
-			drawEverythingNormal(painter);
-			drawConnectTrackHints(painter);
-			break;
-		}
-		case Mode::SETCONVERTSPEEDDISTANCE:
-		{
-			break;
-		}
+	case Mode::CONNECTLINKEDTRACK:
+	{
+		drawEverythingNormal(painter);
+		drawConnectTrackHints(painter);
+		break;
 	}
-	drawText(painter);
+	case Mode::SETCONVERTSPEEDDISTANCE:
+	{
+		break;
+	}
+	default:
+	{
+		drawEverythingNormal(painter);
+	}
+	}
+
 	if (grid){
 		drawGrid(painter);
 	}
-
+	drawText(painter);
 }
 
 void Canvas::resizeEvent(QResizeEvent *event)

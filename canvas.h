@@ -261,7 +261,12 @@ public:
 	 */
 	void clickMoveText(int exactX, int exactY);
 
-	void clickSetChangeNamedElement(int overallX, int overallY);
+	/**
+	 * @brief Set, change or delete named element text.
+	 * @param overallX X coordinate.
+	 * @param overallY Y coordinate.
+	 */
+	void clickSetChangeDeleteNamedElement(int overallX, int overallY);
 
 
 

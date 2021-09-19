@@ -145,6 +145,10 @@ private slots:
 	void moveTextMode();
 
 	/**
+	 * @brief  A slot that allows the user to set, change or delete text connected to a named element.
+	 */
+	void setChangeDeleteNamedElementMode();
+	/**
 	 * @brief A slot to change the aspects of signal tracks added to screen.
 	 */
 	void changeAspect();
@@ -998,6 +1002,10 @@ private:
 	QToolButton* moveTextButton;
 	QAction* moveTextAct;
 	QIcon* moveTextIcon;
+
+	QToolButton* setChangeDeleteNamedLocationButton;
+	QAction* setChangeDeleteNamedLocationAct;
+	QIcon* setChangeDeleteNamedLocationIcon;
 
 	QToolButton *setConvertSpeedDistanceMenuButton;
 	QIcon   *setConvertSpeedDistanceMenuIcon;

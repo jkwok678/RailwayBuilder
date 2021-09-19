@@ -5,6 +5,11 @@ All notable changes to this project will be documented in this file.
 ## Core features - 16/09/2021
 
 ### Added
+* The ability to name NamedElements.
+
+## Core features - 16/09/2021
+
+### Added
 * The ability to move text to the canvas.
 
 ### Changed

@@ -98,7 +98,7 @@ class Text : public Element
 private:
 	int editableX;
 	int editableY;
-	int fontSize{ 12 };
+	int fontSize{12};
 	QString readableText;
 	QFont font;
 
