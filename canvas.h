@@ -209,6 +209,18 @@ public:
 	void setSignalAspectToAdd(int newSignalAspectToAdd);
 
 	/**
+	 * @brief Get the current font the canvas is set to.
+	 * @return QFont object that is the current font.
+	 */
+	QFont getCurrentFont() const;
+
+	/**
+	 * @brief Set the new font.
+	 * @param newCurrentFont New QFont.
+	 */
+	void setCurrentFont(const QFont &newCurrentFont);
+
+	/**
 	 * @brief Get if the grid is active or not.
 	 * @return A bool that says if the grid is active or not.
 	 */
@@ -267,6 +279,8 @@ public:
 	 * @param overallY Y coordinate.
 	 */
 	void clickSetChangeDeleteNamedElement(int overallX, int overallY);
+
+
 
 
 

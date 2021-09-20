@@ -2,7 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
-## Core features - 16/09/2021
+## Core features - 20/09/2021
+
+### Added
+* The ability to change the font of future text.
+
+
+## Core features - 19/09/2021
 
 ### Added
 * The ability to name NamedElements.

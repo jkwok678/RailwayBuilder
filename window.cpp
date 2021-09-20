@@ -320,6 +320,15 @@ void Window::setChangeDeleteNamedElementMode()
 	allMenus->setCurrentIndex(0);
 }
 
+void Window::openFontBox()
+{
+	//Get a new font from QFontDialog box, the default is font is there.
+	bool ok;
+	QFont font = QFontDialog::getFont(&ok, QFont( "Calibri", 12 ),this,tr("Pick a font" ));
+	//Make sure that the canvas is using this font.
+	drawingArea->setCurrentFont(font);
+}
+
 void Window::changeAspect()
 {
 	//Change aspect from 4 -> 3 -> 2 -> 1 then back to 4.
@@ -2280,6 +2289,15 @@ void Window::createBuildModifyMenu()
 	setChangeDeleteNamedLocationIcon = new QIcon(":/icons/icons/setChangeNamedLocation.png");
 	setChangeDeleteNamedLocationButton->setIcon(*setChangeDeleteNamedLocationIcon);
 	buildModifyMenu1->addWidget(setChangeDeleteNamedLocationButton);
+
+	fontButton = new QToolButton();
+	fontButton->setMaximumSize(QSize(32, 32));
+	setFontAct = new QAction();
+	fontButton->setDefaultAction(setFontAct);
+	connect(setFontAct, &QAction::triggered, this, &Window::openFontBox);
+	setFontIcon = new QIcon(":/icons/icons/changeFont.png");
+	fontButton->setIcon(*setFontIcon);
+	buildModifyMenu1->addWidget(fontButton);
 
 	//Add the button to bring up the menu that allows the user to set and convert speed and distances.
 	setConvertSpeedDistanceMenuButton = new QToolButton();

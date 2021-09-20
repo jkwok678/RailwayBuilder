@@ -148,6 +148,12 @@ private slots:
 	 * @brief  A slot that allows the user to set, change or delete text connected to a named element.
 	 */
 	void setChangeDeleteNamedElementMode();
+
+	/**
+	 * @brief A slot that allows the user to change the font.
+	 */
+	void openFontBox();
+
 	/**
 	 * @brief A slot to change the aspects of signal tracks added to screen.
 	 */
@@ -1006,6 +1012,10 @@ private:
 	QToolButton* setChangeDeleteNamedLocationButton;
 	QAction* setChangeDeleteNamedLocationAct;
 	QIcon* setChangeDeleteNamedLocationIcon;
+
+	QToolButton* fontButton;
+	QAction* setFontAct;
+	QIcon* setFontIcon;
 
 	QToolButton *setConvertSpeedDistanceMenuButton;
 	QIcon   *setConvertSpeedDistanceMenuIcon;

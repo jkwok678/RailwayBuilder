@@ -955,6 +955,16 @@ void Canvas::setSignalAspectToAdd(int newSignalAspectToAdd)
 	signalAspectToAdd = newSignalAspectToAdd;
 }
 
+QFont Canvas::getCurrentFont() const
+{
+	return currentFont;
+}
+
+void Canvas::setCurrentFont(const QFont &newCurrentFont)
+{
+	currentFont = newCurrentFont;
+}
+
 bool Canvas::getGrid() const
 {
 	return grid;
@@ -2107,6 +2117,8 @@ void Canvas::mouseMoveEvent(QMouseEvent *event)
 	update();
 
 }
+
+
 
 
 
