@@ -263,6 +263,7 @@ void Window::connectLinkedTrackMode()
 	{
 		drawingArea->setMode(Mode::NONE);
 	}
+	allMenus->setCurrentIndex(0);
 }
 
 void Window::checkAllTrackConnected()
@@ -283,7 +284,7 @@ void Window::addEditRemoveTextMode()
 		//Otherwise go to default.
 		drawingArea->setMode(Mode::NONE);
 	}
-
+	allMenus->setCurrentIndex(0);
 }
 
 void Window::moveTextMode()
@@ -292,12 +293,15 @@ void Window::moveTextMode()
 	if (drawingArea->getMode() != Mode::MOVETEXT)
 	{
 		drawingArea->setMode(Mode::MOVETEXT);
+
 	}
 	else
 	{
 		//Otherwise go to default.
 		drawingArea->setMode(Mode::NONE);
+
 	}
+	allMenus->setCurrentIndex(0);
 }
 
 void Window::setChangeDeleteNamedElementMode()
@@ -306,12 +310,14 @@ void Window::setChangeDeleteNamedElementMode()
 	if (drawingArea->getMode() != Mode::SETCHANGENAMEDELEMENT)
 	{
 		drawingArea->setMode(Mode::SETCHANGENAMEDELEMENT);
+
 	}
 	else
 	{
 		//Otherwise go to default.
 		drawingArea->setMode(Mode::NONE);
 	}
+	allMenus->setCurrentIndex(0);
 }
 
 void Window::changeAspect()
