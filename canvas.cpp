@@ -819,6 +819,7 @@ void Canvas::canvasChangeColour()
 	if (canvasColour == Qt::white)
 	{
 		pal.setColor(QPalette::Window, Qt::white);
+
 	}
 	else if (canvasColour == Qt::darkBlue)
 	{
@@ -2070,6 +2071,14 @@ void Canvas::paintEvent(QPaintEvent *event)
 	canvasSizeX = width();
 	canvasSizeY = height();
 	QPainter painter(this);
+	if (canvasColour == Qt::white)
+	{
+		painter.setPen(Qt::black);
+	}
+	else
+	{
+		painter.setPen(Qt::white);
+	}
 	switch (mode)
 	{
 	case Mode::CONNECTLINKEDTRACK:
