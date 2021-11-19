@@ -82,6 +82,21 @@ public:
 
 private slots:
 
+	/**
+	 * @brief A slot to load railways into the program.
+	 */
+	void loadRailway();
+
+	/**
+	 * @brief A slot to save the railway as.
+	 */
+	void saveRailwayAs();
+
+	/**
+	 * @brief A slot to save the railway.
+	 */
+	void saveRailway();
+
 	//Canvas colour slots
 
 	/**
@@ -976,6 +991,10 @@ private:
 
 	QMenuBar *menuBar;
 	QMenu *fileMenu;
+	QAction *loadRailwayAct;
+	QAction *saveRailwayAsAct;
+	QAction *saveRailwayAct;
+
 	QMenu *modeMenu;
 	QAction *toWhiteBackgroundAct;
 	QAction *toDarkBlueBackgroundAct;
@@ -1869,6 +1888,11 @@ private:
 	 * @version 0.1
 	 */
 	void createMenuBar();
+
+	/**
+	 * @brief A method to create the file menu.
+	 */
+	void createFileMenu();
 
 	/**
 	 * @brief A method to create the mode menu.
