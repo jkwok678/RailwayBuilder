@@ -22,10 +22,8 @@ add_library(RailwayBuilderLib STATIC borderlayout.cpp
     window.h
     message.cpp
     message.h
-    fileoperation.cpp
-    fileoperation.h
     )
-# Add an alias to the library to avoid typos
+# Add an alias to the library to avoid typoss
 add_library(RailwayBuilderLib::RailwayBuilderLib ALIAS RailwayBuilderLib)
 # Better version of set(CMAKE_INCLUDE_CURRENT_DIR ON)
 target_include_directories(RailwayBuilderLib PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}>)
