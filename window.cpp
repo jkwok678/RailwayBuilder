@@ -136,21 +136,6 @@ double Window::convertSpeed(double speed)
 	return result;
 }
 
-void Window::loadRailway()
-{
-
-}
-
-void Window::saveRailwayAs()
-{
-
-}
-
-void Window::saveRailway()
-{
-
-}
-
 
 //private slots
 
@@ -2195,25 +2180,9 @@ void Window::createMenuBar()
 	menuBar = new QMenuBar();
 	fileMenu = new QMenu("File");
 	modeMenu = new QMenu("Mode");
-	createFileMenu();
 	createModeMenu();
 	menuBar->addMenu(fileMenu);
 	menuBar->addMenu(modeMenu);
-}
-
-void Window::createFileMenu()
-{
-	loadRailwayAct = new QAction(tr("&Load Railway"), this);
-	connect(loadRailwayAct, &QAction::triggered, this, &Window::loadRailway);
-	fileMenu->addAction(loadRailwayAct);
-
-	saveRailwayAsAct = new QAction(tr("&Save Railway As"), this);
-	connect(saveRailwayAsAct, &QAction::triggered, this, &Window::saveRailwayAsAct);
-	fileMenu->addAction(saveRailwayAsAct);
-
-	saveRailwayAct = new QAction(tr("&Save Railway"), this);
-	connect(saveRailwayAct, &QAction::triggered, this, &Window::saveRailwayAct);
-	fileMenu->addAction(saveRailwayAct);
 }
 
 void Window::createModeMenu()

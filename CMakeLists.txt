@@ -22,8 +22,6 @@ add_library(RailwayBuilderLib STATIC borderlayout.cpp
     window.h
     message.cpp
     message.h
-    fileoperation.cpp
-    fileoperation.h
     )
 # Add an alias to the library to avoid typos
 add_library(RailwayBuilderLib::RailwayBuilderLib ALIAS RailwayBuilderLib)
