@@ -80,6 +80,12 @@ public:
 	 */
 	void setLocationY(int newLocationY);
 
+	/**
+	 * @brief A method to convert an element to a String.
+	 * @return
+	 */
+	virtual QString toQString() = 0;
+
 };
 
 
@@ -179,6 +185,12 @@ public:
 	 */
 	void setFont(const QFont newFont);
 
+	/**
+	 * @brief A method to convert a text to a String.
+	 * @return QString representation of the text.
+	 */
+	QString toQString();
+
 };
 
 
@@ -233,6 +245,12 @@ public:
 	 */
 	void setText(std::shared_ptr<Text> &newText);
 
+	/**
+	 * @brief A method to convert a namedElement to a String.
+	 * @return QString representation of the namedElement.
+	 */
+	QString toQString();
+
 };
 
 
@@ -265,6 +283,12 @@ public:
 	 * @param newLocationY Y coordinate of the NamedLocation.
 	 */
 	NamedLocation(int newLocationX, int newLocationY);
+
+	/**
+	 * @brief A method to convert a namedLocation to a String.
+	 * @return QString representation of the namedLocation.
+	 */
+	QString toQString();
 
 };
 
@@ -299,6 +323,11 @@ public:
 	 */
 	Concourse(int newLocationX, int newLocationY);
 
+	/**
+	 * @brief A method to convert a concourse to a String.
+	 * @return QString representation of the concourse.
+	 */
+	QString toQString();
 
 };
 
@@ -345,6 +374,18 @@ public:
 	 * @param newParapetType The new Parapet type enum.
 	 */
 	void setParapetType(const ParapetType &newParapetType);
+
+	/**
+	 * @brief Converts ParapetType to QString.
+	 * @return QString that is the ParapetType.
+	 */
+	QString parapetTypeToQString();
+
+	/**
+	 * @brief A method to convert a parapet to a String.
+	 * @return QString representation of the parapet.
+	 */
+	QString toQString();
 
 };
 #endif // ELEMENT_H
