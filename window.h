@@ -16,6 +16,7 @@
 #include <string>
 #include <iostream>
 #include <QSizePolicy>
+#include <QFileDialog>
 #include "borderlayout.h"
 #include "canvas.h"
 #include "element.h"

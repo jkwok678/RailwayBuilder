@@ -143,7 +143,9 @@ void Window::loadRailway()
 
 void Window::saveRailwayAs()
 {
-
+	QString fileName = QFileDialog::getSaveFileName(this, tr("Save File"),
+							   "/home/jana/untitled.png",
+							   tr("Railway2 File (*.rly2)"));
 }
 
 void Window::saveRailway()
