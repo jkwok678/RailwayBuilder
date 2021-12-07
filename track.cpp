@@ -194,24 +194,24 @@ QString StraightTrack::straightTypeToQString()
 
 QString StraightTrack::toQString()
 {
-	QString trackQString = "StraightTrack";
-	trackQString.append(",");
-	trackQString.append(straightTypeToQString());
-	trackQString.append(",");
-	trackQString.append(QString::number(locationX));
-	trackQString.append(",");
-	trackQString.append(QString::number(locationY));
-	trackQString.append(",");
-	trackQString.append(QString::number(trackMainSpeed));
-	trackQString.append(",");
-	trackQString.append(QString::number(trackMainLength));
-	trackQString.append(",");
-	trackQString.append(QVariant(platform1).toString());
-	trackQString.append(",");
-	trackQString.append(QVariant(platform2).toString());
-	trackQString.append(",");
-	trackQString.append(QVariant(levelCrossing).toString());
-	return trackQString;
+	QString straightTrackQString = "StraightTrack";
+	straightTrackQString.append(",");
+	straightTrackQString.append(straightTypeToQString());
+	straightTrackQString.append(",");
+	straightTrackQString.append(QString::number(locationX));
+	straightTrackQString.append(",");
+	straightTrackQString.append(QString::number(locationY));
+	straightTrackQString.append(",");
+	straightTrackQString.append(QString::number(trackMainSpeed));
+	straightTrackQString.append(",");
+	straightTrackQString.append(QString::number(trackMainLength));
+	straightTrackQString.append(",");
+	straightTrackQString.append(QVariant(platform1).toString());
+	straightTrackQString.append(",");
+	straightTrackQString.append(QVariant(platform2).toString());
+	straightTrackQString.append(",");
+	straightTrackQString.append(QVariant(levelCrossing).toString());
+	return straightTrackQString;
 }
 
 
@@ -303,22 +303,22 @@ QString DirectedTrack::directedTypeToQString()
 
 QString DirectedTrack::toQString()
 {
-	QString trackQString = "DirectedTrack";
-	trackQString.append(",");
-	trackQString.append(directedTypeToQString());
-	trackQString.append(",");
-	trackQString.append(QString::number(locationX));
-	trackQString.append(",");
-	trackQString.append(QString::number(locationY));
-	trackQString.append(",");
-	trackQString.append(QString::number(trackMainSpeed));
-	trackQString.append(",");
-	trackQString.append(QString::number(trackMainLength));
-	trackQString.append(",");
-	trackQString.append(QVariant(platform1).toString());
-	trackQString.append(",");
-	trackQString.append(QVariant(platform2).toString());
-	return trackQString;
+	QString directedTrackQString = "DirectedTrack";
+	directedTrackQString.append(",");
+	directedTrackQString.append(directedTypeToQString());
+	directedTrackQString.append(",");
+	directedTrackQString.append(QString::number(locationX));
+	directedTrackQString.append(",");
+	directedTrackQString.append(QString::number(locationY));
+	directedTrackQString.append(",");
+	directedTrackQString.append(QString::number(trackMainSpeed));
+	directedTrackQString.append(",");
+	directedTrackQString.append(QString::number(trackMainLength));
+	directedTrackQString.append(",");
+	directedTrackQString.append(QVariant(platform1).toString());
+	directedTrackQString.append(",");
+	directedTrackQString.append(QVariant(platform2).toString());
+	return directedTrackQString;
 }
 
 
@@ -416,6 +416,67 @@ CurvedType CurvedTrack::getCurvedType() const
 void CurvedTrack::setCurvedType(const CurvedType &newCurvedType)
 {
 	curvedType = newCurvedType;
+}
+
+QString CurvedTrack::curvedTypeToQString()
+{
+	QString curvedTypeQString;
+	switch (curvedType)
+	{
+	case CurvedType::CURVE1:
+		curvedTypeQString = "curve_1";
+		break;
+	case CurvedType::CURVE2:
+		curvedTypeQString = "curve_2";
+		break;
+	case CurvedType::CURVE3:
+		curvedTypeQString = "curve_3";
+		break;
+	case CurvedType::CURVE4:
+		curvedTypeQString = "curve_4";
+		break;
+	case CurvedType::CURVE5:
+		curvedTypeQString = "curve_5";
+		break;
+	case CurvedType::CURVE6:
+		curvedTypeQString = "curve_6";
+		break;
+	case CurvedType::CURVE7:
+		curvedTypeQString = "curve_7";
+		break;
+	case CurvedType::CURVE8:
+		curvedTypeQString = "curve_8";
+		break;
+	case CurvedType::TIGHTCURVE1:
+		curvedTypeQString = "tight_curve_1";
+		break;
+	case CurvedType::TIGHTCURVE2:
+		curvedTypeQString = "tight_curve_2";
+		break;
+	case CurvedType::TIGHTCURVE3:
+		curvedTypeQString = "tight_curve_3";
+		break;
+	case CurvedType::TIGHTCURVE4:
+		curvedTypeQString = "tight_curve_4";
+		break;
+	}
+	return curvedTypeQString;
+}
+
+QString CurvedTrack::toQString()
+{
+	QString curvedTrackQString = "CurvedTrack";
+	curvedTrackQString.append(",");
+	curvedTrackQString.append(curvedTypeToQString());
+	curvedTrackQString.append(",");
+	curvedTrackQString.append(QString::number(locationX));
+	curvedTrackQString.append(",");
+	curvedTrackQString.append(QString::number(locationY));
+	curvedTrackQString.append(",");
+	curvedTrackQString.append(QString::number(trackMainSpeed));
+	curvedTrackQString.append(",");
+	curvedTrackQString.append(QString::number(trackMainLength));
+	return curvedTrackQString;
 }
 
 
