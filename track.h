@@ -815,6 +815,18 @@ public:
 	 * @param newBufferType The new BufferType enum.
 	 */
 	void setBufferType(const BufferType &newBufferType);
+
+	/**
+	 * @brief Converts BufferType to QString.
+	 * @return QString that is the BufferType.
+	 */
+	QString bufferTypeToQString();
+
+	/**
+	 * @brief A method to convert a bufferTrack to a QString.
+	 * @return
+	 */
+	QString toQString();
 };
 
 
