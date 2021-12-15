@@ -77,6 +77,19 @@ QString Track::toQString()
 	return trackQString;
 }
 
+QString Track::toQStringForSave()
+{
+	QString trackQString = "";
+	trackQString.append(QString::number(locationX));
+	trackQString.append(",");
+	trackQString.append(QString::number(locationY));
+	trackQString.append(",");
+	trackQString.append(QString::number(trackMainSpeed));
+	trackQString.append(",");
+	trackQString.append(QString::number(trackMainLength));
+	return trackQString;
+}
+
 
 //StraightTrack class implementation.
 
@@ -196,6 +209,27 @@ QString StraightTrack::toQString()
 {
 	QString straightTrackQString = "StraightTrack";
 	straightTrackQString.append(",");
+	straightTrackQString.append(straightTypeToQString());
+	straightTrackQString.append(",");
+	straightTrackQString.append(QString::number(locationX));
+	straightTrackQString.append(",");
+	straightTrackQString.append(QString::number(locationY));
+	straightTrackQString.append(",");
+	straightTrackQString.append(QString::number(trackMainSpeed));
+	straightTrackQString.append(",");
+	straightTrackQString.append(QString::number(trackMainLength));
+	straightTrackQString.append(",");
+	straightTrackQString.append(QVariant(platform1).toString());
+	straightTrackQString.append(",");
+	straightTrackQString.append(QVariant(platform2).toString());
+	straightTrackQString.append(",");
+	straightTrackQString.append(QVariant(levelCrossing).toString());
+	return straightTrackQString;
+}
+
+QString StraightTrack::toQStringForSave()
+{
+	QString straightTrackQString = "";
 	straightTrackQString.append(straightTypeToQString());
 	straightTrackQString.append(",");
 	straightTrackQString.append(QString::number(locationX));
