@@ -692,24 +692,6 @@ public:
 	 * @brief Removes the other Linked Track.
 	 */
 	void removeOtherLinkedTrack();
-
-	/**
-	 * @brief Converts LinkedType to QString.
-	 * @return QString that is the LinkedType.
-	 */
-	QString linkedTypeToQString();
-
-	/**
-	 * @brief A method to convert a linkedTrack to a QString.
-	 * @return
-	 */
-	QString toQString();
-
-	/**
-	 * @brief A method to convert the other linkedTrack to a QString.
-	 * @return
-	 */
-	QString otherLinkedTrackToQString();
 };
 
 
