@@ -936,55 +936,6 @@ void SignalTrack::setAspect(int newAspect)
 	aspect = newAspect;
 }
 
-QString SignalTrack::signalTypeToQString()
-{
-	QString signalTypeQString;
-	switch (signalType)
-	{
-	case SignalType::SIGNALLEFT:
-		signalTypeQString = "signal_left";
-		break;
-	case SignalType::SIGNALRIGHT:
-		signalTypeQString = "signal_right";
-		break;
-	case SignalType::SIGNALUP:
-		signalTypeQString = "signal_up";
-		break;
-	case SignalType::SIGNALDOWN:
-		signalTypeQString = "signal_down";
-		break;
-	case SignalType::SIGNALLEFTDOWN:
-		signalTypeQString = "signal_left_down";
-		break;
-	case SignalType::SIGNALLEFTUP:
-		signalTypeQString = "signal_left_up";
-		break;
-	case SignalType::SIGNALRIGHTDOWN:
-		signalTypeQString = "signal_right_down";
-		break;
-	case SignalType::SIGNALRIGHTUP:
-		signalTypeQString = "signal_right_up";
-		break;
-	}
-}
-
-QString SignalTrack::toQString()
-{
-	QString signalTrackQString = "SignalTrack";
-	signalTrackQString.append(",");
-	signalTrackQString.append(signalTypeToQString());
-	signalTrackQString.append(",");
-	signalTrackQString.append(QString::number(locationX));
-	signalTrackQString.append(",");
-	signalTrackQString.append(QString::number(locationY));
-	signalTrackQString.append(",");
-	signalTrackQString.append(QString::number(trackMainSpeed));
-	signalTrackQString.append(",");
-	signalTrackQString.append(QString::number(trackMainLength));
-	signalTrackQString.append(",");
-	signalTrackQString.append(QString::number(aspect));
-	return signalTrackQString;
-}
 
 //BridgeUnderpassTrack class implementation.
 
@@ -1021,42 +972,6 @@ BridgeUnderpassType BridgeUnderpassTrack::getBridgeUnderpassType() const
 void BridgeUnderpassTrack::setBridgeUnderpassType(const BridgeUnderpassType &newBridgeUnderpassType)
 {
 	bridgeUnderpassType = newBridgeUnderpassType;
-}
-
-QString BridgeUnderpassTrack::bridgeUnderpassTypeToQString()
-{
-	QString bridgeUnderpassTypeQString;
-	switch (bridgeUnderpassType)
-	{
-	case BridgeUnderpassType::BRIDGE1:
-		bridgeUnderpassTypeQString = "bridge_1";
-		break;
-	case BridgeUnderpassType::BRIDGE2:
-		bridgeUnderpassTypeQString = "bridge_2";
-		break;
-	case BridgeUnderpassType::UNDERPASS1:
-		bridgeUnderpassTypeQString = "underpass_1";
-		break;
-	case BridgeUnderpassType::UNDERPASS2:
-		bridgeUnderpassTypeQString = "underpass_2";
-		break;
-	}
-}
-
-QString BridgeUnderpassTrack::toQString()
-{
-	QString bridgeUnderpassTrackQString = "BridgeUnderpassTrack";
-	bridgeUnderpassTrackQString.append(",");
-	bridgeUnderpassTrackQString.append(bridgeUnderpassTypeToQString());
-	bridgeUnderpassTrackQString.append(",");
-	bridgeUnderpassTrackQString.append(QString::number(locationX));
-	bridgeUnderpassTrackQString.append(",");
-	bridgeUnderpassTrackQString.append(QString::number(locationY));
-	bridgeUnderpassTrackQString.append(",");
-	bridgeUnderpassTrackQString.append(QString::number(trackMainSpeed));
-	bridgeUnderpassTrackQString.append(",");
-	bridgeUnderpassTrackQString.append(QString::number(trackMainLength));
-	return bridgeUnderpassTrackQString;
 }
 
 

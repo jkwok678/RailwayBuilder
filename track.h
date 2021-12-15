@@ -889,18 +889,6 @@ public:
 	 * @param newSignalType The new SignalType enum.
 	 */
 	void setSignalType(const SignalType &newSignalType);
-
-	/**
-	 * @brief Converts SignalType to QString.
-	 * @return QString that is the SignalType.
-	 */
-	QString signalTypeToQString();
-
-	/**
-	 * @brief A method to convert a bufferTrack to a QString.
-	 * @return
-	 */
-	QString toQString();
 };
 
 
@@ -948,18 +936,6 @@ public:
 	 * @param newBridgeUnderpassType The new BridgeUnderpassType enum.
 	 */
 	void setBridgeUnderpassType(const BridgeUnderpassType &newBridgeUnderpassType);
-
-	/**
-	 * @brief Converts BridgeUnderpassType to QString.
-	 * @return QString that is the BridgeUnderpassType.
-	 */
-	QString bridgeUnderpassTypeToQString();
-
-	/**
-	 * @brief A method to convert a bridgeUnderpassTrack to a QString.
-	 * @return
-	 */
-	QString toQString();
 };
 
 
