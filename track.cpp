@@ -711,54 +711,6 @@ void ExitTrack::setExitType(const ExitType &newExitType)
 	exitType = newExitType;
 }
 
-QString ExitTrack::exitTypeToQString()
-{
-	QString exitTypeQString;
-	switch (exitType)
-	{
-	case ExitType::EXITLEFT:
-		exitTypeQString = "exit_left";
-		break;
-	case ExitType::EXITRIGHT:
-		exitTypeQString = "exit_right";
-		break;
-	case ExitType::EXITUP:
-		exitTypeQString = "exit_up";
-		break;
-	case ExitType::EXITDOWN:
-		exitTypeQString = "exit_down";
-		break;
-	case ExitType::EXITLEFTDOWN:
-		exitTypeQString = "exit_left_down";
-		break;
-	case ExitType::EXITLEFTUP:
-		exitTypeQString = "exit_left_up";
-		break;
-	case ExitType::EXITRIGHTDOWN:
-		exitTypeQString = "exit_right_down";
-		break;
-	case ExitType::EXITRIGHTUP:
-		exitTypeQString = "exit_right_up";
-		break;
-	}
-}
-
-QString ExitTrack::toQString()
-{
-	QString exitTrackQString = "LinkedTrack";
-	exitTrackQString.append(",");
-	exitTrackQString.append(exitTypeToQString());
-	exitTrackQString.append(",");
-	exitTrackQString.append(QString::number(locationX));
-	exitTrackQString.append(",");
-	exitTrackQString.append(QString::number(locationY));
-	exitTrackQString.append(",");
-	exitTrackQString.append(QString::number(trackMainSpeed));
-	exitTrackQString.append(",");
-	exitTrackQString.append(QString::number(trackMainLength));
-	return exitTrackQString;
-}
-
 
 //BufferTrack class implementation.
 

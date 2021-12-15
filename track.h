@@ -756,18 +756,6 @@ public:
 	 * @param newExitType The new ExitType enum.
 	 */
 	void setExitType(const ExitType &newExitType);
-
-	/**
-	 * @brief Converts ExitType to QString.
-	 * @return QString that is the ExitType.
-	 */
-	QString exitTypeToQString();
-
-	/**
-	 * @brief A method to convert a exitTrack to a QString.
-	 * @return
-	 */
-	QString toQString();
 };
 
 
