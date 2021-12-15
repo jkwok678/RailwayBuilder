@@ -356,12 +356,6 @@ public:
 	 */
 	std::shared_ptr<StraightTrack> getStraightTrackAt(int locationX,int locationY);
 
-	/**
-	 * @brief Gets the straightTrackList as a QString for file saving.
-	 * @return A QString of StraightTracks for file saving
-	 */
-	QString straightTrackListToQStringForSaving();
-
 	//DirectedTrack related methods.
 
 	/**

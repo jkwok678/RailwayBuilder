@@ -760,14 +760,6 @@ std::shared_ptr<StraightTrack> Map::getStraightTrackAt(int locationX, int locati
 	return straightTrack;
 }
 
-QString Map::straightTrackListToQStringForSaving()
-{
-	QString straightTrackQStringList;
-	for (std::shared_ptr<StraightTrack> straightTrack: straightTrackList) {
-
-	}
-}
-
 
 //DirectedTrack related methods
 

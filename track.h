@@ -376,12 +376,6 @@ public:
 	 * @return
 	 */
 	QString toQString();
-
-	/**
-	 * @brief A method to convert a track to a QString for file saving.
-	 * @return
-	 */
-	QString toQStringForSave();
 };
 
 
@@ -499,12 +493,6 @@ public:
 	 * @return
 	 */
 	QString toQString();
-
-	/**
-	 * @brief A method to convert a track to a QString for file saving.
-	 * @return
-	 */
-	QString toQStringForSave();
 
 };
 

@@ -10,7 +10,6 @@ bool Filesaver::saveRailwayAs(Map map)
 
 	if (path.isEmpty())
 	{
-		//Show error message
 		return false;
 	}
 	else
@@ -18,17 +17,11 @@ bool Filesaver::saveRailwayAs(Map map)
 		QFile file (path);
 		if (!file.open(QIODevice::WriteOnly))
 		{
-			//Show error message
-			return false;
+		return false;
 		}
 		else
 		{
 
 		}
 	}
-}
-
-bool Filesaver::createQStringToWrite(Map map)
-{
-
 }
