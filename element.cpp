@@ -103,11 +103,12 @@ QString Text::toQString()
 {
 	QString textQString = "Text";
 	textQString.append(",");
-	textQString.append(QString::number(locationX));
-	textQString.append(",");
-	textQString.append(QString::number(locationY));
-	textQString.append(",");
-	textQString.append(font.toString());
+	QString locationXQString = QString::number(locationX);
+	textQString.append(locationXQString);
+	QString locationYQString = QString::number(locationY);
+	textQString.append(locationYQString);
+	QString fontQString = font.toString();
+	textQString.append(fontQString);
 	return textQString;
 }
 
@@ -144,13 +145,15 @@ QString NamedElement::toQString()
 {
 	QString namedElementQString = "NamedElement";
 	namedElementQString.append(",");
-	namedElementQString.append(QString::number(locationX));
-	namedElementQString.append(",");
-	namedElementQString.append(QString::number(locationY));
+	QString locationXQString = QString::number(locationX);
+	namedElementQString.append(locationXQString);
+	QString locationYQString = QString::number(locationY);
+	namedElementQString.append(locationYQString);
 	if(text != nullptr)
 	{
-		namedElementQString.append(",");
-		namedElementQString.append(text->toQString());
+
+		QString textQString = text->toQString();
+		namedElementQString.append(textQString);
 	}
 	return namedElementQString;
 
@@ -174,13 +177,15 @@ QString NamedLocation::toQString()
 {
 	QString namedLocationQString = "NamedLocation";
 	namedLocationQString.append(",");
-	namedLocationQString.append(QString::number(locationX));
-	namedLocationQString.append(",");
-	namedLocationQString.append(QString::number(locationY));
+	QString locationXQString = QString::number(locationX);
+	namedLocationQString.append(locationXQString);
+	QString locationYQString = QString::number(locationY);
+	namedLocationQString.append(locationYQString);
 	if(text != nullptr)
 	{
-		namedLocationQString.append(",");
-		namedLocationQString.append(text->toQString());
+
+		QString textQString = text->toQString();
+		namedLocationQString.append(textQString);
 	}
 	return namedLocationQString;
 }
@@ -202,13 +207,15 @@ QString Concourse::toQString()
 {
 	QString namedElementQString = "Concourse";
 	namedElementQString.append(",");
-	namedElementQString.append(QString::number(locationX));
-	namedElementQString.append(",");
-	namedElementQString.append(QString::number(locationY));
+	QString locationXQString = QString::number(locationX);
+	namedElementQString.append(locationXQString);
+	QString locationYQString = QString::number(locationY);
+	namedElementQString.append(locationYQString);
 	if(text != nullptr)
 	{
-		namedElementQString.append(",");
-		namedElementQString.append(text->toQString());
+
+		QString textQString = text->toQString();
+		namedElementQString.append(textQString);
 	}
 	return namedElementQString;
 }
@@ -329,10 +336,11 @@ QString Parapet::toQString()
 {
 	QString parapetQString = "Parapet";
 	parapetQString.append(",");
-	parapetQString.append(parapetTypeToQString());
-	parapetQString.append(",");
-	parapetQString.append(QString::number(locationX));
-	parapetQString.append(",");
-	parapetQString.append(QString::number(locationY));
+	QString parapetTypeQString = parapetTypeToQString();
+	parapetQString.append(parapetTypeQString);
+	QString locationXQString = QString::number(locationX);
+	parapetQString.append(locationXQString);
+	QString locationYQString = QString::number(locationY);
+	parapetQString.append(locationYQString);
 	return parapetQString;
 }
