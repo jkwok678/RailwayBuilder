@@ -543,7 +543,7 @@ public:
 
 	/**
 	 * @brief Converts DirectedType to QString.
-	 * @return QString that is the StraightType.
+	 * @return QString that is the DirectedType.
 	 */
 	QString directedTypeToQString();
 
@@ -598,6 +598,18 @@ public:
 	 * @param newCurvedType The CurvedType enum.
 	 */
 	void setCurvedType(const CurvedType &newCurvedType);
+
+	/**
+	 * @brief Converts CurvedType to QString.
+	 * @return QString that is the CurvedType.
+	 */
+	QString curvedTypeToQString();
+
+	/**
+	 * @brief A method to convert a curvedTrack to a QString.
+	 * @return
+	 */
+	QString toQString();
 };
 
 

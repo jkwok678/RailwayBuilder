@@ -238,88 +238,88 @@ QString Parapet::parapetTypeToQString()
 	switch (parapetType)
 	{
 	case ParapetType::PARAPET1:
-		parapetTypeQString = "p1";
+		parapetTypeQString = "parapet_1";
 		break;
 	case ParapetType::PARAPET2:
-		parapetTypeQString = "p2";
+		parapetTypeQString = "parapet_2";
 		break;
 	case ParapetType::PARAPET3:
-		parapetTypeQString = "p3";
+		parapetTypeQString = "parapet_3";
 		break;
 	case ParapetType::PARAPET4:
-		parapetTypeQString = "p4";
+		parapetTypeQString = "parapet_4";
 		break;
 	case ParapetType::PARAPET5:
-		parapetTypeQString = "p5";
+		parapetTypeQString = "parapet_5";
 		break;
 	case ParapetType::PARAPET6:
-		parapetTypeQString = "p6";
+		parapetTypeQString = "parapet_6";
 		break;
 	case ParapetType::PARAPET7:
-		parapetTypeQString = "p7";
+		parapetTypeQString = "parapet_7";
 		break;
 	case ParapetType::PARAPET8:
-		parapetTypeQString = "p8";
+		parapetTypeQString = "parapet_8";
 		break;
 	case ParapetType::PARAPET9:
-		parapetTypeQString = "p9";
+		parapetTypeQString = "parapet_9";
 		break;
 	case ParapetType::PARAPET10:
-		parapetTypeQString = "p10";
+		parapetTypeQString = "parapet_10";
 		break;
 	case ParapetType::PARAPET11:
-		parapetTypeQString = "p11";
+		parapetTypeQString = "parapet_11";
 		break;
 	case ParapetType::PARAPET12:
-		parapetTypeQString = "p12";
+		parapetTypeQString = "parapet_12";
 		break;
 	case ParapetType::PARAPET13:
-		parapetTypeQString = "p13";
+		parapetTypeQString = "parapet_13";
 		break;
 	case ParapetType::PARAPET14:
-		parapetTypeQString = "p14";
+		parapetTypeQString = "parapet_14";
 		break;
 	case ParapetType::PARAPET15:
-		parapetTypeQString = "p15";
+		parapetTypeQString = "parapet_15";
 		break;
 	case ParapetType::PARAPET16:
-		parapetTypeQString = "p16";
+		parapetTypeQString = "parapet_16";
 		break;
 	case ParapetType::PARAPET17:
-		parapetTypeQString = "p17";
+		parapetTypeQString = "parapet_17";
 		break;
 	case ParapetType::PARAPET18:
-		parapetTypeQString = "p18";
+		parapetTypeQString = "parapet_18";
 		break;
 	case ParapetType::PARAPET19:
-		parapetTypeQString = "p19";
+		parapetTypeQString = "parapet_19";
 		break;
 	case ParapetType::PARAPET20:
-		parapetTypeQString = "p20";
+		parapetTypeQString = "parapet_20";
 		break;
 	case ParapetType::PARAPET21:
-		parapetTypeQString = "p21";
+		parapetTypeQString = "parapet_21";
 		break;
 	case ParapetType::PARAPET22:
-		parapetTypeQString = "p22";
+		parapetTypeQString = "parapet_22";
 		break;
 	case ParapetType::PARAPET23:
-		parapetTypeQString = "p23";
+		parapetTypeQString = "parapet_23";
 		break;
 	case ParapetType::PARAPET24:
-		parapetTypeQString = "p24";
+		parapetTypeQString = "parapet_24";
 		break;
 	case ParapetType::PARAPET25:
-		parapetTypeQString = "p25";
+		parapetTypeQString = "parapet_25";
 		break;
 	case ParapetType::PARAPET26:
-		parapetTypeQString = "p26";
+		parapetTypeQString = "parapet_26";
 		break;
 	case ParapetType::PARAPET27:
-		parapetTypeQString = "p27";
+		parapetTypeQString = "parapet_27";
 		break;
 	case ParapetType::PARAPET28:
-		parapetTypeQString = "p28";
+		parapetTypeQString = "parapet_28";
 		break;
 	}
 	return parapetTypeQString;
