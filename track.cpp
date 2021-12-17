@@ -745,7 +745,7 @@ QString ExitTrack::exitTypeToQString()
 
 QString ExitTrack::toQString()
 {
-	QString exitTrackQString = "LinkedTrack";
+	QString exitTrackQString = "ExitTrack";
 	exitTrackQString.append(",");
 	exitTrackQString.append(exitTypeToQString());
 	exitTrackQString.append(",");
@@ -822,6 +822,54 @@ BufferType BufferTrack::getBufferType() const
 void BufferTrack::setBufferType(const BufferType &newBufferType)
 {
 	bufferType = newBufferType;
+}
+
+QString BufferTrack::bufferTypeToQString()
+{
+	QString bufferTypeQString;
+	switch (bufferType)
+	{
+	case BufferType::BUFFERLEFT:
+		bufferTypeQString = "buffer_left";
+		break;
+	case BufferType::BUFFERRIGHT:
+		bufferTypeQString = "buffer_right";
+		break;
+	case BufferType::BUFFERUP:
+		bufferTypeQString = "buffer_up";
+		break;
+	case BufferType::BUFFERDOWN:
+		bufferTypeQString = "buffer_down";
+		break;
+	case BufferType::BUFFERLEFTDOWN:
+		bufferTypeQString = "buffer_left_down";
+		break;
+	case BufferType::BUFFERLEFTUP:
+		bufferTypeQString = "buffer_left_up";
+		break;
+	case BufferType::BUFFERRIGHTDOWN:
+		bufferTypeQString = "buffer_right_down";
+		break;
+	case BufferType::BUFFERRIGHTUP:
+		bufferTypeQString = "buffer_right_up";
+		break;
+	}
+}
+
+QString BufferTrack::toQString()
+{
+	QString bufferTrackQString = "BufferTrack";
+	bufferTrackQString.append(",");
+	bufferTrackQString.append(bufferTypeToQString());
+	bufferTrackQString.append(",");
+	bufferTrackQString.append(QString::number(locationX));
+	bufferTrackQString.append(",");
+	bufferTrackQString.append(QString::number(locationY));
+	bufferTrackQString.append(",");
+	bufferTrackQString.append(QString::number(trackMainSpeed));
+	bufferTrackQString.append(",");
+	bufferTrackQString.append(QString::number(trackMainLength));
+	return bufferTrackQString;
 }
 
 
