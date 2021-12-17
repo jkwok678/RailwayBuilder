@@ -1010,6 +1010,18 @@ public:
 	 * @param newSwitchType The new SwitchType enum.
 	 */
 	void setSwitchType(const SwitchType &newSwitchType);
+
+	/**
+	 * @brief Converts SwitchType to QString.
+	 * @return QString that is the SwitchType.
+	 */
+	QString switchTypeToQString();
+
+	/**
+	 * @brief A method to convert a SwitchTrack to a QString.
+	 * @return
+	 */
+	QString toQString();
 };
 
 
@@ -1059,6 +1071,18 @@ public:
 	 * @param newCrossoverType The new CrossoverType enum.
 	 */
 	void setCrossoverType(const CrossoverType &newCrossoverType);
+
+	/**
+	 * @brief Converts CrossoverType to QString.
+	 * @return QString that is the CrossoverType.
+	 */
+	QString crossoverTypeToQString();
+
+	/**
+	 * @brief A method to convert a CrossoverTrack to a QString.
+	 * @return
+	 */
+	QString toQString();
 };
 
 
@@ -1104,5 +1128,17 @@ public:
 	 * @param newFlyoverType The new FLyoverType enum
 	 */
 	void setFlyoverType(const FlyoverType &newFlyoverType);
+
+	/**
+	 * @brief Converts FlyoverType to QString.
+	 * @return QString that is the FlyoverType.
+	 */
+	QString flyoverTypeToQString();
+
+	/**
+	 * @brief A method to convert a FlyoverTrack to a QString.
+	 * @return
+	 */
+	QString toQString();
 };
 #endif // TRACK_H
