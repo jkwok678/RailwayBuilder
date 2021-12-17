@@ -63,6 +63,20 @@ void Track::setFound(bool newFound)
 	found = newFound;
 }
 
+QString Track::toQString()
+{
+	QString trackQString = "Track";
+	trackQString.append(",");
+	trackQString.append(QString::number(locationX));
+	trackQString.append(",");
+	trackQString.append(QString::number(locationY));
+	trackQString.append(",");
+	trackQString.append(QString::number(trackMainSpeed));
+	trackQString.append(",");
+	trackQString.append(QString::number(trackMainLength));
+	return trackQString;
+}
+
 
 //StraightTrack class implementation.
 
@@ -157,6 +171,49 @@ void StraightTrack::addLevelCrossing()
 	levelCrossing = true;
 }
 
+QString StraightTrack::straightTypeToQString()
+{
+	QString straightTypeQString;
+	switch (straightType)
+	{
+	case StraightType::STRAIGHTH:
+		straightTypeQString = "straight_h";
+		break;
+	case StraightType::STRAIGHTV:
+		straightTypeQString = "straight_v";
+		break;
+	case StraightType::STRAIGHTLEFTUP:
+		straightTypeQString = "straight_left_up";
+		break;
+	case StraightType::STRAIGHTRIGHTUP:
+		straightTypeQString = "straight_right_up";
+		break;
+	}
+	return straightTypeQString;
+}
+
+QString StraightTrack::toQString()
+{
+	QString trackQString = "StraightTrack";
+	trackQString.append(",");
+	trackQString.append(straightTypeToQString());
+	trackQString.append(",");
+	trackQString.append(QString::number(locationX));
+	trackQString.append(",");
+	trackQString.append(QString::number(locationY));
+	trackQString.append(",");
+	trackQString.append(QString::number(trackMainSpeed));
+	trackQString.append(",");
+	trackQString.append(QString::number(trackMainLength));
+	trackQString.append(",");
+	trackQString.append(QVariant(platform1).toString());
+	trackQString.append(",");
+	trackQString.append(QVariant(platform2).toString());
+	trackQString.append(",");
+	trackQString.append(QVariant(levelCrossing).toString());
+	return trackQString;
+}
+
 
 // DirectedTrack class implementation.
 
@@ -209,6 +266,59 @@ DirectedType DirectedTrack::getDirectType() const
 void DirectedTrack::setDirectedType(const DirectedType &newDirectedType)
 {
 	directedType = newDirectedType;
+}
+
+QString DirectedTrack::directedTypeToQString()
+{
+	QString directedTypeQString;
+	switch (directedType)
+	{
+	case DirectedType::DIRECTEDLEFT:
+		directedTypeQString = "directed_left";
+		break;
+	case DirectedType::DIRECTEDRIGHT:
+		directedTypeQString = "directed_right";
+		break;
+	case DirectedType::DIRECTEDUP:
+		directedTypeQString = "directed_up";
+		break;
+	case DirectedType::DIRECTEDDOWN:
+		directedTypeQString = "directed_down";
+		break;
+	case DirectedType::DIRECTEDLEFTUP:
+		directedTypeQString = "directed_left_up";
+		break;
+	case DirectedType::DIRECTEDRIGHTUP:
+		directedTypeQString = "directed_right_up";
+		break;
+	case DirectedType::DIRECTEDLEFTDOWN:
+		directedTypeQString = "directed_left_down";
+		break;
+	case DirectedType::DIRECTEDRIGHTDOWN:
+		directedTypeQString = "directed_right_down";
+		break;
+	}
+	return directedTypeQString;
+}
+
+QString DirectedTrack::toQString()
+{
+	QString trackQString = "DirectedTrack";
+	trackQString.append(",");
+	trackQString.append(directedTypeToQString());
+	trackQString.append(",");
+	trackQString.append(QString::number(locationX));
+	trackQString.append(",");
+	trackQString.append(QString::number(locationY));
+	trackQString.append(",");
+	trackQString.append(QString::number(trackMainSpeed));
+	trackQString.append(",");
+	trackQString.append(QString::number(trackMainLength));
+	trackQString.append(",");
+	trackQString.append(QVariant(platform1).toString());
+	trackQString.append(",");
+	trackQString.append(QVariant(platform2).toString());
+	return trackQString;
 }
 
 

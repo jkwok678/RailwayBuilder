@@ -1,5 +1,6 @@
 #ifndef TRACK_H
 #define TRACK_H
+#include <QVariant>
 #include <string>
 #include <iostream>
 #include "element.h"
@@ -369,6 +370,12 @@ public:
 	 * @param newFound True if it's found by a search, false to reset after a search.
 	 */
 	void setFound(bool newFound);
+
+	/**
+	 * @brief A method to convert a track to a QString.
+	 * @return
+	 */
+	QString toQString();
 };
 
 
@@ -388,15 +395,14 @@ class StraightTrack : public Track
 {
 private:
 	StraightType straightType;
+	bool levelCrossing{ false };
+
+protected:
 	//For vertical tracks, platform1 is left, platform2 is right
 	//For Horizontal tracks platform1 is up, platform2 is down
 	bool platformAny{ false };
 	bool platform1{ false };
 	bool platform2{ false };
-	bool levelCrossing{ false };
-
-protected:
-
 
 
 public:
@@ -471,6 +477,23 @@ public:
 	 */
 	void addLevelCrossing();
 
+	/**
+	 * @brief A method to convert a straightTrack to a String.
+	 * @return
+	 */
+
+	/**
+	 * @brief Converts StraightType to QString.
+	 * @return QString that is the StraightType.
+	 */
+	QString straightTypeToQString();
+
+	/**
+	 * @brief A method to convert a straightTrack to a QString.
+	 * @return
+	 */
+	QString toQString();
+
 };
 
 
@@ -517,6 +540,18 @@ public:
 	 * @param newDirectedType The new DirectedType enum.
 	 */
 	void setDirectedType(const DirectedType &newDirectedType);
+
+	/**
+	 * @brief Converts DirectedType to QString.
+	 * @return QString that is the StraightType.
+	 */
+	QString directedTypeToQString();
+
+	/**
+	 * @brief A method to convert a directedTrack to a QString.
+	 * @return
+	 */
+	QString toQString();
 };
 
 
