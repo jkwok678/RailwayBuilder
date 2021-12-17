@@ -36,7 +36,17 @@ enum class ParapetType
 class Element
 {
 private:
+	/**
+	 * @brief Gets the X coordinate as a QString
+	 * @return X coordinate as QString
+	 */
+	QString getLocationXToQString();
 
+	/**
+	 * @brief Gets the Y coordinate as a QString
+	 * @return Y coordinate as QString
+	 */
+	QString getLocationYToQString();
 
 
 protected:
@@ -79,6 +89,12 @@ public:
 	 * @param newLocationY The new Y coordinate.
 	 */
 	void setLocationY(int newLocationY);
+
+	/**
+	 * @brief Gets the coordinates as a QString
+	 * @return coordinates as a QString
+	 */
+	QString locationToQString();
 
 	/**
 	 * @brief A method to convert an element to a String.

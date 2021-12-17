@@ -3,6 +3,19 @@
 
 //Element class implementation.
 
+//Private
+
+QString Element::getLocationXToQString()
+{
+	return QString::number(locationX);
+}
+
+QString Element::getLocationYToQString()
+{
+	return QString::number(locationY);
+}
+
+//Public
 
 Element::Element()
 {
@@ -33,6 +46,15 @@ int Element::getLocationY() const
 void Element::setLocationY(int newLocationY)
 {
 	locationY = newLocationY;
+}
+
+QString Element::locationToQString()
+{
+	QString locationQString = "";
+	locationQString.append(getLocationXToQString());
+	locationQString.append(",");
+	locationQString.append(getLocationYToQString());
+	return locationQString;
 }
 
 
@@ -103,9 +125,7 @@ QString Text::toQString()
 {
 	QString textQString = "Text";
 	textQString.append(",");
-	textQString.append(QString::number(locationX));
-	textQString.append(",");
-	textQString.append(QString::number(locationY));
+	textQString.append(locationToQString());
 	textQString.append(",");
 	textQString.append(font.toString());
 	return textQString;
@@ -144,9 +164,7 @@ QString NamedElement::toQString()
 {
 	QString namedElementQString = "NamedElement";
 	namedElementQString.append(",");
-	namedElementQString.append(QString::number(locationX));
-	namedElementQString.append(",");
-	namedElementQString.append(QString::number(locationY));
+	namedElementQString.append(locationToQString());
 	if(text != nullptr)
 	{
 		namedElementQString.append(",");
@@ -174,9 +192,7 @@ QString NamedLocation::toQString()
 {
 	QString namedLocationQString = "NamedLocation";
 	namedLocationQString.append(",");
-	namedLocationQString.append(QString::number(locationX));
-	namedLocationQString.append(",");
-	namedLocationQString.append(QString::number(locationY));
+	namedLocationQString.append(locationToQString());
 	if(text != nullptr)
 	{
 		namedLocationQString.append(",");
@@ -200,20 +216,20 @@ Concourse::Concourse(int newLocationX, int newLocationY)
 
 QString Concourse::toQString()
 {
-	QString namedElementQString = "Concourse";
-	namedElementQString.append(",");
-	namedElementQString.append(QString::number(locationX));
-	namedElementQString.append(",");
-	namedElementQString.append(QString::number(locationY));
+	QString concourseQString = "Concourse";
+	concourseQString.append(",");
+	concourseQString.append(locationToQString());
 	if(text != nullptr)
 	{
-		namedElementQString.append(",");
-		namedElementQString.append(text->toQString());
+		concourseQString.append(",");
+		concourseQString.append(text->toQString());
 	}
-	return namedElementQString;
+	return concourseQString;
 }
 
+
 //Parapet class implementation.
+
 
 Parapet::Parapet(ParapetType newParapetType, int newLocationX, int newLocationY)
 {
@@ -331,8 +347,6 @@ QString Parapet::toQString()
 	parapetQString.append(",");
 	parapetQString.append(parapetTypeToQString());
 	parapetQString.append(",");
-	parapetQString.append(QString::number(locationX));
-	parapetQString.append(",");
-	parapetQString.append(QString::number(locationY));
+	parapetQString.append(locationToQString());
 	return parapetQString;
 }
