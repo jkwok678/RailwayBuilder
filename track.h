@@ -271,7 +271,17 @@ enum class FlyoverType
 class Track : public NamedElement
 {
 private:
+	/**
+	 * @brief Gets the track's main speed as a QString
+	 * @return Track's main speed as QString
+	 */
+	QString getTrackMainSpeedToQString();
 
+	/**
+	 * @brief Gets the track's main length as a QString
+	 * @return Track's main length as QString
+	 */
+	QString getTrackMainLengthToQString();
 
 
 protected:
@@ -336,6 +346,12 @@ public:
 	 * @param speed The new secondary track length.
 	 */
 	void setTrackSecondaryLength(int length);
+
+	/**
+	 * @brief Gets the track's main speed and length as a QString
+	 * @return QString main speed and length
+	 */
+	QString mainSpeedLengthToQString();
 
 	/**
 	 * @brief Gets whether there is a link a location on track.
