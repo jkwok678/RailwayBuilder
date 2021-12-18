@@ -283,6 +283,18 @@ private:
 	 */
 	QString getTrackMainLengthToQString();
 
+	/**
+	 * @brief Gets the track's secondary speed as a QString
+	 * @return Track's secondary speed as QString
+	 */
+	QString getTrackSecondarySpeedToQString();
+
+	/**
+	 * @brief Gets the track's secondary length as a QString
+	 * @return Track's secondary length as QString
+	 */
+	QString getTrackSecondaryLengthToQString();
+
 
 protected:
 	int trackMainSpeed{ 200 };
@@ -352,6 +364,12 @@ public:
 	 * @return QString main speed and length
 	 */
 	QString mainSpeedLengthToQString();
+
+	/**
+	 * @brief Gets the track's main speed and length as a QString
+	 * @return QString secondary speed and length
+	 */
+	QString secondarySpeedLengthToQString();
 
 	/**
 	 * @brief Gets whether there is a link a location on track.
