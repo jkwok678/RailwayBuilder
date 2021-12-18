@@ -440,7 +440,6 @@ private:
 protected:
 	//For vertical tracks, platform1 is left, platform2 is right
 	//For Horizontal tracks platform1 is up, platform2 is down
-	bool platformAny{ false };
 	bool platform1{ false };
 	bool platform2{ false };
 
@@ -472,16 +471,10 @@ public:
 	void setStraightType(const StraightType &newStraightType);
 
 	/**
-	 * @brief Gets whether this track has a platform attached to it.
-	 * @return bool that represents whether this track has a platform.
+	 * @brief Checks if the track has a platform
+	 * @return True if there is a platform otherwise false
 	 */
-	bool getPlatformAny() const;
-
-	/**
-	 * @brief Sets whether this track has a platform attached to it.
-	 * @param platform Bool with platform or not.
-	 */
-	void setPlatformAny(bool platform);
+	bool hasPlatform() const;
 
 	/**
 	 * @brief Checks if the platform is on the left of the track or or above the track if it's sideways.

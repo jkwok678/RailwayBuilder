@@ -179,14 +179,9 @@ void StraightTrack::setStraightType(const StraightType &newStraightType)
 	straightType = newStraightType;
 }
 
-bool StraightTrack::getPlatformAny() const
+bool StraightTrack::hasPlatform() const
 {
-	return platformAny;
-}
-
-void StraightTrack::setPlatformAny(bool platform)
-{
-	platformAny = platform;
+	return (platform1 || platform2);
 }
 
 bool StraightTrack::getPlatform1() const

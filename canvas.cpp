@@ -1939,7 +1939,7 @@ void Canvas::clickSetChangeDeleteNamedElement(int overallX, int overallY)
 	QString readableBit;
 	if (track != nullptr)
 	{
-		if (track->getPlatformAny())
+		if (track->hasPlatform())
 		{
 			if (track->getNamed())
 			{

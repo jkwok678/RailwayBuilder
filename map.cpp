@@ -1640,7 +1640,7 @@ void Map::linkLocalText(int locationX, int locationY, std::shared_ptr<Text> link
 		}
 		if (track != nullptr)
 		{
-			if (track->getPlatformAny())
+			if (track->hasPlatform())
 			{
 				track->setText(linkedText);
 				track->setNamed(true);
@@ -1674,7 +1674,7 @@ void Map::linkLocalText(int locationX, int locationY, std::shared_ptr<Text> link
 				//Try link if the the element isn't named yet.
 				if (trackTempYP16 != nullptr)
 				{
-					if (trackTempYP16->getPlatformAny())
+					if (trackTempYP16->hasPlatform())
 					{
 						if (!trackTempYP16->getNamed())
 						{
@@ -1707,7 +1707,7 @@ void Map::linkLocalText(int locationX, int locationY, std::shared_ptr<Text> link
 
 				if (trackTempYM16 != nullptr)
 				{
-					if (trackTempYM16->getPlatformAny())
+					if (trackTempYM16->hasPlatform())
 					{
 						if (!trackTempYM16->getNamed())
 						{
@@ -1740,7 +1740,7 @@ void Map::linkLocalText(int locationX, int locationY, std::shared_ptr<Text> link
 
 				if (trackTempXP16 != nullptr)
 				{
-					if (trackTempXP16->getPlatformAny())
+					if (trackTempXP16->hasPlatform())
 					{
 						if (!trackTempXP16->getNamed())
 						{
@@ -1771,7 +1771,7 @@ void Map::linkLocalText(int locationX, int locationY, std::shared_ptr<Text> link
 				std::shared_ptr<BridgeUnderpassTrack> bridgeUnderpassTempXM16 = getBridgeUnderpassTrack(locationX-16,locationY);
 				if (trackTempXM16 != nullptr)
 				{
-					if (trackTempXM16->getPlatformAny())
+					if (trackTempXM16->hasPlatform())
 					{
 						if (!trackTempXM16->getNamed())
 						{
@@ -1858,10 +1858,9 @@ void Map::addPlatform(Platform side, int locationX, int locationY)
 		{
 			int currentX = currentElement->getLocationX();
 			int currentY = currentElement->getLocationY();
-			bool levelCrossing = currentElement->hasLevelCrossing();
 			if (currentX == locationX && currentY == locationY)
 			{
-				if (!levelCrossing)
+				if (!currentElement->hasLevelCrossing())
 				{
 					switch (side)
 					{
@@ -1902,10 +1901,6 @@ void Map::addPlatform(Platform side, int locationX, int locationY)
 							break;
 						}
 					}
-				}
-				if (added)
-				{
-					currentElement->setPlatformAny(true);
 				}
 			}
 		}
@@ -1979,10 +1974,6 @@ void Map::addPlatform(Platform side, int locationX, int locationY)
 					}
 				}
 			}
-			if (added)
-			{
-				currentElement->setPlatformAny(true);
-			}
 		}
 	}
 	if (!bufferTrackList.empty() && added == false)
@@ -2053,11 +2044,7 @@ void Map::addPlatform(Platform side, int locationX, int locationY)
 					}
 				}
 			}
-			if (added)
-			{
-				currentElement->setPlatformAny(true);
-			}
-	}
+		}
 	}
 	if (!signalTrackList.empty() && added == false)
 	{
@@ -2127,11 +2114,7 @@ void Map::addPlatform(Platform side, int locationX, int locationY)
 					}
 				}
 			}
-			if (added)
-			{
-				currentElement->setPlatformAny(true);
-			}
-	}
+		}
 	}
 	if (!bridgeUnderpassTrackList.empty() && added == false)
 	{
@@ -2200,10 +2183,6 @@ void Map::addPlatform(Platform side, int locationX, int locationY)
 						added = false;
 					}
 				}
-			}
-			if (added)
-			{
-				currentElement->setPlatformAny(true);
 			}
 		}
 	}
@@ -2285,10 +2264,6 @@ void Map::addPlatform(Platform side, int locationX, int locationY)
 						break;
 					}
 				}
-			}
-			if (added)
-			{
-				currentElement->setPlatformAny(true);
 			}
 		}
 	}
