@@ -3,7 +3,7 @@
 
 
 
-TEST(ElementToQStringTest, elementLocationToQStringOutput) {
+TEST(ElementTest, elementLocationToQStringOutput) {
 	std::shared_ptr<Element> namedLocation1(new NamedLocation(1,2));
 	std::shared_ptr<Element> namedLocation2(new NamedLocation(100,6));
 	std::shared_ptr<Element> namedLocation3(new NamedLocation(542671,-232342));
@@ -12,7 +12,8 @@ TEST(ElementToQStringTest, elementLocationToQStringOutput) {
 	EXPECT_EQ(namedLocation3->locationToQString().toStdString(),"542671,-232342");
 }
 
-TEST(TextToQStringTest, TextToQStringOutput) {
+
+TEST(TextTest, TextToQStringOutput) {
 	QFont serifFont("Times", 10, QFont::Bold);
 	std::shared_ptr<Text> text1(new Text(1,2,"hi",serifFont));
 	std::shared_ptr<Text> text2(new Text(100,6,"bo",serifFont));
@@ -21,7 +22,7 @@ TEST(TextToQStringTest, TextToQStringOutput) {
 
 }
 
-TEST(NamedLocationToQStringTest, namedLocationToQStringOutput) {
+TEST(NamedLocationTest, namedLocationToQStringOutput) {
 	std::shared_ptr<NamedLocation> namedLocation1(new NamedLocation(1,2));
 	std::shared_ptr<NamedLocation> namedLocation2(new NamedLocation(100,6));
 	std::shared_ptr<NamedLocation> namedLocation3(new NamedLocation(542671,-232342));
