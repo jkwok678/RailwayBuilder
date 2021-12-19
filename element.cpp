@@ -127,6 +127,8 @@ QString Text::toQString()
 	textQString.append(",");
 	textQString.append(locationToQString());
 	textQString.append(",");
+	textQString.append(readableText);
+	textQString.append(",");
 	textQString.append(font.toString());
 	return textQString;
 }
