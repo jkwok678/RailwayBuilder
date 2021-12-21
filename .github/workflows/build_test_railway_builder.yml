@@ -12,8 +12,8 @@ jobs:
       uses: jwlawson/actions-setup-cmake@v1.9
       with:
         cmake-version: '3.19.x'
-    - name: build RailwayBuilder  
-       run: |
-           mkdir build
-           cd build
-           cmake ..
+    - name: Build RailwayBuilder  
+        run:|
+            mkdir build
+            cd build
+            cmake ..
