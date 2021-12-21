@@ -7,7 +7,7 @@ set( RBUILDLIB railbuild )
 project( ${RBUILD} LANGUAGES CXX )
 
 # Find Qt Core, Gui & Widgets
-find_package( QT NAMES Qt6 COMPONENTS Core REQUIRED )
+find_package( QT NAMES Qt5 Qt6 COMPONENTS Core REQUIRED )
 find_package( Qt${QT_VERSION_MAJOR} COMPONENTS Widgets Gui Core )
 
 set( CMAKE_CXX_STANDARD 11 )
@@ -35,7 +35,11 @@ target_link_libraries( ${RBUILDLIB} PUBLIC Qt${QT_VERSION_MAJOR}::Core Qt${QT_VE
 add_subdirectory(test)
 
 # add the real executable with only the main.cpp
-qt6_add_resources(Sources resources.qrc)
+if( ${QT_VERSION_MAJOR} STREQUAL "6" )
+    qt6_add_resources( SRC_FILES ${CMAKE_SOURCE_DIR}/resources.qrc)
+else()
+    qt5_add_resources( SRC_FILES ${CMAKE_SOURCE_DIR}/resources.qrc)
+endif()
 
 add_executable( ${RBUILD} ${MAIN_SRC} )
 
