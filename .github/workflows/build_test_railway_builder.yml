@@ -13,6 +13,6 @@ jobs:
       with:
         cmake-version: '3.19.x'
     - name: Build RailwayBuilder  
-        run:|
+      run: |
             cmake -Bbuild
             cmake --build build
