@@ -3,8 +3,8 @@ name: Build & Test
 on: [push]
 jobs:
   build-linux:
-  runs-on: ubuntu-18.04
-  steps:
+    runs-on: ubuntu-18.04
+    steps:
     - uses: actions/checkout@v2
     - name: Install Qt
       uses: jurplel/install-qt-action@v2
