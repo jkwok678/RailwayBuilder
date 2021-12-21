@@ -1,19 +1,15 @@
-cmake_minimum_required(VERSION 3.8)
+set( RBTest ${RBUILD}Tests )
 
-set(RBTest RailwayBuilderTests)
+file( GLOB TEST_FILES ${CMAKE_CURRENT_SOURCE_DIR}/*Test.cpp )
 
-set (SOURCES
-    allTests.cpp
-    elementTest.cpp
-)
-
-add_executable(${RBTest} ${SOURCES})
-target_link_libraries(${RBTest} PUBLIC
-	gtest_main
-        RailwayBuilderLib
-)
-
-add_test(
-	NAME ${RBTest}
-	COMMAND ${RBTest}
-)
+foreach( TEST ${TEST_FILES} )
+    get_filename_component( EXECUTABLE ${TEST} NAME_WLE )
+    add_executable( ${EXECUTABLE} ${TEST} )
+    target_include_directories( ${EXECUTABLE} ${CMAKE_SOURCE_DIR} )
+    target_link_libraries( ${EXECUTABLE} PUBLIC ${RBUILDLIB} )
+    target_link_libraries( ${EXECUTABLE} gtest_main )
+    add_test(
+        NAME ${EXECUTABLE}
+        COMMAND ${EXECUTABLE}
+    )
+endforeach()
