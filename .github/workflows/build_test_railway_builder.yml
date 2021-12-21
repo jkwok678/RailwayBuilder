@@ -3,7 +3,7 @@ name: Build & Test
 on: [push]
 jobs:
   build-linux:
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
     - name: Install Qt
@@ -14,6 +14,5 @@ jobs:
         cmake-version: '3.19.x'
     - name: Build RailwayBuilder  
         run:|
-            mkdir build
-            cd build
-            cmake ..
+            cmake -Bbuild
+            cmake --build build
