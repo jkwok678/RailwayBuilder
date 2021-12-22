@@ -406,14 +406,14 @@ public:
 	void setFound(bool newFound);
 
 	/**
-	 * @brief A method to convert a track to a QString.
-	 * @return
+	 * @brief A method to convert a Track to a QString.
+	 * @return QString representation of a Track.
 	 */
 	QString toQString();
 
 	/**
-	 * @brief A method to convert a track to a QString for file saving.
-	 * @return
+	 * @brief A method to convert a Track to a QString for file saving.
+	 * @return QString representation of a Track to be written to file.
 	 */
 	QString toQStringForSave();
 };
@@ -511,11 +511,6 @@ public:
 	void addLevelCrossing();
 
 	/**
-	 * @brief A method to convert a straightTrack to a String.
-	 * @return
-	 */
-
-	/**
 	 * @brief Converts StraightType to QString.
 	 * @return QString that is the StraightType.
 	 */
@@ -523,15 +518,16 @@ public:
 
 	/**
 	 * @brief A method to convert a straightTrack to a QString.
-	 * @return
+	 * @return QString representation of a StraightTrack.
 	 */
 	QString toQString();
 
 	/**
-	 * @brief A method to convert a track to a QString for file saving.
-	 * @return
+	 * @brief A method to convert a StraightTrack to a QString for file saving.
+	 * @return QString representation of a StraightTrack to be written to file.
 	 */
 	QString toQStringForSave();
+
 
 };
 
@@ -587,10 +583,16 @@ public:
 	QString directedTypeToQString();
 
 	/**
-	 * @brief A method to convert a directedTrack to a QString.
-	 * @return
+	 * @brief A method to convert a DirectedTrack to a QString.
+	 * @return QString representation of a DirectedTrack.
 	 */
 	QString toQString();
+
+	/**
+	 * @brief A method to convert a DirectedTrack to a QString for file saving.
+	 * @return QString representation of a DirectedTrack to be written to file.
+	 */
+	QString toQStringForSave();
 };
 
 
@@ -646,9 +648,17 @@ public:
 
 	/**
 	 * @brief A method to convert a curvedTrack to a QString.
-	 * @return
+	 * @return QString representation of a CurvedTrack.
 	 */
 	QString toQString();
+
+	/**
+	 * @brief A method to convert a CurvedTrack to a QString for file saving.
+	 * @return QString representation of a CurvedTrack to be written to file.
+	 */
+	QString toQStringForSave();
+
+
 };
 
 
@@ -740,15 +750,27 @@ public:
 
 	/**
 	 * @brief A method to convert a linkedTrack to a QString.
-	 * @return
+	 * @return QString representation of a LinkedTrack.
 	 */
 	QString toQString();
 
 	/**
 	 * @brief A method to convert the other linkedTrack to a QString.
-	 * @return
+	 * @return QString representation of the other LinkedTrack.
 	 */
 	QString otherLinkedTrackToQString();
+
+	/**
+	 * @brief A method to convert a LinkedTrack to a QString for file saving.
+	 * @return QString representation of a LinkedTrack to be written to file.
+	 */
+	QString toQStringForSave();
+
+	/**
+	 * @brief A method to convert the other LinkedTrack to a QString for file saving.
+	 * @return QString representation of the other LinkedTrack to be written to file.
+	 */
+	QString otherLinkedTrackToQStringForSave();
 };
 
 
@@ -803,10 +825,16 @@ public:
 	QString exitTypeToQString();
 
 	/**
-	 * @brief A method to convert a exitTrack to a QString.
-	 * @return
+	 * @brief A method to convert a ExitTrack to a QString.
+	 * @return QString representation of a ExitTrack.
 	 */
 	QString toQString();
+
+	/**
+	 * @brief A method to convert a ExitTrack to a QString for file saving.
+	 * @return QString representation of a ExitTrack to be written to file.
+	 */
+	QString toQStringForSave();
 };
 
 
@@ -862,10 +890,16 @@ public:
 	QString bufferTypeToQString();
 
 	/**
-	 * @brief A method to convert a bufferTrack to a QString.
-	 * @return
+	 * @brief A method to convert a BufferTrack to a QString.
+	 * @return QString representation of a BufferTrack.
 	 */
 	QString toQString();
+
+	/**
+	 * @brief A method to convert a BufferTrack to a QString for file saving.
+	 * @return QString representation of a BufferTrack to be written to file.
+	 */
+	QString toQStringForSave();
 };
 
 
@@ -936,10 +970,16 @@ public:
 	QString signalTypeToQString();
 
 	/**
-	 * @brief A method to convert a bufferTrack to a QString.
-	 * @return
+	 * @brief A method to convert a SignalTrack to a QString.
+	 * @return QString representation of a SignalTrack.
 	 */
 	QString toQString();
+
+	/**
+	 * @brief A method to convert a SignalTrack to a QString for file saving.
+	 * @return QString representation of a SignalTrack to be written to file.
+	 */
+	QString toQStringForSave();
 };
 
 
@@ -995,10 +1035,16 @@ public:
 	QString bridgeUnderpassTypeToQString();
 
 	/**
-	 * @brief A method to convert a bridgeUnderpassTrack to a QString.
-	 * @return
+	 * @brief A method to convert a BridgeUnderpassTrack to a QString.
+	 * @return QString representation of a BridgeUnderpassTrack.
 	 */
 	QString toQString();
+
+	/**
+	 * @brief A method to convert a BridgeUnderpassTrack to a QString for file saving.
+	 * @return QString representation of a BridgeUnderpassTrack to be written to file.
+	 */
+	QString toQStringForSave();
 };
 
 
@@ -1058,9 +1104,15 @@ public:
 
 	/**
 	 * @brief A method to convert a SwitchTrack to a QString.
-	 * @return
+	 * @return QString representation of a SwitchTrack.
 	 */
 	QString toQString();
+
+	/**
+	 * @brief A method to convert a SwitchTrack to a QString for file saving.
+	 * @return QString representation of a SwitchTrack to be written to file.
+	 */
+	QString toQStringForSave();
 };
 
 
@@ -1119,9 +1171,15 @@ public:
 
 	/**
 	 * @brief A method to convert a CrossoverTrack to a QString.
-	 * @return
+	 * @return QString representation of a CrossoverTrack.
 	 */
 	QString toQString();
+
+	/**
+	 * @brief A method to convert a CrossoverTrack to a QString for file saving.
+	 * @return QString representation of a CrossoverTrack to be written to file.
+	 */
+	QString toQStringForSave();
 };
 
 
@@ -1176,8 +1234,14 @@ public:
 
 	/**
 	 * @brief A method to convert a FlyoverTrack to a QString.
-	 * @return
+	 * @return QString representation of a FlyoverTrack.
 	 */
 	QString toQString();
+
+	/**
+	 * @brief A method to convert a FLyoverTrack to a QString for file saving.
+	 * @return QString representation of a FlyoverTrack to be written to file.
+	 */
+	QString toQStringForSave();
 };
 #endif // TRACK_H

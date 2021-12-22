@@ -255,16 +255,11 @@ QString StraightTrack::toQString()
 
 QString StraightTrack::toQStringForSave()
 {
-	QString straightTrackQString = "";
-	straightTrackQString.append(straightTypeToQString());
+	QString straightTrackQString = straightTypeToQString();
 	straightTrackQString.append(",");
-	straightTrackQString.append(QString::number(locationX));
+	straightTrackQString.append(locationToQString());
 	straightTrackQString.append(",");
-	straightTrackQString.append(QString::number(locationY));
-	straightTrackQString.append(",");
-	straightTrackQString.append(QString::number(trackMainSpeed));
-	straightTrackQString.append(",");
-	straightTrackQString.append(QString::number(trackMainLength));
+	straightTrackQString.append(mainSpeedLengthToQString());
 	straightTrackQString.append(",");
 	straightTrackQString.append(QVariant(platform1).toString());
 	straightTrackQString.append(",");
@@ -366,6 +361,20 @@ QString DirectedTrack::toQString()
 	QString directedTrackQString = "DirectedTrack";
 	directedTrackQString.append(",");
 	directedTrackQString.append(directedTypeToQString());
+	directedTrackQString.append(",");
+	directedTrackQString.append(locationToQString());
+	directedTrackQString.append(",");
+	directedTrackQString.append(mainSpeedLengthToQString());
+	directedTrackQString.append(",");
+	directedTrackQString.append(QVariant(platform1).toString());
+	directedTrackQString.append(",");
+	directedTrackQString.append(QVariant(platform2).toString());
+	return directedTrackQString;
+}
+
+QString DirectedTrack::toQStringForSave()
+{
+	QString directedTrackQString = directedTypeToQString();
 	directedTrackQString.append(",");
 	directedTrackQString.append(locationToQString());
 	directedTrackQString.append(",");
@@ -531,6 +540,16 @@ QString CurvedTrack::toQString()
 	return curvedTrackQString;
 }
 
+QString CurvedTrack::toQStringForSave()
+{
+	QString curvedTrackQString = curvedTypeToQString();
+	curvedTrackQString.append(",");
+	curvedTrackQString.append(locationToQString());
+	curvedTrackQString.append(",");
+	curvedTrackQString.append(mainSpeedLengthToQString());
+	return curvedTrackQString;
+}
+
 
 //LinkedTrack class implementation.
 
@@ -688,6 +707,39 @@ QString LinkedTrack::otherLinkedTrackToQString()
 	linkedTrackQString.append(",");
 	linkedTrackQString.append(otherLinkTrack->locationToQString());
 	linkedTrackQString.append(",");
+	linkedTrackQString.append(mainSpeedLengthToQString());
+	return linkedTrackQString;
+}
+
+QString LinkedTrack::toQStringForSave()
+{
+	QString linkedTrackQString =linkedTypeToQString();
+	linkedTrackQString.append(",");
+	linkedTrackQString.append(locationToQString());
+	linkedTrackQString.append(",");
+	linkedTrackQString.append(mainSpeedLengthToQString());
+	if (linked && otherLinkTrack != nullptr)
+	{
+		linkedTrackQString.append(",");
+		linkedTrackQString.append("linked");
+		linkedTrackQString.append(",");
+		linkedTrackQString.append(otherLinkedTrackToQString());
+
+	}
+	else
+	{
+		linkedTrackQString.append(",");
+		linkedTrackQString.append("nolink");
+	}
+	return linkedTrackQString;
+}
+
+QString LinkedTrack::otherLinkedTrackToQStringForSave()
+{
+	QString linkedTrackQString = otherLinkTrack->linkedTypeToQString();
+	linkedTrackQString.append(",");
+	linkedTrackQString.append(otherLinkTrack->locationToQString());
+	linkedTrackQString.append(",");
 	linkedTrackQString.append(QString::number(otherLinkTrack->getTrackMainSpeed()));
 	linkedTrackQString.append(",");
 	linkedTrackQString.append(QString::number(otherLinkTrack->getTrackMainLength()));
@@ -804,6 +856,16 @@ QString ExitTrack::toQString()
 	return exitTrackQString;
 }
 
+QString ExitTrack::toQStringForSave()
+{
+	QString exitTrackQString = exitTypeToQString();
+	exitTrackQString.append(",");
+	exitTrackQString.append(locationToQString());
+	exitTrackQString.append(",");
+	exitTrackQString.append(mainSpeedLengthToQString());
+	return exitTrackQString;
+}
+
 
 //BufferTrack class implementation.
 
@@ -907,6 +969,16 @@ QString BufferTrack::toQString()
 	QString bufferTrackQString = "BufferTrack";
 	bufferTrackQString.append(",");
 	bufferTrackQString.append(bufferTypeToQString());
+	bufferTrackQString.append(",");
+	bufferTrackQString.append(locationToQString());
+	bufferTrackQString.append(",");
+	bufferTrackQString.append(mainSpeedLengthToQString());
+	return bufferTrackQString;
+}
+
+QString BufferTrack::toQStringForSave()
+{
+	QString bufferTrackQString = bufferTypeToQString();
 	bufferTrackQString.append(",");
 	bufferTrackQString.append(locationToQString());
 	bufferTrackQString.append(",");
@@ -1025,6 +1097,18 @@ QString SignalTrack::toQString()
 	return signalTrackQString;
 }
 
+QString SignalTrack::toQStringForSave()
+{
+	QString signalTrackQString = signalTypeToQString();;
+	signalTrackQString.append(",");
+	signalTrackQString.append(locationToQString());
+	signalTrackQString.append(",");
+	signalTrackQString.append(mainSpeedLengthToQString());
+	signalTrackQString.append(",");
+	signalTrackQString.append(QString::number(aspect));
+	return signalTrackQString;
+}
+
 //BridgeUnderpassTrack class implementation.
 
 
@@ -1088,6 +1172,18 @@ QString BridgeUnderpassTrack::toQString()
 	QString bridgeUnderpassTrackQString = "BridgeUnderpassTrack";
 	bridgeUnderpassTrackQString.append(",");
 	bridgeUnderpassTrackQString.append(bridgeUnderpassTypeToQString());
+	bridgeUnderpassTrackQString.append(",");
+	bridgeUnderpassTrackQString.append(locationToQString());
+	bridgeUnderpassTrackQString.append(",");
+	bridgeUnderpassTrackQString.append(mainSpeedLengthToQString());
+	bridgeUnderpassTrackQString.append(",");
+	bridgeUnderpassTrackQString.append(secondarySpeedLengthToQString());
+	return bridgeUnderpassTrackQString;
+}
+
+QString BridgeUnderpassTrack::toQStringForSave()
+{
+	QString bridgeUnderpassTrackQString = bridgeUnderpassTypeToQString();
 	bridgeUnderpassTrackQString.append(",");
 	bridgeUnderpassTrackQString.append(locationToQString());
 	bridgeUnderpassTrackQString.append(",");
@@ -1450,6 +1546,18 @@ QString SwitchTrack::toQString()
 	return switchTrackQString;
 }
 
+QString SwitchTrack::toQStringForSave()
+{
+	QString switchTrackQString = switchTypeToQString();
+	switchTrackQString.append(",");
+	switchTrackQString.append(locationToQString());
+	switchTrackQString.append(",");
+	switchTrackQString.append(mainSpeedLengthToQString());
+	switchTrackQString.append(",");
+	switchTrackQString.append(secondarySpeedLengthToQString());
+	return switchTrackQString;
+}
+
 
 //CrossoverTrack class implementation.
 
@@ -1563,6 +1671,18 @@ QString CrossoverTrack::toQString()
 	QString crossoverTrackQString = "CrossoverTrack";
 	crossoverTrackQString.append(",");
 	crossoverTrackQString.append(crossoverTypeToQString());
+	crossoverTrackQString.append(",");
+	crossoverTrackQString.append(locationToQString());
+	crossoverTrackQString.append(",");
+	crossoverTrackQString.append(mainSpeedLengthToQString());
+	crossoverTrackQString.append(",");
+	crossoverTrackQString.append(secondarySpeedLengthToQString());
+	return crossoverTrackQString;
+}
+
+QString CrossoverTrack::toQStringForSave()
+{
+	QString crossoverTrackQString = crossoverTypeToQString();
 	crossoverTrackQString.append(",");
 	crossoverTrackQString.append(locationToQString());
 	crossoverTrackQString.append(",");
@@ -1716,6 +1836,18 @@ QString FlyoverTrack::toQString()
 	QString flyoverTrackQString = "FlyoverTrack";
 	flyoverTrackQString.append(",");
 	flyoverTrackQString.append(flyoverTypeToQString());
+	flyoverTrackQString.append(",");
+	flyoverTrackQString.append(locationToQString());
+	flyoverTrackQString.append(",");
+	flyoverTrackQString.append(mainSpeedLengthToQString());
+	flyoverTrackQString.append(",");
+	flyoverTrackQString.append(secondarySpeedLengthToQString());
+	return flyoverTrackQString;
+}
+
+QString FlyoverTrack::toQStringForSave()
+{
+	QString flyoverTrackQString = flyoverTypeToQString();
 	flyoverTrackQString.append(",");
 	flyoverTrackQString.append(locationToQString());
 	flyoverTrackQString.append(",");
