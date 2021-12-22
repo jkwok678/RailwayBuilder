@@ -1,17 +1,20 @@
-set(RBTest RailwayBuilderTests)
+set( RBUILDTEST ${RBUILD}Tests )
 
-set (SOURCES
-    allTests.cpp
-    elementTest.cpp
+file( GLOB TEST_FILES ${CMAKE_CURRENT_SOURCE_DIR}/*.cpp )
+
+include( FetchContent )
+
+FetchContent_Declare(
+  googletest
+  URL https://github.com/google/googletest/archive/609281088cfefc76f9d0ce82e1ff6c30cc3591e5.zip
 )
 
-add_executable(${RBTest} ${SOURCES})
-target_link_libraries(${RBTest} PUBLIC
-        gtest_main
-        ${RBLIB}
-)
-target_include_directories( ${RBTest} PRIVATE ${CMAKE_SOURCE_DIR} )
-add_test(
-        NAME ${RBTest}
-        COMMAND ${RBTest}
-)
+set( gtest_force_shared_crt ON CACHE BOOL "" FORCE )
+FetchContent_MakeAvailable( googletest )
+add_executable( ${RBUILDTEST} ${TEST_FILES} )
+target_link_libraries( ${RBUILDTEST} gtest_main )
+target_link_libraries( ${RBUILDTEST} ${RBUILDLIB} )
+target_include_directories( ${RBUILDTEST} PRIVATE ${CMAKE_SOURCE_DIR} )
+
+include( GoogleTest )
+gtest_discover_tests( ${RBUILDTEST} )

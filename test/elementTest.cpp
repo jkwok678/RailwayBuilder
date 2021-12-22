@@ -1,5 +1,4 @@
 ﻿#include <gtest/gtest.h>
-#include <QApplication>
 #include "element.h"
 
 
@@ -15,6 +14,11 @@ TEST(ElementTest, elementLocationToQStringOutput) {
 
 
 TEST(TextTest, TextToQStringOutput) {
+	QFont defaultFont("Sans Serif,12,-1,5,50,0,0,0,0,0");
+	std::shared_ptr<Text> text1(new Text(1,2,"hi",defaultFont));
+	std::shared_ptr<Text> text2(new Text(100,6,"bo",defaultFont));
+	EXPECT_EQ(text1->toQString().toStdString(),"Text,1,2,hi,Sans Serif,12,-1,5,50,0,0,0,0,0");
+	EXPECT_EQ(text2->toQString().toStdString(),"Text,100,6,bo,Sans Serif,12,-1,5,50,0,0,0,0,0");
 
 }
 
