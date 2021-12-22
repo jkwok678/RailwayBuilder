@@ -1,52 +1,58 @@
-cmake_minimum_required(VERSION 3.19)
+cmake_minimum_required(VERSION 3.12)
 
-set( RBUILD RailwayBuilder)
+set(RB RailwayBuilder)
 
-set( RBUILDLIB railbuild )
+set(RBLIB RailwayBuilderLib)
 
-project( ${RBUILD} LANGUAGES CXX )
+project(${RB} CXX)
 
 # Find Qt Core, Gui & Widgets
-find_package( QT NAMES Qt5 Qt6 COMPONENTS Core REQUIRED )
-find_package( Qt${QT_VERSION_MAJOR} COMPONENTS Widgets Gui Core )
+find_package(QT NAMES Qt6 Qt5 COMPONENTS Core REQUIRED)
+find_package(Qt${QT_VERSION_MAJOR} COMPONENTS Widgets Gui Core)
 
-set( CMAKE_CXX_STANDARD 11 )
-set( CMAKE_CXX_STANDARD_REQUIRED ON )
-set( CMAKE_AUTOUIC ON )
-set( CMAKE_AUTOMOC ON )
-set( CMAKE_AUTORCC ON )
+set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_AUTOUIC ON)
+set(CMAKE_AUTOMOC ON)
+set(CMAKE_AUTORCC ON)
 
 enable_testing()
 
-# Glob for all library source files
-file( GLOB SRC_FILES ${CMAKE_SOURCE_DIR}/*.cpp )
+add_subdirectory(googletest)
 
-# Identify the main source file
-set( MAIN_SRC ${CMAKE_SOURCE_DIR}/main.cpp )
+set(SOURCES
+    mode.h
+    elementChosen.h
+    borderlayout.h
+    borderlayout.cpp
+    window.h
+    window.cpp
+    canvas.h
+    canvas.cpp
+    element.h
+    element.cpp
+    track.h
+    track.cpp
+    map.h
+    map.cpp
+    message.h
+    message.cpp
+    filesaver.h
+    filesaver.cpp
+)
 
-# Remove the main source as this will form the executable
-list( REMOVE_ITEM SRC_FILES ${MAIN_SRC} )
-
-add_library( ${RBUILDLIB} STATIC ${SRC_FILES} )
+add_library(${RBLIB} STATIC ${SOURCES})
 
 # Link the static lib to to Qt Core, Gui & Widgets
-target_link_libraries( ${RBUILDLIB} PUBLIC Qt${QT_VERSION_MAJOR}::Core Qt${QT_VERSION_MAJOR}::Gui Qt${QT_VERSION_MAJOR}::Widgets )
+target_link_libraries(${RBLIB} PUBLIC Qt${QT_VERSION_MAJOR}::Core Qt${QT_VERSION_MAJOR}::Gui Qt${QT_VERSION_MAJOR}::Widgets)
 
 add_subdirectory(test)
 
 # add the real executable with only the main.cpp
-if( ${QT_VERSION_MAJOR} STREQUAL "6" )
-    qt6_add_resources( SRC_FILES ${CMAKE_SOURCE_DIR}/resources.qrc)
-else()
-    qt5_add_resources( SRC_FILES ${CMAKE_SOURCE_DIR}/resources.qrc)
-endif()
-
-add_executable( ${RBUILD} ${MAIN_SRC} )
-
-target_link_libraries( ${RBUILD} PUBLIC ${RBUILDLIB} )
-target_include_directories( ${RBUILD} PRIVATE ${CMAKE_SOURCE_DIR} )
-
-set_target_properties( ${RBUILD} PROPERTIES
+qt6_add_resources(SOURCES resources.qrc)
+add_executable(${RB} main.cpp ${SOURCES})
+target_link_libraries(RailwayBuilder PUBLIC ${RBLIB} )
+set_target_properties(${RB} PROPERTIES
     WIN32_EXECUTABLE TRUE
     MACOSX_BUNDLE TRUE
     CXX_STANDARD 11
