@@ -7,7 +7,7 @@ set( RBUILDLIB railbuild )
 project( ${RBUILD} LANGUAGES CXX )
 
 # Find Qt Core, Gui & Widgets
-find_package( QT NAMES Qt5 Qt6 COMPONENTS Core REQUIRED )
+find_package( QT NAMES Qt6 COMPONENTS Core REQUIRED )
 find_package( Qt${QT_VERSION_MAJOR} COMPONENTS Widgets Gui Core )
 
 set( CMAKE_CXX_STANDARD 11 )
@@ -28,21 +28,15 @@ set( MAIN_SRC ${CMAKE_SOURCE_DIR}/main.cpp )
 list( REMOVE_ITEM SRC_FILES ${MAIN_SRC} )
 
 add_library( ${RBUILDLIB} STATIC ${SRC_FILES} )
-
 # Link the static lib to to Qt Core, Gui & Widgets
 target_link_libraries( ${RBUILDLIB} PUBLIC Qt${QT_VERSION_MAJOR}::Core Qt${QT_VERSION_MAJOR}::Gui Qt${QT_VERSION_MAJOR}::Widgets )
 
 add_subdirectory(test)
 
 # add the real executable with only the main.cpp
-if( ${QT_VERSION_MAJOR} STREQUAL "6" )
-    qt6_add_resources( SRC_FILES ${CMAKE_SOURCE_DIR}/resources.qrc)
-else()
-    qt5_add_resources( SRC_FILES ${CMAKE_SOURCE_DIR}/resources.qrc)
-endif()
+qt6_add_resources( SRC_FILES resources.qrc)
 
-add_executable( ${RBUILD} ${MAIN_SRC} )
-
+add_executable( ${RBUILD} ${MAIN_SRC} ${SRC_FILES})
 target_link_libraries( ${RBUILD} PUBLIC ${RBUILDLIB} )
 target_include_directories( ${RBUILD} PRIVATE ${CMAKE_SOURCE_DIR} )
 

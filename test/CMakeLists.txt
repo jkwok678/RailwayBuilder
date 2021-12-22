@@ -16,5 +16,6 @@ target_link_libraries( ${RBUILDTEST} gtest_main )
 target_link_libraries( ${RBUILDTEST} ${RBUILDLIB} )
 target_include_directories( ${RBUILDTEST} PRIVATE ${CMAKE_SOURCE_DIR} )
 
+set(GTEST_DISCOVER_TESTS_DISCOVERY_MODE variable PRE_TEST)
 include( GoogleTest )
-gtest_discover_tests( ${RBUILDTEST} )
+gtest_discover_tests( ${RBUILDTEST} DISCOVERY_MODE PRE_TEST)
