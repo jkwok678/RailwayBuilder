@@ -106,7 +106,7 @@ public:
 	 * @brief A method to convert an element to a QString for file saving.
 	 * @return QString representation of element to be written to file.
 	 */
-	virtual QString saveToFileAsQString() = 0;
+	virtual QString toQStringForSave() = 0;
 
 };
 
@@ -217,7 +217,7 @@ public:
 	 * @brief A method to convert a Text to a QString for file saving.
 	 * @return QString representation of Text to be written to file.
 	 */
-	virtual QString saveToFileAsQString();
+	QString toQStringForSave();
 
 };
 
@@ -322,7 +322,7 @@ public:
 	 * @brief A method to convert a NamedLocation to a QString for file saving.
 	 * @return QString representation of NamedLocation to be written to file.
 	 */
-	virtual QString saveToFileAsQString();
+	QString toQStringForSave();
 
 };
 
@@ -367,7 +367,7 @@ public:
 	 * @brief A method to convert a Concourse to a QString for file saving.
 	 * @return QString representation of Concourse to be written to file.
 	 */
-	virtual QString saveToFileAsQString();
+	QString toQStringForSave();
 };
 
 
@@ -430,7 +430,7 @@ public:
 	 * @brief A method to convert a Parapet to a QString for file saving.
 	 * @return QString representation of a Parapet to be written to file.
 	 */
-	virtual QString saveToFileAsQString();
+	QString toQStringForSave();
 
 };
 #endif // ELEMENT_H

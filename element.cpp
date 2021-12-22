@@ -133,7 +133,7 @@ QString Text::toQString()
 	return textQString;
 }
 
-QString Text::saveToFileAsQString()
+QString Text::toQStringForSave()
 {
 	QString saveTextQString = locationToQString();
 	saveTextQString.append(",");
@@ -213,7 +213,7 @@ QString NamedLocation::toQString()
 	return namedLocationQString;
 }
 
-QString NamedLocation::saveToFileAsQString()
+QString NamedLocation::toQStringForSave()
 {
 	QString saveNamedLocationQString = locationToQString();
 	if(text != nullptr)
@@ -250,7 +250,7 @@ QString Concourse::toQString()
 	return concourseQString;
 }
 
-QString Concourse::saveToFileAsQString()
+QString Concourse::toQStringForSave()
 {
 	QString saveConcourseQString = locationToQString();
 	if(text != nullptr)
@@ -385,7 +385,7 @@ QString Parapet::toQString()
 	return parapetQString;
 }
 
-QString Parapet::saveToFileAsQString()
+QString Parapet::toQStringForSave()
 {
 	QString saveParapetQString = parapetTypeToQString();
 	saveParapetQString.append(",");
