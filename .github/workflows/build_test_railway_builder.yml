@@ -17,4 +17,4 @@ jobs:
             cmake -Bbuild
             cmake --build build
     - name: Run Tests
-      run: ./build/test/RailwayBuilderTests
+      run: ./build/RailwayBuilderTests
