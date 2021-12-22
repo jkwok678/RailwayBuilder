@@ -44,7 +44,7 @@ endif()
 add_executable( ${RBUILD} ${MAIN_SRC} )
 
 target_link_libraries( ${RBUILD} PUBLIC ${RBUILDLIB} )
-target_include_directories( ${RBUILD} ${CMAKE_SOURCE_DIR} )
+target_include_directories( ${RBUILD} PRIVATE ${CMAKE_SOURCE_DIR} )
 
 set_target_properties( ${RBUILD} PROPERTIES
     WIN32_EXECUTABLE TRUE
