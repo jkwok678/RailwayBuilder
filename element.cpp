@@ -1,4 +1,4 @@
-#include "element.h"
+﻿#include "element.h"
 
 
 //Element class implementation.
@@ -133,6 +133,16 @@ QString Text::toQString()
 	return textQString;
 }
 
+QString Text::saveToFileAsQString()
+{
+	QString saveTextQString = locationToQString();
+	saveTextQString.append(",");
+	saveTextQString.append(readableText);
+	saveTextQString.append(",");
+	saveTextQString.append(font.toString());
+	return saveTextQString;
+}
+
 
 //NamedElement class implementation.
 
@@ -203,6 +213,17 @@ QString NamedLocation::toQString()
 	return namedLocationQString;
 }
 
+QString NamedLocation::saveToFileAsQString()
+{
+	QString saveNamedLocationQString = locationToQString();
+	if(text != nullptr)
+	{
+		saveNamedLocationQString.append(",");
+		saveNamedLocationQString.append(text->toQString());
+	}
+	return saveNamedLocationQString;
+}
+
 
 //Concourse class implementation.
 
@@ -227,6 +248,17 @@ QString Concourse::toQString()
 		concourseQString.append(text->toQString());
 	}
 	return concourseQString;
+}
+
+QString Concourse::saveToFileAsQString()
+{
+	QString saveConcourseQString = locationToQString();
+	if(text != nullptr)
+	{
+		saveConcourseQString.append(",");
+		saveConcourseQString.append(text->toQString());
+	}
+	return saveConcourseQString;
 }
 
 
@@ -351,4 +383,12 @@ QString Parapet::toQString()
 	parapetQString.append(",");
 	parapetQString.append(locationToQString());
 	return parapetQString;
+}
+
+QString Parapet::saveToFileAsQString()
+{
+	QString saveParapetQString = parapetTypeToQString();
+	saveParapetQString.append(",");
+	saveParapetQString.append(locationToQString());
+	return saveParapetQString;
 }
