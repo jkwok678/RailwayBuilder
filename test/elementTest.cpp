@@ -14,11 +14,11 @@ TEST(ElementTest, elementLocationToQStringOutput) {
 
 
 TEST(TextTest, TextToQStringOutput) {
-	QFont serifFont("Times", 10, QFont::Bold);
-	std::shared_ptr<Text> text1(new Text(1,2,"hi",serifFont));
-	std::shared_ptr<Text> text2(new Text(100,6,"bo",serifFont));
-	EXPECT_EQ(text1->toQString().toStdString(),"Text,1,2,hi,Times,10,-1,5,700,0,0,0,0,0,0,0,0,0,0,1");
-	EXPECT_EQ(text2->toQString().toStdString(),"Text,100,6,bo,Times,10,-1,5,700,0,0,0,0,0,0,0,0,0,0,1");
+	QFont defaultFont("Sans Serif,12,-1,5,50,0,0,0,0,0");
+	std::shared_ptr<Text> text1(new Text(1,2,"hi",defaultFont));
+	std::shared_ptr<Text> text2(new Text(100,6,"bo",defaultFont));
+	EXPECT_EQ(text1->toQString().toStdString(),"Text,1,2,hi,Sans Serif,12,-1,5,50,0,0,0,0,0");
+	EXPECT_EQ(text2->toQString().toStdString(),"Text,100,6,bo,Sans Serif,12,-1,5,50,0,0,0,0,0");
 
 }
 
