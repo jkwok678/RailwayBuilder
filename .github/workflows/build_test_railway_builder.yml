@@ -8,6 +8,8 @@ jobs:
     - uses: actions/checkout@v2
     - name: Install Qt
       uses: jurplel/install-qt-action@v2
+      with: 
+        version: '6.2.2'
     - name: Setup cmake
       uses: jwlawson/actions-setup-cmake@v1.9
       with:
@@ -17,4 +19,4 @@ jobs:
             cmake -Bbuild
             cmake --build build
     - name: Run Tests
-      run: for test in $(ls build/test/*Test); do $test; done
+      run: ./build/test/RailwayBuilderTests
