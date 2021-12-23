@@ -1,4 +1,4 @@
-set( RBUILDTEST ${RBUILD}Tests )
+set( RBTEST ${RBLIB}Tests )
 
 file( GLOB TEST_FILES ${CMAKE_CURRENT_SOURCE_DIR}/*.cpp )
 
@@ -11,10 +11,10 @@ FetchContent_Declare(
 
 set( gtest_force_shared_crt ON CACHE BOOL "" FORCE )
 FetchContent_MakeAvailable( googletest )
-add_executable( ${RBUILDTEST} ${TEST_FILES} )
-target_link_libraries( ${RBUILDTEST} gtest_main )
-target_link_libraries( ${RBUILDTEST} ${RBUILDLIB} )
-target_include_directories( ${RBUILDTEST} PRIVATE ${CMAKE_SOURCE_DIR} )
+add_executable( ${RBTEST} ${TEST_FILES} )
+target_link_libraries( ${RBTEST} gtest_main )
+target_link_libraries( ${RBTEST} ${RBLIB} )
+target_include_directories( ${RBTEST} PRIVATE ${CMAKE_SOURCE_DIR} )
 
 include( GoogleTest )
-gtest_discover_tests( ${RBUILDTEST} DISCOVERY_MODE PRE_TEST)
+gtest_discover_tests( ${RBTEST} DISCOVERY_MODE PRE_TEST)

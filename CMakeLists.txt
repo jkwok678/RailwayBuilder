@@ -1,10 +1,10 @@
 cmake_minimum_required(VERSION 3.19)
 
-set( RBUILD RailwayBuilder)
+set( RB RailwayBuilder)
 
-set( RBUILDLIB railbuild )
+set( RBLIB RailwayBuilderLibrary )
 
-project( ${RBUILD} LANGUAGES CXX )
+project( ${RB} LANGUAGES CXX )
 
 # Find Qt Core, Gui & Widgets
 find_package( QT NAMES Qt6 COMPONENTS Core REQUIRED )
@@ -27,20 +27,20 @@ set( MAIN_SRC ${CMAKE_SOURCE_DIR}/main.cpp )
 # Remove the main source as this will form the executable
 list( REMOVE_ITEM SRC_FILES ${MAIN_SRC} )
 
-add_library( ${RBUILDLIB} STATIC ${SRC_FILES} )
+add_library( ${RBLIB} STATIC ${SRC_FILES} )
 # Link the static lib to to Qt Core, Gui & Widgets
-target_link_libraries( ${RBUILDLIB} PUBLIC Qt${QT_VERSION_MAJOR}::Core Qt${QT_VERSION_MAJOR}::Gui Qt${QT_VERSION_MAJOR}::Widgets )
+target_link_libraries( ${RBLIB} PUBLIC Qt${QT_VERSION_MAJOR}::Core Qt${QT_VERSION_MAJOR}::Gui Qt${QT_VERSION_MAJOR}::Widgets )
 
 add_subdirectory(test)
 
 # add the real executable with only the main.cpp
 qt6_add_resources( SRC_FILES resources.qrc)
 
-add_executable( ${RBUILD} ${MAIN_SRC} ${SRC_FILES})
-target_link_libraries( ${RBUILD} PUBLIC ${RBUILDLIB} )
-target_include_directories( ${RBUILD} PRIVATE ${CMAKE_SOURCE_DIR} )
+add_executable( ${RB} ${MAIN_SRC} ${SRC_FILES})
+target_link_libraries( ${RB} PUBLIC ${RBLIB} )
+target_include_directories( ${RB} PRIVATE ${CMAKE_SOURCE_DIR} )
 
-set_target_properties( ${RBUILD} PROPERTIES
+set_target_properties( ${RB} PROPERTIES
     WIN32_EXECUTABLE TRUE
     MACOSX_BUNDLE TRUE
     CXX_STANDARD 11
