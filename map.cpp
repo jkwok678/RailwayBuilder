@@ -762,10 +762,11 @@ std::shared_ptr<StraightTrack> Map::getStraightTrackAt(int locationX, int locati
 
 QString Map::straightTrackListToQStringForSaving()
 {
-	QString straightTrackQStringList;
+	QString straightTrackQStringList = "";
 	for (std::shared_ptr<StraightTrack> straightTrack: straightTrackList) {
 
 	}
+	return straightTrackQStringList;
 }
 
 
