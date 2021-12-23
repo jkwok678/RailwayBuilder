@@ -2,7 +2,7 @@ name: Build & Test
 
 on: [push]
 jobs:
-  build-linux:
+  build-test-linux:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -21,7 +21,7 @@ jobs:
     - name: Run Tests
       run: ./build/test/RailwayBuilderTests
 
-  build-windows:
+  build-test-windows:
     runs-on: windows-latest
     steps:
     - uses: actions/checkout@v2
@@ -40,7 +40,7 @@ jobs:
             cmake --build build
     - name: Run Tests
       run: ./build/test/RailwayBuilderTests
-  build-macOS:
+  build-test-macOS:
     runs-on: macos-latest
     steps:
     - uses: actions/checkout@v2
