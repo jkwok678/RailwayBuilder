@@ -19,4 +19,4 @@ jobs:
             cmake -Bbuild
             cmake --build build
     - name: Run Tests
-      run: for test in $(ls build/test/*Test); do $test; done
+      run: ./build/test/RailwayBuilderTests
