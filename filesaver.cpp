@@ -23,12 +23,12 @@ bool Filesaver::saveRailwayAs(Map map)
 		}
 		else
 		{
-
+			return true;
 		}
 	}
 }
 
 bool Filesaver::createQStringToWrite(Map map)
 {
-
+	return true;
 }
