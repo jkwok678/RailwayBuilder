@@ -1,4 +1,4 @@
-set( RBTEST ${RBLIB}Tests )
+set( RBTEST ${RB}Tests )
 
 file( GLOB TEST_FILES ${CMAKE_CURRENT_SOURCE_DIR}/*.cpp )
 
