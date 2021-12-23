@@ -20,3 +20,22 @@ jobs:
             cmake --build build
     - name: Run Tests
       run: ./build/test/RailwayBuilderTests
+
+  build-windows:
+    runs-on: windows-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Install Qt
+      uses: jurplel/install-qt-action@v2
+      with: 
+        version: '6.2.2'
+    - name: Setup cmake
+      uses: jwlawson/actions-setup-cmake@v1.9
+      with:
+        cmake-version: '3.19.x'
+    - name: Build RailwayBuilder  
+      run: |
+            cmake -Bbuild
+            cmake --build build
+    - name: Run Tests
+      run: ./build/test/RailwayBuilderTests
