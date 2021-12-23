@@ -19,7 +19,7 @@ set( CMAKE_AUTORCC ON )
 enable_testing()
 
 # Glob for all library source files
-file( GLOB SRC_FILES ${CMAKE_SOURCE_DIR}/*.cpp )
+file( GLOB SRC_FILES ${CMAKE_SOURCE_DIR}/*.cpp *.h )
 
 # Identify the main source file
 set( MAIN_SRC ${CMAKE_SOURCE_DIR}/main.cpp )
