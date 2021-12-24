@@ -233,16 +233,16 @@ QString StraightTrack::straightTypeToQString()
 	switch (straightType)
 	{
 	case StraightType::STRAIGHTH:
-		straightTypeQString = "straight_h";
+        straightTypeQString = "s_h";
 		break;
 	case StraightType::STRAIGHTV:
-		straightTypeQString = "straight_v";
+        straightTypeQString = "s_v";
 		break;
 	case StraightType::STRAIGHTLEFTUP:
-		straightTypeQString = "straight_left_up";
+        straightTypeQString = "s_l_u";
 		break;
 	case StraightType::STRAIGHTRIGHTUP:
-		straightTypeQString = "straight_right_up";
+        straightTypeQString = "s_r_u";
 		break;
 	}
 	return straightTypeQString;
