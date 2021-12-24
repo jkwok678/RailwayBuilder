@@ -437,6 +437,19 @@ private:
 	StraightType straightType;
 	bool levelCrossing{ false };
 
+    /**
+     * @brief Gets if the track has a platform1 as a QString
+     * @return '1' if track has a platform1 otherwise '0'.
+     */
+    QString getPlatform1ToQString();
+
+    /**
+     * @brief Gets if the track has a platform2 as a QString
+     * @return '1' if track has a platform2 otherwise '0'
+     */
+    QString getPlatform2ToQString();
+
+
 protected:
 	//For vertical tracks, platform1 is left, platform2 is right
 	//For Horizontal tracks platform1 is up, platform2 is down
@@ -499,6 +512,18 @@ public:
 	 * @param newPlatform If this is true there is a platform on the right of the track or below the track if it's sideways.
 	 */
 	void setPlatform2(bool newPlatform);
+
+    /**
+     * @brief Gets the platforms as a QString.
+     *
+     * 1,1 = track has platform 1 & 2
+     * 1,0 = track has paltform 1 only
+     * 0,1 = track has platform 2 only
+     * 0,0 = track has no platforms.
+     * @return QString representation of the status of the platforms.
+     */
+    QString platformsToQString();
+
 	/**
 	 * @brief Checks if the track has a level crossing.
 	 * @return A bool saying if it has a level crossing.
