@@ -233,16 +233,16 @@ QString StraightTrack::straightTypeToQString()
 	switch (straightType)
 	{
 	case StraightType::STRAIGHTH:
-        straightTypeQString = "s_h";
+        straightTypeQString = "SH";
 		break;
 	case StraightType::STRAIGHTV:
-        straightTypeQString = "s_v";
+        straightTypeQString = "SV";
 		break;
 	case StraightType::STRAIGHTLEFTUP:
-        straightTypeQString = "s_l_u";
+        straightTypeQString = "SLU";
 		break;
 	case StraightType::STRAIGHTRIGHTUP:
-        straightTypeQString = "s_r_u";
+        straightTypeQString = "SRU";
 		break;
 	}
 	return straightTypeQString;
@@ -338,28 +338,28 @@ QString DirectedTrack::directedTypeToQString()
 	switch (directedType)
 	{
 	case DirectedType::DIRECTEDLEFT:
-		directedTypeQString = "directed_left";
+        directedTypeQString = "DL";
 		break;
 	case DirectedType::DIRECTEDRIGHT:
-		directedTypeQString = "directed_right";
+        directedTypeQString = "DR";
 		break;
 	case DirectedType::DIRECTEDUP:
-		directedTypeQString = "directed_up";
+        directedTypeQString = "DU";
 		break;
 	case DirectedType::DIRECTEDDOWN:
-		directedTypeQString = "directed_down";
+        directedTypeQString = "DD";
 		break;
 	case DirectedType::DIRECTEDLEFTUP:
-		directedTypeQString = "directed_left_up";
+        directedTypeQString = "DLU";
 		break;
 	case DirectedType::DIRECTEDRIGHTUP:
-		directedTypeQString = "directed_right_up";
+        directedTypeQString = "DRU";
 		break;
 	case DirectedType::DIRECTEDLEFTDOWN:
-		directedTypeQString = "directed_left_down";
+        directedTypeQString = "DLD";
 		break;
 	case DirectedType::DIRECTEDRIGHTDOWN:
-		directedTypeQString = "directed_right_down";
+        directedTypeQString = "DRD";
 		break;
 	}
 	return directedTypeQString;
