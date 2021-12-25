@@ -942,28 +942,28 @@ QString BufferTrack::bufferTypeToQString()
 	switch (bufferType)
 	{
 	case BufferType::BUFFERLEFT:
-		bufferTypeQString = "buffer_left";
+        bufferTypeQString = "BL";
 		break;
 	case BufferType::BUFFERRIGHT:
-		bufferTypeQString = "buffer_right";
+        bufferTypeQString = "BR";
 		break;
 	case BufferType::BUFFERUP:
-		bufferTypeQString = "buffer_up";
+        bufferTypeQString = "BU";
 		break;
 	case BufferType::BUFFERDOWN:
-		bufferTypeQString = "buffer_down";
+        bufferTypeQString = "BD";
 		break;
 	case BufferType::BUFFERLEFTDOWN:
-		bufferTypeQString = "buffer_left_down";
+        bufferTypeQString = "BLD";
 		break;
 	case BufferType::BUFFERLEFTUP:
-		bufferTypeQString = "buffer_left_up";
+        bufferTypeQString = "BLU";
 		break;
 	case BufferType::BUFFERRIGHTDOWN:
-		bufferTypeQString = "buffer_right_down";
+        bufferTypeQString = "BRD";
 		break;
 	case BufferType::BUFFERRIGHTUP:
-		bufferTypeQString = "buffer_right_up";
+        bufferTypeQString = "BRU";
 		break;
 	}
 	return bufferTypeQString;
@@ -1065,28 +1065,28 @@ QString SignalTrack::signalTypeToQString()
 	switch (signalType)
 	{
 	case SignalType::SIGNALLEFT:
-		signalTypeQString = "signal_left";
+        signalTypeQString = "SIGL";
 		break;
 	case SignalType::SIGNALRIGHT:
-		signalTypeQString = "signal_right";
+        signalTypeQString = "SIGR";
 		break;
 	case SignalType::SIGNALUP:
-		signalTypeQString = "signal_up";
+        signalTypeQString = "SIGU";
 		break;
 	case SignalType::SIGNALDOWN:
-		signalTypeQString = "signal_down";
+        signalTypeQString = "SIGD";
 		break;
 	case SignalType::SIGNALLEFTDOWN:
-		signalTypeQString = "signal_left_down";
+        signalTypeQString = "SIGLD";
 		break;
 	case SignalType::SIGNALLEFTUP:
-		signalTypeQString = "signal_left_up";
+        signalTypeQString = "SIGLU";
 		break;
 	case SignalType::SIGNALRIGHTDOWN:
-		signalTypeQString = "signal_right_down";
+        signalTypeQString = "SIGRD";
 		break;
 	case SignalType::SIGNALRIGHTUP:
-		signalTypeQString = "signal_right_up";
+        signalTypeQString = "SIGRU";
 		break;
 	}
 	return signalTypeQString;
@@ -1165,16 +1165,16 @@ QString BridgeUnderpassTrack::bridgeUnderpassTypeToQString()
 	switch (bridgeUnderpassType)
 	{
 	case BridgeUnderpassType::BRIDGE1:
-		bridgeUnderpassTypeQString = "bridge_1";
+        bridgeUnderpassTypeQString = "BR1";
 		break;
 	case BridgeUnderpassType::BRIDGE2:
-		bridgeUnderpassTypeQString = "bridge_2";
+        bridgeUnderpassTypeQString = "BR2";
 		break;
 	case BridgeUnderpassType::UNDERPASS1:
-		bridgeUnderpassTypeQString = "underpass_1";
+        bridgeUnderpassTypeQString = "UP1";
 		break;
 	case BridgeUnderpassType::UNDERPASS2:
-		bridgeUnderpassTypeQString = "underpass_2";
+        bridgeUnderpassTypeQString = "UP2";
 		break;
 	}
 	return bridgeUnderpassTypeQString;
@@ -1451,100 +1451,100 @@ QString SwitchTrack::switchTypeToQString()
 	switch (switchType)
 	{
 	case SwitchType::SWITCH1:
-		switchTypeQString = "switch_1";
+        switchTypeQString = "SW1";
 		break;
 	case SwitchType::SWITCH2:
-		switchTypeQString = "switch_2";
+        switchTypeQString = "SW2";
 		break;
 	case SwitchType::SWITCH3:
-		switchTypeQString = "switch_3";
+        switchTypeQString = "SW3";
 		break;
 	case SwitchType::SWITCH4:
-		switchTypeQString = "switch_4";
+        switchTypeQString = "SW4";
 		break;
 	case SwitchType::SWITCH5:
-		switchTypeQString = "switch_5";
+        switchTypeQString = "SW5";
 		break;
 	case SwitchType::SWITCH6:
-		switchTypeQString = "switch_6";
+        switchTypeQString = "SW6";
 		break;
 	case SwitchType::SWITCH7:
-		switchTypeQString = "switch_7";
+        switchTypeQString = "SW7";
 		break;
 	case SwitchType::SWITCH8:
-		switchTypeQString = "switch_8";
+        switchTypeQString = "SW8";
 		break;
 	case SwitchType::SWITCH9:
-		switchTypeQString = "switch_9";
+        switchTypeQString = "SW9";
 		break;
 	case SwitchType::SWITCH10:
-		switchTypeQString = "switch_10";
+        switchTypeQString = "SW10";
 		break;
 	case SwitchType::SWITCH11:
-		switchTypeQString = "switch_11";
+        switchTypeQString = "SW11";
 		break;
 	case SwitchType::SWITCH12:
-		switchTypeQString = "switch_12";
+        switchTypeQString = "SW12";
 		break;
 	case SwitchType::SWITCH13:
-		switchTypeQString = "switch_13";
+        switchTypeQString = "SW13";
 		break;
 	case SwitchType::SWITCH14:
-		switchTypeQString = "switch_14";
+        switchTypeQString = "SW14";
 		break;
 	case SwitchType::SWITCH15:
-		switchTypeQString = "switch_15";
+        switchTypeQString = "SW15";
 		break;
 	case SwitchType::SWITCH16:
-		switchTypeQString = "switch_16";
+        switchTypeQString = "SW16";
 		break;
 	case SwitchType::SWITCHTIGHT1:
-		switchTypeQString = "switch_tight_1";
+        switchTypeQString = "SWT1";
 		break;
 	case SwitchType::SWITCHTIGHT2:
-		switchTypeQString = "switch_tight_2";
+        switchTypeQString = "SWT2";
 		break;
 	case SwitchType::SWITCHTIGHT3:
-		switchTypeQString = "switch_tight_3";
+        switchTypeQString = "SWT3";
 		break;
 	case SwitchType::SWITCHTIGHT4:
-		switchTypeQString = "switch_tight_4";
+        switchTypeQString = "SWT4";
 		break;
 	case SwitchType::SWITCHTIGHT5:
-		switchTypeQString = "switch_tight_5";
+        switchTypeQString = "SWT5";
 		break;
 	case SwitchType::SWITCHTIGHT6:
-		switchTypeQString = "switch_tight_6";
+        switchTypeQString = "SWT6";
 		break;
 	case SwitchType::SWITCHTIGHT7:
-		switchTypeQString = "switch_tight_7";
+        switchTypeQString = "SWT7";
 		break;
 	case SwitchType::SWITCHTIGHT8:
-		switchTypeQString = "switch_tight_8";
+        switchTypeQString = "SWT8";
 		break;
 	case SwitchType::SWITCHSPLIT1:
-		switchTypeQString = "switch_switch_1";
+        switchTypeQString = "SWS1";
 		break;
 	case SwitchType::SWITCHSPLIT2:
-		switchTypeQString = "switch_switch_2";
+        switchTypeQString = "SWS2";
 		break;
 	case SwitchType::SWITCHSPLIT3:
-		switchTypeQString = "switch_switch_3";
+        switchTypeQString = "SWS3";
 		break;
 	case SwitchType::SWITCHSPLIT4:
-		switchTypeQString = "switch_switch_4";
+        switchTypeQString = "SWS4";
 		break;
 	case SwitchType::SWITCHSPLIT5:
-		switchTypeQString = "switch_switch_5";
+        switchTypeQString = "SWS5";
 		break;
 	case SwitchType::SWITCHSPLIT6:
-		switchTypeQString = "switch_switch_6";
+        switchTypeQString = "SWS6";
 		break;
 	case SwitchType::SWITCHSPLIT7:
-		switchTypeQString = "switch_switch_7";
+        switchTypeQString = "SWS7";
 		break;
 	case SwitchType::SWITCHSPLIT8:
-		switchTypeQString = "switch_switch_8";
+        switchTypeQString = "SWS8";
 		break;
 	}
 	return switchTypeQString;
@@ -1667,22 +1667,22 @@ QString CrossoverTrack::crossoverTypeToQString()
 	switch (crossoverType)
 	{
 	case CrossoverType::CROSSOVER1:
-		crossoverTypeQString = "crossover_1";
+        crossoverTypeQString = "CR1";
 		break;
 	case CrossoverType::CROSSOVER2:
-		crossoverTypeQString = "crossover_2";
+        crossoverTypeQString = "CR2";
 		break;
 	case CrossoverType::CROSSOVER3:
-		crossoverTypeQString = "crossover_3";
+        crossoverTypeQString = "CR3";
 		break;
 	case CrossoverType::CROSSOVER4:
-		crossoverTypeQString = "crossover_4";
+        crossoverTypeQString = "CR4";
 		break;
 	case CrossoverType::CROSSOVER5:
-		crossoverTypeQString = "crossover_5";
+        crossoverTypeQString = "CR5";
 		break;
 	case CrossoverType::CROSSOVER6:
-		crossoverTypeQString = "crossover_6";
+        crossoverTypeQString = "CR6";
 		break;
 	}
 	return crossoverTypeQString;
@@ -1814,40 +1814,40 @@ QString FlyoverTrack::flyoverTypeToQString()
 	switch (flyoverType)
 	{
 	case FlyoverType::FLYOVER1:
-		flyoverTypeQString = "flyover_1";
+        flyoverTypeQString = "F1";
 		break;
 	case FlyoverType::FLYOVER2:
-		flyoverTypeQString = "flyover_2";
+        flyoverTypeQString = "F2";
 		break;
 	case FlyoverType::FLYOVER3:
-		flyoverTypeQString = "flyover_3";
+        flyoverTypeQString = "F3";
 		break;
 	case FlyoverType::FLYOVER4:
-		flyoverTypeQString = "flyover_4";
+        flyoverTypeQString = "F4";
 		break;
 	case FlyoverType::FLYOVER5:
-		flyoverTypeQString = "flyover_5";
+        flyoverTypeQString = "F5";
 		break;
 	case FlyoverType::FLYOVER6:
-		flyoverTypeQString = "flyover_6";
+        flyoverTypeQString = "F6";
 		break;
 	case FlyoverType::FLYOVER7:
-		flyoverTypeQString = "flyover_7";
+        flyoverTypeQString = "F7";
 		break;
 	case FlyoverType::FLYOVER8:
-		flyoverTypeQString = "flyover_8";
+        flyoverTypeQString = "F8";
 		break;
 	case FlyoverType::FLYOVER9:
-		flyoverTypeQString = "flyover_9";
+        flyoverTypeQString = "F9";
 		break;
 	case FlyoverType::FLYOVER10:
-		flyoverTypeQString = "flyover_10";
+        flyoverTypeQString = "F10";
 		break;
 	case FlyoverType::FLYOVER11:
-		flyoverTypeQString = "flyover_11";
+        flyoverTypeQString = "F11";
 		break;
 	case FlyoverType::FLYOVER12:
-		flyoverTypeQString = "flyover_12";
+        flyoverTypeQString = "F12";
 		break;
 	}
 	return flyoverTypeQString;

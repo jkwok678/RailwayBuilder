@@ -1,0 +1,16 @@
+Parapet-P
+Straight-S
+Directed-D
+Curved-C
+TightCurveTC
+Linked-L
+Exit-E
+Buffer-B
+Signal-SIG
+Bridge-BR
+Underpass-UP
+Switch-SW
+SwitchTight-SWT
+SwitchSplit-SWS
+Crossover-CR
+Flyover-F
