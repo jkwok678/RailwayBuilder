@@ -260,7 +260,7 @@ QString StraightTrack::toQString()
 	straightTrackQString.append(",");
     straightTrackQString.append(platformsToQString());
 	straightTrackQString.append(",");
-	straightTrackQString.append(QVariant(levelCrossing).toString());
+    straightTrackQString.append(QString::number(levelCrossing));
 	return straightTrackQString;
 }
 
@@ -274,7 +274,7 @@ QString StraightTrack::toQStringForSave()
 	straightTrackQString.append(",");
     straightTrackQString.append(platformsToQString());
 	straightTrackQString.append(",");
-	straightTrackQString.append(QVariant(levelCrossing).toString());
+    straightTrackQString.append(QString::number(levelCrossing));
 	return straightTrackQString;
 }
 

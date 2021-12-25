@@ -763,8 +763,10 @@ std::shared_ptr<StraightTrack> Map::getStraightTrackAt(int locationX, int locati
 QString Map::straightTrackListToQStringForSaving()
 {
 	QString straightTrackQStringList = "";
-	for (std::shared_ptr<StraightTrack> straightTrack: straightTrackList) {
-
+    for (std::shared_ptr<StraightTrack> straightTrack: straightTrackList)
+    {
+        straightTrackQStringList.append(straightTrack->toQStringForSave());
+        straightTrackQStringList.append("\n");
 	}
 	return straightTrackQStringList;
 }
