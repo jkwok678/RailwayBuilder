@@ -494,40 +494,40 @@ QString CurvedTrack::curvedTypeToQString()
 	switch (curvedType)
 	{
 	case CurvedType::CURVE1:
-		curvedTypeQString = "curve_1";
+        curvedTypeQString = "C1";
 		break;
 	case CurvedType::CURVE2:
-		curvedTypeQString = "curve_2";
+        curvedTypeQString = "C2";
 		break;
 	case CurvedType::CURVE3:
-		curvedTypeQString = "curve_3";
+        curvedTypeQString = "C3";
 		break;
 	case CurvedType::CURVE4:
-		curvedTypeQString = "curve_4";
+        curvedTypeQString = "C4";
 		break;
 	case CurvedType::CURVE5:
-		curvedTypeQString = "curve_5";
+        curvedTypeQString = "C5";
 		break;
 	case CurvedType::CURVE6:
-		curvedTypeQString = "curve_6";
+        curvedTypeQString = "C6";
 		break;
 	case CurvedType::CURVE7:
-		curvedTypeQString = "curve_7";
+        curvedTypeQString = "C7";
 		break;
 	case CurvedType::CURVE8:
-		curvedTypeQString = "curve_8";
+        curvedTypeQString = "C8";
 		break;
 	case CurvedType::TIGHTCURVE1:
-		curvedTypeQString = "tight_curve_1";
+        curvedTypeQString = "TC1";
 		break;
 	case CurvedType::TIGHTCURVE2:
-		curvedTypeQString = "tight_curve_2";
+        curvedTypeQString = "TC2";
 		break;
 	case CurvedType::TIGHTCURVE3:
-		curvedTypeQString = "tight_curve_3";
+        curvedTypeQString = "TC3";
 		break;
 	case CurvedType::TIGHTCURVE4:
-		curvedTypeQString = "tight_curve_4";
+        curvedTypeQString = "TC4";
 		break;
 	}
 	return curvedTypeQString;
@@ -651,28 +651,28 @@ QString LinkedTrack::linkedTypeToQString()
 	switch (linkedType)
 	{
 	case LinkedType::LINKLEFT:
-		linkedTypeQString = "link_left";
+        linkedTypeQString = "LL";
 		break;
 	case LinkedType::LINKRIGHT:
-		linkedTypeQString = "link_right";
+        linkedTypeQString = "LR";
 		break;
 	case LinkedType::LINKUP:
-		linkedTypeQString = "link_up";
+        linkedTypeQString = "LU";
 		break;
 	case LinkedType::LINKDOWN:
-		linkedTypeQString = "link_down";
+        linkedTypeQString = "LD";
 		break;
 	case LinkedType::LINKLEFTDOWN:
-		linkedTypeQString = "link_left_down";
+        linkedTypeQString = "LLD";
 		break;
 	case LinkedType::LINKLEFTUP:
-		linkedTypeQString = "link_left_up";
+        linkedTypeQString = "LLU";
 		break;
 	case LinkedType::LINKRIGHTDOWN:
-		linkedTypeQString = "link_right_down";
+        linkedTypeQString = "LRD";
 		break;
 	case LinkedType::LINKRIGHTUP:
-		linkedTypeQString = "link_right_up";
+        linkedTypeQString = "LRU";
 		break;
 	}
 	return linkedTypeQString;
@@ -822,28 +822,28 @@ QString ExitTrack::exitTypeToQString()
 	switch (exitType)
 	{
 	case ExitType::EXITLEFT:
-		exitTypeQString = "exit_left";
+        exitTypeQString = "EL";
 		break;
 	case ExitType::EXITRIGHT:
-		exitTypeQString = "exit_right";
+        exitTypeQString = "ER";
 		break;
 	case ExitType::EXITUP:
-		exitTypeQString = "exit_up";
+        exitTypeQString = "EU";
 		break;
 	case ExitType::EXITDOWN:
-		exitTypeQString = "exit_down";
+        exitTypeQString = "ED";
 		break;
 	case ExitType::EXITLEFTDOWN:
-		exitTypeQString = "exit_left_down";
+        exitTypeQString = "ELD";
 		break;
 	case ExitType::EXITLEFTUP:
-		exitTypeQString = "exit_left_up";
+        exitTypeQString = "ELU";
 		break;
 	case ExitType::EXITRIGHTDOWN:
-		exitTypeQString = "exit_right_down";
+        exitTypeQString = "ERD";
 		break;
 	case ExitType::EXITRIGHTUP:
-		exitTypeQString = "exit_right_up";
+        exitTypeQString = "ERU";
 		break;
 	}
 	return exitTypeQString;
