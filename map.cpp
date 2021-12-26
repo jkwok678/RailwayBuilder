@@ -762,13 +762,13 @@ std::shared_ptr<StraightTrack> Map::getStraightTrackAt(int locationX, int locati
 
 QString Map::straightTrackListToQStringForSaving()
 {
-	QString straightTrackQStringList = "";
+    QString straightTracksToSave = "";
     for (std::shared_ptr<StraightTrack> straightTrack: straightTrackList)
     {
-        straightTrackQStringList.append(straightTrack->toQStringForSave());
-        straightTrackQStringList.append("\n");
+        straightTracksToSave.append(straightTrack->toQStringForSave());
+        straightTracksToSave.append("\n");
 	}
-	return straightTrackQStringList;
+    return straightTracksToSave;
 }
 
 
@@ -806,7 +806,18 @@ std::shared_ptr<DirectedTrack> Map::getDirectedTrackAt(int locationX, int locati
 			}
 		}
 	}
-	return directedTrack;
+    return directedTrack;
+}
+
+QString Map::directedTrackListToQStringForSaving()
+{
+    QString directedTracksToSave = "";
+    for (std::shared_ptr<DirectedTrack> directedTrack: directedTrackList)
+    {
+        directedTracksToSave.append(directedTrack->toQStringForSave());
+        directedTracksToSave.append("\n");
+    }
+    return directedTracksToSave;
 }
 
 

@@ -392,6 +392,12 @@ public:
 	 */
 	std::shared_ptr<DirectedTrack> getDirectedTrackAt(int locationX,int locationY);
 
+    /**
+     * @brief Gets the directedTrackList as a QString for file saving.
+     * @return A QString of DirectedTracks for file saving
+     */
+    QString directedTrackListToQStringForSaving();
+
 	//CurvedTrack related methods
 
 	/**
