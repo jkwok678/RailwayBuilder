@@ -855,8 +855,19 @@ std::shared_ptr<CurvedTrack> Map::getCurvedTrackAt(int locationX, int locationY)
 				break;
 			}
 		}
-	}
-	return curvedTrack;
+    }
+    return curvedTrack;
+}
+
+QString Map::curvedTrackListToQStringForSaving()
+{
+    QString curvedTracksToSave = "";
+    for (std::shared_ptr<CurvedTrack> curvedTrack: curvedTrackList)
+    {
+        curvedTracksToSave.append(curvedTrack->toQStringForSave());
+        curvedTracksToSave.append("\n");
+    }
+    return curvedTracksToSave;
 }
 
 

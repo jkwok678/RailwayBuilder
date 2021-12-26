@@ -3,7 +3,7 @@
 
 
 
-TEST(ElementTest, elementLocationToQStringOutput) {
+TEST(ElementToQStringTest, elementLocationToQStringOutput) {
 	std::shared_ptr<Element> namedLocation1(new NamedLocation(1,2));
 	std::shared_ptr<Element> namedLocation2(new NamedLocation(100,6));
 	std::shared_ptr<Element> namedLocation3(new NamedLocation(542671,-232342));
@@ -13,7 +13,7 @@ TEST(ElementTest, elementLocationToQStringOutput) {
 }
 
 
-TEST(TextTest, TextToQStringOutput) {
+TEST(TextToQStringTest, TextToQStringOutput) {
 	QFont serifFont("Times", 10, QFont::Bold);
 	std::shared_ptr<Text> text1(new Text(1,2,"hi",serifFont));
 	std::shared_ptr<Text> text2(new Text(100,6,"bo",serifFont));
@@ -22,7 +22,7 @@ TEST(TextTest, TextToQStringOutput) {
 
 }
 
-TEST(NamedLocationTest, namedLocationToQStringOutput) {
+TEST(NamedLocationToQStringTest, namedLocationToQStringOutput) {
 	std::shared_ptr<NamedLocation> namedLocation1(new NamedLocation(1,2));
 	std::shared_ptr<NamedLocation> namedLocation2(new NamedLocation(100,6));
 	std::shared_ptr<NamedLocation> namedLocation3(new NamedLocation(542671,-232342));

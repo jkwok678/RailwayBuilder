@@ -357,7 +357,7 @@ public:
 	std::shared_ptr<StraightTrack> getStraightTrackAt(int locationX,int locationY);
 
 	/**
-	 * @brief Gets the straightTrackList as a QString for file saving.
+     * @brief Gets the StraightTrackList as a QString for file saving.
 	 * @return A QString of StraightTracks for file saving
 	 */
 	QString straightTrackListToQStringForSaving();
@@ -393,7 +393,7 @@ public:
 	std::shared_ptr<DirectedTrack> getDirectedTrackAt(int locationX,int locationY);
 
     /**
-     * @brief Gets the directedTrackList as a QString for file saving.
+     * @brief Gets the DirectedTrackList as a QString for file saving.
      * @return A QString of DirectedTracks for file saving
      */
     QString directedTrackListToQStringForSaving();
@@ -427,6 +427,12 @@ public:
 	 * @return CurvedTrack at (X,Y) if there is one, otherwise return a nullptr.
 	 */
 	std::shared_ptr<CurvedTrack> getCurvedTrackAt(int locationX,int locationY);
+
+    /**
+     * @brief Gets the CurvedTrackList as a QString for file saving.
+     * @return A QString of CurvedTracks for file saving
+     */
+    QString curvedTrackListToQStringForSaving();
 
 	//LinkedTrack related methods
 
