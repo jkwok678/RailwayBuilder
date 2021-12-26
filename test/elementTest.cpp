@@ -46,8 +46,8 @@ TEST(ParapetToQStringTest, parapetToQStringOutput) {
 	std::shared_ptr<Parapet> parapet1(new Parapet(ParapetType::PARAPET1,1,2));
 	std::shared_ptr<Parapet> parapet2(new Parapet(ParapetType::PARAPET12,100,6));
 	std::shared_ptr<Parapet> parapet3(new Parapet(ParapetType::PARAPET5,542671,-232342));
-	EXPECT_EQ(parapet1->toQString().toStdString(),"Parapet,parapet_1,1,2");
-	EXPECT_EQ(parapet2->toQString().toStdString(),"Parapet,parapet_12,100,6");
-	EXPECT_EQ(parapet3->toQString().toStdString(),"Parapet,parapet_5,542671,-232342");
+    EXPECT_EQ(parapet1->toQString().toStdString(),"Parapet,P1,1,2");
+    EXPECT_EQ(parapet2->toQString().toStdString(),"Parapet,P12,100,6");
+    EXPECT_EQ(parapet3->toQString().toStdString(),"Parapet,P5,542671,-232342");
 
 }
