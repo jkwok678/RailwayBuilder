@@ -24,6 +24,8 @@ QString Track::getTrackSecondaryLengthToQString()
 	return QString::number(trackSecondaryLength);
 }
 
+//Protected
+
 void Track::setDefaultSecondarySpeedLength()
 {
 	trackSecondarySpeed = 200;
@@ -1239,8 +1241,7 @@ SwitchTrack::SwitchTrack(SwitchType newSwitchType, int newLocationX, int newLoca
 	switchType = newSwitchType;
 	locationX = newLocationX;
 	locationY = newLocationY;
-	trackSecondaryLength = 100;
-	trackSecondarySpeed = 200;
+	setDefaultSecondarySpeedLength();
 	switch (switchType)
 	{
 		case SwitchType::SWITCHTIGHT1:
@@ -1608,8 +1609,7 @@ CrossoverTrack::CrossoverTrack(CrossoverType newCrossoverType, int newLocationX,
 	crossoverType = newCrossoverType;
 	locationX = newLocationX;
 	locationY = newLocationY;
-	trackSecondaryLength = 100;
-	trackSecondaryLength = 200;
+	setDefaultSecondarySpeedLength();
 	switch (crossoverType)
 	{
 		case CrossoverType::CROSSOVER1:

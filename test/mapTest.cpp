@@ -84,3 +84,13 @@ TEST(MapSavingQStringTest, bridgeUnderpassTrackListToQString) {
 	map->createAddBridgeUnderpassTrack(BridgeUnderpassType::UNDERPASS2,542671,-232342);
 	EXPECT_EQ(map->bridgeUnderpassTrackListToQStringForSaving().toStdString(),"BR1,1,2,200,100,200,100,0,0\nBR2,100,6,200,100,200,100,0,0\nUP2,542671,-232342,200,100,200,100,0,0\n");
 }
+
+TEST(MapSavingQStringTest, crossoverTrackListToQString) {
+	Map *map = new Map();
+	map->createAddCrossoverTrack(CrossoverType::CROSSOVER1,1,2);
+	EXPECT_EQ(map->crossoverTrackListToQStringForSaving().toStdString(),"CR1,1,2,200,100,200,100\n");
+	map->createAddCrossoverTrack(CrossoverType::CROSSOVER3,100,6);
+	EXPECT_EQ(map->crossoverTrackListToQStringForSaving().toStdString(),"CR1,1,2,200,100,200,100\nCR3,100,6,200,100,200,100\n");
+	map->createAddCrossoverTrack(CrossoverType::CROSSOVER6,542671,-232342);
+	EXPECT_EQ(map->crossoverTrackListToQStringForSaving().toStdString(),"CR1,1,2,200,100,200,100\nCR3,100,6,200,100,200,100\nCR6,542671,-232342,200,100,200,100\n");
+}
