@@ -979,7 +979,7 @@ void Map::connectTwoLinkedTracks(int locationX, int locationY)
 	}
 }
 
-bool Map::checkAllLinkTrackLinked()
+bool Map::checkAllLinkedTrackLinked()
 {
 	bool allLinkedTrackLinked = true;
 	if (linkedTrackList.size() % 2 ==0)
@@ -994,6 +994,17 @@ bool Map::checkAllLinkTrackLinked()
 		}
 	}
 	return allLinkedTrackLinked;
+}
+
+QString Map::linkedTrackListToQStringForSaving()
+{
+	QString linkedTracksToSave = "";
+	for (std::shared_ptr<LinkedTrack> linkedTrack: linkedTrackList)
+	{
+		linkedTracksToSave.append(linkedTrack->toQStringForSave());
+		linkedTracksToSave.append("\n");
+	}
+	return linkedTracksToSave;
 }
 
 
@@ -2804,7 +2815,7 @@ bool Map::checkAllTracksConnected()
 	std::shared_ptr<Track> startTrack = findTopLeftTrack();
 	makeTrackList();
 	bool allConnected = true;
-	allConnected = checkAllLinkTrackLinked();
+	allConnected = checkAllLinkedTrackLinked();
 	if (trackList.size() == 0)
 	{
 		Message::showZeroTrackErrorMessage();

@@ -510,7 +510,13 @@ public:
 	 * @brief Checks if all LinkedTracks are connected.
 	 * @return true if all linked tracks are connected, otherwise false.
 	 */
-	bool checkAllLinkTrackLinked();
+	bool checkAllLinkedTrackLinked();
+
+	/**
+	 * @brief Gets the LinkedTrackList as a QString for file saving.
+	 * @return A QString of LinkedTracks for file saving
+	 */
+	QString linkedTrackListToQStringForSaving();
 
 
 

@@ -690,7 +690,7 @@ QString LinkedTrack::toQString()
 	if (linked && otherLinkTrack != nullptr)
 	{
 		linkedTrackQString.append(",");
-		linkedTrackQString.append("linked");
+		linkedTrackQString.append("1");
 		linkedTrackQString.append(",");
 		linkedTrackQString.append(otherLinkedTrackToQString());
 
@@ -698,7 +698,7 @@ QString LinkedTrack::toQString()
 	else
 	{
 		linkedTrackQString.append(",");
-		linkedTrackQString.append("nolink");
+		linkedTrackQString.append("0");
 	}
 	return linkedTrackQString;
 }
@@ -726,7 +726,7 @@ QString LinkedTrack::toQStringForSave()
 	if (linked && otherLinkTrack != nullptr)
 	{
 		linkedTrackQString.append(",");
-		linkedTrackQString.append("linked");
+		linkedTrackQString.append("1");
 		linkedTrackQString.append(",");
 		linkedTrackQString.append(otherLinkedTrackToQString());
 
@@ -734,7 +734,7 @@ QString LinkedTrack::toQStringForSave()
 	else
 	{
 		linkedTrackQString.append(",");
-		linkedTrackQString.append("nolink");
+		linkedTrackQString.append("0");
 	}
 	return linkedTrackQString;
 }
