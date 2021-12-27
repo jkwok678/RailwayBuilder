@@ -658,6 +658,12 @@ public:
 	 */
 	std::shared_ptr<BridgeUnderpassTrack> getBridgeUnderpassTrack(int locationX,int locationY);
 
+	/**
+	 * @brief Gets the BridgeUnderpassTrackList as a QString for file saving.
+	 * @return A QString of BridgeUnderpassTracks for file saving
+	 */
+	QString bridgeUnderpassTrackListToQStringForSaving();
+
 	//SwitchTrack related methods
 
 	/**

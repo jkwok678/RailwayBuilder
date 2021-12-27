@@ -21,7 +21,13 @@ QString Track::getTrackSecondarySpeedToQString()
 
 QString Track::getTrackSecondaryLengthToQString()
 {
-	return QString::number(trackMainLength);
+	return QString::number(trackSecondaryLength);
+}
+
+void Track::setDefaultSecondarySpeedLength()
+{
+	trackSecondarySpeed = 200;
+	trackSecondaryLength = 100;
 }
 
 //Public
@@ -1115,7 +1121,6 @@ QString SignalTrack::toQString()
 	signalTrackQString.append(mainSpeedLengthToQString());
 	signalTrackQString.append(",");
     signalTrackQString.append(platformsToQString());
-
 	return signalTrackQString;
 }
 
@@ -1143,6 +1148,7 @@ BridgeUnderpassTrack::BridgeUnderpassTrack(BridgeUnderpassType newBridgeUnderpas
 	bridgeUnderpassType = newBridgeUnderpassType;
 	locationX = newLocationX;
 	locationY = newLocationY;
+	setDefaultSecondarySpeedLength();
 	switch (bridgeUnderpassType)
 	{
 		case BridgeUnderpassType::BRIDGE1:

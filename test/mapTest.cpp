@@ -74,3 +74,13 @@ TEST(MapSavingQStringTest, signalTrackListToQString) {
 	map->createAddSignalTrack(SignalType::SIGNALUP,4,542671,-232342);
 	EXPECT_EQ(map->signalTrackListToQStringForSaving().toStdString(),"SIGL,4,1,2,200,100,0,0\nSIGRD,4,100,6,200,100,0,0\nSIGU,4,542671,-232342,200,100,0,0\n");
 }
+
+TEST(MapSavingQStringTest, bridgeUnderpassTrackListToQString) {
+	Map *map = new Map();
+	map->createAddBridgeUnderpassTrack(BridgeUnderpassType::BRIDGE1,1,2);
+	EXPECT_EQ(map->bridgeUnderpassTrackListToQStringForSaving().toStdString(),"BR1,1,2,200,100,200,100,0,0\n");
+	map->createAddBridgeUnderpassTrack(BridgeUnderpassType::BRIDGE2,100,6);
+	EXPECT_EQ(map->bridgeUnderpassTrackListToQStringForSaving().toStdString(),"BR1,1,2,200,100,200,100,0,0\nBR2,100,6,200,100,200,100,0,0\n");
+	map->createAddBridgeUnderpassTrack(BridgeUnderpassType::UNDERPASS2,542671,-232342);
+	EXPECT_EQ(map->bridgeUnderpassTrackListToQStringForSaving().toStdString(),"BR1,1,2,200,100,200,100,0,0\nBR2,100,6,200,100,200,100,0,0\nUP2,542671,-232342,200,100,200,100,0,0\n");
+}

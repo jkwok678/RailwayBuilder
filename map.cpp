@@ -1193,6 +1193,17 @@ std::shared_ptr<BridgeUnderpassTrack> Map::getBridgeUnderpassTrack(int locationX
 	return bridgeUnderpassTrack;
 }
 
+QString Map::bridgeUnderpassTrackListToQStringForSaving()
+{
+	QString bridgeUnderpassTracksToSave = "";
+	for (std::shared_ptr<BridgeUnderpassTrack> bridgeUnderpassTrack: bridgeUnderpassTrackList)
+	{
+		bridgeUnderpassTracksToSave.append(bridgeUnderpassTrack->toQStringForSave());
+		bridgeUnderpassTracksToSave.append("\n");
+	}
+	return bridgeUnderpassTracksToSave;
+}
+
 
 //SwitchTrack related methods
 

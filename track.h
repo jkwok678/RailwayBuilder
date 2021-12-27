@@ -304,6 +304,11 @@ protected:
 	bool links [9]{false, false, false, false, false, false, false, false, false};
 	bool found;
 
+	/**
+	 * @brief Sets the default secondary speed and length.
+	 */
+	void setDefaultSecondarySpeedLength();
+
 public:
 
 	/**
