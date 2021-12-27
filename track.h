@@ -536,6 +536,12 @@ public:
 	void addLevelCrossing();
 
 	/**
+	 * @brief Gets if there is a level crossing as a QString.
+	 * @return QString "1" if there is a level crossing otherwise "0".
+	 */
+	QString levelCrossingToQString();
+
+	/**
 	 * @brief Converts StraightType to QString.
 	 * @return QString that is the StraightType.
 	 */

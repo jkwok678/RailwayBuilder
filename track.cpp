@@ -227,6 +227,11 @@ void StraightTrack::addLevelCrossing()
 	levelCrossing = true;
 }
 
+QString StraightTrack::levelCrossingToQString()
+{
+	return QString::number(levelCrossing);
+}
+
 QString StraightTrack::straightTypeToQString()
 {
 	QString straightTypeQString;
@@ -260,7 +265,7 @@ QString StraightTrack::toQString()
 	straightTrackQString.append(",");
     straightTrackQString.append(platformsToQString());
 	straightTrackQString.append(",");
-    straightTrackQString.append(QString::number(levelCrossing));
+	straightTrackQString.append(levelCrossingToQString());
 	return straightTrackQString;
 }
 
@@ -274,7 +279,7 @@ QString StraightTrack::toQStringForSave()
 	straightTrackQString.append(",");
     straightTrackQString.append(platformsToQString());
 	straightTrackQString.append(",");
-    straightTrackQString.append(QString::number(levelCrossing));
+	straightTrackQString.append(levelCrossingToQString());
 	return straightTrackQString;
 }
 
