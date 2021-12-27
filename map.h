@@ -492,7 +492,7 @@ public:
 
 
 	/**
-	 * @brief Checks if there is a linked track at that location
+	 * @brief Checks if there is a LinkedTrack at that location
 	 * @param locationX X coordinate.
 	 * @param locationY Y coordinate.
 	 * @return A bool, true if there is a linked track there false if not.
@@ -500,15 +500,15 @@ public:
 	bool hasLinkedTrackAt(int locationX, int locationY);
 
 	/**
-	 * @brief Connects the last two chosen linked tracks.
-	 * @param locationX X coordinate of a linked track.
-	 * @param locationY Y coordinate of a linked track.
+	 * @brief Connects the last two chosen LinkedTracks.
+	 * @param locationX X coordinate of a LinkedTrack.
+	 * @param locationY Y coordinate of a LinkedTrack.
 	 */
 	void connectTwoLinkedTracks(int locationX, int locationY);
 
 	/**
 	 * @brief Checks if all LinkedTracks are connected.
-	 * @return true if all linked tracks are connected, otherwise false.
+	 * @return true if all LinkedTracks are connected, otherwise false.
 	 */
 	bool checkAllLinkedTrackLinked();
 
@@ -550,6 +550,12 @@ public:
 	 */
 	std::shared_ptr<ExitTrack> getExitTrackAt(int locationX,int locationY);
 
+	/**
+	 * @brief Gets the ExitTrackList as a QString for file saving.
+	 * @return A QString of ExitTracks for file saving
+	 */
+	QString exitTrackListToQStringForSaving();
+
 	//BufferTrack related methods
 
 	/**
@@ -579,6 +585,12 @@ public:
 	 * @return BufferTrack at (X,Y) if there is one, otherwise return a nullptr.
 	 */
 	std::shared_ptr<BufferTrack> getBufferTrackAt(int locationX,int locationY);
+
+	/**
+	 * @brief Gets the BufferTrackList as a QString for file saving.
+	 * @return A QString of BufferTracks for file saving
+	 */
+	QString bufferTrackListToQStringForSaving();
 
 	//SignalTrack related methods
 

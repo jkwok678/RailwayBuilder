@@ -44,3 +44,23 @@ TEST(MapSavingQStringTest, linkedTrackListToQString) {
 	map->createAddLinkedTrack(LinkedType::LINKLEFTDOWN,542671,-232342);
 	EXPECT_EQ(map->linkedTrackListToQStringForSaving().toStdString(),"LR,1,2,200,100,0\nLU,100,6,200,100,0\nLLD,542671,-232342,200,100,0\n");
 }
+
+TEST(MapSavingQStringTest, exitTrackListToQString) {
+	Map *map = new Map();
+	map->createAddExitTrack(ExitType::EXITLEFT,1,2);
+	EXPECT_EQ(map->exitTrackListToQStringForSaving().toStdString(),"EL,1,2,200,100\n");
+	map->createAddExitTrack(ExitType::EXITRIGHTDOWN,100,6);
+	EXPECT_EQ(map->exitTrackListToQStringForSaving().toStdString(),"EL,1,2,200,100\nERD,100,6,200,100\n");
+	map->createAddExitTrack(ExitType::EXITUP,542671,-232342);
+	EXPECT_EQ(map->exitTrackListToQStringForSaving().toStdString(),"EL,1,2,200,100\nERD,100,6,200,100\nEU,542671,-232342,200,100\n");
+}
+
+TEST(MapSavingQStringTest, bufferTrackListToQString) {
+	Map *map = new Map();
+	map->createAddBufferTrack(BufferType::BUFFERLEFT,1,2);
+	EXPECT_EQ(map->bufferTrackListToQStringForSaving().toStdString(),"BL,1,2,200,100,0,0\n");
+	map->createAddBufferTrack(BufferType::BUFFERRIGHTDOWN,100,6);
+	EXPECT_EQ(map->bufferTrackListToQStringForSaving().toStdString(),"BL,1,2,200,100,0,0\nBRD,100,6,200,100,0,0\n");
+	map->createAddBufferTrack(BufferType::BUFFERUP,542671,-232342);
+	EXPECT_EQ(map->bufferTrackListToQStringForSaving().toStdString(),"BL,1,2,200,100,0,0\nBRD,100,6,200,100,0,0\nBU,542671,-232342,200,100,0,0\n");
+}

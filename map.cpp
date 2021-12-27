@@ -1046,6 +1046,17 @@ std::shared_ptr<ExitTrack> Map::getExitTrackAt(int locationX, int locationY)
 	return exitTrack;
 }
 
+QString Map::exitTrackListToQStringForSaving()
+{
+	QString exitTracksToSave = "";
+	for (std::shared_ptr<ExitTrack> exitTrack: exitTrackList)
+	{
+		exitTracksToSave.append(exitTrack->toQStringForSave());
+		exitTracksToSave.append("\n");
+	}
+	return exitTracksToSave;
+}
+
 
 //BufferTrack related methods
 
@@ -1082,6 +1093,17 @@ std::shared_ptr<BufferTrack> Map::getBufferTrackAt(int locationX, int locationY)
 		}
 	}
 	return bufferTrack;
+}
+
+QString Map::bufferTrackListToQStringForSaving()
+{
+	QString bufferTracksToSave = "";
+	for (std::shared_ptr<BufferTrack> bufferTrack: bufferTrackList)
+	{
+		bufferTracksToSave.append(bufferTrack->toQStringForSave());
+		bufferTracksToSave.append("\n");
+	}
+	return bufferTracksToSave;
 }
 
 
