@@ -1059,6 +1059,11 @@ void SignalTrack::setAspect(int newAspect)
 	aspect = newAspect;
 }
 
+QString SignalTrack::aspectToQString()
+{
+	return QString::number(aspect);
+}
+
 QString SignalTrack::signalTypeToQString()
 {
 	QString signalTypeQString;
@@ -1098,13 +1103,14 @@ QString SignalTrack::toQString()
 	signalTrackQString.append(",");
 	signalTrackQString.append(signalTypeToQString());
 	signalTrackQString.append(",");
+	signalTrackQString.append(aspectToQString());
+	signalTrackQString.append(",");
 	signalTrackQString.append(locationToQString());
 	signalTrackQString.append(",");
 	signalTrackQString.append(mainSpeedLengthToQString());
 	signalTrackQString.append(",");
     signalTrackQString.append(platformsToQString());
-    signalTrackQString.append(",");
-	signalTrackQString.append(QString::number(aspect));
+
 	return signalTrackQString;
 }
 
@@ -1112,13 +1118,15 @@ QString SignalTrack::toQStringForSave()
 {
 	QString signalTrackQString = signalTypeToQString();;
 	signalTrackQString.append(",");
+	signalTrackQString.append(aspectToQString());
+	signalTrackQString.append(",");
 	signalTrackQString.append(locationToQString());
 	signalTrackQString.append(",");
 	signalTrackQString.append(mainSpeedLengthToQString());
 	signalTrackQString.append(",");
     signalTrackQString.append(platformsToQString());
-    signalTrackQString.append(",");
-	signalTrackQString.append(QString::number(aspect));
+
+
 	return signalTrackQString;
 }
 

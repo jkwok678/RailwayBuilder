@@ -622,6 +622,12 @@ public:
 	 */
 	std::shared_ptr<SignalTrack> getSignalTrackAt(int locationX,int locationY);
 
+	/**
+	 * @brief Gets the SignalTrackList as a QString for file saving.
+	 * @return A QString of SignalTracks for file saving
+	 */
+	QString signalTrackListToQStringForSaving();
+
 	//BridgeUnderpassTrack related methods
 
 	/**

@@ -977,6 +977,12 @@ public:
 	void setAspect(int newAspect);
 
 	/**
+	 * @brief Gets the Signal aspect as a QString.
+	 * @return QString signal aspect.
+	 */
+	QString aspectToQString();
+
+	/**
 	 * @brief Get the type of SignalType.
 	 * @return  The SignalType enum.
 	 */

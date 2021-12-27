@@ -1144,6 +1144,17 @@ std::shared_ptr<SignalTrack> Map::getSignalTrackAt(int locationX, int locationY)
 	return signalTrack;
 }
 
+QString Map::signalTrackListToQStringForSaving()
+{
+	QString signalTracksToSave = "";
+	for (std::shared_ptr<SignalTrack> signalTrack: signalTrackList)
+	{
+		signalTracksToSave.append(signalTrack->toQStringForSave());
+		signalTracksToSave.append("\n");
+	}
+	return signalTracksToSave;
+}
+
 
 //BridgeUnderpassTrack related methods
 

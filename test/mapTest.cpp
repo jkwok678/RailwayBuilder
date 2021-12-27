@@ -64,3 +64,13 @@ TEST(MapSavingQStringTest, bufferTrackListToQString) {
 	map->createAddBufferTrack(BufferType::BUFFERUP,542671,-232342);
 	EXPECT_EQ(map->bufferTrackListToQStringForSaving().toStdString(),"BL,1,2,200,100,0,0\nBRD,100,6,200,100,0,0\nBU,542671,-232342,200,100,0,0\n");
 }
+
+TEST(MapSavingQStringTest, signalTrackListToQString) {
+	Map *map = new Map();
+	map->createAddSignalTrack(SignalType::SIGNALLEFT,4,1,2);
+	EXPECT_EQ(map->signalTrackListToQStringForSaving().toStdString(),"SIGL,4,1,2,200,100,0,0\n");
+	map->createAddSignalTrack(SignalType::SIGNALRIGHTDOWN,4,100,6);
+	EXPECT_EQ(map->signalTrackListToQStringForSaving().toStdString(),"SIGL,4,1,2,200,100,0,0\nSIGRD,4,100,6,200,100,0,0\n");
+	map->createAddSignalTrack(SignalType::SIGNALUP,4,542671,-232342);
+	EXPECT_EQ(map->signalTrackListToQStringForSaving().toStdString(),"SIGL,4,1,2,200,100,0,0\nSIGRD,4,100,6,200,100,0,0\nSIGU,4,542671,-232342,200,100,0,0\n");
+}
