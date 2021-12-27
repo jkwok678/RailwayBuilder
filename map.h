@@ -695,10 +695,10 @@ public:
 	std::shared_ptr<SwitchTrack> getSwitchTrackAt(int locationX,int locationY);
 
 	/**
-	 * @brief Gets the CrossoverTrackList as a QString for file saving.
-	 * @return A QString of CrossoverTracks for file saving
+	 * @brief Gets the SwitchTrackList as a QString for file saving.
+	 * @return A QString of SwitchTracks for file saving
 	 */
-	QString crossoverTrackListToQStringForSaving();
+	QString switchTrackListToQStringForSaving();
 
 	//CrossoverTrack related methods
 
@@ -729,6 +729,12 @@ public:
 	 * @return CrossoverTrack at (X,Y) if there is one, otherwise return a nullptr.
 	 */
 	std::shared_ptr<CrossoverTrack> getCrossoverTrackAt(int locationX,int locationY);
+
+	/**
+	 * @brief Gets the CrossoverTrackList as a QString for file saving.
+	 * @return A QString of CrossoverTracks for file saving
+	 */
+	QString crossoverTrackListToQStringForSaving();
 
 	//FlyoverTrack related methods
 

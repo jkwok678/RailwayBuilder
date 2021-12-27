@@ -85,6 +85,18 @@ TEST(MapSavingQStringTest, bridgeUnderpassTrackListToQString) {
 	EXPECT_EQ(map->bridgeUnderpassTrackListToQStringForSaving().toStdString(),"BR1,1,2,200,100,200,100,0,0\nBR2,100,6,200,100,200,100,0,0\nUP2,542671,-232342,200,100,200,100,0,0\n");
 }
 
+TEST(MapSavingQStringTest, switchTrackListToQString) {
+	Map *map = new Map();
+	map->createAddSwitchTrack(SwitchType::SWITCH1,1,2);
+	EXPECT_EQ(map->switchTrackListToQStringForSaving().toStdString(),"SW1,1,2,200,100,200,100,0,0\n");
+	map->createAddSwitchTrack(SwitchType::SWITCH15,100,6);
+	EXPECT_EQ(map->switchTrackListToQStringForSaving().toStdString(),"SW1,1,2,200,100,200,100,0,0\nSW15,100,6,200,100,200,100,0,0\n");
+	map->createAddSwitchTrack(SwitchType::SWITCHTIGHT5,542671,-232342);
+	EXPECT_EQ(map->switchTrackListToQStringForSaving().toStdString(),"SW1,1,2,200,100,200,100,0,0\nSW15,100,6,200,100,200,100,0,0\nSWT5,542671,-232342,200,100,200,100,0,0\n");
+	map->createAddSwitchTrack(SwitchType::SWITCHSPLIT3,2,-3);
+	EXPECT_EQ(map->switchTrackListToQStringForSaving().toStdString(),"SW1,1,2,200,100,200,100,0,0\nSW15,100,6,200,100,200,100,0,0\nSWT5,542671,-232342,200,100,200,100,0,0\nSWS3,2,-3,200,100,200,100,0,0\n");
+}
+
 TEST(MapSavingQStringTest, crossoverTrackListToQString) {
 	Map *map = new Map();
 	map->createAddCrossoverTrack(CrossoverType::CROSSOVER1,1,2);

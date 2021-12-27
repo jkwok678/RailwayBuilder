@@ -1242,16 +1242,18 @@ std::shared_ptr<SwitchTrack> Map::getSwitchTrackAt(int locationX, int locationY)
 	return switchTrack;
 }
 
-QString Map::crossoverTrackListToQStringForSaving()
+QString Map::switchTrackListToQStringForSaving()
 {
-	QString crossoverTracksToSave = "";
-	for (std::shared_ptr<CrossoverTrack> crossoverTrack: crossoverTrackList)
+	QString switchTracksToSave = "";
+	for (std::shared_ptr<SwitchTrack> switchTrack: switchTrackList)
 	{
-		crossoverTracksToSave.append(crossoverTrack->toQStringForSave());
-		crossoverTracksToSave.append("\n");
+		switchTracksToSave.append(switchTrack->toQStringForSave());
+		switchTracksToSave.append("\n");
 	}
-	return crossoverTracksToSave;
+	return switchTracksToSave;
 }
+
+
 
 
 //CrossoverTrack related methods
@@ -1294,6 +1296,16 @@ std::shared_ptr<CrossoverTrack> Map::getCrossoverTrackAt(int locationX, int loca
 	return crossoverTrack;
 }
 
+QString Map::crossoverTrackListToQStringForSaving()
+{
+	QString crossoverTracksToSave = "";
+	for (std::shared_ptr<CrossoverTrack> crossoverTrack: crossoverTrackList)
+	{
+		crossoverTracksToSave.append(crossoverTrack->toQStringForSave());
+		crossoverTracksToSave.append("\n");
+	}
+	return crossoverTracksToSave;
+}
 
 //FlyoverTrack related methods
 
