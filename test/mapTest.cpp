@@ -106,3 +106,13 @@ TEST(MapSavingQStringTest, crossoverTrackListToQString) {
 	map->createAddCrossoverTrack(CrossoverType::CROSSOVER6,542671,-232342);
 	EXPECT_EQ(map->crossoverTrackListToQStringForSaving().toStdString(),"CR1,1,2,200,100,200,100\nCR3,100,6,200,100,200,100\nCR6,542671,-232342,200,100,200,100\n");
 }
+
+TEST(MapSavingQStringTest, flyoverTrackListToQString) {
+	Map *map = new Map();
+	map->createAddFlyoverTrack(FlyoverType::FLYOVER1,1,2);
+	EXPECT_EQ(map->flyoverTrackListToQStringForSaving().toStdString(),"F1,1,2,200,100,200,100\n");
+	map->createAddFlyoverTrack(FlyoverType::FLYOVER6,100,6);
+	EXPECT_EQ(map->flyoverTrackListToQStringForSaving().toStdString(),"F1,1,2,200,100,200,100\nF6,100,6,200,100,200,100\n");
+	map->createAddFlyoverTrack(FlyoverType::FLYOVER11,542671,-232342);
+	EXPECT_EQ(map->flyoverTrackListToQStringForSaving().toStdString(),"F1,1,2,200,100,200,100\nF6,100,6,200,100,200,100\nF11,542671,-232342,200,100,200,100\n");
+}

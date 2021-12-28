@@ -1742,8 +1742,7 @@ FlyoverTrack::FlyoverTrack(FlyoverType newFlyoverType, int newLocationX, int new
 	flyoverType = newFlyoverType;
 	locationX = newLocationX;
 	locationY = newLocationY;
-	trackSecondaryLength = 100;
-	trackSecondaryLength = 200;
+	setDefaultSecondarySpeedLength();
 	//Bottom track is secondary
 	switch (flyoverType)
 	{

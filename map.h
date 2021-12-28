@@ -766,6 +766,12 @@ public:
 	 */
 	std::shared_ptr<FlyoverTrack> getFlyoverTrackAt(int locationX,int locationY);
 
+	/**
+	 * @brief Gets the FlyoverTrackList as a QString for file saving.
+	 * @return A QString of FlyoverTracks for file saving
+	 */
+	QString flyoverTrackListToQStringForSaving();
+
 	//NamedLocation related methods.
 
 	/**

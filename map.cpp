@@ -1346,6 +1346,17 @@ std::shared_ptr<FlyoverTrack> Map::getFlyoverTrackAt(int locationX, int location
 	return flyoverTrack;
 }
 
+QString Map::flyoverTrackListToQStringForSaving()
+{
+	QString flyoverTracksToSave = "";
+	for (std::shared_ptr<FlyoverTrack> flyoverTrack: flyoverTrackList)
+	{
+		flyoverTracksToSave.append(flyoverTrack->toQStringForSave());
+		flyoverTracksToSave.append("\n");
+	}
+	return flyoverTracksToSave;
+}
+
 
 //NamedLocation related methods
 
