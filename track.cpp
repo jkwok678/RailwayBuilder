@@ -235,6 +235,11 @@ void StraightTrack::addLevelCrossing()
 	levelCrossing = true;
 }
 
+void StraightTrack::removeLevelCrossing()
+{
+	levelCrossing = false;
+}
+
 QString StraightTrack::levelCrossingToQString()
 {
 	return QString::number(levelCrossing);

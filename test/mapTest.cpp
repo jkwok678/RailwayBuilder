@@ -1,4 +1,6 @@
 #include <gtest/gtest.h>
+#include <vector>
+#include <memory>
 #include <QFile>
 #include <QIODevice>
 #include "map.h"
@@ -9,6 +11,17 @@ TEST(MapSavingQStringTest, straightTrackListToQString) {
     Map *map = new Map();
     map->createAddStraightTrack(StraightType::STRAIGHTH,1,2);
     EXPECT_EQ(map->straightTrackListToQStringForSaving().toStdString(),"SH,1,2,200,100,0,0,0\n");
+	std::shared_ptr<StraightTrack> straightOne = map->getStraightTrackAt(1,2);
+	straightOne->setPlatform1(true);
+	EXPECT_EQ(map->straightTrackListToQStringForSaving().toStdString(),"SH,1,2,200,100,1,0,0\n");
+	straightOne->setPlatform2(true);
+	EXPECT_EQ(map->straightTrackListToQStringForSaving().toStdString(),"SH,1,2,200,100,1,1,0\n");
+	straightOne->setPlatform1(false);
+	EXPECT_EQ(map->straightTrackListToQStringForSaving().toStdString(),"SH,1,2,200,100,0,1,0\n");
+	straightOne->setPlatform2(false);
+	straightOne->addLevelCrossing();
+	EXPECT_EQ(map->straightTrackListToQStringForSaving().toStdString(),"SH,1,2,200,100,0,0,1\n");
+	straightOne->removeLevelCrossing();
     map->createAddStraightTrack(StraightType::STRAIGHTV,100,6);
     EXPECT_EQ(map->straightTrackListToQStringForSaving().toStdString(),"SH,1,2,200,100,0,0,0\nSV,100,6,200,100,0,0,0\n");
     map->createAddStraightTrack(StraightType::STRAIGHTLEFTUP,542671,-232342);
@@ -22,7 +35,12 @@ TEST(MapSavingQStringTest, directedTrackListToQString) {
     map->createAddDirectedTrack(DirectedType::DIRECTEDLEFTUP,100,6);
     EXPECT_EQ(map->directedTrackListToQStringForSaving().toStdString(),"DL,1,2,200,100,0,0\nDLU,100,6,200,100,0,0\n");
     map->createAddDirectedTrack(DirectedType::DIRECTEDRIGHTDOWN,542671,-232342);
+	std::shared_ptr<DirectedTrack> directedOne = map->getDirectedTrackAt(1,2);
+	std::shared_ptr<DirectedTrack> directedTwo = map->getDirectedTrackAt(100,6);
     EXPECT_EQ(map->directedTrackListToQStringForSaving().toStdString(),"DL,1,2,200,100,0,0\nDLU,100,6,200,100,0,0\nDRD,542671,-232342,200,100,0,0\n");
+	directedOne->setPlatform1(true);
+	directedTwo->setPlatform2(true);
+	EXPECT_EQ(map->directedTrackListToQStringForSaving().toStdString(),"DL,1,2,200,100,1,0\nDLU,100,6,200,100,0,1\nDRD,542671,-232342,200,100,0,0\n");
 }
 
 TEST(MapSavingQStringTest, curvedTrackListToQString) {
@@ -40,6 +58,7 @@ TEST(MapSavingQStringTest, linkedTrackListToQString) {
 	map->createAddLinkedTrack(LinkedType::LINKRIGHT,1,2);
 	EXPECT_EQ(map->linkedTrackListToQStringForSaving().toStdString(),"LR,1,2,200,100,0\n");
 	map->createAddLinkedTrack(LinkedType::LINKUP,100,6);
+	EXPECT_EQ(map->linkedTrackListToQStringForSaving().toStdString(),"LR,1,2,200,100,0\nLU,100,6,200,100,0\n");
 	EXPECT_EQ(map->linkedTrackListToQStringForSaving().toStdString(),"LR,1,2,200,100,0\nLU,100,6,200,100,0\n");
 	map->createAddLinkedTrack(LinkedType::LINKLEFTDOWN,542671,-232342);
 	EXPECT_EQ(map->linkedTrackListToQStringForSaving().toStdString(),"LR,1,2,200,100,0\nLU,100,6,200,100,0\nLLD,542671,-232342,200,100,0\n");

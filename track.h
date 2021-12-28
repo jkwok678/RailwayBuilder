@@ -536,9 +536,14 @@ public:
 	bool hasLevelCrossing() const;
 
 	/**
-	 * @brief Adds a level crossing to the current track.
+	 * @brief Adds a level crossing to this track..
 	 */
 	void addLevelCrossing();
+
+	/**
+	 * @brief Removes a level crossing from this track.
+	 */
+	void removeLevelCrossing();
 
 	/**
 	 * @brief Gets if there is a level crossing as a QString.
