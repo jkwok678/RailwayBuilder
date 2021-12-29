@@ -85,6 +85,13 @@ TEST(MapSavingQStringTest, bufferTrackListToQString) {
 	EXPECT_EQ(map->bufferTrackListToQStringForSaving().toStdString(),"BL,1,2,200,100,0,0\n");
 	map->createAddBufferTrack(BufferType::BUFFERRIGHTDOWN,100,6);
 	EXPECT_EQ(map->bufferTrackListToQStringForSaving().toStdString(),"BL,1,2,200,100,0,0\nBRD,100,6,200,100,0,0\n");
+	std::shared_ptr<BufferTrack> bufferOne = map->getBufferTrackAt(1,2);
+	std::shared_ptr<BufferTrack> bufferTwo = map->getBufferTrackAt(100,6);
+	bufferOne->setPlatform1(true);
+	bufferTwo->setPlatform2(true);
+	EXPECT_EQ(map->bufferTrackListToQStringForSaving().toStdString(),"BL,1,2,200,100,1,0\nBRD,100,6,200,100,0,1\n");
+	bufferOne->setPlatform1(false);
+	bufferTwo->setPlatform2(false);
 	map->createAddBufferTrack(BufferType::BUFFERUP,542671,-232342);
 	EXPECT_EQ(map->bufferTrackListToQStringForSaving().toStdString(),"BL,1,2,200,100,0,0\nBRD,100,6,200,100,0,0\nBU,542671,-232342,200,100,0,0\n");
 }
@@ -95,6 +102,13 @@ TEST(MapSavingQStringTest, signalTrackListToQString) {
 	EXPECT_EQ(map->signalTrackListToQStringForSaving().toStdString(),"SIGL,4,1,2,200,100,0,0\n");
 	map->createAddSignalTrack(SignalType::SIGNALRIGHTDOWN,4,100,6);
 	EXPECT_EQ(map->signalTrackListToQStringForSaving().toStdString(),"SIGL,4,1,2,200,100,0,0\nSIGRD,4,100,6,200,100,0,0\n");
+	std::shared_ptr<SignalTrack> signalOne = map->getSignalTrackAt(1,2);
+	std::shared_ptr<SignalTrack> signalTwo = map->getSignalTrackAt(100,6);
+	signalOne->setPlatform1(true);
+	signalTwo->setPlatform2(true);
+	EXPECT_EQ(map->signalTrackListToQStringForSaving().toStdString(),"SIGL,4,1,2,200,100,1,0\nSIGRD,4,100,6,200,100,0,1\n");
+	signalOne->setPlatform1(false);
+	signalTwo->setPlatform2(false);
 	map->createAddSignalTrack(SignalType::SIGNALUP,4,542671,-232342);
 	EXPECT_EQ(map->signalTrackListToQStringForSaving().toStdString(),"SIGL,4,1,2,200,100,0,0\nSIGRD,4,100,6,200,100,0,0\nSIGU,4,542671,-232342,200,100,0,0\n");
 }
