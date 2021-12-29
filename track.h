@@ -719,7 +719,6 @@ class LinkedTrack : public Track
 {
 private:
 	LinkedType linkedType;
-	bool linked;
 	std::shared_ptr<LinkedTrack> otherLinkTrack{nullptr};
 
 
@@ -755,16 +754,10 @@ public:
 	void setLinkedType(const LinkedType &newLinkedType);
 
 	/**
-	 * @brief Checks if the track is linked to another linked track.
-	 * @return A bool, true if it is linked and false if its not.
+	 * @brief Checks if the LinkedTrack is linked to another LinkedTrack.
+	 * @return true if it's linked otherwise false.
 	 */
-	bool getLinked() const;
-
-	/**
-	 * @brief Set whether the track is linked.
-	 * @param newLinked A bool that says if the track is linked.
-	 */
-	void setLinked(bool newLinked);
+	bool isLinked();
 
 	/**
 	 * @brief Get the linked track.

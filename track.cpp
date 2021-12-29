@@ -582,7 +582,6 @@ LinkedTrack::LinkedTrack(LinkedType newLinkedType, int newLocationX, int newLoca
 	linkedType = newLinkedType;
 	locationX = newLocationX;
 	locationY = newLocationY;
-	linked = false;
 	switch(linkedType)
 	{
 		case LinkedType::LINKLEFT:
@@ -638,14 +637,13 @@ void LinkedTrack::setLinkedType(const LinkedType &newLinkedType)
 	linkedType = newLinkedType;
 }
 
-bool LinkedTrack::getLinked() const
+bool LinkedTrack::isLinked()
 {
-	return linked;
-}
-
-void LinkedTrack::setLinked(bool newLinked)
-{
-	linked = newLinked;
+	if (otherLinkTrack == nullptr)
+	{
+		return false;
+	}
+	return true;
 }
 
 std::shared_ptr<LinkedTrack> LinkedTrack::getOtherLinkedTrack()
@@ -705,7 +703,7 @@ QString LinkedTrack::toQString()
 	linkedTrackQString.append(locationToQString());
 	linkedTrackQString.append(",");
 	linkedTrackQString.append(mainSpeedLengthToQString());
-	if (linked && otherLinkTrack != nullptr)
+	if (isLinked())
 	{
 		linkedTrackQString.append(",");
 		linkedTrackQString.append("1");
@@ -741,12 +739,12 @@ QString LinkedTrack::toQStringForSave()
 	linkedTrackQString.append(locationToQString());
 	linkedTrackQString.append(",");
 	linkedTrackQString.append(mainSpeedLengthToQString());
-	if (linked && otherLinkTrack != nullptr)
+	if (isLinked())
 	{
 		linkedTrackQString.append(",");
 		linkedTrackQString.append("1");
 		linkedTrackQString.append(",");
-		linkedTrackQString.append(otherLinkedTrackToQString());
+		linkedTrackQString.append(otherLinkedTrackToQStringForSave());
 
 	}
 	else

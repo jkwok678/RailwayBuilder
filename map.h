@@ -268,11 +268,6 @@ private:
 	void connectLinkedTrack();
 
 	/**
-	 * @brief A method that disconnects the 2 chosen LinkedTracks.
-	 */
-	void disconnectLinkedTrack(std::shared_ptr<LinkedTrack> linkTrack1, std::shared_ptr<LinkedTrack> linkedTrack2);
-
-	/**
 	 * @brief A method to reset the connectLinkedTrack mechanics.
 	 */
 	void resetConnectLinkedTrack();
@@ -505,6 +500,11 @@ public:
 	 * @param locationY Y coordinate of a LinkedTrack.
 	 */
 	void connectTwoLinkedTracks(int locationX, int locationY);
+
+	/**
+	 * @brief A method that disconnects the 2 chosen LinkedTracks.
+	 */
+	void disconnectLinkedTrack(std::shared_ptr<LinkedTrack> linkTrack1, std::shared_ptr<LinkedTrack> linkedTrack2);
 
 	/**
 	 * @brief Checks if all LinkedTracks are connected.

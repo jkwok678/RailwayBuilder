@@ -282,7 +282,7 @@ bool Map::removeLinkedTrack(int xLocation, int yLocation)
 		int currentY = currentElement->getLocationY();
 		if (currentX == xLocation && currentY == yLocation)
 		{
-			if (currentElement->getLinked())
+			if (currentElement->isLinked())
 			{
 				disconnectLinkedTrack(currentElement,currentElement->getOtherLinkedTrack());
 			}
@@ -460,17 +460,13 @@ void Map::connectLinkedTrack()
 {
 	linkedTrack1->setOtherLinkedTrack(linkedTrack2);
 	linkedTrack2->setOtherLinkedTrack(linkedTrack1);
-	linkedTrack1->setLinked(true);
-	linkedTrack2->setLinked(true);
 	resetConnectLinkedTrack();
 }
 
 void Map::disconnectLinkedTrack(std::shared_ptr<LinkedTrack> alreadyLinkedTrack1, std::shared_ptr<LinkedTrack> alreadyLinkedTrack2)
 {
 	alreadyLinkedTrack1->removeOtherLinkedTrack();
-	alreadyLinkedTrack1->setLinked(false);
 	alreadyLinkedTrack2->removeOtherLinkedTrack();
-	alreadyLinkedTrack2->setLinked(false);
 }
 
 void Map::resetConnectLinkedTrack()
@@ -957,18 +953,17 @@ void Map::connectTwoLinkedTracks(int locationX, int locationY)
 			if (temp2 != linkedTrack1)
 			{
 				linkedTrack2 = temp2;
-				if (!temp2->getLinked())
+				if (!temp2->isLinked())
 				{
-
 					connectLinkedTrack();
 				}
 				else
 				{
-					if (linkedTrack1->getLinked())
+					if (linkedTrack1->isLinked())
 					{
 						disconnectLinkedTrack(linkedTrack1,linkedTrack1->getOtherLinkedTrack());
 					}
-					if (linkedTrack2->getLinked())
+					if (linkedTrack2->isLinked())
 					{
 						disconnectLinkedTrack(linkedTrack2,linkedTrack2->getOtherLinkedTrack());
 					}
@@ -986,7 +981,7 @@ bool Map::checkAllLinkedTrackLinked()
 	{
 		for (std::shared_ptr<LinkedTrack> linkedTrack: linkedTrackList)
 		{
-			if (!linkedTrack->getLinked())
+			if (!linkedTrack->isLinked())
 			{
 				allLinkedTrackLinked = false;
 				break;

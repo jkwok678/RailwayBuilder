@@ -2523,7 +2523,7 @@ void Canvas::drawLinkedTrack(QPainter &painter)
 				{
 					case LinkedType::LINKLEFT:
 					{
-						if (!currentElement->getLinked())
+						if (!currentElement->isLinked())
 						{
 							painter.drawImage(displayX, displayY, *linkLeftUnsetImage);
 						}
@@ -2535,7 +2535,7 @@ void Canvas::drawLinkedTrack(QPainter &painter)
 					}
 					case LinkedType::LINKRIGHT:
 					{
-						if (!currentElement->getLinked())
+						if (!currentElement->isLinked())
 						{
 							painter.drawImage(displayX, displayY, *linkRightUnsetImage);
 						}
@@ -2547,7 +2547,7 @@ void Canvas::drawLinkedTrack(QPainter &painter)
 					}
 					case LinkedType::LINKDOWN:
 					{
-						if (!currentElement->getLinked())
+						if (!currentElement->isLinked())
 						{
 							painter.drawImage(displayX, displayY, *linkDownUnsetImage);
 						}
@@ -2559,7 +2559,7 @@ void Canvas::drawLinkedTrack(QPainter &painter)
 					}
 					case LinkedType::LINKUP:
 					{
-						if (!currentElement->getLinked())
+						if (!currentElement->isLinked())
 						{
 							painter.drawImage(displayX, displayY, *linkUpUnsetImage);
 						}
@@ -2571,7 +2571,7 @@ void Canvas::drawLinkedTrack(QPainter &painter)
 					}
 					case LinkedType::LINKLEFTUP:
 					{
-						if (!currentElement->getLinked())
+						if (!currentElement->isLinked())
 						{
 							painter.drawImage(displayX, displayY, *linkLeftUpUnsetImage);
 						}
@@ -2583,7 +2583,7 @@ void Canvas::drawLinkedTrack(QPainter &painter)
 					}
 					case LinkedType::LINKRIGHTUP:
 					{
-						if (!currentElement->getLinked())
+						if (!currentElement->isLinked())
 						{
 							painter.drawImage(displayX, displayY, *linkRightUpUnsetImage);
 						}
@@ -2595,7 +2595,7 @@ void Canvas::drawLinkedTrack(QPainter &painter)
 					}
 					case LinkedType::LINKRIGHTDOWN:
 					{
-						if (!currentElement->getLinked())
+						if (!currentElement->isLinked())
 						{
 							painter.drawImage(displayX, displayY, *linkRightDownUnsetImage);
 						}
@@ -2607,7 +2607,7 @@ void Canvas::drawLinkedTrack(QPainter &painter)
 					}
 					case LinkedType::LINKLEFTDOWN:
 					{
-						if (!currentElement->getLinked())
+						if (!currentElement->isLinked())
 						{
 							painter.drawImage(displayX, displayY, *linkLeftDownUnsetImage);
 						}
@@ -2659,7 +2659,7 @@ void Canvas::drawConnectTrackHints(QPainter &painter)
 		int displayY = 0-(currentY - maxDisplayY);
 		if (currentElement != linkedTrack1 && currentElement != linkedTrack2)
 		{
-			if (!currentElement->getLinked())
+			if (!currentElement->isLinked())
 			{
 				painter.drawImage(displayX,displayY,*selectRed);
 			}

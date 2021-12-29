@@ -59,7 +59,12 @@ TEST(MapSavingQStringTest, linkedTrackListToQString) {
 	EXPECT_EQ(map->linkedTrackListToQStringForSaving().toStdString(),"LR,1,2,200,100,0\n");
 	map->createAddLinkedTrack(LinkedType::LINKUP,100,6);
 	EXPECT_EQ(map->linkedTrackListToQStringForSaving().toStdString(),"LR,1,2,200,100,0\nLU,100,6,200,100,0\n");
-	EXPECT_EQ(map->linkedTrackListToQStringForSaving().toStdString(),"LR,1,2,200,100,0\nLU,100,6,200,100,0\n");
+	std::shared_ptr<LinkedTrack> linkedOne = map->getLinkedTrackAt(1,2);
+	std::shared_ptr<LinkedTrack> linkedTwo = map->getLinkedTrackAt(100,6);
+	linkedOne->setOtherLinkedTrack(linkedTwo);
+	linkedTwo->setOtherLinkedTrack(linkedOne);
+	EXPECT_EQ(map->linkedTrackListToQStringForSaving().toStdString(),"LR,1,2,200,100,1,LU,100,6,200,100\nLU,100,6,200,100,1,LR,1,2,200,100\n");
+	map->disconnectLinkedTrack(linkedOne,linkedTwo);
 	map->createAddLinkedTrack(LinkedType::LINKLEFTDOWN,542671,-232342);
 	EXPECT_EQ(map->linkedTrackListToQStringForSaving().toStdString(),"LR,1,2,200,100,0\nLU,100,6,200,100,0\nLLD,542671,-232342,200,100,0\n");
 }
