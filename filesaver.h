@@ -13,7 +13,7 @@ private:
 public:
 	Filesaver(QString newPath);
 	bool saveRailwayAs(Map map);
-	bool createQStringToWrite(Map map);
+	std::vector<QString> prepareFileContentToWrite(Map map);
 };
 
 #endif // FILESAVER_H

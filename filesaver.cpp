@@ -23,12 +23,26 @@ bool Filesaver::saveRailwayAs(Map map)
 		}
 		else
 		{
+			QTextStream writer(&file);
+			std::vector<QString> toWrite = prepareFileContentToWrite(map);
+			for (int i=0; i<toWrite.size(); i++)
+			{
+				writer << toWrite[i];
+			}
 			return true;
 		}
 	}
 }
 
-bool Filesaver::createQStringToWrite(Map map)
+std::vector<QString> Filesaver::prepareFileContentToWrite(Map map)
 {
-	return true;
+	std::vector<QString> toSave(0);
+	toSave.push_back("StraightTrack\n");
+	toSave.push_back(map.straightTrackListToQStringForSaving());
+	toSave.push_back("DirectedTrack\n");
+	toSave.push_back(map.directedTrackListToQStringForSaving());
+	return toSave;
 }
+
+
+
