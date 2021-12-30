@@ -1153,7 +1153,6 @@ BridgeUnderpassTrack::BridgeUnderpassTrack(BridgeUnderpassType newBridgeUnderpas
 	bridgeUnderpassType = newBridgeUnderpassType;
 	locationX = newLocationX;
 	locationY = newLocationY;
-	setDefaultSecondarySpeedLength();
 	switch (bridgeUnderpassType)
 	{
 		case BridgeUnderpassType::BRIDGE1:
@@ -1214,8 +1213,6 @@ QString BridgeUnderpassTrack::toQString()
 	bridgeUnderpassTrackQString.append(",");
 	bridgeUnderpassTrackQString.append(mainSpeedLengthToQString());
 	bridgeUnderpassTrackQString.append(",");
-	bridgeUnderpassTrackQString.append(secondarySpeedLengthToQString());
-    bridgeUnderpassTrackQString.append(",");
     bridgeUnderpassTrackQString.append(platformsToQString());
 
 	return bridgeUnderpassTrackQString;
@@ -1229,8 +1226,6 @@ QString BridgeUnderpassTrack::toQStringForSave()
 	bridgeUnderpassTrackQString.append(",");
 	bridgeUnderpassTrackQString.append(mainSpeedLengthToQString());
 	bridgeUnderpassTrackQString.append(",");
-	bridgeUnderpassTrackQString.append(secondarySpeedLengthToQString());
-    bridgeUnderpassTrackQString.append(",");
     bridgeUnderpassTrackQString.append(platformsToQString());
 	return bridgeUnderpassTrackQString;
 }
