@@ -41,6 +41,8 @@ std::vector<QString> Filesaver::prepareFileContentToWrite(Map *map)
 	toSave.push_back(map->straightTrackListToQStringForSaving());
 	toSave.push_back("DirectedTrack\n");
 	toSave.push_back(map->directedTrackListToQStringForSaving());
+	toSave.push_back("CurvedTrack\n");
+	toSave.push_back(map->curvedTrackListToQStringForSaving());
 	return toSave;
 }
 
