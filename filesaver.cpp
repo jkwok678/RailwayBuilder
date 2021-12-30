@@ -5,7 +5,7 @@ Filesaver::Filesaver(QString newPath)
 	path = newPath;
 }
 
-bool Filesaver::saveRailwayAs(Map map)
+bool Filesaver::saveRailwayAs(Map *map)
 {
 
 	if (path.isEmpty())
@@ -34,13 +34,13 @@ bool Filesaver::saveRailwayAs(Map map)
 	}
 }
 
-std::vector<QString> Filesaver::prepareFileContentToWrite(Map map)
+std::vector<QString> Filesaver::prepareFileContentToWrite(Map *map)
 {
 	std::vector<QString> toSave(0);
 	toSave.push_back("StraightTrack\n");
-	toSave.push_back(map.straightTrackListToQStringForSaving());
+	toSave.push_back(map->straightTrackListToQStringForSaving());
 	toSave.push_back("DirectedTrack\n");
-	toSave.push_back(map.directedTrackListToQStringForSaving());
+	toSave.push_back(map->directedTrackListToQStringForSaving());
 	return toSave;
 }
 
