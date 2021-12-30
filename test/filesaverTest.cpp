@@ -62,3 +62,36 @@ TEST(FilesaverSaveFileTest, writeCurvedTrackLinkedTrack) {
 	line = in.readLine();
 	EXPECT_EQ(line.toStdString(),"LLD,4,4,200,100,0");
 }
+
+TEST(FilesaverSaveFileTest, writeExitTrackBufferTrack) {
+	Map *map = new Map();
+	map->createAddExitTrack(ExitType::EXITLEFT,1,1);
+	map->createAddExitTrack(ExitType::EXITRIGHTDOWN,2,2);
+	map->createAddBufferTrack(BufferType::BUFFERLEFT,3,3);
+	map->createAddBufferTrack(BufferType::BUFFERRIGHTDOWN,4,4);
+	Filesaver *filesaver = new Filesaver("./test_result.rly2");
+	filesaver->saveRailwayAs(map);
+	QFile file("./test_result.rly2");
+	file.open(QIODevice::ReadOnly);
+	QTextStream in(&file);
+	QString line = in.readLine();
+	EXPECT_EQ(line.toStdString(),"StraightTrack");
+	line = in.readLine();
+	EXPECT_EQ(line.toStdString(),"DirectedTrack");
+	line = in.readLine();
+	EXPECT_EQ(line.toStdString(),"CurvedTrack");
+	line = in.readLine();
+	EXPECT_EQ(line.toStdString(),"LinkedTrack");
+	line = in.readLine();
+	EXPECT_EQ(line.toStdString(),"ExitTrack");
+	line = in.readLine();
+	EXPECT_EQ(line.toStdString(),"EL,1,1,200,100");
+	line = in.readLine();
+	EXPECT_EQ(line.toStdString(),"ERD,2,2,200,100");
+	line = in.readLine();
+	EXPECT_EQ(line.toStdString(),"BufferTrack");
+	line = in.readLine();
+	EXPECT_EQ(line.toStdString(),"BL,3,3,200,100,0,0");
+	line = in.readLine();
+	EXPECT_EQ(line.toStdString(),"BRD,4,4,200,100,0,0");
+}
