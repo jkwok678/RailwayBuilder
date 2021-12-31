@@ -59,6 +59,10 @@ std::vector<QString> Filesaver::prepareFileContentToWrite(Map *map)
 	toSave.push_back(map->crossoverTrackListToQStringForSaving());
 	toSave.push_back("FlyoverTrack\n");
 	toSave.push_back(map->flyoverTrackListToQStringForSaving());
+	toSave.push_back("NamedLocation\n");
+	toSave.push_back(map->namedLocationListToQStringForSaving());
+	toSave.push_back("Concourse\n");
+	toSave.push_back(map->concourseListToQStringForSaving());
 	return toSave;
 }
 

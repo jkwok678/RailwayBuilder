@@ -801,6 +801,12 @@ public:
 	 */
 	std::shared_ptr<NamedLocation> getNamedLocationAt(int locationX,int locationY);
 
+	/**
+	 * @brief Gets the NamedLocationList as a QString for file saving.
+	 * @return A QString of NamedLocations for file saving
+	 */
+	QString namedLocationListToQStringForSaving();
+
 	//Concourse related methods.
 
 	/**
@@ -829,6 +835,12 @@ public:
 	 * @return Concourse at (X,Y) if there is one, otherwise return a nullptr.
 	 */
 	std::shared_ptr<Concourse> getConcourseAt(int locationX,int locationY);
+
+	/**
+	 * @brief Gets the ConcourseList as a QString for file saving.
+	 * @return A QString of Concourse for file saving
+	 */
+	QString concourseListToQStringForSaving();
 
 	//Parapet related methods.
 

@@ -184,3 +184,51 @@ TEST(FilesaverSaveFileTest, writeSwitchTrackCrossoverTrackFlyoverTrack) {
 	line = in.readLine();
 	EXPECT_EQ(line.toStdString(),"F12,7,7,200,100,200,100");
 }
+
+TEST(FilesaverSaveFileTest, writeNamedLocationConcourse) {
+	Map *map = new Map();
+	map->createAddNamedLocation(1,1);
+	map->createAddNamedLocation(2,2);
+	map->createAddConcourse(3,3);
+	map->createAddConcourse(4,4);
+	Filesaver *filesaver = new Filesaver("./test_result.rly2");
+	filesaver->saveRailwayAs(map);
+	QFile file("./test_result.rly2");
+	file.open(QIODevice::ReadOnly);
+	QTextStream in(&file);
+	QString line = in.readLine();
+	EXPECT_EQ(line.toStdString(),"StraightTrack");
+	line = in.readLine();
+	EXPECT_EQ(line.toStdString(),"DirectedTrack");
+	line = in.readLine();
+	EXPECT_EQ(line.toStdString(),"CurvedTrack");
+	line = in.readLine();
+	EXPECT_EQ(line.toStdString(),"LinkedTrack");
+	line = in.readLine();
+	EXPECT_EQ(line.toStdString(),"ExitTrack");
+	line = in.readLine();
+	EXPECT_EQ(line.toStdString(),"BufferTrack");
+	line = in.readLine();
+	EXPECT_EQ(line.toStdString(),"SignalTrack");
+	line = in.readLine();
+	EXPECT_EQ(line.toStdString(),"BridgeUnderpassTrack");
+	line = in.readLine();
+	EXPECT_EQ(line.toStdString(),"SwitchTrack");
+	line = in.readLine();
+	EXPECT_EQ(line.toStdString(),"CrossoverTrack");
+	line = in.readLine();
+	EXPECT_EQ(line.toStdString(),"FlyoverTrack");
+	line = in.readLine();
+	EXPECT_EQ(line.toStdString(),"NamedLocation");
+	line = in.readLine();
+	EXPECT_EQ(line.toStdString(),"1,1");
+	line = in.readLine();
+	EXPECT_EQ(line.toStdString(),"2,2");
+	line = in.readLine();
+	EXPECT_EQ(line.toStdString(),"Concourse");
+	line = in.readLine();
+	EXPECT_EQ(line.toStdString(),"3,3");
+	line = in.readLine();
+	EXPECT_EQ(line.toStdString(),"4,4");
+
+}

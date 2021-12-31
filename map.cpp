@@ -1390,6 +1390,17 @@ std::shared_ptr<NamedLocation> Map::getNamedLocationAt(int locationX, int locati
 	return namedLocation;
 }
 
+QString Map::namedLocationListToQStringForSaving()
+{
+	QString namedLocationToSave = "";
+	for (std::shared_ptr<NamedLocation> namedLocation: namedLocationList)
+	{
+		namedLocationToSave.append(namedLocation->toQStringForSave());
+		namedLocationToSave.append("\n");
+	}
+	return namedLocationToSave;
+}
+
 
 //Concourse related methods
 
@@ -1426,6 +1437,17 @@ std::shared_ptr<Concourse> Map::getConcourseAt(int locationX, int locationY)
 		}
 	}
 	return concourse;
+}
+
+QString Map::concourseListToQStringForSaving()
+{
+	QString concourseToSave = "";
+	for (std::shared_ptr<Concourse> concourse: concourseList)
+	{
+		concourseToSave.append(concourse->toQStringForSave());
+		concourseToSave.append("\n");
+	}
+	return concourseToSave;
 }
 
 
