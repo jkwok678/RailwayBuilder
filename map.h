@@ -871,6 +871,12 @@ public:
 	 */
 	std::shared_ptr<Parapet> getParapetAt(int locationX,int locationY);
 
+	/**
+	 * @brief Gets the ParapetList as a QString for file saving.
+	 * @return A QString of Parapet for file saving
+	 */
+	QString parapetListToQStringForSaving();
+
 	//Text related methods.
 
 	/**
@@ -973,6 +979,11 @@ public:
 	 */
 	void linkLocalText(int locationX, int locationY, std::shared_ptr<Text> linkedText);
 
+	/**
+	 * @brief Gets the TextList as a QString for file saving.
+	 * @return A QString of Text for file saving
+	 */
+	QString textListToQStringForSaving();
 
 	//Platform related methods
 

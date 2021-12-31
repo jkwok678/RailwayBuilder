@@ -1490,6 +1490,17 @@ std::shared_ptr<Parapet> Map::getParapetAt(int locationX, int locationY)
 	return parapet;
 }
 
+QString Map::parapetListToQStringForSaving()
+{
+	QString parapetToSave = "";
+	for (std::shared_ptr<Parapet> parapet: parapetList)
+	{
+		parapetToSave.append(parapet->toQStringForSave());
+		parapetToSave.append("\n");
+	}
+	return parapetToSave;
+}
+
 //Text related methods
 
 std::vector<std::shared_ptr<Text> > Map::getTextList() const
@@ -1976,6 +1987,17 @@ void Map::linkLocalText(int locationX, int locationY, std::shared_ptr<Text> link
 			}
 		}
 	}
+}
+
+QString Map::textListToQStringForSaving()
+{
+	QString textToSave = "";
+	for (std::shared_ptr<Text> text: textList)
+	{
+		textToSave.append(text->toQStringForSave());
+		textToSave.append("\n");
+	}
+	return textToSave;
 }
 
 //Platform related methods
