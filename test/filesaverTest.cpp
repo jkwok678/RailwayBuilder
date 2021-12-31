@@ -132,3 +132,55 @@ TEST(FilesaverSaveFileTest, writeSignalTrackBridgeUnderpassTrack) {
 	line = in.readLine();
 	EXPECT_EQ(line.toStdString(),"UP1,4,4,200,100,0,0");
 }
+
+TEST(FilesaverSaveFileTest, writeSwitchTrackCrossoverTrackFlyoverTrack) {
+	Map *map = new Map();
+	map->createAddSwitchTrack(SwitchType::SWITCH1,1,1);
+	map->createAddSwitchTrack(SwitchType::SWITCHSPLIT1,2,2);
+	map->createAddSwitchTrack(SwitchType::SWITCHTIGHT1,3,3);
+	map->createAddCrossoverTrack(CrossoverType::CROSSOVER1,4,4);
+	map->createAddCrossoverTrack(CrossoverType::CROSSOVER2,5,5);
+	map->createAddFlyoverTrack(FlyoverType::FLYOVER1,6,6);
+	map->createAddFlyoverTrack(FlyoverType::FLYOVER12,7,7);
+	Filesaver *filesaver = new Filesaver("./test_result.rly2");
+	filesaver->saveRailwayAs(map);
+	QFile file("./test_result.rly2");
+	file.open(QIODevice::ReadOnly);
+	QTextStream in(&file);
+	QString line = in.readLine();
+	EXPECT_EQ(line.toStdString(),"StraightTrack");
+	line = in.readLine();
+	EXPECT_EQ(line.toStdString(),"DirectedTrack");
+	line = in.readLine();
+	EXPECT_EQ(line.toStdString(),"CurvedTrack");
+	line = in.readLine();
+	EXPECT_EQ(line.toStdString(),"LinkedTrack");
+	line = in.readLine();
+	EXPECT_EQ(line.toStdString(),"ExitTrack");
+	line = in.readLine();
+	EXPECT_EQ(line.toStdString(),"BufferTrack");
+	line = in.readLine();
+	EXPECT_EQ(line.toStdString(),"SignalTrack");
+	line = in.readLine();
+	EXPECT_EQ(line.toStdString(),"BridgeUnderpassTrack");
+	line = in.readLine();
+	EXPECT_EQ(line.toStdString(),"SwitchTrack");
+	line = in.readLine();
+	EXPECT_EQ(line.toStdString(),"SW1,1,1,200,100,200,100,0,0");
+	line = in.readLine();
+	EXPECT_EQ(line.toStdString(),"SWS1,2,2,200,100,200,100,0,0");
+	line = in.readLine();
+	EXPECT_EQ(line.toStdString(),"SWT1,3,3,200,100,200,100,0,0");
+	line = in.readLine();
+	EXPECT_EQ(line.toStdString(),"CrossoverTrack");
+	line = in.readLine();
+	EXPECT_EQ(line.toStdString(),"CR1,4,4,200,100,200,100");
+	line = in.readLine();
+	EXPECT_EQ(line.toStdString(),"CR2,5,5,200,100,200,100");
+	line = in.readLine();
+	EXPECT_EQ(line.toStdString(),"FlyoverTrack");
+	line = in.readLine();
+	EXPECT_EQ(line.toStdString(),"F1,6,6,200,100,200,100");
+	line = in.readLine();
+	EXPECT_EQ(line.toStdString(),"F12,7,7,200,100,200,100");
+}
