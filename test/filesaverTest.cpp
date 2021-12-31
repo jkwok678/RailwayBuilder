@@ -232,3 +232,56 @@ TEST(FilesaverSaveFileTest, writeNamedLocationConcourse) {
 	EXPECT_EQ(line.toStdString(),"4,4");
 
 }
+
+TEST(FilesaverSaveFileTest, writeParapetText) {
+	Map *map = new Map();
+	QFont serifFont("Times", 10, QFont::Bold);
+	map->createAddParapet(ParapetType::PARAPET1,1,1);
+	map->createAddParapet(ParapetType::PARAPET28,2,2);
+	map->createAddText(3,3,"Text1",serifFont);
+	map->createAddText(4,4,"Text2",serifFont);
+	Filesaver *filesaver = new Filesaver("./test_result.rly2");
+	filesaver->saveRailwayAs(map);
+	QFile file("./test_result.rly2");
+	file.open(QIODevice::ReadOnly);
+	QTextStream in(&file);
+	QString line = in.readLine();
+	EXPECT_EQ(line.toStdString(),"StraightTrack");
+	line = in.readLine();
+	EXPECT_EQ(line.toStdString(),"DirectedTrack");
+	line = in.readLine();
+	EXPECT_EQ(line.toStdString(),"CurvedTrack");
+	line = in.readLine();
+	EXPECT_EQ(line.toStdString(),"LinkedTrack");
+	line = in.readLine();
+	EXPECT_EQ(line.toStdString(),"ExitTrack");
+	line = in.readLine();
+	EXPECT_EQ(line.toStdString(),"BufferTrack");
+	line = in.readLine();
+	EXPECT_EQ(line.toStdString(),"SignalTrack");
+	line = in.readLine();
+	EXPECT_EQ(line.toStdString(),"BridgeUnderpassTrack");
+	line = in.readLine();
+	EXPECT_EQ(line.toStdString(),"SwitchTrack");
+	line = in.readLine();
+	EXPECT_EQ(line.toStdString(),"CrossoverTrack");
+	line = in.readLine();
+	EXPECT_EQ(line.toStdString(),"FlyoverTrack");
+	line = in.readLine();
+	EXPECT_EQ(line.toStdString(),"NamedLocation");
+	line = in.readLine();
+	EXPECT_EQ(line.toStdString(),"Concourse");
+	line = in.readLine();
+	EXPECT_EQ(line.toStdString(),"Parapet");
+	line = in.readLine();
+	EXPECT_EQ(line.toStdString(),"P1,1,1");
+	line = in.readLine();
+	EXPECT_EQ(line.toStdString(),"P28,2,2");
+	line = in.readLine();
+	EXPECT_EQ(line.toStdString(),"Text");
+	line = in.readLine();
+	EXPECT_EQ(line.toStdString(),"3,3,Text1,Times,10,-1,5,700,0,0,0,0,0,0,0,0,0,0,1");
+	line = in.readLine();
+	EXPECT_EQ(line.toStdString(),"4,4,Text2,Times,10,-1,5,700,0,0,0,0,0,0,0,0,0,0,1");
+
+}

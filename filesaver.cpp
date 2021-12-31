@@ -63,6 +63,10 @@ std::vector<QString> Filesaver::prepareFileContentToWrite(Map *map)
 	toSave.push_back(map->namedLocationListToQStringForSaving());
 	toSave.push_back("Concourse\n");
 	toSave.push_back(map->concourseListToQStringForSaving());
+	toSave.push_back("Parapet\n");
+	toSave.push_back(map->parapetListToQStringForSaving());
+	toSave.push_back("Text\n");
+	toSave.push_back(map->textListToQStringForSaving());
 	return toSave;
 }
 
