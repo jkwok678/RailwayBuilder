@@ -37,6 +37,8 @@ bool Filesaver::saveRailwayAs(Map *map)
 std::vector<QString> Filesaver::prepareFileContentToWrite(Map *map)
 {
 	std::vector<QString> toSave(0);
+	toSave.push_back("Text\n");
+	toSave.push_back(map->textListToQStringForSaving());
 	toSave.push_back("StraightTrack\n");
 	toSave.push_back(map->straightTrackListToQStringForSaving());
 	toSave.push_back("DirectedTrack\n");
@@ -65,8 +67,6 @@ std::vector<QString> Filesaver::prepareFileContentToWrite(Map *map)
 	toSave.push_back(map->concourseListToQStringForSaving());
 	toSave.push_back("Parapet\n");
 	toSave.push_back(map->parapetListToQStringForSaving());
-	toSave.push_back("Text\n");
-	toSave.push_back(map->textListToQStringForSaving());
 	return toSave;
 }
 
