@@ -11,8 +11,9 @@ class Filesaver
 private:
 	static QString lastSavedPath;
 public:
+	Filesaver();
 	Filesaver(QString newPath);
-	bool saveRailwayAs(Map *map);
+	bool saveRailway(Map *map);
 	std::vector<QString> prepareFileContentToWrite(Map *map);
 };
 

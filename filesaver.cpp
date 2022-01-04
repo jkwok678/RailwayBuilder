@@ -1,28 +1,41 @@
 #include "filesaver.h"
 
+Filesaver::Filesaver()
+{
+	lastSavedPath = "";
+}
+
 Filesaver::Filesaver(QString newPath)
 {
 	lastSavedPath = newPath;
 }
 
-bool Filesaver::saveRailwayAs(Map *map)
+bool Filesaver::saveRailway(Map *map)
 {
 
-	QFile file (lastSavedPath);
-	if (!file.open(QIODevice::WriteOnly))
+	if (lastSavedPath.isEmpty())
 	{
 		//Show error message
 		return false;
 	}
 	else
 	{
-		QTextStream writer(&file);
-		std::vector<QString> toWrite = prepareFileContentToWrite(map);
-		for (int i=0; i<toWrite.size(); i++)
+		QFile file (lastSavedPath);
+		if (!file.open(QIODevice::WriteOnly))
 		{
-			writer << toWrite[i];
+			//Show error message
+			return false;
 		}
-		return true;
+		else
+		{
+			QTextStream writer(&file);
+			std::vector<QString> toWrite = prepareFileContentToWrite(map);
+			for (int i=0; i<toWrite.size(); i++)
+			{
+				writer << toWrite[i];
+			}
+			return true;
+		}
 	}
 }
 

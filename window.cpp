@@ -148,12 +148,14 @@ void Window::saveRailwayAs()
 							   tr("Railway2 File (*.rly2)"));
 	Map* map = drawingArea->getMap();
 	Filesaver* filesaver = new Filesaver(fileName);
-	filesaver->saveRailwayAs(map);
+	filesaver->saveRailway(map);
 }
 
 void Window::saveRailway()
 {
-
+	Map* map = drawingArea->getMap();
+	Filesaver* filesaver = new Filesaver();
+	filesaver->saveRailway(map);
 }
 
 
