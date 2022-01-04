@@ -235,6 +235,7 @@ bool Map::removeStraightTrack(int xLocation, int yLocation)
 		if (currentX == xLocation && currentY == yLocation)
 		{
 			straightTrackList.erase(straightTrackList.begin() + i);
+			--totalTrack;
 			return true;
 		}
 	}
@@ -251,6 +252,7 @@ bool Map::removeDirectedTrack(int xLocation, int yLocation)
 		if (currentX == xLocation && currentY == yLocation)
 		{
 			directedTrackList.erase(directedTrackList.begin() + i);
+			--totalTrack;
 			return true;
 		}
 	}
@@ -267,6 +269,7 @@ bool Map::removeCurvedTrack(int xLocation, int yLocation)
 		if (currentX == xLocation && currentY == yLocation)
 		{
 			curvedTrackList.erase(curvedTrackList.begin() + i);
+			--totalTrack;
 			return true;
 		}
 	}
@@ -287,6 +290,7 @@ bool Map::removeLinkedTrack(int xLocation, int yLocation)
 				disconnectLinkedTrack(currentElement,currentElement->getOtherLinkedTrack());
 			}
 			linkedTrackList.erase(linkedTrackList.begin() + i);
+			--totalTrack;
 			return true;
 		}
 	}
@@ -303,6 +307,7 @@ bool Map::removeExitTrack(int xLocation, int yLocation)
 		if (currentX == xLocation && currentY == yLocation)
 		{
 			exitTrackList.erase(exitTrackList.begin() + i);
+			--totalTrack;
 			return true;
 		}
 	}
@@ -319,6 +324,7 @@ bool Map::removeBufferTrack(int xLocation, int yLocation)
 		if (currentX == xLocation && currentY == yLocation)
 		{
 			bufferTrackList.erase(bufferTrackList.begin() + i);
+			--totalTrack;
 			return true;
 		}
 	}
@@ -336,6 +342,7 @@ bool Map::removeSignalTrack(int xLocation, int yLocation)
 		if (currentX == xLocation && currentY == yLocation)
 		{
 			signalTrackList.erase(signalTrackList.begin() + i);
+			--totalTrack;
 			return true;
 		}
 	}
@@ -352,6 +359,7 @@ bool Map::removeBridgeUnderpassTrack(int xLocation, int yLocation)
 		if (currentX == xLocation && currentY == yLocation)
 		{
 			bridgeUnderpassTrackList.erase(bridgeUnderpassTrackList.begin() + i);
+			--totalTrack;
 			return true;
 		}
 	}
@@ -368,6 +376,7 @@ bool Map::removeSwitchTrack(int xLocation, int yLocation)
 		if (currentX == xLocation && currentY == yLocation)
 		{
 			switchTrackList.erase(switchTrackList.begin() + i);
+			--totalTrack;
 			return true;
 		}
 	}
@@ -384,6 +393,7 @@ bool Map::removeCrossoverTrack(int xLocation, int yLocation)
 		if (currentX == xLocation && currentY == yLocation)
 		{
 			crossoverTrackList.erase(crossoverTrackList.begin() + i);
+			--totalTrack;
 			return true;
 		}
 	}
@@ -400,6 +410,7 @@ bool Map::removeFlyoverTrack(int xLocation, int yLocation)
 		if (currentX == xLocation && currentY == yLocation)
 		{
 			flyoverTrackList.erase(flyoverTrackList.begin() + i);
+			--totalTrack;
 			return true;
 		}
 	}

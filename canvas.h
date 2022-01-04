@@ -235,7 +235,13 @@ public:
 	/**
 	 * @brief Checks all the tracks in the map class to see if they are all connected with no unconnected ends.
 	 */
-	void checkAllTracksInMapConnected();
+	bool checkAllTracksInMapConnected();
+
+	/**
+	 * @brief Get total number of tracks.
+	 * @return tracks Number of tracks as an int.
+	 */
+	int getTrackTotal();
 
 	/**
 	 * @brief Create and add the element to the coordinates.
