@@ -1,43 +1,6 @@
 #include "filesaver.h"
 
-Filesaver::Filesaver()
-{
-	lastSavedPath = "";
-}
-
-Filesaver::Filesaver(QString newPath)
-{
-	lastSavedPath = newPath;
-}
-
-bool Filesaver::saveRailway(Map *map)
-{
-
-	if (lastSavedPath.isEmpty())
-	{
-		//Show error message
-		return false;
-	}
-	else
-	{
-		QFile file (lastSavedPath);
-		if (!file.open(QIODevice::WriteOnly))
-		{
-			//Show error message
-			return false;
-		}
-		else
-		{
-			QTextStream writer(&file);
-			std::vector<QString> toWrite = prepareFileContentToWrite(map);
-			for (int i=0; i<toWrite.size(); i++)
-			{
-				writer << toWrite[i];
-			}
-			return true;
-		}
-	}
-}
+//private
 
 std::vector<QString> Filesaver::prepareFileContentToWrite(Map *map)
 {
@@ -74,6 +37,54 @@ std::vector<QString> Filesaver::prepareFileContentToWrite(Map *map)
 	toSave.push_back(map->parapetListToQStringForSaving());
 	return toSave;
 }
+
+//Public
+
+Filesaver::Filesaver()
+{
+	lastSavedPath = "";
+}
+
+Filesaver::Filesaver(QString newPath)
+{
+	lastSavedPath = newPath;
+}
+
+void Filesaver::setNewFilePath(QString newPath)
+{
+	lastSavedPath = newPath;
+}
+
+bool Filesaver::saveRailway(Map *map)
+{
+
+	if (lastSavedPath.isEmpty())
+	{
+		//Show error message
+		return false;
+	}
+	else
+	{
+		QFile file (lastSavedPath);
+		if (!file.open(QIODevice::WriteOnly))
+		{
+			//Show error message
+			return false;
+		}
+		else
+		{
+			QTextStream writer(&file);
+			std::vector<QString> toWrite = prepareFileContentToWrite(map);
+			for (int i=0; i<toWrite.size(); i++)
+			{
+				writer << toWrite[i];
+			}
+			return true;
+		}
+	}
+}
+
+
 
 
 
