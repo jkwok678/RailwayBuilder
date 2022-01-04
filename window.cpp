@@ -146,7 +146,7 @@ void Window::saveRailwayAs()
 {
 	QString fileName = QFileDialog::getSaveFileName(this, tr("Save File"),
 							   "./",
-							   tr("Railway2 File (*.rly2);; Development2 File (*.dev2)"));
+							   tr("Railway2 File (*.rly2)"));
 	Map* map = drawingArea->getMap();
 	filesaver->setNewFilePath(fileName);
 	bool saved = filesaver->saveRailway(map);
