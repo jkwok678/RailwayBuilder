@@ -2,35 +2,27 @@
 
 Filesaver::Filesaver(QString newPath)
 {
-	path = newPath;
+	lastSavedPath = newPath;
 }
 
 bool Filesaver::saveRailwayAs(Map *map)
 {
 
-	if (path.isEmpty())
+	QFile file (lastSavedPath);
+	if (!file.open(QIODevice::WriteOnly))
 	{
 		//Show error message
 		return false;
 	}
 	else
 	{
-		QFile file (path);
-		if (!file.open(QIODevice::WriteOnly))
+		QTextStream writer(&file);
+		std::vector<QString> toWrite = prepareFileContentToWrite(map);
+		for (int i=0; i<toWrite.size(); i++)
 		{
-			//Show error message
-			return false;
+			writer << toWrite[i];
 		}
-		else
-		{
-			QTextStream writer(&file);
-			std::vector<QString> toWrite = prepareFileContentToWrite(map);
-			for (int i=0; i<toWrite.size(); i++)
-			{
-				writer << toWrite[i];
-			}
-			return true;
-		}
+		return true;
 	}
 }
 

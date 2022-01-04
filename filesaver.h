@@ -9,7 +9,7 @@ class Filesaver
 {
 
 private:
-	QString path;
+	static QString lastSavedPath;
 public:
 	Filesaver(QString newPath);
 	bool saveRailwayAs(Map *map);
