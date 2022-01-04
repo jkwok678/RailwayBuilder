@@ -17,6 +17,7 @@
 #include <iostream>
 #include <QSizePolicy>
 #include <QFileDialog>
+#include <memory>
 #include "borderlayout.h"
 #include "canvas.h"
 #include "element.h"
@@ -996,6 +997,7 @@ private:
 	QAction *loadRailwayAct;
 	QAction *saveRailwayAsAct;
 	QAction *saveRailwayAct;
+	std::shared_ptr<Filesaver> filesaver;
 
 	QMenu *modeMenu;
 	QAction *toWhiteBackgroundAct;

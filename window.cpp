@@ -15,6 +15,7 @@ Window::Window()
 	layout->addWidget(drawingArea, BorderLayout::Center);
 	layout->addWidget(rightDirectionalMenu, BorderLayout::East);
 	setLayout(layout);
+	filesaver = std::make_shared<Filesaver>();
 }
 
 Window::~Window()
@@ -147,14 +148,13 @@ void Window::saveRailwayAs()
 							   "./",
 							   tr("Railway2 File (*.rly2)"));
 	Map* map = drawingArea->getMap();
-	Filesaver* filesaver = new Filesaver(fileName);
+	filesaver->setNewFilePath(fileName);
 	filesaver->saveRailway(map);
 }
 
 void Window::saveRailway()
 {
 	Map* map = drawingArea->getMap();
-	Filesaver* filesaver = new Filesaver();
 	filesaver->saveRailway(map);
 }
 

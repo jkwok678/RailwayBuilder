@@ -15,8 +15,9 @@ TEST(FilesaverSaveFileTest, writeStraightTrackDirectedTrack) {
 	map->createAddDirectedTrack(DirectedType::DIRECTEDLEFT,2,2);
 	map->createAddStraightTrack(StraightType::STRAIGHTH,3,3);
 	map->createAddDirectedTrack(DirectedType::DIRECTEDLEFT,4,4);
-	Filesaver *filesaver = new Filesaver("./test_result.rly2");
-	filesaver->saveRailwayAs(map);
+	std::shared_ptr<Filesaver> filesaver = std::make_shared<Filesaver>();
+	filesaver->setNewFilePath("./test_result.rly2");
+	filesaver->saveRailway(map);
 	QFile file("./test_result.rly2");
 	file.open(QIODevice::ReadOnly);
 	QTextStream in(&file);
@@ -42,8 +43,9 @@ TEST(FilesaverSaveFileTest, writeCurvedTrackLinkedTrack) {
 	map->createAddCurvedTrack(CurvedType::TIGHTCURVE1,2,2);
 	map->createAddLinkedTrack(LinkedType::LINKRIGHT,3,3);
 	map->createAddLinkedTrack(LinkedType::LINKLEFTDOWN,4,4);
-	Filesaver *filesaver = new Filesaver("./test_result.rly2");
-	filesaver->saveRailwayAs(map);
+	std::shared_ptr<Filesaver> filesaver = std::make_shared<Filesaver>();
+	filesaver->setNewFilePath("./test_result.rly2");
+	filesaver->saveRailway(map);
 	QFile file("./test_result.rly2");
 	file.open(QIODevice::ReadOnly);
 	QTextStream in(&file);
@@ -73,8 +75,9 @@ TEST(FilesaverSaveFileTest, writeExitTrackBufferTrack) {
 	map->createAddExitTrack(ExitType::EXITRIGHTDOWN,2,2);
 	map->createAddBufferTrack(BufferType::BUFFERLEFT,3,3);
 	map->createAddBufferTrack(BufferType::BUFFERRIGHTDOWN,4,4);
-	Filesaver *filesaver = new Filesaver("./test_result.rly2");
-	filesaver->saveRailwayAs(map);
+	std::shared_ptr<Filesaver> filesaver = std::make_shared<Filesaver>();
+	filesaver->setNewFilePath("./test_result.rly2");
+	filesaver->saveRailway(map);
 	QFile file("./test_result.rly2");
 	file.open(QIODevice::ReadOnly);
 	QTextStream in(&file);
@@ -108,8 +111,9 @@ TEST(FilesaverSaveFileTest, writeSignalTrackBridgeUnderpassTrack) {
 	map->createAddSignalTrack(SignalType::SIGNALRIGHTDOWN,4,2,2);
 	map->createAddBridgeUnderpassTrack(BridgeUnderpassType::BRIDGE1,3,3);
 	map->createAddBridgeUnderpassTrack(BridgeUnderpassType::UNDERPASS1,4,4);
-	Filesaver *filesaver = new Filesaver("./test_result.rly2");
-	filesaver->saveRailwayAs(map);
+	std::shared_ptr<Filesaver> filesaver = std::make_shared<Filesaver>();
+	filesaver->setNewFilePath("./test_result.rly2");
+	filesaver->saveRailway(map);
 	QFile file("./test_result.rly2");
 	file.open(QIODevice::ReadOnly);
 	QTextStream in(&file);
@@ -150,8 +154,9 @@ TEST(FilesaverSaveFileTest, writeSwitchTrackCrossoverTrackFlyoverTrack) {
 	map->createAddCrossoverTrack(CrossoverType::CROSSOVER2,5,5);
 	map->createAddFlyoverTrack(FlyoverType::FLYOVER1,6,6);
 	map->createAddFlyoverTrack(FlyoverType::FLYOVER12,7,7);
-	Filesaver *filesaver = new Filesaver("./test_result.rly2");
-	filesaver->saveRailwayAs(map);
+	std::shared_ptr<Filesaver> filesaver = std::make_shared<Filesaver>();
+	filesaver->setNewFilePath("./test_result.rly2");
+	filesaver->saveRailway(map);
 	QFile file("./test_result.rly2");
 	file.open(QIODevice::ReadOnly);
 	QTextStream in(&file);
@@ -201,8 +206,9 @@ TEST(FilesaverSaveFileTest, writeNamedLocationConcourse) {
 	map->createAddNamedLocation(2,2);
 	map->createAddConcourse(3,3);
 	map->createAddConcourse(4,4);
-	Filesaver *filesaver = new Filesaver("./test_result.rly2");
-	filesaver->saveRailwayAs(map);
+	std::shared_ptr<Filesaver> filesaver = std::make_shared<Filesaver>();
+	filesaver->setNewFilePath("./test_result.rly2");
+	filesaver->saveRailway(map);
 	QFile file("./test_result.rly2");
 	file.open(QIODevice::ReadOnly);
 	QTextStream in(&file);
@@ -252,8 +258,9 @@ TEST(FilesaverSaveFileTest, writeParapetText) {
 	map->createAddParapet(ParapetType::PARAPET28,2,2);
 	map->createAddText(3,3,"Text1",serifFont);
 	map->createAddText(4,4,"Text2",serifFont);
-	Filesaver *filesaver = new Filesaver("./test_result.rly2");
-	filesaver->saveRailwayAs(map);
+	std::shared_ptr<Filesaver> filesaver = std::make_shared<Filesaver>();
+	filesaver->setNewFilePath("./test_result.rly2");
+	filesaver->saveRailway(map);
 	QFile file("./test_result.rly2");
 	file.open(QIODevice::ReadOnly);
 	QTextStream in(&file);
@@ -334,8 +341,9 @@ TEST(FilesaverSaveFileTest, writeEverything) {
 	map->createAddParapet(ParapetType::PARAPET1,30,30);
 	map->createAddParapet(ParapetType::PARAPET28,31,31);
 
-	Filesaver *filesaver = new Filesaver("./test_result.rly2");
-	filesaver->saveRailwayAs(map);
+	std::shared_ptr<Filesaver> filesaver = std::make_shared<Filesaver>();
+	filesaver->setNewFilePath("./test_result.rly2");
+	filesaver->saveRailway(map);
 	QFile file("./test_result.rly2");
 	file.open(QIODevice::ReadOnly);
 	QTextStream in(&file);

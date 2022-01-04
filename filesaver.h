@@ -26,12 +26,6 @@ public:
 	Filesaver();
 
 	/**
-	 * @brief Filesaver constructor made with a new file path.
-	 * @param newPath QString path.
-	 */
-	Filesaver(QString newPath);
-
-	/**
 	 * @brief Set a new file path for the filesaver.
 	 * @param newPath QString path.
 	 */

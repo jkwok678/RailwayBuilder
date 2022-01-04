@@ -45,11 +45,6 @@ Filesaver::Filesaver()
 	lastSavedPath = "";
 }
 
-Filesaver::Filesaver(QString newPath)
-{
-	lastSavedPath = newPath;
-}
-
 void Filesaver::setNewFilePath(QString newPath)
 {
 	lastSavedPath = newPath;
