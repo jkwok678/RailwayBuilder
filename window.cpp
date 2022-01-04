@@ -144,8 +144,11 @@ void Window::loadRailway()
 void Window::saveRailwayAs()
 {
 	QString fileName = QFileDialog::getSaveFileName(this, tr("Save File"),
-							   "/home/jana/untitled.png",
+							   "./",
 							   tr("Railway2 File (*.rly2)"));
+	Map* map = drawingArea->getMap();
+	Filesaver* filesaver = new Filesaver(fileName);
+	filesaver->saveRailwayAs(map);
 }
 
 void Window::saveRailway()

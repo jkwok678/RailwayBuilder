@@ -116,18 +116,18 @@ TEST(MapSavingQStringTest, signalTrackListToQString) {
 TEST(MapSavingQStringTest, bridgeUnderpassTrackListToQString) {
 	Map *map = new Map();
 	map->createAddBridgeUnderpassTrack(BridgeUnderpassType::BRIDGE1,1,2);
-	EXPECT_EQ(map->bridgeUnderpassTrackListToQStringForSaving().toStdString(),"BR1,1,2,200,100,200,100,0,0\n");
+	EXPECT_EQ(map->bridgeUnderpassTrackListToQStringForSaving().toStdString(),"BR1,1,2,200,100,0,0\n");
 	map->createAddBridgeUnderpassTrack(BridgeUnderpassType::BRIDGE2,100,6);
-	EXPECT_EQ(map->bridgeUnderpassTrackListToQStringForSaving().toStdString(),"BR1,1,2,200,100,200,100,0,0\nBR2,100,6,200,100,200,100,0,0\n");
+	EXPECT_EQ(map->bridgeUnderpassTrackListToQStringForSaving().toStdString(),"BR1,1,2,200,100,0,0\nBR2,100,6,200,100,0,0\n");
 	map->createAddBridgeUnderpassTrack(BridgeUnderpassType::UNDERPASS2,542671,-232342);
-	EXPECT_EQ(map->bridgeUnderpassTrackListToQStringForSaving().toStdString(),"BR1,1,2,200,100,200,100,0,0\nBR2,100,6,200,100,200,100,0,0\nUP2,542671,-232342,200,100,200,100,0,0\n");
+	EXPECT_EQ(map->bridgeUnderpassTrackListToQStringForSaving().toStdString(),"BR1,1,2,200,100,0,0\nBR2,100,6,200,100,0,0\nUP2,542671,-232342,200,100,0,0\n");
 	std::shared_ptr<BridgeUnderpassTrack> bridgeOne = map->getBridgeUnderpassTrack(1,2);
 	std::shared_ptr<BridgeUnderpassTrack> bridgeTwo = map->getBridgeUnderpassTrack(100,6);
 	std::shared_ptr<BridgeUnderpassTrack> underpassTwo = map->getBridgeUnderpassTrack(542671,-232342);
 	bridgeOne->setPlatform1(true);
 	bridgeTwo->setPlatform2(true);
 	underpassTwo->setPlatform2(true);
-	EXPECT_EQ(map->bridgeUnderpassTrackListToQStringForSaving().toStdString(),"BR1,1,2,200,100,200,100,1,0\nBR2,100,6,200,100,200,100,0,1\nUP2,542671,-232342,200,100,200,100,0,1\n");
+	EXPECT_EQ(map->bridgeUnderpassTrackListToQStringForSaving().toStdString(),"BR1,1,2,200,100,1,0\nBR2,100,6,200,100,0,1\nUP2,542671,-232342,200,100,0,1\n");
 }
 
 TEST(MapSavingQStringTest, switchTrackListToQString) {
