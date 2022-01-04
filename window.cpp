@@ -149,12 +149,7 @@ void Window::saveRailwayAs()
 							   tr("Railway2 File (*.rly2)"));
 	Map* map = drawingArea->getMap();
 	filesaver->setNewFilePath(fileName);
-	bool saved = filesaver->saveRailway(map);
-	if (saved)
-	{
-		saveRailwayAct->setEnabled(true);
-	}
-
+	filesaver->saveRailway(map);
 }
 
 void Window::saveRailway()
@@ -2225,7 +2220,6 @@ void Window::createFileMenu()
 
 	saveRailwayAct = new QAction(tr("&Save Railway"), this);
 	connect(saveRailwayAct, &QAction::triggered, this, &Window::saveRailway);
-	saveRailwayAct->setEnabled(false);
 	fileMenu->addAction(saveRailwayAct);
 }
 
