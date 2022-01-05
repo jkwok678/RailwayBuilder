@@ -16,7 +16,7 @@ private:
 	 * @param map The current map.
 	 * @return A vector of QStrings that contain the text to write.
 	 */
-	std::vector<QString> prepareFileContentToWrite(Map *map);
+	std::vector<QString> prepareFileContentToWrite(const Map *map);
 
 public:
 
@@ -29,14 +29,14 @@ public:
 	 * @brief Set a new file path for the filesaver.
 	 * @param newPath QString path.
 	 */
-	void setNewFilePath(QString newPath);
+	void setNewFilePath(const QString newPath);
 
 	/**
 	 * @brief Save the railway to a file.
 	 * @param map The current map on screen.
 	 * @return true if it saved, false if it failed to save.
 	 */
-	bool saveRailway(Map *map);
+	bool saveRailway(const Map *map);
 
 
 };

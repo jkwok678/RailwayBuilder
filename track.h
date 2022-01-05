@@ -757,7 +757,7 @@ public:
 	 * @brief Checks if the LinkedTrack is linked to another LinkedTrack.
 	 * @return true if it's linked otherwise false.
 	 */
-	bool isLinked();
+	bool isLinked() const;
 
 	/**
 	 * @brief Get the linked track.

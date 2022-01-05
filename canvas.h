@@ -241,7 +241,7 @@ public:
 	 * @brief Get total number of tracks.
 	 * @return tracks Number of tracks as an int.
 	 */
-	int getTrackTotal();
+	int getTrackTotal() const;
 
 	/**
 	 * @brief Create and add the element to the coordinates.
