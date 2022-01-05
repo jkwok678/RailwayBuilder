@@ -182,6 +182,8 @@ TEST(MapSavingQStringTest, concourseToQString) {
 	EXPECT_EQ(map->concourseListToQStringForSaving().toStdString(),"1,1\n2,2\n3,3\n");
 }
 
+
+
 TEST(MapGetAllElementFromLocationTest, getStraightTrackFromLocation) {
 	Map *map = new Map();
 	map->createAddStraightTrack(StraightType::STRAIGHTH,1,1);
@@ -217,9 +219,9 @@ TEST(MapGetAllElementFromLocationTest, getCurvedTrackFromLocation) {
 	EXPECT_EQ(track1->getCurvedType(),CurvedType::CURVE1);
 	EXPECT_EQ(track1->getLocationX(),1);
 	EXPECT_EQ(track1->getLocationY(),1);
-	map->createAddCurvedTrack(CurvedType::CURVE8,-1,-1);
+	map->createAddCurvedTrack(CurvedType::TIGHTCURVE1,-1,-1);
 	std::shared_ptr<CurvedTrack> track2 = map->getCurvedTrackAt(-1,-1);
-	EXPECT_EQ(track2->getCurvedType(),CurvedType::CURVE8);
+	EXPECT_EQ(track2->getCurvedType(),CurvedType::TIGHTCURVE1);
 	EXPECT_EQ(track2->getLocationX(),-1);
 	EXPECT_EQ(track2->getLocationY(),-1);
 }
@@ -363,4 +365,139 @@ TEST(MapGetAllElementFromLocationTest, getConcourseFromLocation) {
 	std::shared_ptr<Concourse> element2 = map->getConcourseAt(-1,-1);
 	EXPECT_EQ(element2->getLocationX(),-1);
 	EXPECT_EQ(element2->getLocationY(),-1);
+}
+
+
+
+TEST(MapCheckIfElementFromLocationExistsTest, checkIfStraightTrackFromLocationExists) {
+	Map *map = new Map();
+	map->createAddStraightTrack(StraightType::STRAIGHTH,1,1);
+	EXPECT_EQ(map->checkStraightTrackAt(1,1),true);
+	map->createAddStraightTrack(StraightType::STRAIGHTV,-1,-1);
+	EXPECT_EQ(map->checkStraightTrackAt(-1,-1),true);
+	EXPECT_EQ(map->checkStraightTrackAt(2,2),false);
+	EXPECT_EQ(map->checkStraightTrackAt(-2,-2),false);
+}
+
+TEST(MapCheckIfElementFromLocationExistsTest, checkIfDirectedTrackFromLocationExists) {
+	Map *map = new Map();
+	map->createAddDirectedTrack(DirectedType::DIRECTEDLEFT,1,1);
+	EXPECT_EQ(map->checkDirectedTrackAt(1,1),true);
+	map->createAddDirectedTrack(DirectedType::DIRECTEDRIGHT,-1,-1);
+	EXPECT_EQ(map->checkDirectedTrackAt(-1,-1),true);
+	EXPECT_EQ(map->checkDirectedTrackAt(2,2),false);
+	EXPECT_EQ(map->checkDirectedTrackAt(-2,-2),false);
+}
+
+TEST(MapCheckIfElementFromLocationExistsTest, checkIfCurvedTrackFromLocationExists) {
+	Map *map = new Map();
+	map->createAddCurvedTrack(CurvedType::CURVE1,1,1);
+	EXPECT_EQ(map->checkCurvedTrackAt(1,1),true);
+	map->createAddCurvedTrack(CurvedType::TIGHTCURVE1,-1,-1);
+	EXPECT_EQ(map->checkCurvedTrackAt(-1,-1),true);
+	EXPECT_EQ(map->checkCurvedTrackAt(2,2),false);
+	EXPECT_EQ(map->checkCurvedTrackAt(-2,-2),false);
+}
+
+TEST(MapCheckIfElementFromLocationExistsTest, checkIfLinkedTrackFromLocationExists) {
+	Map *map = new Map();
+	map->createAddLinkedTrack(LinkedType::LINKLEFT,1,1);
+	EXPECT_EQ(map->checkLinkedTrackAt(1,1),true);
+	map->createAddLinkedTrack(LinkedType::LINKRIGHT,-1,-1);
+	EXPECT_EQ(map->checkLinkedTrackAt(-1,-1),true);
+	EXPECT_EQ(map->checkLinkedTrackAt(2,2),false);
+	EXPECT_EQ(map->checkLinkedTrackAt(-2,-2),false);
+}
+
+TEST(MapCheckIfElementFromLocationExistsTest, checkIfExitTrackFromLocationExists) {
+	Map *map = new Map();
+	map->createAddExitTrack(ExitType::EXITLEFT,1,1);
+	EXPECT_EQ(map->checkExitTrackAt(1,1),true);
+	map->createAddExitTrack(ExitType::EXITRIGHT,-1,-1);
+	EXPECT_EQ(map->checkExitTrackAt(-1,-1),true);
+	EXPECT_EQ(map->checkExitTrackAt(2,2),false);
+	EXPECT_EQ(map->checkExitTrackAt(-2,-2),false);
+}
+
+TEST(MapCheckIfElementFromLocationExistsTest, checkIfBufferTrackFromLocationExists) {
+	Map *map = new Map();
+	map->createAddBufferTrack(BufferType::BUFFERLEFT,1,1);
+	EXPECT_EQ(map->checkBufferTrackAt(1,1),true);
+	map->createAddBufferTrack(BufferType::BUFFERRIGHT,-1,-1);
+	EXPECT_EQ(map->checkBufferTrackAt(-1,-1),true);
+	EXPECT_EQ(map->checkBufferTrackAt(2,2),false);
+	EXPECT_EQ(map->checkBufferTrackAt(-2,-2),false);
+}
+
+TEST(MapCheckIfElementFromLocationExistsTest, checkIfSignalTrackFromLocationExists) {
+	Map *map = new Map();
+	map->createAddSignalTrack(SignalType::SIGNALLEFT,4,1,1);
+	EXPECT_EQ(map->checkSignalTrackAt(1,1),true);
+	map->createAddSignalTrack(SignalType::SIGNALRIGHT,4,-1,-1);
+	EXPECT_EQ(map->checkSignalTrackAt(-1,-1),true);
+	EXPECT_EQ(map->checkSignalTrackAt(2,2),false);
+	EXPECT_EQ(map->checkSignalTrackAt(-2,-2),false);
+}
+
+TEST(MapCheckIfElementFromLocationExistsTest, checkIfBridgeUnderpassTrackFromLocationExists) {
+	Map *map = new Map();
+	map->createAddBridgeUnderpassTrack(BridgeUnderpassType::BRIDGE1,1,1);
+	EXPECT_EQ(map->checkBridgeUnderpassTrackAt(1,1),true);
+	map->createAddBridgeUnderpassTrack(BridgeUnderpassType::UNDERPASS1,-1,-1);
+	EXPECT_EQ(map->checkBridgeUnderpassTrackAt(-1,-1),true);
+	EXPECT_EQ(map->checkBridgeUnderpassTrackAt(2,2),false);
+	EXPECT_EQ(map->checkBridgeUnderpassTrackAt(-2,-2),false);
+}
+
+TEST(MapCheckIfElementFromLocationExistsTest, checkIfSwitchTrackFromLocationExists) {
+	Map *map = new Map();
+	map->createAddSwitchTrack(SwitchType::SWITCH1,1,1);
+	EXPECT_EQ(map->checkSwitchTrackAt(1,1),true);
+	map->createAddSwitchTrack(SwitchType::SWITCHSPLIT1,-1,-1);
+	EXPECT_EQ(map->checkSwitchTrackAt(-1,-1),true);
+	map->createAddSwitchTrack(SwitchType::SWITCHTIGHT1,2,2);
+	EXPECT_EQ(map->checkSwitchTrackAt(-1,-1),true);
+	EXPECT_EQ(map->checkSwitchTrackAt(2,2),true);
+	EXPECT_EQ(map->checkSwitchTrackAt(-2,-2),false);
+	EXPECT_EQ(map->checkSwitchTrackAt(3,3),false);
+}
+
+TEST(MapCheckIfElementFromLocationExistsTest, checkIfCrossoverTrackFromLocationExists) {
+	Map *map = new Map();
+	map->createAddCrossoverTrack(CrossoverType::CROSSOVER1,1,1);
+	EXPECT_EQ(map->checkCrossoverTrackAt(1,1),true);
+	map->createAddCrossoverTrack(CrossoverType::CROSSOVER6,-1,-1);
+	EXPECT_EQ(map->checkCrossoverTrackAt(-1,-1),true);
+	EXPECT_EQ(map->checkCrossoverTrackAt(2,2),false);
+	EXPECT_EQ(map->checkCrossoverTrackAt(-2,-2),false);
+}
+
+TEST(MapCheckIfElementFromLocationExistsTest, checkIfFlyoverTrackFromLocationExists) {
+	Map *map = new Map();
+	map->createAddFlyoverTrack(FlyoverType::FLYOVER1,1,1);
+	EXPECT_EQ(map->checkFlyoverTrackAt(1,1),true);
+	map->createAddFlyoverTrack(FlyoverType::FLYOVER12,-1,-1);
+	EXPECT_EQ(map->checkFlyoverTrackAt(-1,-1),true);
+	EXPECT_EQ(map->checkFlyoverTrackAt(2,2),false);
+	EXPECT_EQ(map->checkFlyoverTrackAt(-2,-2),false);
+}
+
+TEST(MapCheckIfElementFromLocationExistsTest, checkIfNamedLocationFromLocationExists) {
+	Map *map = new Map();
+	map->createAddNamedLocation(1,1);
+	EXPECT_EQ(map->checkNamedLocationAt(1,1),true);
+	map->createAddNamedLocation(-1,-1);
+	EXPECT_EQ(map->checkNamedLocationAt(-1,-1),true);
+	EXPECT_EQ(map->checkNamedLocationAt(2,2),false);
+	EXPECT_EQ(map->checkNamedLocationAt(-2,-2),false);
+}
+
+TEST(MapCheckIfElementFromLocationExistsTest, checkIfConcourseFromLocationExists) {
+	Map *map = new Map();
+	map->createAddConcourse(1,1);
+	EXPECT_EQ(map->checkConcourseAt(1,1),true);
+	map->createAddConcourse(-1,-1);
+	EXPECT_EQ(map->checkConcourseAt(-1,-1),true);
+	EXPECT_EQ(map->checkConcourseAt(2,2),false);
+	EXPECT_EQ(map->checkConcourseAt(-2,-2),false);
 }
