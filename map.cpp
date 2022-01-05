@@ -767,6 +767,15 @@ std::shared_ptr<StraightTrack> Map::getStraightTrackAt(int locationX, int locati
 	return straightTrack;
 }
 
+bool Map::checkStraightTrackAt(int locationX, int locationY)
+{
+	if (getStraightTrackAt(locationX,locationY) != nullptr)
+	{
+		return true;
+	}
+	return false;
+}
+
 QString Map::straightTrackListToQStringForSaving()
 {
     QString straightTracksToSave = "";
@@ -813,7 +822,16 @@ std::shared_ptr<DirectedTrack> Map::getDirectedTrackAt(int locationX, int locati
 			}
 		}
 	}
-    return directedTrack;
+	return directedTrack;
+}
+
+bool Map::checkDirectedTrackAt(int locationX, int locationY)
+{
+	if (getDirectedTrackAt(locationX,locationY) != nullptr)
+	{
+		return true;
+	}
+	return false;
 }
 
 QString Map::directedTrackListToQStringForSaving()
@@ -863,7 +881,16 @@ std::shared_ptr<CurvedTrack> Map::getCurvedTrackAt(int locationX, int locationY)
 			}
 		}
     }
-    return curvedTrack;
+	return curvedTrack;
+}
+
+bool Map::checkCurvedTrackAt(int locationX, int locationY)
+{
+	if (getCurvedTrackAt(locationX,locationY) != nullptr)
+	{
+		return true;
+	}
+	return false;
 }
 
 QString Map::curvedTrackListToQStringForSaving()
@@ -913,6 +940,15 @@ std::shared_ptr<LinkedTrack> Map::getLinkedTrackAt(int locationX, int locationY)
 		}
 	}
 	return linkedTrack;
+}
+
+bool Map::checkLinkedTrackAt(int locationX, int locationY)
+{
+	if (getLinkedTrackAt(locationX,locationY) != nullptr)
+	{
+		return true;
+	}
+	return false;
 }
 
 	//Connecting Linked tracks methods
@@ -1052,6 +1088,15 @@ std::shared_ptr<ExitTrack> Map::getExitTrackAt(int locationX, int locationY)
 	return exitTrack;
 }
 
+bool Map::checkExitTrackAt(int locationX, int locationY)
+{
+	if (getExitTrackAt(locationX,locationY) != nullptr)
+	{
+		return true;
+	}
+	return false;
+}
+
 QString Map::exitTrackListToQStringForSaving()
 {
 	QString exitTracksToSave = "";
@@ -1099,6 +1144,15 @@ std::shared_ptr<BufferTrack> Map::getBufferTrackAt(int locationX, int locationY)
 		}
 	}
 	return bufferTrack;
+}
+
+bool Map::checkBufferTrackAt(int locationX, int locationY)
+{
+	if (getBufferTrackAt(locationX,locationY) != nullptr)
+	{
+		return true;
+	}
+	return false;
 }
 
 QString Map::bufferTrackListToQStringForSaving()
@@ -1150,6 +1204,15 @@ std::shared_ptr<SignalTrack> Map::getSignalTrackAt(int locationX, int locationY)
 	return signalTrack;
 }
 
+bool Map::checkSignalTrackAt(int locationX, int locationY)
+{
+	if (getSignalTrackAt(locationX,locationY) != nullptr)
+	{
+		return true;
+	}
+	return false;
+}
+
 QString Map::signalTrackListToQStringForSaving()
 {
 	QString signalTracksToSave = "";
@@ -1197,6 +1260,15 @@ std::shared_ptr<BridgeUnderpassTrack> Map::getBridgeUnderpassTrack(int locationX
 		}
 	}
 	return bridgeUnderpassTrack;
+}
+
+bool Map::checkBridgeUnderpassTrackAt(int locationX, int locationY)
+{
+	if (getBridgeUnderpassTrack(locationX,locationY) != nullptr)
+	{
+		return true;
+	}
+	return false;
 }
 
 QString Map::bridgeUnderpassTrackListToQStringForSaving()
@@ -1248,6 +1320,15 @@ std::shared_ptr<SwitchTrack> Map::getSwitchTrackAt(int locationX, int locationY)
 	return switchTrack;
 }
 
+bool Map::checkSwitchTrackAt(int locationX, int locationY)
+{
+	if (getSwitchTrackAt(locationX,locationY) != nullptr)
+	{
+		return true;
+	}
+	return false;
+}
+
 QString Map::switchTrackListToQStringForSaving()
 {
 	QString switchTracksToSave = "";
@@ -1282,7 +1363,6 @@ void Map::createAddCrossoverTrack(CrossoverType crossoverType, int overallX, int
 
 std::shared_ptr<CrossoverTrack> Map::getCrossoverTrackAt(int locationX, int locationY)
 {
-	bool found = false;
 	std::shared_ptr<CrossoverTrack> crossoverTrack = nullptr;
 	if (!crossoverTrackList.empty())
 	{
@@ -1294,12 +1374,20 @@ std::shared_ptr<CrossoverTrack> Map::getCrossoverTrackAt(int locationX, int loca
 			if (currentX == locationX && currentY == locationY)
 			{
 				crossoverTrack = currentElement;
-				found = true;
 				break;
 			}
 		}
 	}
 	return crossoverTrack;
+}
+
+bool Map::checkCrossoverTrackAt(int locationX, int locationY)
+{
+	if (getCrossoverTrackAt(locationX,locationY) != nullptr)
+	{
+		return true;
+	}
+	return false;
 }
 
 QString Map::crossoverTrackListToQStringForSaving()
@@ -1333,7 +1421,6 @@ void Map::createAddFlyoverTrack(FlyoverType flyoverType, int overallX, int overa
 
 std::shared_ptr<FlyoverTrack> Map::getFlyoverTrackAt(int locationX, int locationY)
 {
-	bool found = false;
 	std::shared_ptr<FlyoverTrack> flyoverTrack = nullptr;
 	if (!flyoverTrackList.empty())
 	{
@@ -1344,12 +1431,20 @@ std::shared_ptr<FlyoverTrack> Map::getFlyoverTrackAt(int locationX, int location
 			if (currentX == locationX && currentY == locationY)
 			{
 				flyoverTrack = currentElement;
-				found = true;
 				break;
 			}
 		}
 	}
 	return flyoverTrack;
+}
+
+bool Map::checkFlyoverTrackAt(int locationX, int locationY)
+{
+	if (getFlyoverTrackAt(locationX,locationY) != nullptr)
+	{
+		return true;
+	}
+	return false;
 }
 
 QString Map::flyoverTrackListToQStringForSaving()
@@ -1401,6 +1496,15 @@ std::shared_ptr<NamedLocation> Map::getNamedLocationAt(int locationX, int locati
 	return namedLocation;
 }
 
+bool Map::checkNamedLocationAt(int locationX, int locationY)
+{
+	if (getNamedLocationAt(locationX,locationY) != nullptr)
+	{
+		return true;
+	}
+	return false;
+}
+
 QString Map::namedLocationListToQStringForSaving()
 {
 	QString namedLocationToSave = "";
@@ -1450,6 +1554,15 @@ std::shared_ptr<Concourse> Map::getConcourseAt(int locationX, int locationY)
 	return concourse;
 }
 
+bool Map::checkConcourseAt(int locationX, int locationY)
+{
+	if (getConcourseAt(locationX,locationY) != nullptr)
+	{
+		return true;
+	}
+	return false;
+}
+
 QString Map::concourseListToQStringForSaving()
 {
 	QString concourseToSave = "";
@@ -1482,7 +1595,6 @@ void Map::createAddParapet(ParapetType parapetType, int overallX, int overallY)
 
 std::shared_ptr<Parapet> Map::getParapetAt(int locationX, int locationY)
 {
-	bool found = false;
 	std::shared_ptr<Parapet> parapet = nullptr;
 	if (!parapetList.empty())
 	{
@@ -1493,12 +1605,20 @@ std::shared_ptr<Parapet> Map::getParapetAt(int locationX, int locationY)
 			if (currentX == locationX && currentY == locationY)
 			{
 				parapet = currentElement;
-				found = true;
 				break;
 			}
 		}
 	}
 	return parapet;
+}
+
+bool Map::checkParapetAt(int locationX, int locationY)
+{
+	if (getParapetAt(locationX,locationY) != nullptr)
+	{
+		return true;
+	}
+	return false;
 }
 
 QString Map::parapetListToQStringForSaving()

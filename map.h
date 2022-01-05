@@ -352,6 +352,14 @@ public:
 	std::shared_ptr<StraightTrack> getStraightTrackAt(int locationX,int locationY);
 
 	/**
+	 * @brief Check if there is a StraightTrack at the given coordinates.
+	 * @param locationX X coordinate to look at.
+	 * @param locationY Y coordinate to look at.
+	 * @return true if there is a StraightTrack at the coordinates otherwise false.
+	 */
+	bool checkStraightTrackAt(int locationX,int locationY);
+
+	/**
      * @brief Gets the StraightTrackList as a QString for file saving.
 	 * @return A QString of StraightTracks for file saving
 	 */
@@ -386,6 +394,14 @@ public:
 	 * @return DirectedTrack at (X,Y) if there is one, otherwise return a nullptr.
 	 */
 	std::shared_ptr<DirectedTrack> getDirectedTrackAt(int locationX,int locationY);
+
+	/**
+	 * @brief Check if there is a DirectedTrack at the given coordinates.
+	 * @param locationX X coordinate to look at.
+	 * @param locationY Y coordinate to look at.
+	 * @return true if there is a DirectedTrack at the coordinates otherwise false.
+	 */
+	bool checkDirectedTrackAt(int locationX,int locationY);
 
     /**
      * @brief Gets the DirectedTrackList as a QString for file saving.
@@ -423,6 +439,14 @@ public:
 	 */
 	std::shared_ptr<CurvedTrack> getCurvedTrackAt(int locationX,int locationY);
 
+	/**
+	 * @brief Check if there is a CurvedTrack at the given coordinates.
+	 * @param locationX X coordinate to look at.
+	 * @param locationY Y coordinate to look at.
+	 * @return true if there is a CurvedTrack at the coordinates otherwise false.
+	 */
+	bool checkCurvedTrackAt(int locationX,int locationY);
+
     /**
      * @brief Gets the CurvedTrackList as a QString for file saving.
      * @return A QString of CurvedTracks for file saving
@@ -458,6 +482,15 @@ public:
 	 * @return LinkedTrack at (X,Y) if there is one, otherwise return a nullptr.
 	 */
 	std::shared_ptr<LinkedTrack> getLinkedTrackAt(int locationX,int locationY);
+
+	/**
+	 * @brief Check if there is a LinkedTrack at the given coordinates.
+	 * @param locationX X coordinate to look at.
+	 * @param locationY Y coordinate to look at.
+	 * @return true if there is a LinkedTrack at the coordinates otherwise false.
+	 */
+	bool checkLinkedTrackAt(int locationX,int locationY);
+
 
 		//Connecting Linked tracks methods
 
@@ -551,6 +584,14 @@ public:
 	std::shared_ptr<ExitTrack> getExitTrackAt(int locationX,int locationY);
 
 	/**
+	 * @brief Check if there is a ExitTrack at the given coordinates.
+	 * @param locationX X coordinate to look at.
+	 * @param locationY Y coordinate to look at.
+	 * @return true if there is a ExitTrack at the coordinates otherwise false.
+	 */
+	bool checkExitTrackAt(int locationX,int locationY);
+
+	/**
 	 * @brief Gets the ExitTrackList as a QString for file saving.
 	 * @return A QString of ExitTracks for file saving
 	 */
@@ -585,6 +626,14 @@ public:
 	 * @return BufferTrack at (X,Y) if there is one, otherwise return a nullptr.
 	 */
 	std::shared_ptr<BufferTrack> getBufferTrackAt(int locationX,int locationY);
+
+	/**
+	 * @brief Check if there is a BufferTrack at the given coordinates.
+	 * @param locationX X coordinate to look at.
+	 * @param locationY Y coordinate to look at.
+	 * @return true if there is a BufferTrack at the coordinates otherwise false.
+	 */
+	bool checkBufferTrackAt(int locationX,int locationY);
 
 	/**
 	 * @brief Gets the BufferTrackList as a QString for file saving.
@@ -623,6 +672,14 @@ public:
 	std::shared_ptr<SignalTrack> getSignalTrackAt(int locationX,int locationY);
 
 	/**
+	 * @brief Check if there is a SignalTrack at the given coordinates.
+	 * @param locationX X coordinate to look at.
+	 * @param locationY Y coordinate to look at.
+	 * @return true if there is a SignalTrack at the coordinates otherwise false.
+	 */
+	bool checkSignalTrackAt(int locationX,int locationY);
+
+	/**
 	 * @brief Gets the SignalTrackList as a QString for file saving.
 	 * @return A QString of SignalTracks for file saving
 	 */
@@ -657,6 +714,14 @@ public:
 	 * @return BridgeUnderpassTrack at (X,Y) if there is one, otherwise return a nullptr.
 	 */
 	std::shared_ptr<BridgeUnderpassTrack> getBridgeUnderpassTrack(int locationX,int locationY);
+
+	/**
+	 * @brief Check if there is a BridgeUnderpassTrack at the given coordinates.
+	 * @param locationX X coordinate to look at.
+	 * @param locationY Y coordinate to look at.
+	 * @return true if there is a BridgeUnderpassTrack at the coordinates otherwise false.
+	 */
+	bool checkBridgeUnderpassTrackAt(int locationX,int locationY);
 
 	/**
 	 * @brief Gets the BridgeUnderpassTrackList as a QString for file saving.
@@ -695,6 +760,14 @@ public:
 	std::shared_ptr<SwitchTrack> getSwitchTrackAt(int locationX,int locationY);
 
 	/**
+	 * @brief Check if there is a SwitchTrack at the given coordinates.
+	 * @param locationX X coordinate to look at.
+	 * @param locationY Y coordinate to look at.
+	 * @return true if there is a SwitchTrack at the coordinates otherwise false.
+	 */
+	bool checkSwitchTrackAt(int locationX,int locationY);
+
+	/**
 	 * @brief Gets the SwitchTrackList as a QString for file saving.
 	 * @return A QString of SwitchTracks for file saving
 	 */
@@ -729,6 +802,14 @@ public:
 	 * @return CrossoverTrack at (X,Y) if there is one, otherwise return a nullptr.
 	 */
 	std::shared_ptr<CrossoverTrack> getCrossoverTrackAt(int locationX,int locationY);
+
+	/**
+	 * @brief Check if there is a CrossoverTrack at the given coordinates.
+	 * @param locationX X coordinate to look at.
+	 * @param locationY Y coordinate to look at.
+	 * @return true if there is a CrossoverTrack at the coordinates otherwise false.
+	 */
+	bool checkCrossoverTrackAt(int locationX,int locationY);
 
 	/**
 	 * @brief Gets the CrossoverTrackList as a QString for file saving.
@@ -767,6 +848,14 @@ public:
 	std::shared_ptr<FlyoverTrack> getFlyoverTrackAt(int locationX,int locationY);
 
 	/**
+	 * @brief Check if there is a FlyoverTrack at the given coordinates.
+	 * @param locationX X coordinate to look at.
+	 * @param locationY Y coordinate to look at.
+	 * @return true if there is a FlyoverTrack at the coordinates otherwise false.
+	 */
+	bool checkFlyoverTrackAt(int locationX,int locationY);
+
+	/**
 	 * @brief Gets the FlyoverTrackList as a QString for file saving.
 	 * @return A QString of FlyoverTracks for file saving
 	 */
@@ -800,6 +889,14 @@ public:
 	 * @return NamedLocation at (X,Y) if there is one, otherwise return a nullptr.
 	 */
 	std::shared_ptr<NamedLocation> getNamedLocationAt(int locationX,int locationY);
+
+	/**
+	 * @brief Check if there is a NamedLocation at the given coordinates.
+	 * @param locationX X coordinate to look at.
+	 * @param locationY Y coordinate to look at.
+	 * @return true if there is a NamedLocation at the coordinates otherwise false.
+	 */
+	bool checkNamedLocationAt(int locationX,int locationY);
 
 	/**
 	 * @brief Gets the NamedLocationList as a QString for file saving.
@@ -837,6 +934,14 @@ public:
 	std::shared_ptr<Concourse> getConcourseAt(int locationX,int locationY);
 
 	/**
+	 * @brief Check if there is a Concourse at the given coordinates.
+	 * @param locationX X coordinate to look at.
+	 * @param locationY Y coordinate to look at.
+	 * @return true if there is a Concourse at the coordinates otherwise false.
+	 */
+	bool checkConcourseAt(int locationX,int locationY);
+
+	/**
 	 * @brief Gets the ConcourseList as a QString for file saving.
 	 * @return A QString of Concourse for file saving
 	 */
@@ -870,6 +975,14 @@ public:
 	 * @return Parapet at (X,Y) if there is one, otherwise return a nullptr.
 	 */
 	std::shared_ptr<Parapet> getParapetAt(int locationX,int locationY);
+
+	/**
+	 * @brief Check if there is a Parapet at the given coordinates.
+	 * @param locationX X coordinate to look at.
+	 * @param locationY Y coordinate to look at.
+	 * @return true if there is a Parapet at the coordinates otherwise false.
+	 */
+	bool checkParapetAt(int locationX,int locationY);
 
 	/**
 	 * @brief Gets the ParapetList as a QString for file saving.
