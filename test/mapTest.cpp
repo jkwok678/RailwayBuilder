@@ -161,3 +161,23 @@ TEST(MapSavingQStringTest, flyoverTrackListToQString) {
 	map->createAddFlyoverTrack(FlyoverType::FLYOVER11,542671,-232342);
 	EXPECT_EQ(map->flyoverTrackListToQStringForSaving().toStdString(),"F1,1,2,200,100,200,100\nF6,100,6,200,100,200,100\nF11,542671,-232342,200,100,200,100\n");
 }
+
+TEST(MapSavingQStringTest, namedLocationListToQString) {
+	Map *map = new Map();
+	map->createAddNamedLocation(1,1);
+	EXPECT_EQ(map->namedLocationListToQStringForSaving().toStdString(),"1,1\n");
+	map->createAddNamedLocation(2,2);
+	EXPECT_EQ(map->namedLocationListToQStringForSaving().toStdString(),"1,1\n2,2\n");
+	map->createAddNamedLocation(3,3);
+	EXPECT_EQ(map->namedLocationListToQStringForSaving().toStdString(),"1,1\n2,2\n3,3\n");
+}
+
+TEST(MapSavingQStringTest, concourseToQString) {
+	Map *map = new Map();
+	map->createAddConcourse(1,1);
+	EXPECT_EQ(map->concourseListToQStringForSaving().toStdString(),"1,1\n");
+	map->createAddConcourse(2,2);
+	EXPECT_EQ(map->concourseListToQStringForSaving().toStdString(),"1,1\n2,2\n");
+	map->createAddConcourse(3,3);
+	EXPECT_EQ(map->concourseListToQStringForSaving().toStdString(),"1,1\n2,2\n3,3\n");
+}
