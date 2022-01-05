@@ -150,13 +150,13 @@ void Window::saveRailwayAs()
 		if (drawingArea->checkAllTracksInMapConnected())
 		{
 			fileName = QFileDialog::getSaveFileName(this, tr("Save File"),
-								   "./",
+								   QDir::currentPath(),
 								   tr("Railway2 File (*.rly2);; Development2 File (*.dev2)"));
 		}
 		else
 		{
 			fileName = QFileDialog::getSaveFileName(this, tr("Save File"),
-								   "./",
+								   QDir::currentPath(),
 								   tr("Development2 File (*.dev2)"));
 		}
 	}
