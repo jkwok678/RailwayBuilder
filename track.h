@@ -302,7 +302,9 @@ protected:
 	int trackSecondarySpeed{-1};
 	int trackSecondaryLength{-1};
 	bool links [9]{false, false, false, false, false, false, false, false, false};
+	std::shared_ptr<NamedLocation> linkedNamedLocation;
 	bool found;
+
 
 	/**
 	 * @brief Sets the default secondary speed and length.
@@ -392,6 +394,17 @@ public:
 	 * @return A bool that describes if there is a track at that link.
 	 */
 	bool getLinkAt(int link);
+
+	/**
+	 * @brief Get the NamedLocation that is at this track.
+	 * @return A NamedLocation.
+	 */
+	std::shared_ptr<NamedLocation> getNamedLocation();
+
+	/**
+	 * @brief Set the NamedLocation at this track.
+	 */
+	void setNamedLocation(std::shared_ptr<NamedLocation> newNamedLocation);
 
 	/**
 	 * @brief Checks if the track has been found yet.
