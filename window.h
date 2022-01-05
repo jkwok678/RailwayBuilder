@@ -17,7 +17,6 @@
 #include <iostream>
 #include <QSizePolicy>
 #include <QFileDialog>
-#include <QDir>
 #include <memory>
 #include "borderlayout.h"
 #include "canvas.h"

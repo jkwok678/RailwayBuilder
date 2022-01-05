@@ -637,7 +637,7 @@ void LinkedTrack::setLinkedType(const LinkedType &newLinkedType)
 	linkedType = newLinkedType;
 }
 
-bool LinkedTrack::isLinked() const
+bool LinkedTrack::isLinked()
 {
 	if (otherLinkTrack == nullptr)
 	{

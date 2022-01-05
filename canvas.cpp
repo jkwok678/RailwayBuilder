@@ -981,7 +981,7 @@ bool Canvas::checkAllTracksInMapConnected()
 	return map->checkAllTracksConnected();
 }
 
-int Canvas::getTrackTotal() const
+int Canvas::getTrackTotal()
 {
 	return map->getTotalTrack();
 }

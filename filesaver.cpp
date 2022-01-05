@@ -2,7 +2,7 @@
 
 //private
 
-std::vector<QString> Filesaver::prepareFileContentToWrite(const Map *map)
+std::vector<QString> Filesaver::prepareFileContentToWrite(Map *map)
 {
 	std::vector<QString> toSave(0);
 	toSave.push_back("Text\n");
@@ -45,12 +45,12 @@ Filesaver::Filesaver()
 	lastSavedPath = "";
 }
 
-void Filesaver::setNewFilePath(const QString newPath)
+void Filesaver::setNewFilePath(QString newPath)
 {
 	lastSavedPath = newPath;
 }
 
-bool Filesaver::saveRailway(const Map *map)
+bool Filesaver::saveRailway(Map *map)
 {
 
 	if (lastSavedPath.isEmpty())
