@@ -320,6 +320,14 @@ public:
 	 */
 	bool checkElementExists(int locationX, int locationY);
 
+	/**
+	 * @brief Checks if a track, concourse or parapet exists at a location.
+	 * @param locationX X coordinate to check.
+	 * @param locationY Y coordinate to check.
+	 * @return A bool that represents if a track, concourse or parapet exists there.
+	 */
+	bool checkTrackConcourseParapetExists(int locationX, int locationY);
+
 
 	//StraightTrack related methods.
 

@@ -600,6 +600,61 @@ bool Map::checkElementExists(int locationX, int locationY)
 	return found;
 }
 
+bool Map::checkTrackConcourseParapetExists(int locationX, int locationY)
+{
+	bool found = false;
+	found = checkStraightTrackAt(locationX,locationY);
+	if (!found)
+	{
+		found = checkDirectedTrackAt(locationX,locationY);
+	}
+	if (!found)
+	{
+		found = checkCurvedTrackAt(locationX,locationY);
+	}
+	if (!found)
+	{
+		found = checkLinkedTrackAt(locationX,locationY);
+	}
+	if (!found)
+	{
+		found = checkExitTrackAt(locationX,locationY);
+	}
+	if (!found)
+	{
+		found = checkBufferTrackAt(locationX,locationY);
+	}
+	if (!found)
+	{
+		found = checkSignalTrackAt(locationX,locationY);
+	}
+	if (!found)
+	{
+		found = checkBridgeUnderpassTrackAt(locationX,locationY);
+	}
+	if (!found)
+	{
+		found = checkSwitchTrackAt(locationX,locationY);
+	}
+	if (!found)
+	{
+		found = checkCrossoverTrackAt(locationX,locationY);
+	}
+	if (!found)
+	{
+		found = checkFlyoverTrackAt(locationX,locationY);
+	}
+	if (!found)
+	{
+		found = checkConcourseAt(locationX,locationY);
+	}
+	if (!found)
+	{
+		found = checkParapetAt(locationX,locationY);
+	}
+	return found;
+}
+
 
 
 
