@@ -1,0 +1,11 @@
+<map id="StraightTrack" name="StraightTrack">
+<area shape="rect" id="node1" title="The StraightTrack class." alt="" coords="299,229,399,256"/>
+<area shape="rect" id="node5" href="$class_bridge_underpass_track.html" title="The BridgeUnderpassTrack class." alt="" coords="5,304,160,331"/>
+<area shape="rect" id="node6" href="$class_buffer_track.html" title="The BufferTrack class." alt="" coords="185,304,274,331"/>
+<area shape="rect" id="node7" href="$class_directed_track.html" title="The DirectedTrack class." alt="" coords="298,304,401,331"/>
+<area shape="rect" id="node8" href="$class_signal_track.html" title="The SignalTrack class." alt="" coords="425,304,516,331"/>
+<area shape="rect" id="node9" href="$class_switch_track.html" title="The SwitchTrack class." alt="" coords="541,304,635,331"/>
+<area shape="rect" id="node2" href="$class_track.html" title="The Track class." alt="" coords="322,155,377,181"/>
+<area shape="rect" id="node3" href="$class_named_element.html" title="The NamedElement class." alt="" coords="294,80,405,107"/>
+<area shape="rect" id="node4" href="$class_element.html" title="The Element class." alt="" coords="315,5,384,32"/>
+</map>
