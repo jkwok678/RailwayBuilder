@@ -510,7 +510,34 @@ std::shared_ptr<Track> Map::findTopLeftTrack()
 	return track;
 }
 
+void Map::addTextToSurroundingTextList(std::shared_ptr<Concourse> concourse, std::shared_ptr<Track> track, std::vector<std::shared_ptr<Text>> surroundingTextList)
+{
+	if (concourse != nullptr)
+	{
+		if (concourse->getNamed())
+		{
+			surroundingTextList.push_back(concourse->getText());
+		}
+	}
+	else if (track != nullptr)
+	{
+		if (track->getNamed())
+		{
+			surroundingTextList.push_back(track->getText());
+		}
+	}
+}
 
+void Map::addTextToSurroundingTextListForNamedLocation(std::shared_ptr<NamedLocation> namedLocation, std::vector<std::shared_ptr<Text> > surroundingTextList)
+{
+	if (namedLocation != nullptr)
+	{
+		if (namedLocation->getNamed())
+		{
+			surroundingTextList.push_back(namedLocation->getText());
+		}
+	}
+}
 
 
 
@@ -2044,6 +2071,51 @@ void Map::linkLocalText(int locationX, int locationY, std::shared_ptr<Text> link
 			}
 		}
 	}
+}
+
+
+
+void Map::linkNewElementToText(int locationX, int locationY)
+{
+	//Get what's there currently
+	std::shared_ptr<Track> track = getTrackAt(locationX,locationY);
+	std::shared_ptr<Concourse> concourse = getConcourseAt(locationX, locationY);
+	std::shared_ptr<NamedLocation> namedLocation = getNamedLocationAt(locationX, locationY);
+	std::shared_ptr<Text> textToLink = nullptr;
+
+	std::vector<std::shared_ptr<Text>> surroundingTextList;
+
+	if (namedLocation != nullptr)
+	{
+		std::shared_ptr<NamedLocation> namedLocationAbove = getNamedLocationAt(locationX,locationY+16);
+		std::shared_ptr<NamedLocation> namedLocationBelow = getNamedLocationAt(locationX,locationY-16);
+		std::shared_ptr<NamedLocation> namedLocationRight = getNamedLocationAt(locationX+16,locationY);
+		std::shared_ptr<NamedLocation> namedLocationLeft = getNamedLocationAt(locationX-16,locationY);
+		addTextToSurroundingTextListForNamedLocation(namedLocationAbove, surroundingTextList);
+		addTextToSurroundingTextListForNamedLocation(namedLocationBelow, surroundingTextList);
+		addTextToSurroundingTextListForNamedLocation(namedLocationRight, surroundingTextList);
+		addTextToSurroundingTextListForNamedLocation(namedLocationLeft, surroundingTextList);
+
+	}
+	else
+	{
+		std::shared_ptr<Track> trackAbove = getTrackAt(locationX,locationY+16);
+		std::shared_ptr<Concourse> concourseAbove = getConcourseAt(locationX,locationY+16);
+		std::shared_ptr<Track> trackBelow = getTrackAt(locationX,locationY-16);
+		std::shared_ptr<Concourse> concourseBelow = getConcourseAt(locationX,locationY-16);
+		std::shared_ptr<Track> trackRight = getTrackAt(locationX+16,locationY);
+		std::shared_ptr<Concourse> concourseRight = getConcourseAt(locationX+16,locationY);
+		std::shared_ptr<Track> trackLeft = getTrackAt(locationX-16,locationY);
+		std::shared_ptr<Concourse> concourseLeft = getConcourseAt(locationX-16,locationY);
+
+		//Get the text that occupies that location
+		addTextToSurroundingTextList(concourseAbove, trackAbove, surroundingTextList);
+		addTextToSurroundingTextList(concourseBelow, trackBelow, surroundingTextList);
+		addTextToSurroundingTextList(concourseRight, trackRight, surroundingTextList);
+		addTextToSurroundingTextList(concourseLeft, trackLeft, surroundingTextList);
+	}
+
+
 }
 
 QString Map::textListToQStringForSaving()

@@ -280,6 +280,21 @@ private:
 	 */
 	std::shared_ptr<Track> findTopLeftTrack();
 
+	/**
+	 * @brief Helper function to see if a track or concourse has a text and add it to the list
+	 * @param concourse Concourse object/ null
+	 * @param track Track object/ null
+	 * @param surroundingTextList The list to add to.
+	 */
+	void addTextToSurroundingTextList(std::shared_ptr<Concourse> concourse, std::shared_ptr<Track> track, std::vector<std::shared_ptr<Text>> surroundingTextList);
+
+	/**
+	 * @brief Helper function to see if a namedLocation has a text and add it to the list
+	 * @param namedlocation NamedLocation objetc/ null
+	 * @param surroundingTextList The list to add to.
+	 */
+	void addTextToSurroundingTextListForNamedLocation(std::shared_ptr<NamedLocation> namedLocation, std::vector<std::shared_ptr<Text>> surroundingTextList);
+
 public:
 
 	//General map methods.
@@ -1090,7 +1105,7 @@ public:
 	void changeDeleteText(QString readableBit, bool ok, std::shared_ptr<Text> text);
 
 	/**
-	 * @brief Links text to items that are neighbours.
+	 * @brief Links text to elements at the location and the surrounding ones if they can be named.
 	 *
 	 * X and Y coordinates is the item the place to look for neighbours.
 	 *
@@ -1099,6 +1114,13 @@ public:
 	 * @param linkedText THe text to link to.
 	 */
 	void linkLocalText(int locationX, int locationY, std::shared_ptr<Text> linkedText);
+
+	/**
+	 * @brief Links a new element to existing test, if it exists already.
+	 * @param locationX X Coordinate.
+	 * @param locationY Y Coordinate.
+	 */
+	void linkNewElementToText(int locationX, int locationY);
 
 	/**
 	 * @brief Gets the TextList as a QString for file saving.
