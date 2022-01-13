@@ -16,10 +16,6 @@ void Map::addStraightTrack(std::shared_ptr<StraightTrack> newStraightTrack)
 		straightTrackList.push_back(newStraightTrack);
 		++totalTrack;
 	}
-	else
-	{
-		Message::showElementAlreadyThereErrorMessage();
-	}
 }
 
 void Map::addDirectedTrack(std::shared_ptr<DirectedTrack> newDirectedTrack)
