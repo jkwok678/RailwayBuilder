@@ -16,10 +16,6 @@ void Map::addStraightTrack(std::shared_ptr<StraightTrack> newStraightTrack)
 		straightTrackList.push_back(newStraightTrack);
 		++totalTrack;
 	}
-	else
-	{
-		Message::showElementAlreadyThereErrorMessage();
-	}
 }
 
 void Map::addDirectedTrack(std::shared_ptr<DirectedTrack> newDirectedTrack)
@@ -30,10 +26,6 @@ void Map::addDirectedTrack(std::shared_ptr<DirectedTrack> newDirectedTrack)
 	{
 		directedTrackList.push_back(newDirectedTrack);
 		++totalTrack;
-	}
-	else
-	{
-		Message::showElementAlreadyThereErrorMessage();
 	}
 }
 
@@ -46,10 +38,6 @@ void Map::addCurvedTrack(std::shared_ptr<CurvedTrack> newCurvedTrack)
 		curvedTrackList.push_back(newCurvedTrack);
 		++totalTrack;
 	}
-	else
-	{
-		Message::showElementAlreadyThereErrorMessage();
-	}
 }
 
 void Map::addLinkedTrack(std::shared_ptr<LinkedTrack> newLinkedTrack)
@@ -61,10 +49,6 @@ void Map::addLinkedTrack(std::shared_ptr<LinkedTrack> newLinkedTrack)
 		linkedTrackList.push_back(newLinkedTrack);
 		++totalTrack;
 	}
-	else
-	{
-		Message::showElementAlreadyThereErrorMessage();
-	}
 }
 
 void Map::addExitTrack(std::shared_ptr<ExitTrack> newExitTrack)
@@ -74,10 +58,6 @@ void Map::addExitTrack(std::shared_ptr<ExitTrack> newExitTrack)
 	if (!checkElementExists(tempLocationX, templocationY))
 	{
 		exitTrackList.push_back(newExitTrack);
-	}
-	else
-	{
-		Message::showElementAlreadyThereErrorMessage();
 	}
 }
 
@@ -90,10 +70,6 @@ void Map::addBufferTrack(std::shared_ptr<BufferTrack> newBufferTrack)
 		bufferTrackList.push_back(newBufferTrack);
 		++totalTrack;
 	}
-	else
-	{
-		Message::showElementAlreadyThereErrorMessage();
-	}
 }
 
 void Map::addSignalTrack(std::shared_ptr<SignalTrack> newSignalTrack)
@@ -104,10 +80,6 @@ void Map::addSignalTrack(std::shared_ptr<SignalTrack> newSignalTrack)
 	{
 		signalTrackList.push_back(newSignalTrack);
 		++totalTrack;
-	}
-	else
-	{
-		Message::showElementAlreadyThereErrorMessage();
 	}
 }
 
@@ -120,10 +92,6 @@ void Map::addBridgeUnderpassTrack(std::shared_ptr<BridgeUnderpassTrack> newBridg
 		bridgeUnderpassTrackList.push_back(newBridgeUnderpassTrack);
 		++totalTrack;
 	}
-	else
-	{
-		Message::showElementAlreadyThereErrorMessage();
-	}
 }
 
 void Map::addSwitchTrack(std::shared_ptr<SwitchTrack> newSwitchTrack)
@@ -134,10 +102,6 @@ void Map::addSwitchTrack(std::shared_ptr<SwitchTrack> newSwitchTrack)
 	{
 		switchTrackList.push_back(newSwitchTrack);
 		++totalTrack;
-	}
-	else
-	{
-		Message::showElementAlreadyThereErrorMessage();
 	}
 }
 
@@ -150,10 +114,6 @@ void Map::addCrossoverTrack(std::shared_ptr<CrossoverTrack> newCrossoverTrack)
 		crossoverTrackList.push_back(newCrossoverTrack);
 		++totalTrack;
 	}
-	else
-	{
-		Message::showElementAlreadyThereErrorMessage();
-	}
 }
 
 void Map::addFlyoverTrack(std::shared_ptr<FlyoverTrack> newFlyoverTrack)
@@ -165,10 +125,6 @@ void Map::addFlyoverTrack(std::shared_ptr<FlyoverTrack> newFlyoverTrack)
 		flyoverTrackList.push_back(newFlyoverTrack);
 		++totalTrack;
 	}
-	else
-	{
-		Message::showElementAlreadyThereErrorMessage();
-	}
 }
 
 void Map::addNamedLocation(std::shared_ptr<NamedLocation> newNamedLocation)
@@ -178,10 +134,6 @@ void Map::addNamedLocation(std::shared_ptr<NamedLocation> newNamedLocation)
 	if (!checkElementExists(tempLocationX, templocationY))
 	{
 		namedLocationList.push_back(newNamedLocation);
-	}
-	else
-	{
-		Message::showElementAlreadyThereErrorMessage();
 	}
 }
 
@@ -193,10 +145,6 @@ void Map::addConcourse(std::shared_ptr<Concourse> newConcourseTrack)
 	{
 		concourseList.push_back(newConcourseTrack);
 	}
-	else
-	{
-		Message::showElementAlreadyThereErrorMessage();
-	}
 }
 
 void Map::addParapet(std::shared_ptr<Parapet> newParapet)
@@ -207,10 +155,6 @@ void Map::addParapet(std::shared_ptr<Parapet> newParapet)
 	if (!checkElementExists(tempLocationX, templocationY))
 	{
 		parapetList.push_back(newParapet);
-	}
-	else
-	{
-		Message::showElementAlreadyThereErrorMessage();
 	}
 
 }
