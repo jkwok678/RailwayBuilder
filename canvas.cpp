@@ -991,6 +991,14 @@ void Canvas::clickCreateAddElement(ElementChosen elementToAdd, int overallX, int
 	bool addedElement = false;
 	switch (elementToAdd)
 	{
+		case ElementChosen::NONE:
+		{
+			QMessageBox noELementSelected;
+			noELementSelected.setIcon(QMessageBox::Critical);
+			noELementSelected.setText("No element has been selected.");
+			noELementSelected.exec();
+			break;
+		}
 		case ElementChosen::STRAIGHTH:
 		{
 			map->createAddStraightTrack(StraightType::STRAIGHTH, overallX, overallY);
@@ -1868,8 +1876,6 @@ void Canvas::clickCreateAddElement(ElementChosen elementToAdd, int overallX, int
 			addedElement = true;
 			break;
 		}
-		default: break;
-
 	}
 }
 
