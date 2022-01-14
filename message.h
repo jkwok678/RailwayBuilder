@@ -15,7 +15,7 @@ public:
 	 *
 	 * Used in the Map class when checking if tracks are all connected.
 	 */
-	static void showAllTrackConnecedSuccessMessage();
+	void showAllTrackConnecedSuccessMessage();
 
 	//Confirmations
 

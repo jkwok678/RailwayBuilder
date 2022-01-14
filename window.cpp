@@ -304,7 +304,16 @@ void Window::connectLinkedTrackMode()
 void Window::checkAllTrackConnected()
 {
 	//Run checkAllTrack
-	drawingArea->checkAllTracksInMapConnected();
+	if (drawingArea->checkAllTracksInMapConnected())
+	{
+		Message tracksConnectedSuccessMessage;
+		tracksConnectedSuccessMessage.showAllTrackConnecedSuccessMessage();
+
+	}
+	else
+	{
+		Message::showNotAllTrackConnectedErrorMessage();
+	}
 }
 
 void Window::addEditRemoveTextMode()

@@ -3084,14 +3084,6 @@ bool Map::checkAllTracksConnected()
 				}
 			}
 		}
-		if (allConnected)
-		{
-			Message::showAllTrackConnecedSuccessMessage();
-		}
-		else
-		{
-			Message::showNotAllTrackConnectedErrorMessage();
-		}
 	}
 
 	return allConnected;
