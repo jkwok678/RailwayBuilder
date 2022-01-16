@@ -3008,7 +3008,8 @@ bool Map::checkAllTracksConnected()
 	allConnected = checkAllLinkedTrackLinked();
 	if (trackList.size() == 0)
 	{
-		Message::showZeroTrackErrorMessage();
+		Message zeroTrackErrorMessage;
+		zeroTrackErrorMessage.showZeroTrackErrorMessage();
 	}
 	else
 	{
