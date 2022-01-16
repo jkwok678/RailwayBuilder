@@ -35,7 +35,7 @@ public:
 	 *
 	 * Used in the Window class when connecting linkedTracks.
 	 */
-	static void showLowNumOfLinkedTrackErrorMessage();
+	void showLowNumOfLinkedTrackErrorMessage();
 
 	/**
 	 * @brief A method that shows an error message if the user tries to connect Linked Tracks when there is an odd number of them.
