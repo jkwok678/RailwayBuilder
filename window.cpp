@@ -314,7 +314,8 @@ void Window::checkAllTrackConnected()
 	}
 	else
 	{
-		Message::showNotAllTrackConnectedErrorMessage();
+		Message trackNotConnectedErrorMessage;
+		trackNotConnectedErrorMessage.showNotAllTrackConnectedErrorMessage();
 	}
 }
 
