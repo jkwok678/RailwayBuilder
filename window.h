@@ -2039,16 +2039,5 @@ private:
 	 */
 	void createRightDirectionalMenu();
 
-	//Error message methods.
-
-	/**
-	 * @brief A method that shows an error message if the user tries to connect Linked Tracks when there are none.
-	 */
-	void showLowNumOfLinkedTrackErrorMessage();
-
-	/**
-	 * @brief A method that shows an error message if the user tries to connect Linked Tracks when there is an odd number of them.
-	 */
-	void showOddNumOfLinkedTrackErrorMessage();
 };
 #endif // WINDOW_H

@@ -287,7 +287,8 @@ void Window::connectLinkedTrackMode()
 		}
 		else if (linkedTrackNum < MIN_LINKTRACK_NEEDED)
 		{
-			Message::showLowNumOfLinkedTrackErrorMessage();
+			Message lowLinkedTrackError;
+			lowLinkedTrackError.showLowNumOfLinkedTrackErrorMessage();
 		}
 		else
 		{
