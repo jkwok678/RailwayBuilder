@@ -292,7 +292,8 @@ void Window::connectLinkedTrackMode()
 		}
 		else
 		{
-			Message::showOddNumOfLinkedTrackErrorMessage();
+			Message oddLinkedTrackError;
+			oddLinkedTrackError.showOddNumOfLinkedTrackErrorMessage();
 		}
 	}
 	else

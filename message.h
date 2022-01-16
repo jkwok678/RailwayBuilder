@@ -42,7 +42,7 @@ public:
 	 *
 	 * Used in the Window class when connecting linkedTracks.
 	 */
-	static void showOddNumOfLinkedTrackErrorMessage();
+	void showOddNumOfLinkedTrackErrorMessage();
 
 	/**
 	 * @brief A method that shows an error message if the user hasn't got all tracks connected.
