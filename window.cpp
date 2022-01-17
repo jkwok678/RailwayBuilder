@@ -287,11 +287,13 @@ void Window::connectLinkedTrackMode()
 		}
 		else if (linkedTrackNum < MIN_LINKTRACK_NEEDED)
 		{
-			Message::showLowNumOfLinkedTrackErrorMessage();
+			Message lowLinkedTrackError;
+			lowLinkedTrackError.showLowNumOfLinkedTrackErrorMessage();
 		}
 		else
 		{
-			Message::showOddNumOfLinkedTrackErrorMessage();
+			Message oddLinkedTrackError;
+			oddLinkedTrackError.showOddNumOfLinkedTrackErrorMessage();
 		}
 	}
 	else
@@ -304,7 +306,17 @@ void Window::connectLinkedTrackMode()
 void Window::checkAllTrackConnected()
 {
 	//Run checkAllTrack
-	drawingArea->checkAllTracksInMapConnected();
+	if (drawingArea->checkAllTracksInMapConnected())
+	{
+		Message tracksConnectedSuccessMessage;
+		tracksConnectedSuccessMessage.showAllTrackConnecedSuccessMessage();
+
+	}
+	else
+	{
+		Message trackNotConnectedErrorMessage;
+		trackNotConnectedErrorMessage.showNotAllTrackConnectedErrorMessage();
+	}
 }
 
 void Window::addEditRemoveTextMode()

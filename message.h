@@ -15,7 +15,7 @@ public:
 	 *
 	 * Used in the Map class when checking if tracks are all connected.
 	 */
-	static void showAllTrackConnecedSuccessMessage();
+	void showAllTrackConnecedSuccessMessage();
 
 	//Confirmations
 
@@ -28,35 +28,35 @@ public:
 	 *
 	 * Used in the Map class when placing elements.
 	 */
-	static void showElementAlreadyThereErrorMessage();
+	void showElementAlreadyThereErrorMessage();
 
 	/**
 	 * @brief A method that shows an error message if the user tries to connect Linked Tracks when there are none.
 	 *
 	 * Used in the Window class when connecting linkedTracks.
 	 */
-	static void showLowNumOfLinkedTrackErrorMessage();
+	void showLowNumOfLinkedTrackErrorMessage();
 
 	/**
 	 * @brief A method that shows an error message if the user tries to connect Linked Tracks when there is an odd number of them.
 	 *
 	 * Used in the Window class when connecting linkedTracks.
 	 */
-	static void showOddNumOfLinkedTrackErrorMessage();
+	void showOddNumOfLinkedTrackErrorMessage();
 
 	/**
 	 * @brief A method that shows an error message if the user hasn't got all tracks connected.
 	 *
 	 * Used in the Map class when checking if tracks are all connected.
 	 */
-	static void showNotAllTrackConnectedErrorMessage();
+	void showNotAllTrackConnectedErrorMessage();
 
 	/**
 	 * @brief A method that shows an error message there are no tracks stored.
 	 *
 	 * Used in the Map class when checking if tracks are all connected.
 	 */
-	static void showZeroTrackErrorMessage();
+	void showZeroTrackErrorMessage();
 
 };
 
