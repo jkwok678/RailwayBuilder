@@ -2587,6 +2587,28 @@ void Map::addLevelCrossing(int locationX, int locationY)
 bool Map::deleteElement(int locationX, int locationY)
 {
 	bool deleted = false;
+	std::shared_ptr<Track> track = getTrackAt(locationX, locationY);
+	std::shared_ptr<NamedLocation> namedLocation = getNamedLocationAt(locationX, locationY);
+	std::shared_ptr<Concourse> concourse = getConcourseAt(locationX, locationY);
+	std::shared_ptr<Text> text;
+	if (track != nullptr && track->getNamed())
+	{
+		text = track->getText();
+		deleteTextFromAllElements(text);
+		deleteText(text);
+	}
+	else if (namedLocation != nullptr && namedLocation->getNamed())
+	{
+		text = namedLocation->getText();
+		deleteTextFromAllElements(text);
+		deleteText(text);
+	}
+	else if (concourse != nullptr && concourse->getNamed())
+	{
+		text = concourse->getText();
+		deleteTextFromAllElements(text);
+		deleteText(text);
+	}
 	if (!deleted)
 	{
 		deleted = removeStraightTrack(locationX, locationY);
