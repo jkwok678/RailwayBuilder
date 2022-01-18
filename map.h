@@ -280,21 +280,6 @@ private:
 	 */
 	std::shared_ptr<Track> findTopLeftTrack();
 
-	/**
-	 * @brief Helper function to see if a track or concourse has a text and add it to the list
-	 * @param concourse Concourse object/ null
-	 * @param track Track object/ null
-	 * @param surroundingTextList The list to add to.
-	 */
-	void addTextToSurroundingTextList(std::shared_ptr<Concourse> concourse, std::shared_ptr<Track> track, std::vector<std::shared_ptr<Text>> surroundingTextList);
-
-	/**
-	 * @brief Helper function to see if a namedLocation has a text and add it to the list
-	 * @param namedlocation NamedLocation objetc/ null
-	 * @param surroundingTextList The list to add to.
-	 */
-	void addTextToSurroundingTextListForNamedLocation(std::shared_ptr<NamedLocation> namedLocation, std::vector<std::shared_ptr<Text>> surroundingTextList);
-
 public:
 
 	//General map methods.

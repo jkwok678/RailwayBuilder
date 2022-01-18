@@ -454,36 +454,6 @@ std::shared_ptr<Track> Map::findTopLeftTrack()
 	return track;
 }
 
-void Map::addTextToSurroundingTextList(std::shared_ptr<Concourse> concourse, std::shared_ptr<Track> track, std::vector<std::shared_ptr<Text>> surroundingTextList)
-{
-	if (concourse != nullptr)
-	{
-		if (concourse->getNamed())
-		{
-			surroundingTextList.push_back(concourse->getText());
-		}
-	}
-	else if (track != nullptr)
-	{
-		if (track->getNamed())
-		{
-			surroundingTextList.push_back(track->getText());
-		}
-	}
-}
-
-void Map::addTextToSurroundingTextListForNamedLocation(std::shared_ptr<NamedLocation> namedLocation, std::vector<std::shared_ptr<Text> > surroundingTextList)
-{
-	if (namedLocation != nullptr)
-	{
-		if (namedLocation->getNamed())
-		{
-			surroundingTextList.push_back(namedLocation->getText());
-		}
-	}
-}
-
-
 
 //public
 
@@ -1372,6 +1342,7 @@ void Map::createAddNamedLocation(int overallX, int overallY)
 {
 	std::shared_ptr<NamedLocation> namedLocation(new NamedLocation(overallX, overallY));
 	addNamedLocation(namedLocation);
+	linkNewElementToText(overallX, overallY);
 }
 
 std::shared_ptr<NamedLocation> Map::getNamedLocationAt(int locationX, int locationY)
@@ -1430,6 +1401,7 @@ void Map::createAddConcourse(int overallX, int overallY)
 {
 	std::shared_ptr<Concourse> concourse(new Concourse(overallX, overallY));
 	addConcourse(concourse);
+	linkNewElementToText(overallX, overallY);
 }
 
 std::shared_ptr<Concourse> Map::getConcourseAt(int locationX, int locationY)
@@ -2022,8 +1994,6 @@ void Map::linkLocalText(int locationX, int locationY, std::shared_ptr<Text> link
 void Map::linkNewElementToText(int locationX, int locationY)
 {
 	//Get what's there currently
-	std::shared_ptr<Track> track = getTrackAt(locationX,locationY);
-	std::shared_ptr<Concourse> concourse = getConcourseAt(locationX, locationY);
 	std::shared_ptr<NamedLocation> namedLocation = getNamedLocationAt(locationX, locationY);
 	std::shared_ptr<Text> textToLink = nullptr;
 
@@ -2035,10 +2005,34 @@ void Map::linkNewElementToText(int locationX, int locationY)
 		std::shared_ptr<NamedLocation> namedLocationBelow = getNamedLocationAt(locationX,locationY-16);
 		std::shared_ptr<NamedLocation> namedLocationRight = getNamedLocationAt(locationX+16,locationY);
 		std::shared_ptr<NamedLocation> namedLocationLeft = getNamedLocationAt(locationX-16,locationY);
-		addTextToSurroundingTextListForNamedLocation(namedLocationAbove, surroundingTextList);
-		addTextToSurroundingTextListForNamedLocation(namedLocationBelow, surroundingTextList);
-		addTextToSurroundingTextListForNamedLocation(namedLocationRight, surroundingTextList);
-		addTextToSurroundingTextListForNamedLocation(namedLocationLeft, surroundingTextList);
+		if (namedLocationAbove != nullptr)
+		{
+			if (namedLocationAbove->getNamed())
+			{
+				surroundingTextList.push_back(namedLocationAbove->getText());
+			}
+		}
+		if (namedLocationBelow != nullptr)
+		{
+			if (namedLocationBelow->getNamed())
+			{
+				surroundingTextList.push_back(namedLocationBelow->getText());
+			}
+		}
+		if (namedLocationRight != nullptr)
+		{
+			if (namedLocationRight->getNamed())
+			{
+				surroundingTextList.push_back(namedLocationRight->getText());
+			}
+		}
+		if (namedLocationLeft != nullptr)
+		{
+			if (namedLocationLeft->getNamed())
+			{
+				surroundingTextList.push_back(namedLocationLeft->getText());
+			}
+		}
 
 	}
 	else
@@ -2051,15 +2045,103 @@ void Map::linkNewElementToText(int locationX, int locationY)
 		std::shared_ptr<Concourse> concourseRight = getConcourseAt(locationX+16,locationY);
 		std::shared_ptr<Track> trackLeft = getTrackAt(locationX-16,locationY);
 		std::shared_ptr<Concourse> concourseLeft = getConcourseAt(locationX-16,locationY);
-
-		//Get the text that occupies that location
-		addTextToSurroundingTextList(concourseAbove, trackAbove, surroundingTextList);
-		addTextToSurroundingTextList(concourseBelow, trackBelow, surroundingTextList);
-		addTextToSurroundingTextList(concourseRight, trackRight, surroundingTextList);
-		addTextToSurroundingTextList(concourseLeft, trackLeft, surroundingTextList);
+		if (trackAbove != nullptr)
+		{
+			if (trackAbove->getNamed())
+			{
+				surroundingTextList.push_back(trackAbove->getText());
+			}
+		}
+		else if (concourseAbove != nullptr)
+		{
+			if (concourseAbove->getNamed())
+			{
+				surroundingTextList.push_back(concourseAbove->getText());
+			}
+		}
+		if (trackBelow != nullptr)
+		{
+			if (trackBelow->getNamed())
+			{
+				surroundingTextList.push_back(trackBelow->getText());
+			}
+		}
+		else if (concourseBelow != nullptr)
+		{
+			if (concourseBelow->getNamed())
+			{
+				surroundingTextList.push_back(concourseBelow->getText());
+			}
+		}
+		if (trackRight != nullptr)
+		{
+			if (trackRight->getNamed())
+			{
+				surroundingTextList.push_back(trackRight->getText());
+			}
+		}
+		else if (concourseRight != nullptr)
+		{
+			if (concourseRight->getNamed())
+			{
+				surroundingTextList.push_back(concourseRight->getText());
+			}
+		}
+		if (trackLeft != nullptr)
+		{
+			if (trackLeft->getNamed())
+			{
+				surroundingTextList.push_back(trackLeft->getText());
+			}
+		}
+		else if (concourseLeft != nullptr)
+		{
+			if (concourseLeft->getNamed())
+			{
+				surroundingTextList.push_back(concourseLeft->getText());
+			}
+		}
 	}
+	QStringList surroundingQStringList;
+	QString readableTextToLink;
+	if (!surroundingTextList.empty())
+	{
+		for(std::shared_ptr<Text> text : surroundingTextList)
+		{
+			surroundingQStringList.append(text->getReadableText());
+		}
+		if (surroundingQStringList.size() > 1)
+		{
+			Message chooseTextToKeepMessage;
+			readableTextToLink = chooseTextToKeepMessage.showChooseTextMessageDialog(surroundingQStringList);
+			for (std::shared_ptr<Text> text : surroundingTextList)
+			{
+				if (text->getReadableText() == readableTextToLink)
+				{
+					textToLink = text;
+				}
+			}
+		}
+		else
+		{
+			textToLink = surroundingTextList.at(0);
+		}
 
+		if (textToLink == nullptr)
+		{
+			for (std::shared_ptr<Text> text : surroundingTextList)
+			{
+				deleteTextFromAllElements(text);
+				deleteText(text);
+			}
 
+		}
+		else
+		{
+			linkLocalText(locationX, locationY, textToLink);
+		}
+
+	}
 }
 
 QString Map::textListToQStringForSaving()
@@ -2470,22 +2552,7 @@ void Map::addPlatform(Platform side, int locationX, int locationY)
 						}
 						break;
 					}
-					case SwitchType::SWITCHSPLIT1:
-					case SwitchType::SWITCHSPLIT2:
-					case SwitchType::SWITCHSPLIT3:
-					case SwitchType::SWITCHSPLIT4:
-					case SwitchType::SWITCHSPLIT5:
-					case SwitchType::SWITCHSPLIT6:
-					case SwitchType::SWITCHSPLIT7:
-					case SwitchType::SWITCHSPLIT8:
-					case SwitchType::SWITCH9:
-					case SwitchType::SWITCH10:
-					case SwitchType::SWITCH11:
-					case SwitchType::SWITCH12:
-					case SwitchType::SWITCH13:
-					case SwitchType::SWITCH14:
-					case SwitchType::SWITCH15:
-					case SwitchType::SWITCH16:
+					default:
 					{
 						break;
 					}
@@ -2493,6 +2560,7 @@ void Map::addPlatform(Platform side, int locationX, int locationY)
 			}
 		}
 	}
+	linkNewElementToText(locationX,locationY);
 }
 
 void Map::addLevelCrossing(int locationX, int locationY)

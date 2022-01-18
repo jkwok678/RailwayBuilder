@@ -1655,14 +1655,12 @@ void Canvas::clickCreateAddElement(ElementChosen elementToAdd, int overallX, int
 		case ElementChosen::NAMEDLOCATION:
 		{
 			map->createAddNamedLocation(overallX, overallY);
-			//drawnLayout->linkNewBlockToText(finalX,finalY);
 			addedElement = true;
 			break;
 		}
 		case ElementChosen::CONCOURSE:
 		{
 			map->createAddConcourse(overallX,overallY);
-			//drawnLayout->linkNewBlockToText(overallX,overallY);
 			addedElement = true;
 			break;
 		}

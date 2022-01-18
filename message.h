@@ -1,7 +1,9 @@
 #ifndef MESSAGE_H
 #define MESSAGE_H
 
-#include<QMessageBox>
+#include <QMessageBox>
+#include <QInputDialog>
+#include <QString>
 
 class Message
 {
@@ -11,7 +13,7 @@ public:
 	//Success
 
 	/**
-	 * @brief Show the user a scuess message saying all tracks are connected.
+	 * @brief Show the user a sucess message saying all tracks are connected.
 	 *
 	 * Used in the Map class when checking if tracks are all connected.
 	 */
@@ -19,7 +21,12 @@ public:
 
 	//Confirmations
 
-
+	/**
+	 * @brief Show the user a dialog message asking them to choose which text to connect to.
+	 *
+	 * Used in the Map class when an element that can hold text is inbetween 2 different texts.
+	 */
+	QString showChooseTextMessageDialog(QStringList textList);
 
 	//Errors
 
