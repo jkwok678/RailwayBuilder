@@ -9,74 +9,57 @@ jobs:
   build-test-linux:
     runs-on: ubuntu-latest
     steps:
-
     - uses: actions/checkout@v2
-
     - name: Install Qt
       uses: jurplel/install-qt-action@v2
       with:
         version: '6.2.2'
-
     - name: Setup cmake
       uses: jwlawson/actions-setup-cmake@v1.9
       with:
         cmake-version: '3.19.x'
-
     - name: Build RailwayBuilder
       run: |
             cmake -Bbuild
             cmake --build build
-
     - name: Run Tests
       run: ./build/test/RailwayBuilderTests
-
   build-test-macOS:
     runs-on: macos-latest
     steps:
-
     - uses: actions/checkout@v2
-
     - name: Install Qt
       uses: jurplel/install-qt-action@v2
       with:
         version: '6.2.2'
-
     - name: Setup cmake
       uses: jwlawson/actions-setup-cmake@v1.9
       with:
         cmake-version: '3.19.x'
-
     - name: Build RailwayBuilder
       run: |
             cmake -Bbuild
             cmake --build build
     - name: Run Tests
       run: ./build/test/RailwayBuilderTests
-
   build-test-windows:
     runs-on: windows-latest
     steps:
-      
     - uses: actions/checkout@v2
-
     - name: Install Qt
       uses: jurplel/install-qt-action@v2
       with:
         version: '6.2.2'
         arch: 'win64_mingw'
-
     - name: Upgrade GCC
       run: choco upgrade mingw
-
     - name: Setup cmake
       uses: jwlawson/actions-setup-cmake@v1.9
       with:
-        cmake-version: '3.20.x'
-
+        cmake-version: '3.19.x'
     - name: Build RailwayBuilder
       run: |
             cmake -Bbuild -G "MinGW Makefiles"
             cmake --build build
-
     - name: Run Tests
       run: ./build/test/RailwayBuilderTests
