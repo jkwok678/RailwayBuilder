@@ -56,7 +56,7 @@ jobs:
   build-test-windows:
     runs-on: windows-latest
     steps:
-
+      
     - uses: actions/checkout@v2
 
     - name: Install Qt
@@ -65,10 +65,8 @@ jobs:
         version: '6.2.2'
         arch: 'win64_mingw'
 
-    - name: Install MinGW
-      uses: egor-tensin/setup-mingw@v2
-      with:
-        platform: x64
+    - name: Upgrade GCC
+      run: choco upgrade mingw
 
     - name: Setup cmake
       uses: jwlawson/actions-setup-cmake@v1.9
