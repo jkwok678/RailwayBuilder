@@ -328,6 +328,13 @@ public:
 	 */
 	bool checkTrackConcourseParapetExists(int locationX, int locationY);
 
+	/**
+	 * @brief Check if a named location can be added at a location
+	 * @param locationX X coordinate to check.
+	 * @param locationY Y coordinate to check.
+	 * @return true if a NamedLocation can be placed there, otherwise false.
+	 */
+	bool checkCanAddNamedLocation(int locationX, int locationY);
 
 	//StraightTrack related methods.
 
@@ -1143,13 +1150,36 @@ public:
 	//General methods
 
 	/**
-	 * @brief Gets the element at the coordinates.
+	 * @brief Gets the element at the coordinates. (Includes tracks)
 	 * @param locationX X coordinate of the element.
 	 * @param locationY Y coordinate of the element.
 	 * @return an element, otherwise nullptr.
 	 */
 	std::shared_ptr<Element> getElementAt( int locationX, int locationY);
 
+	/**
+	 * @brief Checks if there is an element at the coordinates. (Includes tracks)
+	 * @param locationX X coordinate of the element.
+	 * @param locationY Y coordinate of the element.
+	 * @return true if an element is there, otherwise false.
+	 */
+	bool hasElementAt( int locationX, int locationY);
+
+	/**
+	 * @brief Gets the element at the coordinates. (Does not include tracks)
+	 * @param locationX X coordinate of the element.
+	 * @param locationY Y coordinate of the element.
+	 * @return an element, otherwise nullptr.
+	 */
+	std::shared_ptr<Element> getElementExcludingTrackAt( int locationX, int locationY);
+
+	/**
+	 * @brief Checks if there is an element at the coordinates. (Does not includes tracks)
+	 * @param locationX X coordinate of the element.
+	 * @param locationY Y coordinate of the element.
+	 * @return true if an element is there, otherwise false.
+	 */
+	bool hasElementExcludingTrack( int locationX, int locationY);
 
 	/**
 	 * @brief Gets the namedElement at the coordinates.
@@ -1166,6 +1196,14 @@ public:
 	 * @return a track, otherwise nullptr.
 	 */
 	std::shared_ptr<Track> getTrackAt( int locationX, int locationY);
+
+	/**
+	 * @brief Checks if there is a track at the coordinates.
+	 * @param locationX X coordinate of the track.
+	 * @param locationY Y coordinate of the track.
+	 * @return true if there is a track, otherwise false.
+	 */
+	bool hasTrackAt( int locationX, int locationY);
 
 	/**
 	 * @brief Gets the Straight track at the coordinates.

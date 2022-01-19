@@ -4049,6 +4049,9 @@ void Canvas::drawGrid(QPainter &painter)
 
 void Canvas::drawEverythingNormal(QPainter &painter)
 {
+	drawNamedLocation(painter);
+	drawConcourse(painter);
+	drawParapet(painter);
 	drawStraightTrack(painter);
 	drawDirectedTrack(painter);
 	drawCurvedTrack(painter);
@@ -4060,9 +4063,7 @@ void Canvas::drawEverythingNormal(QPainter &painter)
 	drawSwitchTrack(painter);
 	drawCrossoverTrack(painter);
 	drawFlyoverTrack(painter);
-	drawNamedLocation(painter);
-	drawConcourse(painter);
-	drawParapet(painter);
+
 }
 
 

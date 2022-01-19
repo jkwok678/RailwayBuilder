@@ -132,7 +132,7 @@ void Map::addNamedLocation(std::shared_ptr<NamedLocation> newNamedLocation)
 {
 	int tempLocationX = newNamedLocation->getLocationX();
 	int templocationY = newNamedLocation->getLocationY();
-	if (!checkElementExists(tempLocationX, templocationY))
+	if (checkCanAddNamedLocation(tempLocationX, templocationY))
 	{
 		namedLocationList.push_back(newNamedLocation);
 	}
@@ -595,6 +595,106 @@ bool Map::checkTrackConcourseParapetExists(int locationX, int locationY)
 		found = checkParapetAt(locationX,locationY);
 	}
 	return found;
+}
+
+bool Map::checkCanAddNamedLocation(int locationX, int locationY)
+{
+
+	std::shared_ptr<StraightTrack> straightTrack;
+	std::shared_ptr<DirectedTrack> directedTrack;
+	std::shared_ptr<CurvedTrack> curvedTrack;
+	std::shared_ptr<ExitTrack> exitTrack;
+	std::shared_ptr<BufferTrack> bufferTrack;
+
+	bool add = false;
+	if (hasElementAt(locationX, locationY))
+	{
+		straightTrack = getStraightTrackAt(locationX,locationY);
+		if (straightTrack != nullptr)
+		{
+			switch (straightTrack->getStraightType())
+			{
+			case StraightType::STRAIGHTH:
+			case StraightType::STRAIGHTV:
+				return true;
+				break;
+			default:
+				return false;
+				break;
+			}
+		}
+		directedTrack = getDirectedTrackAt(locationX, locationY);
+		if (directedTrack != nullptr)
+		{
+			switch (directedTrack->getDirectType())
+			{
+			case DirectedType::DIRECTEDLEFT:
+			case DirectedType::DIRECTEDRIGHT:
+			case DirectedType::DIRECTEDUP:
+			case DirectedType::DIRECTEDDOWN:
+				return true;
+				break;
+			default:
+				return false;
+				break;
+			}
+		}
+		curvedTrack = getCurvedTrackAt(locationX, locationY);
+		if (curvedTrack != nullptr)
+		{
+			switch (curvedTrack->getCurvedType())
+			{
+			case CurvedType::CURVE1:
+			case CurvedType::CURVE2:
+			case CurvedType::CURVE3:
+			case CurvedType::CURVE4:
+			case CurvedType::CURVE5:
+			case CurvedType::CURVE6:
+			case CurvedType::CURVE7:
+			case CurvedType::CURVE8:
+				return true;
+				break;
+			default:
+				return false;
+				break;
+			}
+		}
+		exitTrack = getExitTrackAt(locationX, locationY);
+		if (exitTrack != nullptr)
+		{
+			switch (exitTrack->getExitType())
+			{
+			case ExitType::EXITLEFT:
+			case ExitType::EXITRIGHT:
+			case ExitType::EXITUP:
+			case ExitType::EXITDOWN:
+				return true;
+				break;
+			default:
+				return false;
+			}
+		}
+		bufferTrack = getBufferTrackAt(locationX, locationY);
+		if (bufferTrack != nullptr)
+		{
+			switch (bufferTrack->getBufferType())
+			{
+			case BufferType::BUFFERLEFT:
+			case BufferType::BUFFERRIGHT:
+			case BufferType::BUFFERUP:
+			case BufferType::BUFFERDOWN:
+				return true;
+				break;
+			default:
+				return false;
+			}
+		}
+		return false;
+	}
+	else
+	{
+		return true;
+	}
 }
 
 
@@ -1344,6 +1444,7 @@ void Map::createAddNamedLocation(int overallX, int overallY)
 	std::shared_ptr<NamedLocation> namedLocation(new NamedLocation(overallX, overallY));
 	addNamedLocation(namedLocation);
 	linkNewElementToText(overallX, overallY);
+
 }
 
 std::shared_ptr<NamedLocation> Map::getNamedLocationAt(int locationX, int locationY)
@@ -2671,6 +2772,25 @@ bool Map::deleteElement(int locationX, int locationY)
 
 std::shared_ptr<Element> Map::getElementAt(int locationX, int locationY)
 {
+	std::shared_ptr<Element> element = getElementExcludingTrackAt(locationX, locationY);
+	if (element == nullptr)
+	{
+		element = getTrackAt(locationX, locationY);
+	}
+	return element;
+}
+
+bool Map::hasElementAt(int locationX, int locationY)
+{
+	if (getElementAt(locationX,locationY) != nullptr)
+	{
+		return true;
+	}
+	return false;
+}
+
+std::shared_ptr<Element> Map::getElementExcludingTrackAt(int locationX, int locationY)
+{
 	bool found = false;
 	std::shared_ptr<Element> element = nullptr;
 	if (!namedLocationList.empty())
@@ -2715,6 +2835,15 @@ std::shared_ptr<Element> Map::getElementAt(int locationX, int locationY)
 		}
 	}
 	return element;
+}
+
+bool Map::hasElementExcludingTrack(int locationX, int locationY)
+{
+	if (getElementExcludingTrackAt(locationX,locationY) != nullptr)
+	{
+		return true;
+	}
+	return false;
 }
 
 std::shared_ptr<NamedElement> Map::getNamedElementAt(int locationX, int locationY)
@@ -2918,6 +3047,15 @@ std::shared_ptr<Track> Map::getTrackAt(int locationX, int locationY)
 		}
 	}
 	return track;
+}
+
+bool Map::hasTrackAt(int locationX, int locationY)
+{
+	if (getTrackAt(locationX,locationY) != nullptr)
+	{
+		return true;
+	}
+	return false;
 }
 
 std::shared_ptr<StraightTrack> Map::getTrackHasPlatformAt(int locationX, int locationY)
