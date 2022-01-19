@@ -58,6 +58,7 @@ void Map::addExitTrack(std::shared_ptr<ExitTrack> newExitTrack)
 	if (!checkElementExists(tempLocationX, templocationY))
 	{
 		exitTrackList.push_back(newExitTrack);
+		++totalTrack;
 	}
 }
 
