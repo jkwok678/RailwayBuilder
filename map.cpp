@@ -616,11 +616,15 @@ bool Map::checkCanAddNamedLocation(int locationX, int locationY)
 			{
 			case StraightType::STRAIGHTH:
 			case StraightType::STRAIGHTV:
+			{
+				if (straightTrack->hasPlatform() || straightTrack->hasLevelCrossing())
+				{
+					return false;
+				}
 				return true;
-				break;
+			}
 			default:
 				return false;
-				break;
 			}
 		}
 		directedTrack = getDirectedTrackAt(locationX, locationY);
@@ -632,11 +636,15 @@ bool Map::checkCanAddNamedLocation(int locationX, int locationY)
 			case DirectedType::DIRECTEDRIGHT:
 			case DirectedType::DIRECTEDUP:
 			case DirectedType::DIRECTEDDOWN:
+			{
+				if (directedTrack->hasPlatform())
+				{
+					return false;
+				}
 				return true;
-				break;
+			}
 			default:
 				return false;
-				break;
 			}
 		}
 		curvedTrack = getCurvedTrackAt(locationX, locationY);
@@ -653,10 +661,8 @@ bool Map::checkCanAddNamedLocation(int locationX, int locationY)
 			case CurvedType::CURVE7:
 			case CurvedType::CURVE8:
 				return true;
-				break;
 			default:
 				return false;
-				break;
 			}
 		}
 		exitTrack = getExitTrackAt(locationX, locationY);
@@ -669,7 +675,6 @@ bool Map::checkCanAddNamedLocation(int locationX, int locationY)
 			case ExitType::EXITUP:
 			case ExitType::EXITDOWN:
 				return true;
-				break;
 			default:
 				return false;
 			}
@@ -683,8 +688,13 @@ bool Map::checkCanAddNamedLocation(int locationX, int locationY)
 			case BufferType::BUFFERRIGHT:
 			case BufferType::BUFFERUP:
 			case BufferType::BUFFERDOWN:
+			{
+				if (bufferTrack->hasPlatform())
+				{
+					return false;
+				}
 				return true;
-				break;
+			}
 			default:
 				return false;
 			}
