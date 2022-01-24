@@ -130,11 +130,16 @@ void Map::addFlyoverTrack(std::shared_ptr<FlyoverTrack> newFlyoverTrack)
 
 void Map::addNamedLocation(std::shared_ptr<NamedLocation> newNamedLocation)
 {
-	int tempLocationX = newNamedLocation->getLocationX();
-	int templocationY = newNamedLocation->getLocationY();
-	if (checkCanAddNamedLocation(tempLocationX, templocationY))
+	int locationX = newNamedLocation->getLocationX();
+	int locationY = newNamedLocation->getLocationY();
+	if (checkCanAddNamedLocation(locationX, locationY))
 	{
 		namedLocationList.push_back(newNamedLocation);
+		std::shared_ptr<Track> track = getTrackAt(locationX, locationY);
+		if (track != nullptr)
+		{
+			track->setLinkedNamedLocation(newNamedLocation);
+		}
 	}
 }
 
