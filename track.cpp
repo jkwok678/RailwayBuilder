@@ -100,12 +100,12 @@ bool Track::getLinkAt(int link)
 	return links[link];
 }
 
-std::shared_ptr<NamedLocation> Track::getNamedLocation()
+std::shared_ptr<NamedLocation> Track::getLinkedNamedLocation()
 {
 	return linkedNamedLocation;
 }
 
-void Track::setNamedLocation(std::shared_ptr<NamedLocation> newNamedLocation)
+void Track::setLinkedNamedLocation(std::shared_ptr<NamedLocation> newNamedLocation)
 {
 	linkedNamedLocation = newNamedLocation;
 }

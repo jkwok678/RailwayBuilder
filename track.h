@@ -399,12 +399,12 @@ public:
 	 * @brief Get the NamedLocation that is at this track.
 	 * @return A NamedLocation.
 	 */
-	std::shared_ptr<NamedLocation> getNamedLocation();
+	std::shared_ptr<NamedLocation> getLinkedNamedLocation();
 
 	/**
 	 * @brief Set the NamedLocation at this track.
 	 */
-	void setNamedLocation(std::shared_ptr<NamedLocation> newNamedLocation);
+	void setLinkedNamedLocation(std::shared_ptr<NamedLocation> newNamedLocation);
 
 	/**
 	 * @brief Checks if the track has been found yet.
