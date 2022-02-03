@@ -2277,50 +2277,50 @@ QString Map::textListToQStringForSaving()
 void Map::addPlatform(Platform side, int locationX, int locationY)
 {
 	bool added = false;
-	if (!straightTrackList.empty() && added == false)
+	if (!straightTrackList.empty())
 	{
-		for (std::shared_ptr<StraightTrack>& currentElement : straightTrackList)
+		for (std::shared_ptr<StraightTrack>& currentTrack : straightTrackList)
 		{
-			int currentX = currentElement->getLocationX();
-			int currentY = currentElement->getLocationY();
+			int currentX = currentTrack->getLocationX();
+			int currentY = currentTrack->getLocationY();
 			if (currentX == locationX && currentY == locationY)
 			{
-				if (!currentElement->hasLevelCrossing())
+				if (!currentTrack->hasLevelCrossing() && !currentTrack->hasLinkedNamedLocation())
 				{
 					switch (side)
 					{
 						case Platform::UP:
 						{
-							if (currentElement->getStraightType() == StraightType::STRAIGHTH)
+							if (currentTrack->getStraightType() == StraightType::STRAIGHTH)
 							{
-								currentElement->setPlatform1(true);
+								currentTrack->setPlatform1(true);
 								added = true;
 							}
 							break;
 						}
 						case Platform::DOWN:
 						{
-							if (currentElement->getStraightType() == StraightType::STRAIGHTH)
+							if (currentTrack->getStraightType() == StraightType::STRAIGHTH)
 							{
-								currentElement->setPlatform2(true);
+								currentTrack->setPlatform2(true);
 								added = true;
-							}
+								}
 							break;
 						}
 						case Platform::LEFT:
 						{
-							if (currentElement->getStraightType() == StraightType::STRAIGHTV)
+							if (currentTrack->getStraightType() == StraightType::STRAIGHTV)
 							{
-								currentElement->setPlatform1(true);
+								currentTrack->setPlatform1(true);
 								added = true;
 							}
 							break;
 						}
 						case Platform::RIGHT:
 						{
-							if (currentElement->getStraightType() == StraightType::STRAIGHTV)
+							if (currentTrack->getStraightType() == StraightType::STRAIGHTV)
 							{
-								currentElement->setPlatform2(true);
+								currentTrack->setPlatform2(true);
 								added = true;
 							}
 							break;
@@ -2332,62 +2332,62 @@ void Map::addPlatform(Platform side, int locationX, int locationY)
 	}
 	if (!directedTrackList.empty() && added == false)
 	{
-		for (std::shared_ptr<DirectedTrack>& currentElement : directedTrackList)
+		for (std::shared_ptr<DirectedTrack>& currentTrack : directedTrackList)
 		{
-			int currentX = currentElement->getLocationX();
-			int currentY = currentElement->getLocationY();
-			if (currentX == locationX && currentY == locationY)
+			int currentX = currentTrack->getLocationX();
+			int currentY = currentTrack->getLocationY();
+			if ((currentX == locationX && currentY == locationY) && !currentTrack->hasLinkedNamedLocation())
 			{
 				switch (side)
 				{
 					case Platform::LEFT:
 					{
-						if (currentElement->getDirectType() == DirectedType::DIRECTEDUP)
+						if (currentTrack->getDirectType() == DirectedType::DIRECTEDUP)
 						{
-							currentElement->setPlatform1(true);
+							currentTrack->setPlatform1(true);
 						}
-						else if (currentElement->getDirectType() == DirectedType::DIRECTEDDOWN)
+						else if (currentTrack->getDirectType() == DirectedType::DIRECTEDDOWN)
 						{
-							currentElement->setPlatform1(true);
+							currentTrack->setPlatform1(true);
 						}
 						added = true;
 						break;
 					}
 					case Platform::RIGHT:
 					{
-						if (currentElement->getDirectType() == DirectedType::DIRECTEDUP)
+						if (currentTrack->getDirectType() == DirectedType::DIRECTEDUP)
 						{
-							currentElement->setPlatform2(true);
+							currentTrack->setPlatform2(true);
 						}
-						else if (currentElement->getDirectType() == DirectedType::DIRECTEDDOWN)
+						else if (currentTrack->getDirectType() == DirectedType::DIRECTEDDOWN)
 						{
-							currentElement->setPlatform2(true);
+							currentTrack->setPlatform2(true);
 						}
 						added = true;
 						break;
 					}
 					case Platform::UP:
 					{
-						if (currentElement->getDirectType() == DirectedType::DIRECTEDLEFT)
+						if (currentTrack->getDirectType() == DirectedType::DIRECTEDLEFT)
 						{
-							currentElement->setPlatform1(true);
+							currentTrack->setPlatform1(true);
 						}
-						else if (currentElement->getDirectType() == DirectedType::DIRECTEDRIGHT)
+						else if (currentTrack->getDirectType() == DirectedType::DIRECTEDRIGHT)
 						{
-							currentElement->setPlatform1(true);
+							currentTrack->setPlatform1(true);
 						}
 						added = true;
 						break;
 					}
 					case Platform::DOWN:
 					{
-						if (currentElement->getDirectType() == DirectedType::DIRECTEDLEFT)
+						if (currentTrack->getDirectType() == DirectedType::DIRECTEDLEFT)
 						{
-							currentElement->setPlatform2(true);
+							currentTrack->setPlatform2(true);
 						}
-						else if (currentElement->getDirectType() == DirectedType::DIRECTEDRIGHT)
+						else if (currentTrack->getDirectType() == DirectedType::DIRECTEDRIGHT)
 						{
-							currentElement->setPlatform2(true);
+							currentTrack->setPlatform2(true);
 						}
 						added = true;
 						break;
@@ -2403,62 +2403,62 @@ void Map::addPlatform(Platform side, int locationX, int locationY)
 	}
 	if (!bufferTrackList.empty() && added == false)
 	{
-		for (std::shared_ptr<BufferTrack>& currentElement : bufferTrackList)
+		for (std::shared_ptr<BufferTrack>& currentTrack : bufferTrackList)
 		{
-			int currentX = currentElement->getLocationX();
-			int currentY = currentElement->getLocationY();
-			if (currentX == locationX && currentY == locationY)
+			int currentX = currentTrack->getLocationX();
+			int currentY = currentTrack->getLocationY();
+			if ((currentX == locationX && currentY == locationY) && !currentTrack->hasLinkedNamedLocation())
 			{
 				switch (side)
 				{
 					case Platform::LEFT:
 					{
-						if (currentElement->getBufferType() == BufferType::BUFFERUP)
+						if (currentTrack->getBufferType() == BufferType::BUFFERUP)
 						{
-							currentElement->setPlatform1(true);
+							currentTrack->setPlatform1(true);
 						}
-						else if (currentElement->getBufferType() == BufferType::BUFFERDOWN)
+						else if (currentTrack->getBufferType() == BufferType::BUFFERDOWN)
 						{
-							currentElement->setPlatform1(true);
+							currentTrack->setPlatform1(true);
 						}
 						added = true;
 						break;
 					}
 					case Platform::RIGHT:
 					{
-						if (currentElement->getBufferType() == BufferType::BUFFERUP)
+						if (currentTrack->getBufferType() == BufferType::BUFFERUP)
 						{
-							currentElement->setPlatform2(true);
+							currentTrack->setPlatform2(true);
 						}
-						else if (currentElement->getBufferType() == BufferType::BUFFERDOWN)
+						else if (currentTrack->getBufferType() == BufferType::BUFFERDOWN)
 						{
-							currentElement->setPlatform2(true);
+							currentTrack->setPlatform2(true);
 						}
 						added = true;
 						break;
 					}
 					case Platform::UP:
 					{
-						if (currentElement->getBufferType() == BufferType::BUFFERLEFT)
+						if (currentTrack->getBufferType() == BufferType::BUFFERLEFT)
 						{
-							currentElement->setPlatform1(true);
+							currentTrack->setPlatform1(true);
 						}
-						else if (currentElement->getBufferType() == BufferType::BUFFERRIGHT)
+						else if (currentTrack->getBufferType() == BufferType::BUFFERRIGHT)
 						{
-							currentElement->setPlatform1(true);
+							currentTrack->setPlatform1(true);
 						}
 						added = true;
 						break;
 					}
 					case Platform::DOWN:
 					{
-						if (currentElement->getBufferType() == BufferType::BUFFERLEFT)
+						if (currentTrack->getBufferType() == BufferType::BUFFERLEFT)
 						{
-							currentElement->setPlatform2(true);
+							currentTrack->setPlatform2(true);
 						}
-						else if (currentElement->getBufferType() == BufferType::BUFFERRIGHT)
+						else if (currentTrack->getBufferType() == BufferType::BUFFERRIGHT)
 						{
-							currentElement->setPlatform2(true);
+							currentTrack->setPlatform2(true);
 						}
 						added = true;
 						break;
@@ -2473,62 +2473,62 @@ void Map::addPlatform(Platform side, int locationX, int locationY)
 	}
 	if (!signalTrackList.empty() && added == false)
 	{
-		for (std::shared_ptr<SignalTrack>& currentElement : signalTrackList)
+		for (std::shared_ptr<SignalTrack>& currentTrack : signalTrackList)
 		{
-			int currentX = currentElement->getLocationX();
-			int currentY = currentElement->getLocationY();
-			if (currentX == locationX && currentY == locationY)
+			int currentX = currentTrack->getLocationX();
+			int currentY = currentTrack->getLocationY();
+			if ((currentX == locationX && currentY == locationY) && !currentTrack->hasLinkedNamedLocation())
 			{
 				switch (side)
 				{
 					case Platform::LEFT:
 					{
-						if (currentElement->getSignalType() == SignalType::SIGNALUP)
+						if (currentTrack->getSignalType() == SignalType::SIGNALUP)
 						{
-							currentElement->setPlatform1(true);
+							currentTrack->setPlatform1(true);
 						}
-						else if (currentElement->getSignalType() == SignalType::SIGNALDOWN)
+						else if (currentTrack->getSignalType() == SignalType::SIGNALDOWN)
 						{
-							currentElement->setPlatform1(true);
+							currentTrack->setPlatform1(true);
 						}
 						added = true;
 						break;
 					}
 					case Platform::RIGHT:
 					{
-						if (currentElement->getSignalType() == SignalType::SIGNALUP)
+						if (currentTrack->getSignalType() == SignalType::SIGNALUP)
 						{
-							currentElement->setPlatform2(true);
+							currentTrack->setPlatform2(true);
 						}
-						else if (currentElement->getSignalType() == SignalType::SIGNALDOWN)
+						else if (currentTrack->getSignalType() == SignalType::SIGNALDOWN)
 						{
-							currentElement->setPlatform2(true);
+							currentTrack->setPlatform2(true);
 						}
 						added = true;
 						break;
 					}
 					case Platform::UP:
 					{
-						if (currentElement->getSignalType() == SignalType::SIGNALLEFT)
+						if (currentTrack->getSignalType() == SignalType::SIGNALLEFT)
 						{
-							currentElement->setPlatform1(true);
+							currentTrack->setPlatform1(true);
 						}
-						else if (currentElement->getSignalType() == SignalType::SIGNALRIGHT)
+						else if (currentTrack->getSignalType() == SignalType::SIGNALRIGHT)
 						{
-							currentElement->setPlatform1(true);
+							currentTrack->setPlatform1(true);
 						}
 						added = true;
 						break;
 					}
 					case Platform::DOWN:
 					{
-						if (currentElement->getSignalType() == SignalType::SIGNALLEFT)
+						if (currentTrack->getSignalType() == SignalType::SIGNALLEFT)
 						{
-							currentElement->setPlatform2(true);
+							currentTrack->setPlatform2(true);
 						}
-						else if (currentElement->getSignalType() == SignalType::SIGNALRIGHT)
+						else if (currentTrack->getSignalType() == SignalType::SIGNALRIGHT)
 						{
-							currentElement->setPlatform2(true);
+							currentTrack->setPlatform2(true);
 						}
 						added = true;
 						break;
@@ -2543,62 +2543,62 @@ void Map::addPlatform(Platform side, int locationX, int locationY)
 	}
 	if (!bridgeUnderpassTrackList.empty() && added == false)
 	{
-		for (std::shared_ptr<BridgeUnderpassTrack>& currentElement : bridgeUnderpassTrackList)
+		for (std::shared_ptr<BridgeUnderpassTrack>& currentTrack : bridgeUnderpassTrackList)
 		{
-			int currentX = currentElement->getLocationX();
-			int currentY = currentElement->getLocationY();
+			int currentX = currentTrack->getLocationX();
+			int currentY = currentTrack->getLocationY();
 			if (currentX == locationX && currentY == locationY)
 			{
 				switch (side)
 				{
 					case Platform::LEFT:
 					{
-						if (currentElement->getBridgeUnderpassType() == BridgeUnderpassType::BRIDGE2)
+						if (currentTrack->getBridgeUnderpassType() == BridgeUnderpassType::BRIDGE2)
 						{
-						   currentElement->setPlatform1(true);
+						   currentTrack->setPlatform1(true);
 						}
-						else if (currentElement->getBridgeUnderpassType() == BridgeUnderpassType::UNDERPASS2)
+						else if (currentTrack->getBridgeUnderpassType() == BridgeUnderpassType::UNDERPASS2)
 						{
-							currentElement->setPlatform1(true);
+							currentTrack->setPlatform1(true);
 						}
 						added = true;
 						break;
 					}
 					case Platform::RIGHT:
 					{
-						if (currentElement->getBridgeUnderpassType() == BridgeUnderpassType::BRIDGE2)
+						if (currentTrack->getBridgeUnderpassType() == BridgeUnderpassType::BRIDGE2)
 						{
-							currentElement->setPlatform2(true);
+							currentTrack->setPlatform2(true);
 						}
-						else if (currentElement->getBridgeUnderpassType() == BridgeUnderpassType::UNDERPASS2)
+						else if (currentTrack->getBridgeUnderpassType() == BridgeUnderpassType::UNDERPASS2)
 						{
-							currentElement->setPlatform2(true);
+							currentTrack->setPlatform2(true);
 						}
 						added = true;
 						break;
 					}
 					case Platform::UP:
 					{
-						if (currentElement->getBridgeUnderpassType() == BridgeUnderpassType::BRIDGE1)
+						if (currentTrack->getBridgeUnderpassType() == BridgeUnderpassType::BRIDGE1)
 						{
-							currentElement->setPlatform1(true);
+							currentTrack->setPlatform1(true);
 						}
-						else if (currentElement->getBridgeUnderpassType() == BridgeUnderpassType::UNDERPASS1)
+						else if (currentTrack->getBridgeUnderpassType() == BridgeUnderpassType::UNDERPASS1)
 						{
-							currentElement->setPlatform1(true);
+							currentTrack->setPlatform1(true);
 						}
 						added = true;
 						break;
 					}
 					case Platform::DOWN:
 					{
-						if (currentElement->getBridgeUnderpassType() == BridgeUnderpassType::BRIDGE1)
+						if (currentTrack->getBridgeUnderpassType() == BridgeUnderpassType::BRIDGE1)
 						{
-							currentElement->setPlatform2(true);
+							currentTrack->setPlatform2(true);
 						}
-						else if (currentElement->getBridgeUnderpassType() == BridgeUnderpassType::UNDERPASS1)
+						else if (currentTrack->getBridgeUnderpassType() == BridgeUnderpassType::UNDERPASS1)
 						{
-							currentElement->setPlatform2(true);
+							currentTrack->setPlatform2(true);
 						}
 						added = true;
 						break;
@@ -2613,13 +2613,13 @@ void Map::addPlatform(Platform side, int locationX, int locationY)
 	}
 	if (!switchTrackList.empty() && added == false)
 	{
-		for (std::shared_ptr<SwitchTrack>& currentElement : switchTrackList)
+		for (std::shared_ptr<SwitchTrack>& currentTrack : switchTrackList)
 		{
-			int currentX = currentElement->getLocationX();
-			int currentY = currentElement->getLocationY();
+			int currentX = currentTrack->getLocationX();
+			int currentY = currentTrack->getLocationY();
 			if (currentX == locationX && currentY == locationY)
 			{
-				switch (currentElement->getSwitchType())
+				switch (currentTrack->getSwitchType())
 				{
 					case SwitchType::SWITCHTIGHT1:
 					case SwitchType::SWITCHTIGHT2:
@@ -2628,7 +2628,7 @@ void Map::addPlatform(Platform side, int locationX, int locationY)
 					{
 						if (side == Platform::DOWN)
 						{
-							currentElement->setPlatform2(true);
+							currentTrack->setPlatform2(true);
 							added = true;
 						}
 						break;
@@ -2640,7 +2640,7 @@ void Map::addPlatform(Platform side, int locationX, int locationY)
 					{
 						if (side == Platform::UP)
 						{
-							currentElement->setPlatform1(true);
+							currentTrack->setPlatform1(true);
 							added = true;
 						}
 						break;
@@ -2652,7 +2652,7 @@ void Map::addPlatform(Platform side, int locationX, int locationY)
 					{
 						if (side == Platform::RIGHT)
 						{
-							currentElement->setPlatform2(true);
+							currentTrack->setPlatform2(true);
 							added = true;
 						}
 						break;
@@ -2664,7 +2664,7 @@ void Map::addPlatform(Platform side, int locationX, int locationY)
 					{
 						if (side == Platform::LEFT)
 						{
-							currentElement->setPlatform1(true);
+							currentTrack->setPlatform1(true);
 							added = true;
 						}
 						break;

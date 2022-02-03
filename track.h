@@ -302,7 +302,7 @@ protected:
 	int trackSecondarySpeed{-1};
 	int trackSecondaryLength{-1};
 	bool links [9]{false, false, false, false, false, false, false, false, false};
-	std::shared_ptr<NamedLocation> linkedNamedLocation;
+	std::shared_ptr<NamedLocation> linkedNamedLocation{nullptr};
 	bool found;
 
 
@@ -394,6 +394,12 @@ public:
 	 * @return A bool that describes if there is a track at that link.
 	 */
 	bool getLinkAt(int link);
+
+	/**
+	 * @brief Check if there is a linked NamedLocation.
+	 * @return true if there is, otherwise false.
+	 */
+	bool hasLinkedNamedLocation();
 
 	/**
 	 * @brief Get the NamedLocation that is at this track.
