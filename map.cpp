@@ -2689,7 +2689,7 @@ void Map::addLevelCrossing(int locationX, int locationY)
 			int currentY = currentElement->getLocationY();
 			if (currentX == locationX && currentY == locationY)
 			{
-				if (!(currentElement->hasPlatform() || currentElement->hasLevelCrossing()))
+				if (!(currentElement->hasPlatform() || currentElement->hasLevelCrossing() || currentElement->hasLinkedNamedLocation()))
 				{
 					currentElement->addLevelCrossing();
 				}
