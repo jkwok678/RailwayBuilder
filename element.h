@@ -240,7 +240,6 @@ private:
 
 
 protected:
-	bool named { false };
 	std::shared_ptr<Text> text {nullptr};
 
 public:
@@ -255,11 +254,6 @@ public:
 	 */
 	bool getNamed() const;
 
-	/**
-	 * @brief A method to set whether the element is named or not.
-	 * @param newNamed Whether the element is named or not.
-	 */
-	void setNamed(bool newNamed);
 
 	/**
 	 * @brief A method to get the Text object that is linked to this namedElement.

@@ -102,11 +102,7 @@ bool Track::getLinkAt(int link)
 
 bool Track::hasLinkedNamedLocation()
 {
-	if (getLinkedNamedLocation()== nullptr)
-	{
-		return false;
-	}
-	return true;
+	return linkedNamedLocation == nullptr ? false : true;
 }
 
 std::shared_ptr<NamedLocation> Track::getLinkedNamedLocation()

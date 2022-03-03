@@ -154,12 +154,7 @@ NamedElement::NamedElement()
 
 bool NamedElement::getNamed() const
 {
-	return named;
-}
-
-void NamedElement::setNamed(bool newNamed)
-{
-	named = newNamed;
+	return text == nullptr ? false : true;
 }
 
 std::shared_ptr<Text> NamedElement::getText()
@@ -194,10 +189,7 @@ NamedLocation::NamedLocation(int newLocationX, int newLocationY)
 {
 	locationX = newLocationX;
 	locationY = newLocationY;
-	named = false;
 	text = nullptr;
-
-
 }
 
 QString NamedLocation::toQString()
@@ -232,7 +224,6 @@ Concourse::Concourse(int newLocationX, int newLocationY)
 {
 	locationX = newLocationX;
 	locationY = newLocationY;
-	named = false;
 	text = nullptr;
 
 }

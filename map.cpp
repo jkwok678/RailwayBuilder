@@ -1721,7 +1721,6 @@ void Map::deleteTextFromAllElements(std::shared_ptr<Text> textToDelete)
 		if (currentElement->getText() == textToDelete)
 		{
 			currentElement->setText(empty);
-			currentElement->setNamed(false);
 		}
 	}
 
@@ -1730,7 +1729,6 @@ void Map::deleteTextFromAllElements(std::shared_ptr<Text> textToDelete)
 		if (currentElement->getText() == textToDelete)
 		{
 			currentElement->setText(empty);
-			currentElement->setNamed(false);
 		}
 	}
 
@@ -1739,7 +1737,6 @@ void Map::deleteTextFromAllElements(std::shared_ptr<Text> textToDelete)
 		if (currentElement->getText() == textToDelete)
 		{
 			currentElement->setText(empty);
-			currentElement->setNamed(false);
 		}
 	}
 
@@ -1748,7 +1745,6 @@ void Map::deleteTextFromAllElements(std::shared_ptr<Text> textToDelete)
 		if (currentElement->getText() == textToDelete)
 		{
 			currentElement->setText(empty);
-			currentElement->setNamed(false);
 		}
 	}
 
@@ -1757,7 +1753,6 @@ void Map::deleteTextFromAllElements(std::shared_ptr<Text> textToDelete)
 		if (currentElement->getText() == textToDelete)
 		{
 			currentElement->setText(empty);
-			currentElement->setNamed(false);
 		}
 	}
 	for (std::shared_ptr<BufferTrack> currentElement : bufferTrackList)
@@ -1765,7 +1760,6 @@ void Map::deleteTextFromAllElements(std::shared_ptr<Text> textToDelete)
 		if (currentElement->getText() == textToDelete)
 		{
 			currentElement->setText(empty);
-			currentElement->setNamed(false);
 		}
 	}
 	for (std::shared_ptr<SignalTrack> currentElement : signalTrackList)
@@ -1773,7 +1767,6 @@ void Map::deleteTextFromAllElements(std::shared_ptr<Text> textToDelete)
 		if (currentElement->getText() == textToDelete)
 		{
 			currentElement->setText(empty);
-			currentElement->setNamed(false);
 		}
 	}
 	for (std::shared_ptr<BridgeUnderpassTrack> currentElement : bridgeUnderpassTrackList)
@@ -1781,7 +1774,6 @@ void Map::deleteTextFromAllElements(std::shared_ptr<Text> textToDelete)
 		if (currentElement->getText() == textToDelete)
 		{
 			currentElement->setText(empty);
-			currentElement->setNamed(false);
 		}
 	}
 	for (std::shared_ptr<SwitchTrack> currentElement : switchTrackList)
@@ -1789,7 +1781,6 @@ void Map::deleteTextFromAllElements(std::shared_ptr<Text> textToDelete)
 		if (currentElement->getText() == textToDelete)
 		{
 			currentElement->setText(empty);
-			currentElement->setNamed(false);
 		}
 	}
 	for (std::shared_ptr<CrossoverTrack> currentElement : crossoverTrackList)
@@ -1797,7 +1788,6 @@ void Map::deleteTextFromAllElements(std::shared_ptr<Text> textToDelete)
 		if (currentElement->getText() == textToDelete)
 		{
 			currentElement->setText(empty);
-			currentElement->setNamed(false);
 		}
 	}
 	for (std::shared_ptr<FlyoverTrack> currentElement : flyoverTrackList)
@@ -1805,7 +1795,6 @@ void Map::deleteTextFromAllElements(std::shared_ptr<Text> textToDelete)
 		if (currentElement->getText() == textToDelete)
 		{
 			currentElement->setText(empty);
-			currentElement->setNamed(false);
 		}
 	}
 	for (std::shared_ptr<NamedLocation> currentElement : namedLocationList)
@@ -1813,7 +1802,6 @@ void Map::deleteTextFromAllElements(std::shared_ptr<Text> textToDelete)
 		if (currentElement->getText() == textToDelete)
 		{
 			currentElement->setText(empty);
-			currentElement->setNamed(false);
 		}
 	}
 	for (std::shared_ptr<Concourse> currentElement : concourseList)
@@ -1821,7 +1809,6 @@ void Map::deleteTextFromAllElements(std::shared_ptr<Text> textToDelete)
 		if (currentElement->getText() == textToDelete)
 		{
 			currentElement->setText(empty);
-			currentElement->setNamed(false);
 		}
 	}
 }
@@ -1894,7 +1881,6 @@ void Map::linkLocalText(int locationX, int locationY, std::shared_ptr<Text> link
 			if (!bridgeUnderpassTrack->getNamed())
 			{
 				bridgeUnderpassTrack->setText(linkedText);
-				bridgeUnderpassTrack->setNamed(true);
 			}
 		}
 		if (track != nullptr)
@@ -1902,7 +1888,6 @@ void Map::linkLocalText(int locationX, int locationY, std::shared_ptr<Text> link
 			if (track->hasPlatform())
 			{
 				track->setText(linkedText);
-				track->setNamed(true);
 			}
 		}
 		if (concourse != nullptr)
@@ -1910,7 +1895,6 @@ void Map::linkLocalText(int locationX, int locationY, std::shared_ptr<Text> link
 			if (!concourse->getNamed())
 			{
 				concourse->setText(linkedText);
-				concourse->setNamed(true);
 			}
 		}
 		if (namedLocation != nullptr)
@@ -1918,7 +1902,6 @@ void Map::linkLocalText(int locationX, int locationY, std::shared_ptr<Text> link
 			if (!namedLocation->getNamed())
 			{
 				namedLocation->setText(linkedText);
-				namedLocation->setNamed(true);
 			}
 		}
 		if (track != nullptr || concourse != nullptr)
