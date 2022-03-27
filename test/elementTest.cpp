@@ -29,6 +29,11 @@ TEST(NamedLocationToQStringTest, namedLocationToQStringOutput) {
 	EXPECT_EQ(namedLocation1->toQString().toStdString(),"NamedLocation,1,2");
 	EXPECT_EQ(namedLocation2->toQString().toStdString(),"NamedLocation,100,6");
 	EXPECT_EQ(namedLocation3->toQString().toStdString(),"NamedLocation,542671,-232342");
+	QFont serifFont("Times", 10, QFont::Bold);
+	std::shared_ptr<Text> text1(new Text(100,6,"apple",serifFont));
+	namedLocation1->setText(text1);
+	EXPECT_EQ(namedLocation1->toQString().toStdString(),"NamedLocation,1,2,apple");
+
 
 }
 
