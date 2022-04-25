@@ -208,8 +208,9 @@ TEST(FilesaverSaveFileTest, writeNamedLocationConcourse) {
 	map->createAddConcourse(4,4);
 	QFont serifFont("Times", 10, QFont::Bold);
 	std::shared_ptr<Text> text1(new Text(100,6,"apple",serifFont));
+	std::shared_ptr<Text> text2(new Text(101,7,"apple2",serifFont));
 	map->getNamedLocationAt(1,1)->setText(text1);
-
+	map->getConcourseAt(3,3)->setText(text2);
 	std::shared_ptr<Filesaver> filesaver = std::make_shared<Filesaver>();
 	filesaver->setNewFilePath("./test_result.rly2");
 	filesaver->saveRailway(map);
@@ -249,7 +250,7 @@ TEST(FilesaverSaveFileTest, writeNamedLocationConcourse) {
 	line = in.readLine();
 	EXPECT_EQ(line.toStdString(),"Concourse");
 	line = in.readLine();
-	EXPECT_EQ(line.toStdString(),"3,3");
+	EXPECT_EQ(line.toStdString(),"3,3,apple2");
 	line = in.readLine();
 	EXPECT_EQ(line.toStdString(),"4,4");
 

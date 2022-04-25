@@ -32,18 +32,22 @@ TEST(NamedLocationToQStringTest, namedLocationToQStringOutput) {
 	QFont serifFont("Times", 10, QFont::Bold);
 	std::shared_ptr<Text> text1(new Text(100,6,"apple",serifFont));
 	namedLocation1->setText(text1);
-	EXPECT_EQ(namedLocation1->toQString().toStdString(),"NamedLocation,1,2,apple");
+	EXPECT_EQ(namedLocation1->toQString().toStdString(),"NamedLocation,1,2,Text,100,6,apple,Times,10,-1,5,700,0,0,0,0,0,0,0,0,0,0,1");
 
 
 }
 
 TEST(ConcourseToQStringTest, concourseToQStringOutput) {
-	std::shared_ptr<Concourse> concourse1(new Concourse(84,264));
+	std::shared_ptr<Concourse> concourse1(new Concourse(1,2));
 	std::shared_ptr<Concourse> concourse2(new Concourse(102310,6000000));
 	std::shared_ptr<Concourse> concourse3(new Concourse(-23542671,-23232342));
-	EXPECT_EQ(concourse1->toQString().toStdString(),"Concourse,84,264");
+	EXPECT_EQ(concourse1->toQString().toStdString(),"Concourse,1,2");
 	EXPECT_EQ(concourse2->toQString().toStdString(),"Concourse,102310,6000000");
 	EXPECT_EQ(concourse3->toQString().toStdString(),"Concourse,-23542671,-23232342");
+	QFont serifFont("Times", 10, QFont::Bold);
+	std::shared_ptr<Text> text1(new Text(100,6,"apple",serifFont));
+	concourse1->setText(text1);
+	EXPECT_EQ(concourse1->toQString().toStdString(),"Concourse,1,2,Text,100,6,apple,Times,10,-1,5,700,0,0,0,0,0,0,0,0,0,0,1");
 
 }
 

@@ -200,7 +200,7 @@ QString NamedLocation::toQString()
 	if(text != nullptr)
 	{
 		namedLocationQString.append(",");
-		namedLocationQString.append(text->getReadableText());
+		namedLocationQString.append(text->toQString());
 	}
 	return namedLocationQString;
 }
@@ -247,7 +247,7 @@ QString Concourse::toQStringForSave()
 	if(text != nullptr)
 	{
 		saveConcourseQString.append(",");
-		saveConcourseQString.append(text->toQString());
+		saveConcourseQString.append(text->getReadableText());
 	}
 	return saveConcourseQString;
 }
