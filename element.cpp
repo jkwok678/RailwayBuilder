@@ -172,7 +172,7 @@ QString NamedElement::toQString()
 	QString namedElementQString = "NamedElement";
 	namedElementQString.append(",");
 	namedElementQString.append(locationToQString());
-	if(text != nullptr)
+	if(getNamed())
 	{
 		namedElementQString.append(",");
 		namedElementQString.append(text->toQString());
@@ -197,7 +197,7 @@ QString NamedLocation::toQString()
 	QString namedLocationQString = "NamedLocation";
 	namedLocationQString.append(",");
 	namedLocationQString.append(locationToQString());
-	if(text != nullptr)
+	if(getNamed())
 	{
 		namedLocationQString.append(",");
 		namedLocationQString.append(text->toQString());
@@ -208,7 +208,7 @@ QString NamedLocation::toQString()
 QString NamedLocation::toQStringForSave()
 {
 	QString saveNamedLocationQString = locationToQString();
-	if(text != nullptr)
+	if(getNamed())
 	{
 		saveNamedLocationQString.append(",");
 		saveNamedLocationQString.append(text->getReadableText());
@@ -233,7 +233,7 @@ QString Concourse::toQString()
 	QString concourseQString = "Concourse";
 	concourseQString.append(",");
 	concourseQString.append(locationToQString());
-	if(text != nullptr)
+	if(getNamed())
 	{
 		concourseQString.append(",");
 		concourseQString.append(text->toQString());
@@ -244,7 +244,7 @@ QString Concourse::toQString()
 QString Concourse::toQStringForSave()
 {
 	QString saveConcourseQString = locationToQString();
-	if(text != nullptr)
+	if(getNamed())
 	{
 		saveConcourseQString.append(",");
 		saveConcourseQString.append(text->getReadableText());

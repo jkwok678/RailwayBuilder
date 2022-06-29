@@ -127,8 +127,7 @@ void Track::setFound(bool newFound)
 
 QString Track::toQString()
 {
-	QString trackQString = "Track";
-	trackQString.append(",");
+	QString trackQString = "Track,";
 	trackQString.append(locationToQString());
 	trackQString.append(",");
 	trackQString.append(mainSpeedLengthToQString());
@@ -283,8 +282,7 @@ QString StraightTrack::straightTypeToQString()
 
 QString StraightTrack::toQString()
 {
-	QString straightTrackQString = "StraightTrack";
-	straightTrackQString.append(",");
+	QString straightTrackQString = "StraightTrack,";
 	straightTrackQString.append(straightTypeToQString());
 	straightTrackQString.append(",");
 	straightTrackQString.append(locationToQString());
@@ -294,6 +292,11 @@ QString StraightTrack::toQString()
     straightTrackQString.append(platformsToQString());
 	straightTrackQString.append(",");
 	straightTrackQString.append(levelCrossingToQString());
+	if (getNamed()){
+		straightTrackQString.append(",");
+		straightTrackQString.append(text->toQString());
+	}
+
 	return straightTrackQString;
 }
 
@@ -308,6 +311,11 @@ QString StraightTrack::toQStringForSave()
     straightTrackQString.append(platformsToQString());
 	straightTrackQString.append(",");
 	straightTrackQString.append(levelCrossingToQString());
+	if (getNamed()){
+		straightTrackQString.append(",");
+		straightTrackQString.append(text->getReadableText());
+	}
+
 	return straightTrackQString;
 }
 
@@ -400,8 +408,7 @@ QString DirectedTrack::directedTypeToQString()
 
 QString DirectedTrack::toQString()
 {
-	QString directedTrackQString = "DirectedTrack";
-	directedTrackQString.append(",");
+	QString directedTrackQString = "DirectedTrack,";
 	directedTrackQString.append(directedTypeToQString());
 	directedTrackQString.append(",");
 	directedTrackQString.append(locationToQString());
@@ -409,6 +416,10 @@ QString DirectedTrack::toQString()
 	directedTrackQString.append(mainSpeedLengthToQString());
 	directedTrackQString.append(",");
     directedTrackQString.append(platformsToQString());
+	if (getNamed()){
+		directedTrackQString.append(",");
+		directedTrackQString.append(text->toQString());
+	}
 	return directedTrackQString;
 }
 
@@ -421,6 +432,10 @@ QString DirectedTrack::toQStringForSave()
 	directedTrackQString.append(mainSpeedLengthToQString());
 	directedTrackQString.append(",");
     directedTrackQString.append(platformsToQString());
+	if (getNamed()){
+		directedTrackQString.append(",");
+		directedTrackQString.append(text->getReadableText());
+	}
 	return directedTrackQString;
 }
 
@@ -568,13 +583,16 @@ QString CurvedTrack::curvedTypeToQString()
 
 QString CurvedTrack::toQString()
 {
-	QString curvedTrackQString = "CurvedTrack";
-	curvedTrackQString.append(",");
+	QString curvedTrackQString = "CurvedTrack,";
 	curvedTrackQString.append(curvedTypeToQString());
 	curvedTrackQString.append(",");
 	curvedTrackQString.append(locationToQString());
 	curvedTrackQString.append(",");
 	curvedTrackQString.append(mainSpeedLengthToQString());
+	if (getNamed()){
+		curvedTrackQString.append(",");
+		curvedTrackQString.append(text->toQString());
+	}
 	return curvedTrackQString;
 }
 
@@ -585,6 +603,10 @@ QString CurvedTrack::toQStringForSave()
 	curvedTrackQString.append(locationToQString());
 	curvedTrackQString.append(",");
 	curvedTrackQString.append(mainSpeedLengthToQString());
+	if (getNamed()){
+		curvedTrackQString.append(",");
+		curvedTrackQString.append(text->getReadableText());
+	}
 	return curvedTrackQString;
 }
 
@@ -711,8 +733,7 @@ QString LinkedTrack::linkedTypeToQString()
 
 QString LinkedTrack::toQString()
 {
-	QString linkedTrackQString = "LinkedTrack";
-	linkedTrackQString.append(",");
+	QString linkedTrackQString = "LinkedTrack,";
 	linkedTrackQString.append(linkedTypeToQString());
 	linkedTrackQString.append(",");
 	linkedTrackQString.append(locationToQString());
@@ -731,14 +752,16 @@ QString LinkedTrack::toQString()
 		linkedTrackQString.append(",");
 		linkedTrackQString.append("0");
 	}
+	if (getNamed()){
+		linkedTrackQString.append(",");
+		linkedTrackQString.append(text->toQString());
+	}
 	return linkedTrackQString;
 }
 
 QString LinkedTrack::otherLinkedTrackToQString()
 {
-	QString linkedTrackQString = "LinkedTrack";
-
-	linkedTrackQString.append(",");
+	QString linkedTrackQString = "LinkedTrack,";
 	linkedTrackQString.append(otherLinkTrack->linkedTypeToQString());
 	linkedTrackQString.append(",");
 	linkedTrackQString.append(otherLinkTrack->locationToQString());
@@ -766,6 +789,10 @@ QString LinkedTrack::toQStringForSave()
 	{
 		linkedTrackQString.append(",");
 		linkedTrackQString.append("0");
+	}
+	if (getNamed()){
+		linkedTrackQString.append(",");
+		linkedTrackQString.append(text->getReadableText());
 	}
 	return linkedTrackQString;
 }
@@ -882,13 +909,16 @@ QString ExitTrack::exitTypeToQString()
 
 QString ExitTrack::toQString()
 {
-	QString exitTrackQString = "ExitTrack";
-	exitTrackQString.append(",");
+	QString exitTrackQString = "ExitTrack,";
 	exitTrackQString.append(exitTypeToQString());
 	exitTrackQString.append(",");
 	exitTrackQString.append(locationToQString());
 	exitTrackQString.append(",");
 	exitTrackQString.append(mainSpeedLengthToQString());
+	if (getNamed()){
+		exitTrackQString.append(",");
+		exitTrackQString.append(text->toQString());
+	}
 	return exitTrackQString;
 }
 
@@ -899,6 +929,10 @@ QString ExitTrack::toQStringForSave()
 	exitTrackQString.append(locationToQString());
 	exitTrackQString.append(",");
 	exitTrackQString.append(mainSpeedLengthToQString());
+	if (getNamed()){
+		exitTrackQString.append(",");
+		exitTrackQString.append(text->getReadableText());
+	}
 	return exitTrackQString;
 }
 
@@ -1002,8 +1036,7 @@ QString BufferTrack::bufferTypeToQString()
 
 QString BufferTrack::toQString()
 {
-	QString bufferTrackQString = "BufferTrack";
-	bufferTrackQString.append(",");
+	QString bufferTrackQString = "BufferTrack,";
 	bufferTrackQString.append(bufferTypeToQString());
 	bufferTrackQString.append(",");
 	bufferTrackQString.append(locationToQString());
@@ -1011,6 +1044,10 @@ QString BufferTrack::toQString()
 	bufferTrackQString.append(mainSpeedLengthToQString());
     bufferTrackQString.append(",");
     bufferTrackQString.append(platformsToQString());
+	if (getNamed()){
+		bufferTrackQString.append(",");
+		bufferTrackQString.append(text->toQString());
+	}
 	return bufferTrackQString;
 }
 
@@ -1023,6 +1060,10 @@ QString BufferTrack::toQStringForSave()
 	bufferTrackQString.append(mainSpeedLengthToQString());
     bufferTrackQString.append(",");
     bufferTrackQString.append(platformsToQString());
+	if (getNamed()){
+		bufferTrackQString.append(",");
+		bufferTrackQString.append(text->getReadableText());
+	}
 	return bufferTrackQString;
 }
 
@@ -1130,8 +1171,7 @@ QString SignalTrack::signalTypeToQString()
 
 QString SignalTrack::toQString()
 {
-	QString signalTrackQString = "SignalTrack";
-	signalTrackQString.append(",");
+	QString signalTrackQString = "SignalTrack,";
 	signalTrackQString.append(signalTypeToQString());
 	signalTrackQString.append(",");
 	signalTrackQString.append(aspectToQString());
@@ -1141,6 +1181,10 @@ QString SignalTrack::toQString()
 	signalTrackQString.append(mainSpeedLengthToQString());
 	signalTrackQString.append(",");
     signalTrackQString.append(platformsToQString());
+	if (getNamed()){
+		signalTrackQString.append(",");
+		signalTrackQString.append(text->toQString());
+	}
 	return signalTrackQString;
 }
 
@@ -1155,8 +1199,10 @@ QString SignalTrack::toQStringForSave()
 	signalTrackQString.append(mainSpeedLengthToQString());
 	signalTrackQString.append(",");
     signalTrackQString.append(platformsToQString());
-
-
+	if (getNamed()){
+		signalTrackQString.append(",");
+		signalTrackQString.append(text->getReadableText());
+	}
 	return signalTrackQString;
 }
 
@@ -1220,8 +1266,7 @@ QString BridgeUnderpassTrack::bridgeUnderpassTypeToQString()
 
 QString BridgeUnderpassTrack::toQString()
 {
-	QString bridgeUnderpassTrackQString = "BridgeUnderpassTrack";
-	bridgeUnderpassTrackQString.append(",");
+	QString bridgeUnderpassTrackQString = "BridgeUnderpassTrack,";
 	bridgeUnderpassTrackQString.append(bridgeUnderpassTypeToQString());
 	bridgeUnderpassTrackQString.append(",");
 	bridgeUnderpassTrackQString.append(locationToQString());
@@ -1229,7 +1274,10 @@ QString BridgeUnderpassTrack::toQString()
 	bridgeUnderpassTrackQString.append(mainSpeedLengthToQString());
 	bridgeUnderpassTrackQString.append(",");
     bridgeUnderpassTrackQString.append(platformsToQString());
-
+	if (getNamed()){
+		bridgeUnderpassTrackQString.append(",");
+		bridgeUnderpassTrackQString.append(text->toQString());
+	}
 	return bridgeUnderpassTrackQString;
 }
 
@@ -1242,6 +1290,10 @@ QString BridgeUnderpassTrack::toQStringForSave()
 	bridgeUnderpassTrackQString.append(mainSpeedLengthToQString());
 	bridgeUnderpassTrackQString.append(",");
     bridgeUnderpassTrackQString.append(platformsToQString());
+	if (getNamed()){
+		bridgeUnderpassTrackQString.append(",");
+		bridgeUnderpassTrackQString.append(text->getReadableText());
+	}
 	return bridgeUnderpassTrackQString;
 }
 
@@ -1585,8 +1637,7 @@ QString SwitchTrack::switchTypeToQString()
 
 QString SwitchTrack::toQString()
 {
-	QString switchTrackQString = "SwitchTrack";
-	switchTrackQString.append(",");
+	QString switchTrackQString = "SwitchTrack,";
 	switchTrackQString.append(switchTypeToQString());
 	switchTrackQString.append(",");
 	switchTrackQString.append(locationToQString());
@@ -1596,6 +1647,10 @@ QString SwitchTrack::toQString()
 	switchTrackQString.append(secondarySpeedLengthToQString());
     switchTrackQString.append(",");
     switchTrackQString.append(platformsToQString());
+	if (getNamed()){
+		switchTrackQString.append(",");
+		switchTrackQString.append(text->toQString());
+	}
 	return switchTrackQString;
 }
 
@@ -1610,6 +1665,10 @@ QString SwitchTrack::toQStringForSave()
 	switchTrackQString.append(secondarySpeedLengthToQString());
     switchTrackQString.append(",");
     switchTrackQString.append(platformsToQString());
+	if (getNamed()){
+		switchTrackQString.append(",");
+		switchTrackQString.append(text->getReadableText());
+	}
 	return switchTrackQString;
 }
 
@@ -1722,8 +1781,7 @@ QString CrossoverTrack::crossoverTypeToQString()
 
 QString CrossoverTrack::toQString()
 {
-	QString crossoverTrackQString = "CrossoverTrack";
-	crossoverTrackQString.append(",");
+	QString crossoverTrackQString = "CrossoverTrack,";
 	crossoverTrackQString.append(crossoverTypeToQString());
 	crossoverTrackQString.append(",");
 	crossoverTrackQString.append(locationToQString());
@@ -1886,8 +1944,7 @@ QString FlyoverTrack::flyoverTypeToQString()
 
 QString FlyoverTrack::toQString()
 {
-	QString flyoverTrackQString = "FlyoverTrack";
-	flyoverTrackQString.append(",");
+	QString flyoverTrackQString = "FlyoverTrack,";
 	flyoverTrackQString.append(flyoverTypeToQString());
 	flyoverTrackQString.append(",");
 	flyoverTrackQString.append(locationToQString());
