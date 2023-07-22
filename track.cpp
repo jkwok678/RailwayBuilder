@@ -21,7 +21,15 @@ QString Track::getTrackSecondarySpeedToQString()
 
 QString Track::getTrackSecondaryLengthToQString()
 {
-	return QString::number(trackMainLength);
+	return QString::number(trackSecondaryLength);
+}
+
+//Protected
+
+void Track::setDefaultSecondarySpeedLength()
+{
+	trackSecondarySpeed = 200;
+	trackSecondaryLength = 100;
 }
 
 //Public
@@ -92,6 +100,21 @@ bool Track::getLinkAt(int link)
 	return links[link];
 }
 
+bool Track::hasLinkedNamedLocation()
+{
+	return linkedNamedLocation == nullptr ? false : true;
+}
+
+std::shared_ptr<NamedLocation> Track::getLinkedNamedLocation()
+{
+	return linkedNamedLocation;
+}
+
+void Track::setLinkedNamedLocation(std::shared_ptr<NamedLocation> newNamedLocation)
+{
+	linkedNamedLocation = newNamedLocation;
+}
+
 bool Track::getFound() const
 {
 	return found;
@@ -104,8 +127,7 @@ void Track::setFound(bool newFound)
 
 QString Track::toQString()
 {
-	QString trackQString = "Track";
-	trackQString.append(",");
+	QString trackQString = "Track,";
 	trackQString.append(locationToQString());
 	trackQString.append(",");
 	trackQString.append(mainSpeedLengthToQString());
@@ -114,20 +136,25 @@ QString Track::toQString()
 
 QString Track::toQStringForSave()
 {
-	QString trackQString = "";
-	trackQString.append(QString::number(locationX));
+    QString trackQString = locationToQString();
 	trackQString.append(",");
-	trackQString.append(QString::number(locationY));
-	trackQString.append(",");
-	trackQString.append(QString::number(trackMainSpeed));
-	trackQString.append(",");
-	trackQString.append(QString::number(trackMainLength));
+    trackQString.append(mainSpeedLengthToQString());
 	return trackQString;
 }
 
 
 //StraightTrack class implementation.
 
+
+QString StraightTrack::getPlatform1ToQString()
+{
+    return QString::number(platform1);
+}
+
+QString StraightTrack::getPlatform2ToQString()
+{
+    return QString::number(platform2);
+}
 
 StraightTrack::StraightTrack()
 {
@@ -201,7 +228,15 @@ bool StraightTrack::getPlatform2() const
 
 void StraightTrack::setPlatform2(bool newPlatform)
 {
-	platform2 = newPlatform;
+    platform2 = newPlatform;
+}
+
+QString StraightTrack::platformsToQString()
+{
+    QString platformsQString = getPlatform1ToQString();
+    platformsQString.append(",");
+    platformsQString.append(getPlatform2ToQString());
+    return platformsQString;
 }
 
 bool StraightTrack::hasLevelCrossing() const
@@ -214,22 +249,32 @@ void StraightTrack::addLevelCrossing()
 	levelCrossing = true;
 }
 
+void StraightTrack::removeLevelCrossing()
+{
+	levelCrossing = false;
+}
+
+QString StraightTrack::levelCrossingToQString()
+{
+	return QString::number(levelCrossing);
+}
+
 QString StraightTrack::straightTypeToQString()
 {
 	QString straightTypeQString;
 	switch (straightType)
 	{
 	case StraightType::STRAIGHTH:
-		straightTypeQString = "straight_h";
+        straightTypeQString = "SH";
 		break;
 	case StraightType::STRAIGHTV:
-		straightTypeQString = "straight_v";
+        straightTypeQString = "SV";
 		break;
 	case StraightType::STRAIGHTLEFTUP:
-		straightTypeQString = "straight_left_up";
+        straightTypeQString = "SLU";
 		break;
 	case StraightType::STRAIGHTRIGHTUP:
-		straightTypeQString = "straight_right_up";
+        straightTypeQString = "SRU";
 		break;
 	}
 	return straightTypeQString;
@@ -237,40 +282,40 @@ QString StraightTrack::straightTypeToQString()
 
 QString StraightTrack::toQString()
 {
-	QString straightTrackQString = "StraightTrack";
-	straightTrackQString.append(",");
+	QString straightTrackQString = "StraightTrack,";
 	straightTrackQString.append(straightTypeToQString());
 	straightTrackQString.append(",");
 	straightTrackQString.append(locationToQString());
 	straightTrackQString.append(",");
 	straightTrackQString.append(mainSpeedLengthToQString());
 	straightTrackQString.append(",");
-	straightTrackQString.append(QVariant(platform1).toString());
+    straightTrackQString.append(platformsToQString());
 	straightTrackQString.append(",");
-	straightTrackQString.append(QVariant(platform2).toString());
-	straightTrackQString.append(",");
-	straightTrackQString.append(QVariant(levelCrossing).toString());
+	straightTrackQString.append(levelCrossingToQString());
+	if (getNamed()){
+		straightTrackQString.append(",");
+		straightTrackQString.append(text->toQString());
+	}
+
 	return straightTrackQString;
 }
 
 QString StraightTrack::toQStringForSave()
 {
-	QString straightTrackQString = "";
-	straightTrackQString.append(straightTypeToQString());
+	QString straightTrackQString = straightTypeToQString();
 	straightTrackQString.append(",");
-	straightTrackQString.append(QString::number(locationX));
+	straightTrackQString.append(locationToQString());
 	straightTrackQString.append(",");
-	straightTrackQString.append(QString::number(locationY));
+	straightTrackQString.append(mainSpeedLengthToQString());
 	straightTrackQString.append(",");
-	straightTrackQString.append(QString::number(trackMainSpeed));
+    straightTrackQString.append(platformsToQString());
 	straightTrackQString.append(",");
-	straightTrackQString.append(QString::number(trackMainLength));
-	straightTrackQString.append(",");
-	straightTrackQString.append(QVariant(platform1).toString());
-	straightTrackQString.append(",");
-	straightTrackQString.append(QVariant(platform2).toString());
-	straightTrackQString.append(",");
-	straightTrackQString.append(QVariant(levelCrossing).toString());
+	straightTrackQString.append(levelCrossingToQString());
+	if (getNamed()){
+		straightTrackQString.append(",");
+		straightTrackQString.append(text->getReadableText());
+	}
+
 	return straightTrackQString;
 }
 
@@ -334,28 +379,28 @@ QString DirectedTrack::directedTypeToQString()
 	switch (directedType)
 	{
 	case DirectedType::DIRECTEDLEFT:
-		directedTypeQString = "directed_left";
+        directedTypeQString = "DL";
 		break;
 	case DirectedType::DIRECTEDRIGHT:
-		directedTypeQString = "directed_right";
+        directedTypeQString = "DR";
 		break;
 	case DirectedType::DIRECTEDUP:
-		directedTypeQString = "directed_up";
+        directedTypeQString = "DU";
 		break;
 	case DirectedType::DIRECTEDDOWN:
-		directedTypeQString = "directed_down";
+        directedTypeQString = "DD";
 		break;
 	case DirectedType::DIRECTEDLEFTUP:
-		directedTypeQString = "directed_left_up";
+        directedTypeQString = "DLU";
 		break;
 	case DirectedType::DIRECTEDRIGHTUP:
-		directedTypeQString = "directed_right_up";
+        directedTypeQString = "DRU";
 		break;
 	case DirectedType::DIRECTEDLEFTDOWN:
-		directedTypeQString = "directed_left_down";
+        directedTypeQString = "DLD";
 		break;
 	case DirectedType::DIRECTEDRIGHTDOWN:
-		directedTypeQString = "directed_right_down";
+        directedTypeQString = "DRD";
 		break;
 	}
 	return directedTypeQString;
@@ -363,17 +408,34 @@ QString DirectedTrack::directedTypeToQString()
 
 QString DirectedTrack::toQString()
 {
-	QString directedTrackQString = "DirectedTrack";
-	directedTrackQString.append(",");
+	QString directedTrackQString = "DirectedTrack,";
 	directedTrackQString.append(directedTypeToQString());
 	directedTrackQString.append(",");
 	directedTrackQString.append(locationToQString());
 	directedTrackQString.append(",");
 	directedTrackQString.append(mainSpeedLengthToQString());
 	directedTrackQString.append(",");
-	directedTrackQString.append(QVariant(platform1).toString());
+    directedTrackQString.append(platformsToQString());
+	if (getNamed()){
+		directedTrackQString.append(",");
+		directedTrackQString.append(text->toQString());
+	}
+	return directedTrackQString;
+}
+
+QString DirectedTrack::toQStringForSave()
+{
+	QString directedTrackQString = directedTypeToQString();
 	directedTrackQString.append(",");
-	directedTrackQString.append(QVariant(platform2).toString());
+	directedTrackQString.append(locationToQString());
+	directedTrackQString.append(",");
+	directedTrackQString.append(mainSpeedLengthToQString());
+	directedTrackQString.append(",");
+    directedTrackQString.append(platformsToQString());
+	if (getNamed()){
+		directedTrackQString.append(",");
+		directedTrackQString.append(text->getReadableText());
+	}
 	return directedTrackQString;
 }
 
@@ -480,40 +542,40 @@ QString CurvedTrack::curvedTypeToQString()
 	switch (curvedType)
 	{
 	case CurvedType::CURVE1:
-		curvedTypeQString = "curve_1";
+        curvedTypeQString = "C1";
 		break;
 	case CurvedType::CURVE2:
-		curvedTypeQString = "curve_2";
+        curvedTypeQString = "C2";
 		break;
 	case CurvedType::CURVE3:
-		curvedTypeQString = "curve_3";
+        curvedTypeQString = "C3";
 		break;
 	case CurvedType::CURVE4:
-		curvedTypeQString = "curve_4";
+        curvedTypeQString = "C4";
 		break;
 	case CurvedType::CURVE5:
-		curvedTypeQString = "curve_5";
+        curvedTypeQString = "C5";
 		break;
 	case CurvedType::CURVE6:
-		curvedTypeQString = "curve_6";
+        curvedTypeQString = "C6";
 		break;
 	case CurvedType::CURVE7:
-		curvedTypeQString = "curve_7";
+        curvedTypeQString = "C7";
 		break;
 	case CurvedType::CURVE8:
-		curvedTypeQString = "curve_8";
+        curvedTypeQString = "C8";
 		break;
 	case CurvedType::TIGHTCURVE1:
-		curvedTypeQString = "tight_curve_1";
+        curvedTypeQString = "TC1";
 		break;
 	case CurvedType::TIGHTCURVE2:
-		curvedTypeQString = "tight_curve_2";
+        curvedTypeQString = "TC2";
 		break;
 	case CurvedType::TIGHTCURVE3:
-		curvedTypeQString = "tight_curve_3";
+        curvedTypeQString = "TC3";
 		break;
 	case CurvedType::TIGHTCURVE4:
-		curvedTypeQString = "tight_curve_4";
+        curvedTypeQString = "TC4";
 		break;
 	}
 	return curvedTypeQString;
@@ -521,13 +583,30 @@ QString CurvedTrack::curvedTypeToQString()
 
 QString CurvedTrack::toQString()
 {
-	QString curvedTrackQString = "CurvedTrack";
-	curvedTrackQString.append(",");
+	QString curvedTrackQString = "CurvedTrack,";
 	curvedTrackQString.append(curvedTypeToQString());
 	curvedTrackQString.append(",");
 	curvedTrackQString.append(locationToQString());
 	curvedTrackQString.append(",");
 	curvedTrackQString.append(mainSpeedLengthToQString());
+	if (getNamed()){
+		curvedTrackQString.append(",");
+		curvedTrackQString.append(text->toQString());
+	}
+	return curvedTrackQString;
+}
+
+QString CurvedTrack::toQStringForSave()
+{
+	QString curvedTrackQString = curvedTypeToQString();
+	curvedTrackQString.append(",");
+	curvedTrackQString.append(locationToQString());
+	curvedTrackQString.append(",");
+	curvedTrackQString.append(mainSpeedLengthToQString());
+	if (getNamed()){
+		curvedTrackQString.append(",");
+		curvedTrackQString.append(text->getReadableText());
+	}
 	return curvedTrackQString;
 }
 
@@ -540,7 +619,6 @@ LinkedTrack::LinkedTrack(LinkedType newLinkedType, int newLocationX, int newLoca
 	linkedType = newLinkedType;
 	locationX = newLocationX;
 	locationY = newLocationY;
-	linked = false;
 	switch(linkedType)
 	{
 		case LinkedType::LINKLEFT:
@@ -596,14 +674,13 @@ void LinkedTrack::setLinkedType(const LinkedType &newLinkedType)
 	linkedType = newLinkedType;
 }
 
-bool LinkedTrack::getLinked() const
+bool LinkedTrack::isLinked() const
 {
-	return linked;
-}
-
-void LinkedTrack::setLinked(bool newLinked)
-{
-	linked = newLinked;
+	if (otherLinkTrack == nullptr)
+	{
+		return false;
+	}
+	return true;
 }
 
 std::shared_ptr<LinkedTrack> LinkedTrack::getOtherLinkedTrack()
@@ -627,28 +704,28 @@ QString LinkedTrack::linkedTypeToQString()
 	switch (linkedType)
 	{
 	case LinkedType::LINKLEFT:
-		linkedTypeQString = "link_left";
+        linkedTypeQString = "LL";
 		break;
 	case LinkedType::LINKRIGHT:
-		linkedTypeQString = "link_right";
+        linkedTypeQString = "LR";
 		break;
 	case LinkedType::LINKUP:
-		linkedTypeQString = "link_up";
+        linkedTypeQString = "LU";
 		break;
 	case LinkedType::LINKDOWN:
-		linkedTypeQString = "link_down";
+        linkedTypeQString = "LD";
 		break;
 	case LinkedType::LINKLEFTDOWN:
-		linkedTypeQString = "link_left_down";
+        linkedTypeQString = "LLD";
 		break;
 	case LinkedType::LINKLEFTUP:
-		linkedTypeQString = "link_left_up";
+        linkedTypeQString = "LLU";
 		break;
 	case LinkedType::LINKRIGHTDOWN:
-		linkedTypeQString = "link_right_down";
+        linkedTypeQString = "LRD";
 		break;
 	case LinkedType::LINKRIGHTUP:
-		linkedTypeQString = "link_right_up";
+        linkedTypeQString = "LRU";
 		break;
 	}
 	return linkedTypeQString;
@@ -656,17 +733,16 @@ QString LinkedTrack::linkedTypeToQString()
 
 QString LinkedTrack::toQString()
 {
-	QString linkedTrackQString = "LinkedTrack";
-	linkedTrackQString.append(",");
+	QString linkedTrackQString = "LinkedTrack,";
 	linkedTrackQString.append(linkedTypeToQString());
 	linkedTrackQString.append(",");
 	linkedTrackQString.append(locationToQString());
 	linkedTrackQString.append(",");
 	linkedTrackQString.append(mainSpeedLengthToQString());
-	if (linked && otherLinkTrack != nullptr)
+	if (isLinked())
 	{
 		linkedTrackQString.append(",");
-		linkedTrackQString.append("linked");
+		linkedTrackQString.append("1");
 		linkedTrackQString.append(",");
 		linkedTrackQString.append(otherLinkedTrackToQString());
 
@@ -674,17 +750,56 @@ QString LinkedTrack::toQString()
 	else
 	{
 		linkedTrackQString.append(",");
-		linkedTrackQString.append("nolink");
+		linkedTrackQString.append("0");
+	}
+	if (getNamed()){
+		linkedTrackQString.append(",");
+		linkedTrackQString.append(text->toQString());
 	}
 	return linkedTrackQString;
 }
 
 QString LinkedTrack::otherLinkedTrackToQString()
 {
-	QString linkedTrackQString = "LinkedTrack";
-
-	linkedTrackQString.append(",");
+	QString linkedTrackQString = "LinkedTrack,";
 	linkedTrackQString.append(otherLinkTrack->linkedTypeToQString());
+	linkedTrackQString.append(",");
+	linkedTrackQString.append(otherLinkTrack->locationToQString());
+	linkedTrackQString.append(",");
+	linkedTrackQString.append(mainSpeedLengthToQString());
+	return linkedTrackQString;
+}
+
+QString LinkedTrack::toQStringForSave()
+{
+	QString linkedTrackQString =linkedTypeToQString();
+	linkedTrackQString.append(",");
+	linkedTrackQString.append(locationToQString());
+	linkedTrackQString.append(",");
+	linkedTrackQString.append(mainSpeedLengthToQString());
+	if (isLinked())
+	{
+		linkedTrackQString.append(",");
+		linkedTrackQString.append("1");
+		linkedTrackQString.append(",");
+		linkedTrackQString.append(otherLinkedTrackToQStringForSave());
+
+	}
+	else
+	{
+		linkedTrackQString.append(",");
+		linkedTrackQString.append("0");
+	}
+	if (getNamed()){
+		linkedTrackQString.append(",");
+		linkedTrackQString.append(text->getReadableText());
+	}
+	return linkedTrackQString;
+}
+
+QString LinkedTrack::otherLinkedTrackToQStringForSave()
+{
+	QString linkedTrackQString = otherLinkTrack->linkedTypeToQString();
 	linkedTrackQString.append(",");
 	linkedTrackQString.append(otherLinkTrack->locationToQString());
 	linkedTrackQString.append(",");
@@ -765,28 +880,28 @@ QString ExitTrack::exitTypeToQString()
 	switch (exitType)
 	{
 	case ExitType::EXITLEFT:
-		exitTypeQString = "exit_left";
+        exitTypeQString = "EL";
 		break;
 	case ExitType::EXITRIGHT:
-		exitTypeQString = "exit_right";
+        exitTypeQString = "ER";
 		break;
 	case ExitType::EXITUP:
-		exitTypeQString = "exit_up";
+        exitTypeQString = "EU";
 		break;
 	case ExitType::EXITDOWN:
-		exitTypeQString = "exit_down";
+        exitTypeQString = "ED";
 		break;
 	case ExitType::EXITLEFTDOWN:
-		exitTypeQString = "exit_left_down";
+        exitTypeQString = "ELD";
 		break;
 	case ExitType::EXITLEFTUP:
-		exitTypeQString = "exit_left_up";
+        exitTypeQString = "ELU";
 		break;
 	case ExitType::EXITRIGHTDOWN:
-		exitTypeQString = "exit_right_down";
+        exitTypeQString = "ERD";
 		break;
 	case ExitType::EXITRIGHTUP:
-		exitTypeQString = "exit_right_up";
+        exitTypeQString = "ERU";
 		break;
 	}
 	return exitTypeQString;
@@ -794,13 +909,30 @@ QString ExitTrack::exitTypeToQString()
 
 QString ExitTrack::toQString()
 {
-	QString exitTrackQString = "ExitTrack";
-	exitTrackQString.append(",");
+	QString exitTrackQString = "ExitTrack,";
 	exitTrackQString.append(exitTypeToQString());
 	exitTrackQString.append(",");
 	exitTrackQString.append(locationToQString());
 	exitTrackQString.append(",");
 	exitTrackQString.append(mainSpeedLengthToQString());
+	if (getNamed()){
+		exitTrackQString.append(",");
+		exitTrackQString.append(text->toQString());
+	}
+	return exitTrackQString;
+}
+
+QString ExitTrack::toQStringForSave()
+{
+	QString exitTrackQString = exitTypeToQString();
+	exitTrackQString.append(",");
+	exitTrackQString.append(locationToQString());
+	exitTrackQString.append(",");
+	exitTrackQString.append(mainSpeedLengthToQString());
+	if (getNamed()){
+		exitTrackQString.append(",");
+		exitTrackQString.append(text->getReadableText());
+	}
 	return exitTrackQString;
 }
 
@@ -875,28 +1007,28 @@ QString BufferTrack::bufferTypeToQString()
 	switch (bufferType)
 	{
 	case BufferType::BUFFERLEFT:
-		bufferTypeQString = "buffer_left";
+        bufferTypeQString = "BL";
 		break;
 	case BufferType::BUFFERRIGHT:
-		bufferTypeQString = "buffer_right";
+        bufferTypeQString = "BR";
 		break;
 	case BufferType::BUFFERUP:
-		bufferTypeQString = "buffer_up";
+        bufferTypeQString = "BU";
 		break;
 	case BufferType::BUFFERDOWN:
-		bufferTypeQString = "buffer_down";
+        bufferTypeQString = "BD";
 		break;
 	case BufferType::BUFFERLEFTDOWN:
-		bufferTypeQString = "buffer_left_down";
+        bufferTypeQString = "BLD";
 		break;
 	case BufferType::BUFFERLEFTUP:
-		bufferTypeQString = "buffer_left_up";
+        bufferTypeQString = "BLU";
 		break;
 	case BufferType::BUFFERRIGHTDOWN:
-		bufferTypeQString = "buffer_right_down";
+        bufferTypeQString = "BRD";
 		break;
 	case BufferType::BUFFERRIGHTUP:
-		bufferTypeQString = "buffer_right_up";
+        bufferTypeQString = "BRU";
 		break;
 	}
 	return bufferTypeQString;
@@ -904,13 +1036,34 @@ QString BufferTrack::bufferTypeToQString()
 
 QString BufferTrack::toQString()
 {
-	QString bufferTrackQString = "BufferTrack";
-	bufferTrackQString.append(",");
+	QString bufferTrackQString = "BufferTrack,";
 	bufferTrackQString.append(bufferTypeToQString());
 	bufferTrackQString.append(",");
 	bufferTrackQString.append(locationToQString());
 	bufferTrackQString.append(",");
 	bufferTrackQString.append(mainSpeedLengthToQString());
+    bufferTrackQString.append(",");
+    bufferTrackQString.append(platformsToQString());
+	if (getNamed()){
+		bufferTrackQString.append(",");
+		bufferTrackQString.append(text->toQString());
+	}
+	return bufferTrackQString;
+}
+
+QString BufferTrack::toQStringForSave()
+{
+	QString bufferTrackQString = bufferTypeToQString();
+	bufferTrackQString.append(",");
+	bufferTrackQString.append(locationToQString());
+	bufferTrackQString.append(",");
+	bufferTrackQString.append(mainSpeedLengthToQString());
+    bufferTrackQString.append(",");
+    bufferTrackQString.append(platformsToQString());
+	if (getNamed()){
+		bufferTrackQString.append(",");
+		bufferTrackQString.append(text->getReadableText());
+	}
 	return bufferTrackQString;
 }
 
@@ -978,34 +1131,39 @@ void SignalTrack::setAspect(int newAspect)
 	aspect = newAspect;
 }
 
+QString SignalTrack::aspectToQString()
+{
+	return QString::number(aspect);
+}
+
 QString SignalTrack::signalTypeToQString()
 {
 	QString signalTypeQString;
 	switch (signalType)
 	{
 	case SignalType::SIGNALLEFT:
-		signalTypeQString = "signal_left";
+        signalTypeQString = "SIGL";
 		break;
 	case SignalType::SIGNALRIGHT:
-		signalTypeQString = "signal_right";
+        signalTypeQString = "SIGR";
 		break;
 	case SignalType::SIGNALUP:
-		signalTypeQString = "signal_up";
+        signalTypeQString = "SIGU";
 		break;
 	case SignalType::SIGNALDOWN:
-		signalTypeQString = "signal_down";
+        signalTypeQString = "SIGD";
 		break;
 	case SignalType::SIGNALLEFTDOWN:
-		signalTypeQString = "signal_left_down";
+        signalTypeQString = "SIGLD";
 		break;
 	case SignalType::SIGNALLEFTUP:
-		signalTypeQString = "signal_left_up";
+        signalTypeQString = "SIGLU";
 		break;
 	case SignalType::SIGNALRIGHTDOWN:
-		signalTypeQString = "signal_right_down";
+        signalTypeQString = "SIGRD";
 		break;
 	case SignalType::SIGNALRIGHTUP:
-		signalTypeQString = "signal_right_up";
+        signalTypeQString = "SIGRU";
 		break;
 	}
 	return signalTypeQString;
@@ -1013,15 +1171,38 @@ QString SignalTrack::signalTypeToQString()
 
 QString SignalTrack::toQString()
 {
-	QString signalTrackQString = "SignalTrack";
-	signalTrackQString.append(",");
+	QString signalTrackQString = "SignalTrack,";
 	signalTrackQString.append(signalTypeToQString());
+	signalTrackQString.append(",");
+	signalTrackQString.append(aspectToQString());
 	signalTrackQString.append(",");
 	signalTrackQString.append(locationToQString());
 	signalTrackQString.append(",");
 	signalTrackQString.append(mainSpeedLengthToQString());
 	signalTrackQString.append(",");
-	signalTrackQString.append(QString::number(aspect));
+    signalTrackQString.append(platformsToQString());
+	if (getNamed()){
+		signalTrackQString.append(",");
+		signalTrackQString.append(text->toQString());
+	}
+	return signalTrackQString;
+}
+
+QString SignalTrack::toQStringForSave()
+{
+	QString signalTrackQString = signalTypeToQString();;
+	signalTrackQString.append(",");
+	signalTrackQString.append(aspectToQString());
+	signalTrackQString.append(",");
+	signalTrackQString.append(locationToQString());
+	signalTrackQString.append(",");
+	signalTrackQString.append(mainSpeedLengthToQString());
+	signalTrackQString.append(",");
+    signalTrackQString.append(platformsToQString());
+	if (getNamed()){
+		signalTrackQString.append(",");
+		signalTrackQString.append(text->getReadableText());
+	}
 	return signalTrackQString;
 }
 
@@ -1068,16 +1249,16 @@ QString BridgeUnderpassTrack::bridgeUnderpassTypeToQString()
 	switch (bridgeUnderpassType)
 	{
 	case BridgeUnderpassType::BRIDGE1:
-		bridgeUnderpassTypeQString = "bridge_1";
+        bridgeUnderpassTypeQString = "BR1";
 		break;
 	case BridgeUnderpassType::BRIDGE2:
-		bridgeUnderpassTypeQString = "bridge_2";
+        bridgeUnderpassTypeQString = "BR2";
 		break;
 	case BridgeUnderpassType::UNDERPASS1:
-		bridgeUnderpassTypeQString = "underpass_1";
+        bridgeUnderpassTypeQString = "UP1";
 		break;
 	case BridgeUnderpassType::UNDERPASS2:
-		bridgeUnderpassTypeQString = "underpass_2";
+        bridgeUnderpassTypeQString = "UP2";
 		break;
 	}
 	return bridgeUnderpassTypeQString;
@@ -1085,15 +1266,34 @@ QString BridgeUnderpassTrack::bridgeUnderpassTypeToQString()
 
 QString BridgeUnderpassTrack::toQString()
 {
-	QString bridgeUnderpassTrackQString = "BridgeUnderpassTrack";
-	bridgeUnderpassTrackQString.append(",");
+	QString bridgeUnderpassTrackQString = "BridgeUnderpassTrack,";
 	bridgeUnderpassTrackQString.append(bridgeUnderpassTypeToQString());
 	bridgeUnderpassTrackQString.append(",");
 	bridgeUnderpassTrackQString.append(locationToQString());
 	bridgeUnderpassTrackQString.append(",");
 	bridgeUnderpassTrackQString.append(mainSpeedLengthToQString());
 	bridgeUnderpassTrackQString.append(",");
-	bridgeUnderpassTrackQString.append(secondarySpeedLengthToQString());
+    bridgeUnderpassTrackQString.append(platformsToQString());
+	if (getNamed()){
+		bridgeUnderpassTrackQString.append(",");
+		bridgeUnderpassTrackQString.append(text->toQString());
+	}
+	return bridgeUnderpassTrackQString;
+}
+
+QString BridgeUnderpassTrack::toQStringForSave()
+{
+	QString bridgeUnderpassTrackQString = bridgeUnderpassTypeToQString();
+	bridgeUnderpassTrackQString.append(",");
+	bridgeUnderpassTrackQString.append(locationToQString());
+	bridgeUnderpassTrackQString.append(",");
+	bridgeUnderpassTrackQString.append(mainSpeedLengthToQString());
+	bridgeUnderpassTrackQString.append(",");
+    bridgeUnderpassTrackQString.append(platformsToQString());
+	if (getNamed()){
+		bridgeUnderpassTrackQString.append(",");
+		bridgeUnderpassTrackQString.append(text->getReadableText());
+	}
 	return bridgeUnderpassTrackQString;
 }
 
@@ -1106,8 +1306,7 @@ SwitchTrack::SwitchTrack(SwitchType newSwitchType, int newLocationX, int newLoca
 	switchType = newSwitchType;
 	locationX = newLocationX;
 	locationY = newLocationY;
-	trackSecondaryLength = 100;
-	trackSecondarySpeed = 200;
+	setDefaultSecondarySpeedLength();
 	switch (switchType)
 	{
 		case SwitchType::SWITCHTIGHT1:
@@ -1337,100 +1536,100 @@ QString SwitchTrack::switchTypeToQString()
 	switch (switchType)
 	{
 	case SwitchType::SWITCH1:
-		switchTypeQString = "switch_1";
+        switchTypeQString = "SW1";
 		break;
 	case SwitchType::SWITCH2:
-		switchTypeQString = "switch_2";
+        switchTypeQString = "SW2";
 		break;
 	case SwitchType::SWITCH3:
-		switchTypeQString = "switch_3";
+        switchTypeQString = "SW3";
 		break;
 	case SwitchType::SWITCH4:
-		switchTypeQString = "switch_4";
+        switchTypeQString = "SW4";
 		break;
 	case SwitchType::SWITCH5:
-		switchTypeQString = "switch_5";
+        switchTypeQString = "SW5";
 		break;
 	case SwitchType::SWITCH6:
-		switchTypeQString = "switch_6";
+        switchTypeQString = "SW6";
 		break;
 	case SwitchType::SWITCH7:
-		switchTypeQString = "switch_7";
+        switchTypeQString = "SW7";
 		break;
 	case SwitchType::SWITCH8:
-		switchTypeQString = "switch_8";
+        switchTypeQString = "SW8";
 		break;
 	case SwitchType::SWITCH9:
-		switchTypeQString = "switch_9";
+        switchTypeQString = "SW9";
 		break;
 	case SwitchType::SWITCH10:
-		switchTypeQString = "switch_10";
+        switchTypeQString = "SW10";
 		break;
 	case SwitchType::SWITCH11:
-		switchTypeQString = "switch_11";
+        switchTypeQString = "SW11";
 		break;
 	case SwitchType::SWITCH12:
-		switchTypeQString = "switch_12";
+        switchTypeQString = "SW12";
 		break;
 	case SwitchType::SWITCH13:
-		switchTypeQString = "switch_13";
+        switchTypeQString = "SW13";
 		break;
 	case SwitchType::SWITCH14:
-		switchTypeQString = "switch_14";
+        switchTypeQString = "SW14";
 		break;
 	case SwitchType::SWITCH15:
-		switchTypeQString = "switch_15";
+        switchTypeQString = "SW15";
 		break;
 	case SwitchType::SWITCH16:
-		switchTypeQString = "switch_16";
+        switchTypeQString = "SW16";
 		break;
 	case SwitchType::SWITCHTIGHT1:
-		switchTypeQString = "switch_tight_1";
+        switchTypeQString = "SWT1";
 		break;
 	case SwitchType::SWITCHTIGHT2:
-		switchTypeQString = "switch_tight_2";
+        switchTypeQString = "SWT2";
 		break;
 	case SwitchType::SWITCHTIGHT3:
-		switchTypeQString = "switch_tight_3";
+        switchTypeQString = "SWT3";
 		break;
 	case SwitchType::SWITCHTIGHT4:
-		switchTypeQString = "switch_tight_4";
+        switchTypeQString = "SWT4";
 		break;
 	case SwitchType::SWITCHTIGHT5:
-		switchTypeQString = "switch_tight_5";
+        switchTypeQString = "SWT5";
 		break;
 	case SwitchType::SWITCHTIGHT6:
-		switchTypeQString = "switch_tight_6";
+        switchTypeQString = "SWT6";
 		break;
 	case SwitchType::SWITCHTIGHT7:
-		switchTypeQString = "switch_tight_7";
+        switchTypeQString = "SWT7";
 		break;
 	case SwitchType::SWITCHTIGHT8:
-		switchTypeQString = "switch_tight_8";
+        switchTypeQString = "SWT8";
 		break;
 	case SwitchType::SWITCHSPLIT1:
-		switchTypeQString = "switch_switch_1";
+        switchTypeQString = "SWS1";
 		break;
 	case SwitchType::SWITCHSPLIT2:
-		switchTypeQString = "switch_switch_2";
+        switchTypeQString = "SWS2";
 		break;
 	case SwitchType::SWITCHSPLIT3:
-		switchTypeQString = "switch_switch_3";
+        switchTypeQString = "SWS3";
 		break;
 	case SwitchType::SWITCHSPLIT4:
-		switchTypeQString = "switch_switch_4";
+        switchTypeQString = "SWS4";
 		break;
 	case SwitchType::SWITCHSPLIT5:
-		switchTypeQString = "switch_switch_5";
+        switchTypeQString = "SWS5";
 		break;
 	case SwitchType::SWITCHSPLIT6:
-		switchTypeQString = "switch_switch_6";
+        switchTypeQString = "SWS6";
 		break;
 	case SwitchType::SWITCHSPLIT7:
-		switchTypeQString = "switch_switch_7";
+        switchTypeQString = "SWS7";
 		break;
 	case SwitchType::SWITCHSPLIT8:
-		switchTypeQString = "switch_switch_8";
+        switchTypeQString = "SWS8";
 		break;
 	}
 	return switchTypeQString;
@@ -1438,8 +1637,7 @@ QString SwitchTrack::switchTypeToQString()
 
 QString SwitchTrack::toQString()
 {
-	QString switchTrackQString = "SwitchTrack";
-	switchTrackQString.append(",");
+	QString switchTrackQString = "SwitchTrack,";
 	switchTrackQString.append(switchTypeToQString());
 	switchTrackQString.append(",");
 	switchTrackQString.append(locationToQString());
@@ -1447,6 +1645,30 @@ QString SwitchTrack::toQString()
 	switchTrackQString.append(mainSpeedLengthToQString());
 	switchTrackQString.append(",");
 	switchTrackQString.append(secondarySpeedLengthToQString());
+    switchTrackQString.append(",");
+    switchTrackQString.append(platformsToQString());
+	if (getNamed()){
+		switchTrackQString.append(",");
+		switchTrackQString.append(text->toQString());
+	}
+	return switchTrackQString;
+}
+
+QString SwitchTrack::toQStringForSave()
+{
+	QString switchTrackQString = switchTypeToQString();
+	switchTrackQString.append(",");
+	switchTrackQString.append(locationToQString());
+	switchTrackQString.append(",");
+	switchTrackQString.append(mainSpeedLengthToQString());
+	switchTrackQString.append(",");
+	switchTrackQString.append(secondarySpeedLengthToQString());
+    switchTrackQString.append(",");
+    switchTrackQString.append(platformsToQString());
+	if (getNamed()){
+		switchTrackQString.append(",");
+		switchTrackQString.append(text->getReadableText());
+	}
 	return switchTrackQString;
 }
 
@@ -1459,8 +1681,7 @@ CrossoverTrack::CrossoverTrack(CrossoverType newCrossoverType, int newLocationX,
 	crossoverType = newCrossoverType;
 	locationX = newLocationX;
 	locationY = newLocationY;
-	trackSecondaryLength = 100;
-	trackSecondaryLength = 200;
+	setDefaultSecondarySpeedLength();
 	switch (crossoverType)
 	{
 		case CrossoverType::CROSSOVER1:
@@ -1537,22 +1758,22 @@ QString CrossoverTrack::crossoverTypeToQString()
 	switch (crossoverType)
 	{
 	case CrossoverType::CROSSOVER1:
-		crossoverTypeQString = "crossover_1";
+        crossoverTypeQString = "CR1";
 		break;
 	case CrossoverType::CROSSOVER2:
-		crossoverTypeQString = "crossover_2";
+        crossoverTypeQString = "CR2";
 		break;
 	case CrossoverType::CROSSOVER3:
-		crossoverTypeQString = "crossover_3";
+        crossoverTypeQString = "CR3";
 		break;
 	case CrossoverType::CROSSOVER4:
-		crossoverTypeQString = "crossover_4";
+        crossoverTypeQString = "CR4";
 		break;
 	case CrossoverType::CROSSOVER5:
-		crossoverTypeQString = "crossover_5";
+        crossoverTypeQString = "CR5";
 		break;
 	case CrossoverType::CROSSOVER6:
-		crossoverTypeQString = "crossover_6";
+        crossoverTypeQString = "CR6";
 		break;
 	}
 	return crossoverTypeQString;
@@ -1560,9 +1781,20 @@ QString CrossoverTrack::crossoverTypeToQString()
 
 QString CrossoverTrack::toQString()
 {
-	QString crossoverTrackQString = "CrossoverTrack";
-	crossoverTrackQString.append(",");
+	QString crossoverTrackQString = "CrossoverTrack,";
 	crossoverTrackQString.append(crossoverTypeToQString());
+	crossoverTrackQString.append(",");
+	crossoverTrackQString.append(locationToQString());
+	crossoverTrackQString.append(",");
+	crossoverTrackQString.append(mainSpeedLengthToQString());
+	crossoverTrackQString.append(",");
+    crossoverTrackQString.append(secondarySpeedLengthToQString());
+	return crossoverTrackQString;
+}
+
+QString CrossoverTrack::toQStringForSave()
+{
+	QString crossoverTrackQString = crossoverTypeToQString();
 	crossoverTrackQString.append(",");
 	crossoverTrackQString.append(locationToQString());
 	crossoverTrackQString.append(",");
@@ -1581,8 +1813,7 @@ FlyoverTrack::FlyoverTrack(FlyoverType newFlyoverType, int newLocationX, int new
 	flyoverType = newFlyoverType;
 	locationX = newLocationX;
 	locationY = newLocationY;
-	trackSecondaryLength = 100;
-	trackSecondaryLength = 200;
+	setDefaultSecondarySpeedLength();
 	//Bottom track is secondary
 	switch (flyoverType)
 	{
@@ -1672,40 +1903,40 @@ QString FlyoverTrack::flyoverTypeToQString()
 	switch (flyoverType)
 	{
 	case FlyoverType::FLYOVER1:
-		flyoverTypeQString = "flyover_1";
+        flyoverTypeQString = "F1";
 		break;
 	case FlyoverType::FLYOVER2:
-		flyoverTypeQString = "flyover_2";
+        flyoverTypeQString = "F2";
 		break;
 	case FlyoverType::FLYOVER3:
-		flyoverTypeQString = "flyover_3";
+        flyoverTypeQString = "F3";
 		break;
 	case FlyoverType::FLYOVER4:
-		flyoverTypeQString = "flyover_4";
+        flyoverTypeQString = "F4";
 		break;
 	case FlyoverType::FLYOVER5:
-		flyoverTypeQString = "flyover_5";
+        flyoverTypeQString = "F5";
 		break;
 	case FlyoverType::FLYOVER6:
-		flyoverTypeQString = "flyover_6";
+        flyoverTypeQString = "F6";
 		break;
 	case FlyoverType::FLYOVER7:
-		flyoverTypeQString = "flyover_7";
+        flyoverTypeQString = "F7";
 		break;
 	case FlyoverType::FLYOVER8:
-		flyoverTypeQString = "flyover_8";
+        flyoverTypeQString = "F8";
 		break;
 	case FlyoverType::FLYOVER9:
-		flyoverTypeQString = "flyover_9";
+        flyoverTypeQString = "F9";
 		break;
 	case FlyoverType::FLYOVER10:
-		flyoverTypeQString = "flyover_10";
+        flyoverTypeQString = "F10";
 		break;
 	case FlyoverType::FLYOVER11:
-		flyoverTypeQString = "flyover_11";
+        flyoverTypeQString = "F11";
 		break;
 	case FlyoverType::FLYOVER12:
-		flyoverTypeQString = "flyover_12";
+        flyoverTypeQString = "F12";
 		break;
 	}
 	return flyoverTypeQString;
@@ -1713,9 +1944,20 @@ QString FlyoverTrack::flyoverTypeToQString()
 
 QString FlyoverTrack::toQString()
 {
-	QString flyoverTrackQString = "FlyoverTrack";
-	flyoverTrackQString.append(",");
+	QString flyoverTrackQString = "FlyoverTrack,";
 	flyoverTrackQString.append(flyoverTypeToQString());
+	flyoverTrackQString.append(",");
+	flyoverTrackQString.append(locationToQString());
+	flyoverTrackQString.append(",");
+	flyoverTrackQString.append(mainSpeedLengthToQString());
+	flyoverTrackQString.append(",");
+	flyoverTrackQString.append(secondarySpeedLengthToQString());
+	return flyoverTrackQString;
+}
+
+QString FlyoverTrack::toQStringForSave()
+{
+	QString flyoverTrackQString = flyoverTypeToQString();
 	flyoverTrackQString.append(",");
 	flyoverTrackQString.append(locationToQString());
 	flyoverTrackQString.append(",");

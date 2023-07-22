@@ -268,11 +268,6 @@ private:
 	void connectLinkedTrack();
 
 	/**
-	 * @brief A method that disconnects the 2 chosen LinkedTracks.
-	 */
-	void disconnectLinkedTrack(std::shared_ptr<LinkedTrack> linkTrack1, std::shared_ptr<LinkedTrack> linkedTrack2);
-
-	/**
 	 * @brief A method to reset the connectLinkedTrack mechanics.
 	 */
 	void resetConnectLinkedTrack();
@@ -325,6 +320,21 @@ public:
 	 */
 	bool checkElementExists(int locationX, int locationY);
 
+	/**
+	 * @brief Checks if a track, concourse or parapet exists at a location.
+	 * @param locationX X coordinate to check.
+	 * @param locationY Y coordinate to check.
+	 * @return A bool that represents if a track, concourse or parapet exists there.
+	 */
+	bool checkTrackConcourseParapetExists(int locationX, int locationY);
+
+	/**
+	 * @brief Check if a named location can be added at a location
+	 * @param locationX X coordinate to check.
+	 * @param locationY Y coordinate to check.
+	 * @return true if a NamedLocation can be placed there, otherwise false.
+	 */
+	bool checkCanAddNamedLocation(int locationX, int locationY);
 
 	//StraightTrack related methods.
 
@@ -357,7 +367,15 @@ public:
 	std::shared_ptr<StraightTrack> getStraightTrackAt(int locationX,int locationY);
 
 	/**
-	 * @brief Gets the straightTrackList as a QString for file saving.
+	 * @brief Check if there is a StraightTrack at the given coordinates.
+	 * @param locationX X coordinate to look at.
+	 * @param locationY Y coordinate to look at.
+	 * @return true if there is a StraightTrack at the coordinates otherwise false.
+	 */
+	bool checkStraightTrackAt(int locationX,int locationY);
+
+	/**
+     * @brief Gets the StraightTrackList as a QString for file saving.
 	 * @return A QString of StraightTracks for file saving
 	 */
 	QString straightTrackListToQStringForSaving();
@@ -392,6 +410,20 @@ public:
 	 */
 	std::shared_ptr<DirectedTrack> getDirectedTrackAt(int locationX,int locationY);
 
+	/**
+	 * @brief Check if there is a DirectedTrack at the given coordinates.
+	 * @param locationX X coordinate to look at.
+	 * @param locationY Y coordinate to look at.
+	 * @return true if there is a DirectedTrack at the coordinates otherwise false.
+	 */
+	bool checkDirectedTrackAt(int locationX,int locationY);
+
+    /**
+     * @brief Gets the DirectedTrackList as a QString for file saving.
+     * @return A QString of DirectedTracks for file saving
+     */
+    QString directedTrackListToQStringForSaving();
+
 	//CurvedTrack related methods
 
 	/**
@@ -421,6 +453,20 @@ public:
 	 * @return CurvedTrack at (X,Y) if there is one, otherwise return a nullptr.
 	 */
 	std::shared_ptr<CurvedTrack> getCurvedTrackAt(int locationX,int locationY);
+
+	/**
+	 * @brief Check if there is a CurvedTrack at the given coordinates.
+	 * @param locationX X coordinate to look at.
+	 * @param locationY Y coordinate to look at.
+	 * @return true if there is a CurvedTrack at the coordinates otherwise false.
+	 */
+	bool checkCurvedTrackAt(int locationX,int locationY);
+
+    /**
+     * @brief Gets the CurvedTrackList as a QString for file saving.
+     * @return A QString of CurvedTracks for file saving
+     */
+    QString curvedTrackListToQStringForSaving();
 
 	//LinkedTrack related methods
 
@@ -452,6 +498,15 @@ public:
 	 */
 	std::shared_ptr<LinkedTrack> getLinkedTrackAt(int locationX,int locationY);
 
+	/**
+	 * @brief Check if there is a LinkedTrack at the given coordinates.
+	 * @param locationX X coordinate to look at.
+	 * @param locationY Y coordinate to look at.
+	 * @return true if there is a LinkedTrack at the coordinates otherwise false.
+	 */
+	bool checkLinkedTrackAt(int locationX,int locationY);
+
+
 		//Connecting Linked tracks methods
 
 	/**
@@ -480,7 +535,7 @@ public:
 
 
 	/**
-	 * @brief Checks if there is a linked track at that location
+	 * @brief Checks if there is a LinkedTrack at that location
 	 * @param locationX X coordinate.
 	 * @param locationY Y coordinate.
 	 * @return A bool, true if there is a linked track there false if not.
@@ -488,17 +543,28 @@ public:
 	bool hasLinkedTrackAt(int locationX, int locationY);
 
 	/**
-	 * @brief Connects the last two chosen linked tracks.
-	 * @param locationX X coordinate of a linked track.
-	 * @param locationY Y coordinate of a linked track.
+	 * @brief Connects the last two chosen LinkedTracks.
+	 * @param locationX X coordinate of a LinkedTrack.
+	 * @param locationY Y coordinate of a LinkedTrack.
 	 */
 	void connectTwoLinkedTracks(int locationX, int locationY);
 
 	/**
-	 * @brief Checks if all LinkedTracks are connected.
-	 * @return true if all linked tracks are connected, otherwise false.
+	 * @brief A method that disconnects the 2 chosen LinkedTracks.
 	 */
-	bool checkAllLinkTrackLinked();
+	void disconnectLinkedTrack(std::shared_ptr<LinkedTrack> linkTrack1, std::shared_ptr<LinkedTrack> linkedTrack2);
+
+	/**
+	 * @brief Checks if all LinkedTracks are connected.
+	 * @return true if all LinkedTracks are connected, otherwise false.
+	 */
+	bool checkAllLinkedTrackLinked();
+
+	/**
+	 * @brief Gets the LinkedTrackList as a QString for file saving.
+	 * @return A QString of LinkedTracks for file saving
+	 */
+	QString linkedTrackListToQStringForSaving();
 
 
 
@@ -532,6 +598,20 @@ public:
 	 */
 	std::shared_ptr<ExitTrack> getExitTrackAt(int locationX,int locationY);
 
+	/**
+	 * @brief Check if there is a ExitTrack at the given coordinates.
+	 * @param locationX X coordinate to look at.
+	 * @param locationY Y coordinate to look at.
+	 * @return true if there is a ExitTrack at the coordinates otherwise false.
+	 */
+	bool checkExitTrackAt(int locationX,int locationY);
+
+	/**
+	 * @brief Gets the ExitTrackList as a QString for file saving.
+	 * @return A QString of ExitTracks for file saving
+	 */
+	QString exitTrackListToQStringForSaving();
+
 	//BufferTrack related methods
 
 	/**
@@ -561,6 +641,20 @@ public:
 	 * @return BufferTrack at (X,Y) if there is one, otherwise return a nullptr.
 	 */
 	std::shared_ptr<BufferTrack> getBufferTrackAt(int locationX,int locationY);
+
+	/**
+	 * @brief Check if there is a BufferTrack at the given coordinates.
+	 * @param locationX X coordinate to look at.
+	 * @param locationY Y coordinate to look at.
+	 * @return true if there is a BufferTrack at the coordinates otherwise false.
+	 */
+	bool checkBufferTrackAt(int locationX,int locationY);
+
+	/**
+	 * @brief Gets the BufferTrackList as a QString for file saving.
+	 * @return A QString of BufferTracks for file saving
+	 */
+	QString bufferTrackListToQStringForSaving();
 
 	//SignalTrack related methods
 
@@ -592,6 +686,20 @@ public:
 	 */
 	std::shared_ptr<SignalTrack> getSignalTrackAt(int locationX,int locationY);
 
+	/**
+	 * @brief Check if there is a SignalTrack at the given coordinates.
+	 * @param locationX X coordinate to look at.
+	 * @param locationY Y coordinate to look at.
+	 * @return true if there is a SignalTrack at the coordinates otherwise false.
+	 */
+	bool checkSignalTrackAt(int locationX,int locationY);
+
+	/**
+	 * @brief Gets the SignalTrackList as a QString for file saving.
+	 * @return A QString of SignalTracks for file saving
+	 */
+	QString signalTrackListToQStringForSaving();
+
 	//BridgeUnderpassTrack related methods
 
 	/**
@@ -621,6 +729,20 @@ public:
 	 * @return BridgeUnderpassTrack at (X,Y) if there is one, otherwise return a nullptr.
 	 */
 	std::shared_ptr<BridgeUnderpassTrack> getBridgeUnderpassTrack(int locationX,int locationY);
+
+	/**
+	 * @brief Check if there is a BridgeUnderpassTrack at the given coordinates.
+	 * @param locationX X coordinate to look at.
+	 * @param locationY Y coordinate to look at.
+	 * @return true if there is a BridgeUnderpassTrack at the coordinates otherwise false.
+	 */
+	bool checkBridgeUnderpassTrackAt(int locationX,int locationY);
+
+	/**
+	 * @brief Gets the BridgeUnderpassTrackList as a QString for file saving.
+	 * @return A QString of BridgeUnderpassTracks for file saving
+	 */
+	QString bridgeUnderpassTrackListToQStringForSaving();
 
 	//SwitchTrack related methods
 
@@ -652,6 +774,20 @@ public:
 	 */
 	std::shared_ptr<SwitchTrack> getSwitchTrackAt(int locationX,int locationY);
 
+	/**
+	 * @brief Check if there is a SwitchTrack at the given coordinates.
+	 * @param locationX X coordinate to look at.
+	 * @param locationY Y coordinate to look at.
+	 * @return true if there is a SwitchTrack at the coordinates otherwise false.
+	 */
+	bool checkSwitchTrackAt(int locationX,int locationY);
+
+	/**
+	 * @brief Gets the SwitchTrackList as a QString for file saving.
+	 * @return A QString of SwitchTracks for file saving
+	 */
+	QString switchTrackListToQStringForSaving();
+
 	//CrossoverTrack related methods
 
 	/**
@@ -681,6 +817,20 @@ public:
 	 * @return CrossoverTrack at (X,Y) if there is one, otherwise return a nullptr.
 	 */
 	std::shared_ptr<CrossoverTrack> getCrossoverTrackAt(int locationX,int locationY);
+
+	/**
+	 * @brief Check if there is a CrossoverTrack at the given coordinates.
+	 * @param locationX X coordinate to look at.
+	 * @param locationY Y coordinate to look at.
+	 * @return true if there is a CrossoverTrack at the coordinates otherwise false.
+	 */
+	bool checkCrossoverTrackAt(int locationX,int locationY);
+
+	/**
+	 * @brief Gets the CrossoverTrackList as a QString for file saving.
+	 * @return A QString of CrossoverTracks for file saving
+	 */
+	QString crossoverTrackListToQStringForSaving();
 
 	//FlyoverTrack related methods
 
@@ -712,6 +862,20 @@ public:
 	 */
 	std::shared_ptr<FlyoverTrack> getFlyoverTrackAt(int locationX,int locationY);
 
+	/**
+	 * @brief Check if there is a FlyoverTrack at the given coordinates.
+	 * @param locationX X coordinate to look at.
+	 * @param locationY Y coordinate to look at.
+	 * @return true if there is a FlyoverTrack at the coordinates otherwise false.
+	 */
+	bool checkFlyoverTrackAt(int locationX,int locationY);
+
+	/**
+	 * @brief Gets the FlyoverTrackList as a QString for file saving.
+	 * @return A QString of FlyoverTracks for file saving
+	 */
+	QString flyoverTrackListToQStringForSaving();
+
 	//NamedLocation related methods.
 
 	/**
@@ -740,6 +904,20 @@ public:
 	 * @return NamedLocation at (X,Y) if there is one, otherwise return a nullptr.
 	 */
 	std::shared_ptr<NamedLocation> getNamedLocationAt(int locationX,int locationY);
+
+	/**
+	 * @brief Check if there is a NamedLocation at the given coordinates.
+	 * @param locationX X coordinate to look at.
+	 * @param locationY Y coordinate to look at.
+	 * @return true if there is a NamedLocation at the coordinates otherwise false.
+	 */
+	bool checkNamedLocationAt(int locationX,int locationY);
+
+	/**
+	 * @brief Gets the NamedLocationList as a QString for file saving.
+	 * @return A QString of NamedLocations for file saving
+	 */
+	QString namedLocationListToQStringForSaving();
 
 	//Concourse related methods.
 
@@ -770,6 +948,20 @@ public:
 	 */
 	std::shared_ptr<Concourse> getConcourseAt(int locationX,int locationY);
 
+	/**
+	 * @brief Check if there is a Concourse at the given coordinates.
+	 * @param locationX X coordinate to look at.
+	 * @param locationY Y coordinate to look at.
+	 * @return true if there is a Concourse at the coordinates otherwise false.
+	 */
+	bool checkConcourseAt(int locationX,int locationY);
+
+	/**
+	 * @brief Gets the ConcourseList as a QString for file saving.
+	 * @return A QString of Concourse for file saving
+	 */
+	QString concourseListToQStringForSaving();
+
 	//Parapet related methods.
 
 	/**
@@ -798,6 +990,20 @@ public:
 	 * @return Parapet at (X,Y) if there is one, otherwise return a nullptr.
 	 */
 	std::shared_ptr<Parapet> getParapetAt(int locationX,int locationY);
+
+	/**
+	 * @brief Check if there is a Parapet at the given coordinates.
+	 * @param locationX X coordinate to look at.
+	 * @param locationY Y coordinate to look at.
+	 * @return true if there is a Parapet at the coordinates otherwise false.
+	 */
+	bool checkParapetAt(int locationX,int locationY);
+
+	/**
+	 * @brief Gets the ParapetList as a QString for file saving.
+	 * @return A QString of Parapet for file saving
+	 */
+	QString parapetListToQStringForSaving();
 
 	//Text related methods.
 
@@ -891,7 +1097,7 @@ public:
 	void changeDeleteText(QString readableBit, bool ok, std::shared_ptr<Text> text);
 
 	/**
-	 * @brief Links text to items that are neighbours.
+	 * @brief Links text to elements at the location and the surrounding ones if they can be named.
 	 *
 	 * X and Y coordinates is the item the place to look for neighbours.
 	 *
@@ -901,6 +1107,18 @@ public:
 	 */
 	void linkLocalText(int locationX, int locationY, std::shared_ptr<Text> linkedText);
 
+	/**
+	 * @brief Links a new element to existing test, if it exists already.
+	 * @param locationX X Coordinate.
+	 * @param locationY Y Coordinate.
+	 */
+	void linkNewElementToText(int locationX, int locationY);
+
+	/**
+	 * @brief Gets the TextList as a QString for file saving.
+	 * @return A QString of Text for file saving
+	 */
+	QString textListToQStringForSaving();
 
 	//Platform related methods
 
@@ -932,13 +1150,36 @@ public:
 	//General methods
 
 	/**
-	 * @brief Gets the element at the coordinates.
+	 * @brief Gets the element at the coordinates. (Includes tracks)
 	 * @param locationX X coordinate of the element.
 	 * @param locationY Y coordinate of the element.
 	 * @return an element, otherwise nullptr.
 	 */
 	std::shared_ptr<Element> getElementAt( int locationX, int locationY);
 
+	/**
+	 * @brief Checks if there is an element at the coordinates. (Includes tracks)
+	 * @param locationX X coordinate of the element.
+	 * @param locationY Y coordinate of the element.
+	 * @return true if an element is there, otherwise false.
+	 */
+	bool hasElementAt( int locationX, int locationY);
+
+	/**
+	 * @brief Gets the element at the coordinates. (Does not include tracks)
+	 * @param locationX X coordinate of the element.
+	 * @param locationY Y coordinate of the element.
+	 * @return an element, otherwise nullptr.
+	 */
+	std::shared_ptr<Element> getElementExcludingTrackAt( int locationX, int locationY);
+
+	/**
+	 * @brief Checks if there is an element at the coordinates. (Does not includes tracks)
+	 * @param locationX X coordinate of the element.
+	 * @param locationY Y coordinate of the element.
+	 * @return true if an element is there, otherwise false.
+	 */
+	bool hasElementExcludingTrack( int locationX, int locationY);
 
 	/**
 	 * @brief Gets the namedElement at the coordinates.
@@ -955,6 +1196,14 @@ public:
 	 * @return a track, otherwise nullptr.
 	 */
 	std::shared_ptr<Track> getTrackAt( int locationX, int locationY);
+
+	/**
+	 * @brief Checks if there is a track at the coordinates.
+	 * @param locationX X coordinate of the track.
+	 * @param locationY Y coordinate of the track.
+	 * @return true if there is a track, otherwise false.
+	 */
+	bool hasTrackAt( int locationX, int locationY);
 
 	/**
 	 * @brief Gets the Straight track at the coordinates.

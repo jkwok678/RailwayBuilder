@@ -302,7 +302,14 @@ protected:
 	int trackSecondarySpeed{-1};
 	int trackSecondaryLength{-1};
 	bool links [9]{false, false, false, false, false, false, false, false, false};
+	std::shared_ptr<NamedLocation> linkedNamedLocation{nullptr};
 	bool found;
+
+
+	/**
+	 * @brief Sets the default secondary speed and length.
+	 */
+	void setDefaultSecondarySpeedLength();
 
 public:
 
@@ -389,6 +396,23 @@ public:
 	bool getLinkAt(int link);
 
 	/**
+	 * @brief Check if there is a linked NamedLocation.
+	 * @return true if there is, otherwise false.
+	 */
+	bool hasLinkedNamedLocation();
+
+	/**
+	 * @brief Get the NamedLocation that is at this track.
+	 * @return A NamedLocation.
+	 */
+	std::shared_ptr<NamedLocation> getLinkedNamedLocation();
+
+	/**
+	 * @brief Set the NamedLocation at this track.
+	 */
+	void setLinkedNamedLocation(std::shared_ptr<NamedLocation> newNamedLocation);
+
+	/**
 	 * @brief Checks if the track has been found yet.
 	 *
 	 * Useful for searches for that they don't get stuck in loops.
@@ -406,14 +430,14 @@ public:
 	void setFound(bool newFound);
 
 	/**
-	 * @brief A method to convert a track to a QString.
-	 * @return
+	 * @brief A method to convert a Track to a QString.
+	 * @return QString representation of a Track.
 	 */
 	QString toQString();
 
 	/**
-	 * @brief A method to convert a track to a QString for file saving.
-	 * @return
+	 * @brief A method to convert a Track to a QString for file saving.
+	 * @return QString representation of a Track to be written to file.
 	 */
 	QString toQStringForSave();
 };
@@ -436,6 +460,19 @@ class StraightTrack : public Track
 private:
 	StraightType straightType;
 	bool levelCrossing{ false };
+
+    /**
+     * @brief Gets if the track has a platform1 as a QString
+     * @return '1' if track has a platform1 otherwise '0'.
+     */
+    QString getPlatform1ToQString();
+
+    /**
+     * @brief Gets if the track has a platform2 as a QString
+     * @return '1' if track has a platform2 otherwise '0'
+     */
+    QString getPlatform2ToQString();
+
 
 protected:
 	//For vertical tracks, platform1 is left, platform2 is right
@@ -499,6 +536,18 @@ public:
 	 * @param newPlatform If this is true there is a platform on the right of the track or below the track if it's sideways.
 	 */
 	void setPlatform2(bool newPlatform);
+
+    /**
+     * @brief Gets the platforms as a QString.
+     *
+     * 1,1 = track has platform 1 & 2
+     * 1,0 = track has paltform 1 only
+     * 0,1 = track has platform 2 only
+     * 0,0 = track has no platforms.
+     * @return QString representation of the status of the platforms.
+     */
+    QString platformsToQString();
+
 	/**
 	 * @brief Checks if the track has a level crossing.
 	 * @return A bool saying if it has a level crossing.
@@ -506,14 +555,20 @@ public:
 	bool hasLevelCrossing() const;
 
 	/**
-	 * @brief Adds a level crossing to the current track.
+	 * @brief Adds a level crossing to this track..
 	 */
 	void addLevelCrossing();
 
 	/**
-	 * @brief A method to convert a straightTrack to a String.
-	 * @return
+	 * @brief Removes a level crossing from this track.
 	 */
+	void removeLevelCrossing();
+
+	/**
+	 * @brief Gets if there is a level crossing as a QString.
+	 * @return QString "1" if there is a level crossing otherwise "0".
+	 */
+	QString levelCrossingToQString();
 
 	/**
 	 * @brief Converts StraightType to QString.
@@ -523,15 +578,16 @@ public:
 
 	/**
 	 * @brief A method to convert a straightTrack to a QString.
-	 * @return
+	 * @return QString representation of a StraightTrack.
 	 */
 	QString toQString();
 
 	/**
-	 * @brief A method to convert a track to a QString for file saving.
-	 * @return
+	 * @brief A method to convert a StraightTrack to a QString for file saving.
+	 * @return QString representation of a StraightTrack to be written to file.
 	 */
 	QString toQStringForSave();
+
 
 };
 
@@ -587,10 +643,16 @@ public:
 	QString directedTypeToQString();
 
 	/**
-	 * @brief A method to convert a directedTrack to a QString.
-	 * @return
+	 * @brief A method to convert a DirectedTrack to a QString.
+	 * @return QString representation of a DirectedTrack.
 	 */
 	QString toQString();
+
+	/**
+	 * @brief A method to convert a DirectedTrack to a QString for file saving.
+	 * @return QString representation of a DirectedTrack to be written to file.
+	 */
+	QString toQStringForSave();
 };
 
 
@@ -646,9 +708,17 @@ public:
 
 	/**
 	 * @brief A method to convert a curvedTrack to a QString.
-	 * @return
+	 * @return QString representation of a CurvedTrack.
 	 */
 	QString toQString();
+
+	/**
+	 * @brief A method to convert a CurvedTrack to a QString for file saving.
+	 * @return QString representation of a CurvedTrack to be written to file.
+	 */
+	QString toQStringForSave();
+
+
 };
 
 
@@ -668,7 +738,6 @@ class LinkedTrack : public Track
 {
 private:
 	LinkedType linkedType;
-	bool linked;
 	std::shared_ptr<LinkedTrack> otherLinkTrack{nullptr};
 
 
@@ -704,16 +773,10 @@ public:
 	void setLinkedType(const LinkedType &newLinkedType);
 
 	/**
-	 * @brief Checks if the track is linked to another linked track.
-	 * @return A bool, true if it is linked and false if its not.
+	 * @brief Checks if the LinkedTrack is linked to another LinkedTrack.
+	 * @return true if it's linked otherwise false.
 	 */
-	bool getLinked() const;
-
-	/**
-	 * @brief Set whether the track is linked.
-	 * @param newLinked A bool that says if the track is linked.
-	 */
-	void setLinked(bool newLinked);
+	bool isLinked() const;
 
 	/**
 	 * @brief Get the linked track.
@@ -740,15 +803,27 @@ public:
 
 	/**
 	 * @brief A method to convert a linkedTrack to a QString.
-	 * @return
+	 * @return QString representation of a LinkedTrack.
 	 */
 	QString toQString();
 
 	/**
 	 * @brief A method to convert the other linkedTrack to a QString.
-	 * @return
+	 * @return QString representation of the other LinkedTrack.
 	 */
 	QString otherLinkedTrackToQString();
+
+	/**
+	 * @brief A method to convert a LinkedTrack to a QString for file saving.
+	 * @return QString representation of a LinkedTrack to be written to file.
+	 */
+	QString toQStringForSave();
+
+	/**
+	 * @brief A method to convert the other LinkedTrack to a QString for file saving.
+	 * @return QString representation of the other LinkedTrack to be written to file.
+	 */
+	QString otherLinkedTrackToQStringForSave();
 };
 
 
@@ -803,10 +878,16 @@ public:
 	QString exitTypeToQString();
 
 	/**
-	 * @brief A method to convert a exitTrack to a QString.
-	 * @return
+	 * @brief A method to convert a ExitTrack to a QString.
+	 * @return QString representation of a ExitTrack.
 	 */
 	QString toQString();
+
+	/**
+	 * @brief A method to convert a ExitTrack to a QString for file saving.
+	 * @return QString representation of a ExitTrack to be written to file.
+	 */
+	QString toQStringForSave();
 };
 
 
@@ -862,10 +943,16 @@ public:
 	QString bufferTypeToQString();
 
 	/**
-	 * @brief A method to convert a bufferTrack to a QString.
-	 * @return
+	 * @brief A method to convert a BufferTrack to a QString.
+	 * @return QString representation of a BufferTrack.
 	 */
 	QString toQString();
+
+	/**
+	 * @brief A method to convert a BufferTrack to a QString for file saving.
+	 * @return QString representation of a BufferTrack to be written to file.
+	 */
+	QString toQStringForSave();
 };
 
 
@@ -918,6 +1005,12 @@ public:
 	void setAspect(int newAspect);
 
 	/**
+	 * @brief Gets the Signal aspect as a QString.
+	 * @return QString signal aspect.
+	 */
+	QString aspectToQString();
+
+	/**
 	 * @brief Get the type of SignalType.
 	 * @return  The SignalType enum.
 	 */
@@ -936,10 +1029,16 @@ public:
 	QString signalTypeToQString();
 
 	/**
-	 * @brief A method to convert a bufferTrack to a QString.
-	 * @return
+	 * @brief A method to convert a SignalTrack to a QString.
+	 * @return QString representation of a SignalTrack.
 	 */
 	QString toQString();
+
+	/**
+	 * @brief A method to convert a SignalTrack to a QString for file saving.
+	 * @return QString representation of a SignalTrack to be written to file.
+	 */
+	QString toQStringForSave();
 };
 
 
@@ -995,10 +1094,16 @@ public:
 	QString bridgeUnderpassTypeToQString();
 
 	/**
-	 * @brief A method to convert a bridgeUnderpassTrack to a QString.
-	 * @return
+	 * @brief A method to convert a BridgeUnderpassTrack to a QString.
+	 * @return QString representation of a BridgeUnderpassTrack.
 	 */
 	QString toQString();
+
+	/**
+	 * @brief A method to convert a BridgeUnderpassTrack to a QString for file saving.
+	 * @return QString representation of a BridgeUnderpassTrack to be written to file.
+	 */
+	QString toQStringForSave();
 };
 
 
@@ -1058,9 +1163,15 @@ public:
 
 	/**
 	 * @brief A method to convert a SwitchTrack to a QString.
-	 * @return
+	 * @return QString representation of a SwitchTrack.
 	 */
 	QString toQString();
+
+	/**
+	 * @brief A method to convert a SwitchTrack to a QString for file saving.
+	 * @return QString representation of a SwitchTrack to be written to file.
+	 */
+	QString toQStringForSave();
 };
 
 
@@ -1119,9 +1230,15 @@ public:
 
 	/**
 	 * @brief A method to convert a CrossoverTrack to a QString.
-	 * @return
+	 * @return QString representation of a CrossoverTrack.
 	 */
 	QString toQString();
+
+	/**
+	 * @brief A method to convert a CrossoverTrack to a QString for file saving.
+	 * @return QString representation of a CrossoverTrack to be written to file.
+	 */
+	QString toQStringForSave();
 };
 
 
@@ -1176,8 +1293,14 @@ public:
 
 	/**
 	 * @brief A method to convert a FlyoverTrack to a QString.
-	 * @return
+	 * @return QString representation of a FlyoverTrack.
 	 */
 	QString toQString();
+
+	/**
+	 * @brief A method to convert a FLyoverTrack to a QString for file saving.
+	 * @return QString representation of a FlyoverTrack to be written to file.
+	 */
+	QString toQStringForSave();
 };
 #endif // TRACK_H

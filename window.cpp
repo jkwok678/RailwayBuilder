@@ -15,6 +15,7 @@ Window::Window()
 	layout->addWidget(drawingArea, BorderLayout::Center);
 	layout->addWidget(rightDirectionalMenu, BorderLayout::East);
 	setLayout(layout);
+	filesaver = std::make_shared<Filesaver>();
 }
 
 Window::~Window()
@@ -143,14 +144,31 @@ void Window::loadRailway()
 
 void Window::saveRailwayAs()
 {
-	QString fileName = QFileDialog::getSaveFileName(this, tr("Save File"),
-							   "/home/jana/untitled.png",
-							   tr("Railway2 File (*.rly2)"));
+	QString fileName = "";
+	if (drawingArea->getTrackTotal() != 0)
+	{
+		if (drawingArea->checkAllTracksInMapConnected())
+		{
+			fileName = QFileDialog::getSaveFileName(this, tr("Save File"),
+								   QDir::currentPath(),
+								   tr("Railway2 File (*.rly2);; Development2 File (*.dev2)"));
+		}
+		else
+		{
+			fileName = QFileDialog::getSaveFileName(this, tr("Save File"),
+								   QDir::currentPath(),
+								   tr("Development2 File (*.dev2)"));
+		}
+	}
+	Map* map = drawingArea->getMap();
+	filesaver->setNewFilePath(fileName);
+	filesaver->saveRailway(map);
 }
 
 void Window::saveRailway()
 {
-
+	Map* map = drawingArea->getMap();
+	filesaver->saveRailway(map);
 }
 
 
@@ -269,11 +287,13 @@ void Window::connectLinkedTrackMode()
 		}
 		else if (linkedTrackNum < MIN_LINKTRACK_NEEDED)
 		{
-			Message::showLowNumOfLinkedTrackErrorMessage();
+			Message lowLinkedTrackError;
+			lowLinkedTrackError.showLowNumOfLinkedTrackErrorMessage();
 		}
 		else
 		{
-			Message::showOddNumOfLinkedTrackErrorMessage();
+			Message oddLinkedTrackError;
+			oddLinkedTrackError.showOddNumOfLinkedTrackErrorMessage();
 		}
 	}
 	else
@@ -286,7 +306,17 @@ void Window::connectLinkedTrackMode()
 void Window::checkAllTrackConnected()
 {
 	//Run checkAllTrack
-	drawingArea->checkAllTracksInMapConnected();
+	if (drawingArea->checkAllTracksInMapConnected())
+	{
+		Message tracksConnectedSuccessMessage;
+		tracksConnectedSuccessMessage.showAllTrackConnecedSuccessMessage();
+
+	}
+	else
+	{
+		Message trackNotConnectedErrorMessage;
+		trackNotConnectedErrorMessage.showNotAllTrackConnectedErrorMessage();
+	}
 }
 
 void Window::addEditRemoveTextMode()

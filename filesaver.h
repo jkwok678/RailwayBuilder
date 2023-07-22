@@ -9,11 +9,36 @@ class Filesaver
 {
 
 private:
-	QString path;
+	QString lastSavedPath;
+
+	/**
+	 * @brief Make the content that will be written to file.
+	 * @param map The current map.
+	 * @return A vector of QStrings that contain the text to write.
+	 */
+	std::vector<QString> prepareFileContentToWrite(Map *map);
+
 public:
-	Filesaver(QString newPath);
-	bool saveRailwayAs(Map map);
-	bool createQStringToWrite(Map map);
+
+	/**
+	 * @brief Filesaver default constructor.
+	 */
+	Filesaver();
+
+	/**
+	 * @brief Set a new file path for the filesaver.
+	 * @param newPath QString path.
+	 */
+	void setNewFilePath(QString newPath);
+
+	/**
+	 * @brief Save the railway to a file.
+	 * @param map The current map on screen.
+	 * @return true if it saved, false if it failed to save.
+	 */
+	bool saveRailway(Map *map);
+
+
 };
 
 #endif // FILESAVER_H

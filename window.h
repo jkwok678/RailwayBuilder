@@ -17,12 +17,15 @@
 #include <iostream>
 #include <QSizePolicy>
 #include <QFileDialog>
+#include <QDir>
+#include <memory>
 #include "borderlayout.h"
 #include "canvas.h"
 #include "element.h"
 #include "mode.h"
 #include "elementChosen.h"
 #include "message.h"
+#include "filesaver.h"
 
 
 
@@ -995,6 +998,7 @@ private:
 	QAction *loadRailwayAct;
 	QAction *saveRailwayAsAct;
 	QAction *saveRailwayAct;
+	std::shared_ptr<Filesaver> filesaver;
 
 	QMenu *modeMenu;
 	QAction *toWhiteBackgroundAct;
@@ -2035,16 +2039,5 @@ private:
 	 */
 	void createRightDirectionalMenu();
 
-	//Error message methods.
-
-	/**
-	 * @brief A method that shows an error message if the user tries to connect Linked Tracks when there are none.
-	 */
-	void showLowNumOfLinkedTrackErrorMessage();
-
-	/**
-	 * @brief A method that shows an error message if the user tries to connect Linked Tracks when there is an odd number of them.
-	 */
-	void showOddNumOfLinkedTrackErrorMessage();
 };
 #endif // WINDOW_H

@@ -97,10 +97,16 @@ public:
 	QString locationToQString();
 
 	/**
-	 * @brief A method to convert an element to a String.
-	 * @return
+	 * @brief A method to convert an element to a QString.
+	 * @return QString representation of an element
 	 */
 	virtual QString toQString() = 0;
+
+	/**
+	 * @brief A method to convert an element to a QString for file saving.
+	 * @return QString representation of element to be written to file.
+	 */
+	virtual QString toQStringForSave() = 0;
 
 };
 
@@ -207,6 +213,12 @@ public:
 	 */
 	QString toQString();
 
+	/**
+	 * @brief A method to convert a Text to a QString for file saving.
+	 * @return QString representation of Text to be written to file.
+	 */
+	QString toQStringForSave();
+
 };
 
 
@@ -228,7 +240,6 @@ private:
 
 
 protected:
-	bool named { false };
 	std::shared_ptr<Text> text {nullptr};
 
 public:
@@ -243,11 +254,6 @@ public:
 	 */
 	bool getNamed() const;
 
-	/**
-	 * @brief A method to set whether the element is named or not.
-	 * @param newNamed Whether the element is named or not.
-	 */
-	void setNamed(bool newNamed);
 
 	/**
 	 * @brief A method to get the Text object that is linked to this namedElement.
@@ -306,6 +312,12 @@ public:
 	 */
 	QString toQString();
 
+	/**
+	 * @brief A method to convert a NamedLocation to a QString for file saving.
+	 * @return QString representation of NamedLocation to be written to file.
+	 */
+	QString toQStringForSave();
+
 };
 
 
@@ -345,6 +357,11 @@ public:
 	 */
 	QString toQString();
 
+	/**
+	 * @brief A method to convert a Concourse to a QString for file saving.
+	 * @return QString representation of Concourse to be written to file.
+	 */
+	QString toQStringForSave();
 };
 
 
@@ -398,10 +415,16 @@ public:
 	QString parapetTypeToQString();
 
 	/**
-	 * @brief A method to convert a parapet to a String.
-	 * @return QString representation of the parapet.
+	 * @brief A method to convert a Parapet to a String.
+	 * @return QString representation of the Parapet.
 	 */
 	QString toQString();
+
+	/**
+	 * @brief A method to convert a Parapet to a QString for file saving.
+	 * @return QString representation of a Parapet to be written to file.
+	 */
+	QString toQStringForSave();
 
 };
 #endif // ELEMENT_H

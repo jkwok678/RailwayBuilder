@@ -15,6 +15,17 @@ void Message::showAllTrackConnecedSuccessMessage()
 	allConnectedBox.exec();
 }
 
+QString Message::showChooseTextMessageDialog(QStringList textList)
+{
+	bool ok;
+	QString chosenText = QInputDialog::getItem(nullptr, "Choose text to use", "Text:", textList, 0, false, &ok);
+	if (!ok)
+	{
+		chosenText = "";
+	}
+	return chosenText;
+}
+
 
 //Errors
 

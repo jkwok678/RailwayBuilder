@@ -1,7 +1,9 @@
 #ifndef MESSAGE_H
 #define MESSAGE_H
 
-#include<QMessageBox>
+#include <QMessageBox>
+#include <QInputDialog>
+#include <QString>
 
 class Message
 {
@@ -11,15 +13,20 @@ public:
 	//Success
 
 	/**
-	 * @brief Show the user a scuess message saying all tracks are connected.
+	 * @brief Show the user a sucess message saying all tracks are connected.
 	 *
 	 * Used in the Map class when checking if tracks are all connected.
 	 */
-	static void showAllTrackConnecedSuccessMessage();
+	void showAllTrackConnecedSuccessMessage();
 
 	//Confirmations
 
-
+	/**
+	 * @brief Show the user a dialog message asking them to choose which text to connect to.
+	 *
+	 * Used in the Map class when an element that can hold text is inbetween 2 different texts.
+	 */
+	QString showChooseTextMessageDialog(QStringList textList);
 
 	//Errors
 
@@ -28,35 +35,35 @@ public:
 	 *
 	 * Used in the Map class when placing elements.
 	 */
-	static void showElementAlreadyThereErrorMessage();
+	void showElementAlreadyThereErrorMessage();
 
 	/**
 	 * @brief A method that shows an error message if the user tries to connect Linked Tracks when there are none.
 	 *
 	 * Used in the Window class when connecting linkedTracks.
 	 */
-	static void showLowNumOfLinkedTrackErrorMessage();
+	void showLowNumOfLinkedTrackErrorMessage();
 
 	/**
 	 * @brief A method that shows an error message if the user tries to connect Linked Tracks when there is an odd number of them.
 	 *
 	 * Used in the Window class when connecting linkedTracks.
 	 */
-	static void showOddNumOfLinkedTrackErrorMessage();
+	void showOddNumOfLinkedTrackErrorMessage();
 
 	/**
 	 * @brief A method that shows an error message if the user hasn't got all tracks connected.
 	 *
 	 * Used in the Map class when checking if tracks are all connected.
 	 */
-	static void showNotAllTrackConnectedErrorMessage();
+	void showNotAllTrackConnectedErrorMessage();
 
 	/**
 	 * @brief A method that shows an error message there are no tracks stored.
 	 *
 	 * Used in the Map class when checking if tracks are all connected.
 	 */
-	static void showZeroTrackErrorMessage();
+	void showZeroTrackErrorMessage();
 
 };
 

@@ -1,4 +1,4 @@
-#include "element.h"
+﻿#include "element.h"
 
 
 //Element class implementation.
@@ -133,6 +133,16 @@ QString Text::toQString()
 	return textQString;
 }
 
+QString Text::toQStringForSave()
+{
+	QString saveTextQString = locationToQString();
+	saveTextQString.append(",");
+	saveTextQString.append(readableText);
+	saveTextQString.append(",");
+	saveTextQString.append(font.toString());
+	return saveTextQString;
+}
+
 
 //NamedElement class implementation.
 
@@ -144,12 +154,7 @@ NamedElement::NamedElement()
 
 bool NamedElement::getNamed() const
 {
-	return named;
-}
-
-void NamedElement::setNamed(bool newNamed)
-{
-	named = newNamed;
+	return text == nullptr ? false : true;
 }
 
 std::shared_ptr<Text> NamedElement::getText()
@@ -167,7 +172,7 @@ QString NamedElement::toQString()
 	QString namedElementQString = "NamedElement";
 	namedElementQString.append(",");
 	namedElementQString.append(locationToQString());
-	if(text != nullptr)
+	if(getNamed())
 	{
 		namedElementQString.append(",");
 		namedElementQString.append(text->toQString());
@@ -184,10 +189,7 @@ NamedLocation::NamedLocation(int newLocationX, int newLocationY)
 {
 	locationX = newLocationX;
 	locationY = newLocationY;
-	named = false;
 	text = nullptr;
-
-
 }
 
 QString NamedLocation::toQString()
@@ -195,12 +197,23 @@ QString NamedLocation::toQString()
 	QString namedLocationQString = "NamedLocation";
 	namedLocationQString.append(",");
 	namedLocationQString.append(locationToQString());
-	if(text != nullptr)
+	if(getNamed())
 	{
 		namedLocationQString.append(",");
 		namedLocationQString.append(text->toQString());
 	}
 	return namedLocationQString;
+}
+
+QString NamedLocation::toQStringForSave()
+{
+	QString saveNamedLocationQString = locationToQString();
+	if(getNamed())
+	{
+		saveNamedLocationQString.append(",");
+		saveNamedLocationQString.append(text->getReadableText());
+	}
+	return saveNamedLocationQString;
 }
 
 
@@ -211,7 +224,6 @@ Concourse::Concourse(int newLocationX, int newLocationY)
 {
 	locationX = newLocationX;
 	locationY = newLocationY;
-	named = false;
 	text = nullptr;
 
 }
@@ -221,12 +233,23 @@ QString Concourse::toQString()
 	QString concourseQString = "Concourse";
 	concourseQString.append(",");
 	concourseQString.append(locationToQString());
-	if(text != nullptr)
+	if(getNamed())
 	{
 		concourseQString.append(",");
 		concourseQString.append(text->toQString());
 	}
 	return concourseQString;
+}
+
+QString Concourse::toQStringForSave()
+{
+	QString saveConcourseQString = locationToQString();
+	if(getNamed())
+	{
+		saveConcourseQString.append(",");
+		saveConcourseQString.append(text->getReadableText());
+	}
+	return saveConcourseQString;
 }
 
 
@@ -256,88 +279,88 @@ QString Parapet::parapetTypeToQString()
 	switch (parapetType)
 	{
 	case ParapetType::PARAPET1:
-		parapetTypeQString = "parapet_1";
+        parapetTypeQString = "P1";
 		break;
 	case ParapetType::PARAPET2:
-		parapetTypeQString = "parapet_2";
+        parapetTypeQString = "P2";
 		break;
 	case ParapetType::PARAPET3:
-		parapetTypeQString = "parapet_3";
+        parapetTypeQString = "P3";
 		break;
 	case ParapetType::PARAPET4:
-		parapetTypeQString = "parapet_4";
+        parapetTypeQString = "P4";
 		break;
 	case ParapetType::PARAPET5:
-		parapetTypeQString = "parapet_5";
+        parapetTypeQString = "P5";
 		break;
 	case ParapetType::PARAPET6:
-		parapetTypeQString = "parapet_6";
+        parapetTypeQString = "P6";
 		break;
 	case ParapetType::PARAPET7:
-		parapetTypeQString = "parapet_7";
+        parapetTypeQString = "P7";
 		break;
 	case ParapetType::PARAPET8:
-		parapetTypeQString = "parapet_8";
+        parapetTypeQString = "P8";
 		break;
 	case ParapetType::PARAPET9:
-		parapetTypeQString = "parapet_9";
+        parapetTypeQString = "P9";
 		break;
 	case ParapetType::PARAPET10:
-		parapetTypeQString = "parapet_10";
+        parapetTypeQString = "P10";
 		break;
 	case ParapetType::PARAPET11:
-		parapetTypeQString = "parapet_11";
+        parapetTypeQString = "P11";
 		break;
 	case ParapetType::PARAPET12:
-		parapetTypeQString = "parapet_12";
+        parapetTypeQString = "P12";
 		break;
 	case ParapetType::PARAPET13:
-		parapetTypeQString = "parapet_13";
+        parapetTypeQString = "P13";
 		break;
 	case ParapetType::PARAPET14:
-		parapetTypeQString = "parapet_14";
+        parapetTypeQString = "P14";
 		break;
 	case ParapetType::PARAPET15:
-		parapetTypeQString = "parapet_15";
+        parapetTypeQString = "P15";
 		break;
 	case ParapetType::PARAPET16:
-		parapetTypeQString = "parapet_16";
+        parapetTypeQString = "P16";
 		break;
 	case ParapetType::PARAPET17:
-		parapetTypeQString = "parapet_17";
+        parapetTypeQString = "P17";
 		break;
 	case ParapetType::PARAPET18:
-		parapetTypeQString = "parapet_18";
+        parapetTypeQString = "P18";
 		break;
 	case ParapetType::PARAPET19:
-		parapetTypeQString = "parapet_19";
+        parapetTypeQString = "P19";
 		break;
 	case ParapetType::PARAPET20:
-		parapetTypeQString = "parapet_20";
+        parapetTypeQString = "P20";
 		break;
 	case ParapetType::PARAPET21:
-		parapetTypeQString = "parapet_21";
+        parapetTypeQString = "P21";
 		break;
 	case ParapetType::PARAPET22:
-		parapetTypeQString = "parapet_22";
+        parapetTypeQString = "P22";
 		break;
 	case ParapetType::PARAPET23:
-		parapetTypeQString = "parapet_23";
+        parapetTypeQString = "P23";
 		break;
 	case ParapetType::PARAPET24:
-		parapetTypeQString = "parapet_24";
+        parapetTypeQString = "P24";
 		break;
 	case ParapetType::PARAPET25:
-		parapetTypeQString = "parapet_25";
+        parapetTypeQString = "P25";
 		break;
 	case ParapetType::PARAPET26:
-		parapetTypeQString = "parapet_26";
+        parapetTypeQString = "P26";
 		break;
 	case ParapetType::PARAPET27:
-		parapetTypeQString = "parapet_27";
+        parapetTypeQString = "P27";
 		break;
 	case ParapetType::PARAPET28:
-		parapetTypeQString = "parapet_28";
+        parapetTypeQString = "P28";
 		break;
 	}
 	return parapetTypeQString;
@@ -351,4 +374,12 @@ QString Parapet::toQString()
 	parapetQString.append(",");
 	parapetQString.append(locationToQString());
 	return parapetQString;
+}
+
+QString Parapet::toQStringForSave()
+{
+	QString saveParapetQString = parapetTypeToQString();
+	saveParapetQString.append(",");
+	saveParapetQString.append(locationToQString());
+	return saveParapetQString;
 }
