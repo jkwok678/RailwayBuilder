@@ -51,6 +51,8 @@ jobs:
       with:
         version: '6.2.3'
         arch: 'win64_mingw'
+    - name: Upgrade GCC
+      run: choco upgrade mingw
     - name: Setup cmake
       uses: jwlawson/actions-setup-cmake@v1.9
       with:
