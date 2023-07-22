@@ -66,13 +66,13 @@ TEST(MapSavingQStringTest, curvedTrackListToQString) {
     EXPECT_EQ(map->curvedTrackListToQStringForSaving().toStdString(),"C1,1,2,200,100\nC6,100,6,200,100\nTC4,542671,-232342,200,100\n");
     std::shared_ptr<CurvedTrack> curveOne = map->getCurvedTrackAt(1,2);
     std::shared_ptr<CurvedTrack> curveTwo = map->getCurvedTrackAt(100,6);
-    EXPECT_EQ(map->curvedTrackListToQStringForSaving().toStdString(),"C1,1,2,200,100,0,0\nC6,100,6,200,100,0,0\nTC4,542671,-232342,200,100,0,0\n");
+    EXPECT_EQ(map->curvedTrackListToQStringForSaving().toStdString(),"C1,1,2,200,100\nC6,100,6,200,100\nTC4,542671,-232342,200,100\n");
     QFont serifFont("Times", 10, QFont::Bold);
     map->createAddText(542675, -232347,"Hi",serifFont);
     std::shared_ptr<CurvedTrack> track = map->getCurvedTrackAt(542671,-232342);
     std::shared_ptr<Text> text =map->getTextAt(542675,-232347);
     track->setText(text);
-    EXPECT_EQ(map->curvedTrackListToQStringForSaving().toStdString(),"C1,1,2,200,100,0,0\nC6,100,6,200,100,0,0\nTC4,542671,-232342,200,100,0,0,Hi\n");
+    EXPECT_EQ(map->curvedTrackListToQStringForSaving().toStdString(),"C1,1,2,200,100\nC6,100,6,200,100\nTC4,542671,-232342,200,100,Hi\n");
 
 }
 
