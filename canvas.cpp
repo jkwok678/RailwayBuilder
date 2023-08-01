@@ -8,7 +8,7 @@ Canvas::Canvas()
 
 	canvasColour = Qt::white;
 	pal.setColor(QPalette::Window, canvasColour);
-	map = new Map();
+    map = std::make_shared<Map>();
 
 	//Hints
 	selectRed = new QImage(":/graphics/graphics/select1.png");
@@ -875,12 +875,12 @@ void Canvas::trackChangeColour()
 		}
 }
 
-Map *Canvas::getMap() const
+std::shared_ptr<Map> Canvas::getMap() const
 {
 	return map;
 }
 
-void Canvas::setMap(Map *newMap)
+void Canvas::setMap(std::shared_ptr<Map> newMap)
 {
 	map = newMap;
 }

@@ -10,7 +10,7 @@
 
 
 TEST(FilesaverSaveFileTest, writeStraightTrackDirectedTrack) {
-	Map *map = new Map();
+    std::shared_ptr<Map> map = std::make_shared<Map>();
 	map->createAddStraightTrack(StraightType::STRAIGHTH,1,1);
 	map->createAddDirectedTrack(DirectedType::DIRECTEDLEFT,2,2);
 	map->createAddStraightTrack(StraightType::STRAIGHTH,3,3);
@@ -38,7 +38,7 @@ TEST(FilesaverSaveFileTest, writeStraightTrackDirectedTrack) {
 }
 
 TEST(FilesaverSaveFileTest, writeCurvedTrackLinkedTrack) {
-	Map *map = new Map();
+    std::shared_ptr<Map> map = std::make_shared<Map>();
 	map->createAddCurvedTrack(CurvedType::CURVE1,1,1);
 	map->createAddCurvedTrack(CurvedType::TIGHTCURVE1,2,2);
 	map->createAddLinkedTrack(LinkedType::LINKRIGHT,3,3);
@@ -70,7 +70,7 @@ TEST(FilesaverSaveFileTest, writeCurvedTrackLinkedTrack) {
 }
 
 TEST(FilesaverSaveFileTest, writeExitTrackBufferTrack) {
-	Map *map = new Map();
+    std::shared_ptr<Map> map = std::make_shared<Map>();
 	map->createAddExitTrack(ExitType::EXITLEFT,1,1);
 	map->createAddExitTrack(ExitType::EXITRIGHTDOWN,2,2);
 	map->createAddBufferTrack(BufferType::BUFFERLEFT,3,3);
@@ -106,7 +106,7 @@ TEST(FilesaverSaveFileTest, writeExitTrackBufferTrack) {
 }
 
 TEST(FilesaverSaveFileTest, writeSignalTrackBridgeUnderpassTrack) {
-	Map *map = new Map();
+    std::shared_ptr<Map> map = std::make_shared<Map>();
 	map->createAddSignalTrack(SignalType::SIGNALLEFT,4,1,1);
 	map->createAddSignalTrack(SignalType::SIGNALRIGHTDOWN,4,2,2);
 	map->createAddBridgeUnderpassTrack(BridgeUnderpassType::BRIDGE1,3,3);
@@ -146,7 +146,7 @@ TEST(FilesaverSaveFileTest, writeSignalTrackBridgeUnderpassTrack) {
 }
 
 TEST(FilesaverSaveFileTest, writeSwitchTrackCrossoverTrackFlyoverTrack) {
-	Map *map = new Map();
+    std::shared_ptr<Map> map = std::make_shared<Map>();
 	map->createAddSwitchTrack(SwitchType::SWITCH1,1,1);
 	map->createAddSwitchTrack(SwitchType::SWITCHSPLIT1,2,2);
 	map->createAddSwitchTrack(SwitchType::SWITCHTIGHT1,3,3);
@@ -201,7 +201,7 @@ TEST(FilesaverSaveFileTest, writeSwitchTrackCrossoverTrackFlyoverTrack) {
 }
 
 TEST(FilesaverSaveFileTest, writeNamedLocationConcourse) {
-	Map *map = new Map();
+    std::shared_ptr<Map> map = std::make_shared<Map>();
 	map->createAddNamedLocation(1,1);
 	map->createAddNamedLocation(2,2);
 	map->createAddConcourse(3,3);
@@ -257,7 +257,7 @@ TEST(FilesaverSaveFileTest, writeNamedLocationConcourse) {
 }
 
 TEST(FilesaverSaveFileTest, writeParapetText) {
-	Map *map = new Map();
+    std::shared_ptr<Map> map = std::make_shared<Map>();
 	QFont serifFont("Times", 10, QFont::Bold);
 	map->createAddParapet(ParapetType::PARAPET1,1,1);
 	map->createAddParapet(ParapetType::PARAPET28,2,2);
@@ -312,7 +312,7 @@ TEST(FilesaverSaveFileTest, writeParapetText) {
 }
 
 TEST(FilesaverSaveFileTest, writeEverything) {
-	Map *map = new Map();
+    std::shared_ptr<Map> map = std::make_shared<Map>();
 	QFont serifFont("Times", 10, QFont::Bold);
 	map->createAddText(1,1,"Text1",serifFont);
 	map->createAddText(2,2,"Text2",serifFont);

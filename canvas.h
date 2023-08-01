@@ -108,13 +108,13 @@ public:
 	 * @brief A method to get the map of the layout.
 	 * @return A map onject that is the current layout.
 	 */
-	Map *getMap() const;
+    std::shared_ptr<Map> getMap() const;
 
 	/**
 	 * @brief A method to set the new map.
 	 * @param newMap The new map.
 	 */
-	void setMap(Map *newMap);
+    void setMap(std::shared_ptr<Map> newMap);
 
 	/**
 	 * @brief Get the offset of the canvas in the X direction.
@@ -309,7 +309,7 @@ private:
 	Mode mode{Mode::NONE};
 	ElementChosen elementChosen{ElementChosen::NONE};
 	int signalAspectToAdd{4};
-	Map* map;
+    std::shared_ptr<Map> map;
 	bool modified{false};
 	int offsetX{0};
 	int offsetY{0};
